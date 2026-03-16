@@ -1,0 +1,427 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link [ref=e8] [cursor=pointer]:
+          - /url: javascript:void(0);
+        - link [ref=e10] [cursor=pointer]:
+          - /url: /english/
+        - generic:
+          - link:
+            - /url: javascript:void(0);
+      - generic [ref=e13]:
+        - textbox "请输入债券名称、债券代码、机构名称或关键字..." [ref=e14]
+        - link [ref=e16] [cursor=pointer]:
+          - /url: javascript:void(0)
+    - list [ref=e19]:
+      - listitem [ref=e20]:
+        - link "首页" [ref=e21] [cursor=pointer]:
+          - /url: /chinese/
+      - listitem [ref=e22]:
+        - link "披露" [ref=e23] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e24]:
+        - link "数据" [ref=e25] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e26]:
+        - link "基准" [ref=e27] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e28]:
+        - link "自律" [ref=e29] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e30]:
+        - link "服务" [ref=e31] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e32]:
+        - link "关于" [ref=e33] [cursor=pointer]:
+          - /url: javascript:void(0);
+  - generic [ref=e35]:
+    - generic:
+      - generic:
+        - list
+    - generic [ref=e36]:
+      - generic [ref=e38]:
+        - list [ref=e40]:
+          - listitem [ref=e41] [cursor=pointer]:
+            - link "银行间市场概览" [ref=e42]:
+              - /url: javascript:void(0);
+              - text: 银行间市场概览
+          - listitem [ref=e44] [cursor=pointer]:
+            - link "外汇市场行情" [ref=e45]:
+              - /url: javascript:void(0);
+              - text: 外汇市场行情
+          - listitem [ref=e47] [cursor=pointer]:
+            - link "本币市场行情" [ref=e48]:
+              - /url: javascript:void(0);
+              - text: 本币市场行情
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e57]:
+              - generic [ref=e60]:
+                - generic [ref=e61]: 活跃债券价格
+                - generic [ref=e63]: 2026-03-12 11:58
+              - generic [ref=e66]:
+                - generic [ref=e67]:
+                  - generic [ref=e68]:
+                    - generic [ref=e69]: 26附息国债01
+                    - generic [ref=e70]: 1Y
+                  - generic [ref=e71]:
+                    - paragraph [ref=e73]: "1.2600"
+                    - generic [ref=e75]: "0.00"
+                - generic [ref=e81]:
+                  - generic [ref=e82]:
+                    - generic [ref=e83]: 26附息国债03
+                    - generic [ref=e84]: 5Y
+                  - generic [ref=e85]:
+                    - paragraph [ref=e87]: "1.5551"
+                    - generic [ref=e89]: "0.41"
+                - generic [ref=e95]:
+                  - generic [ref=e96]:
+                    - generic [ref=e97]: 26附息国债05
+                    - generic [ref=e98]: 10Y
+                  - generic [ref=e99]:
+                    - paragraph [ref=e101]: "1.8100"
+                    - generic [ref=e103]: "0.25"
+            - generic [ref=e112]:
+              - generic [ref=e115]:
+                - generic [ref=e116]: 贷款市场报价利率(LPR)
+                - generic [ref=e117]:
+                  - link "更多" [ref=e118] [cursor=pointer]:
+                    - /url: /chinese/bklpr/
+                  - generic [ref=e119]: 2026-02-24 9:00
+              - generic [ref=e122]:
+                - generic [ref=e123]:
+                  - generic [ref=e124]: 1Y
+                  - generic [ref=e125]: "3.00"
+                - generic [ref=e126]:
+                  - generic [ref=e127]: 5Y
+                  - generic [ref=e128]: "3.50"
+          - generic [ref=e129]:
+            - generic [ref=e133]:
+              - generic [ref=e136]:
+                - generic [ref=e137]: 货币市场行情
+                - link "更多" [ref=e139] [cursor=pointer]:
+                  - /url: /chinese/mkdatapm/?tab=2
+                - generic [ref=e140]: 2026-03-12 12:00
+              - generic [ref=e143]:
+                - generic [ref=e144]:
+                  - generic [ref=e145]: DR001
+                  - paragraph [ref=e146]: "---"
+                - generic [ref=e147]:
+                  - generic [ref=e148]: DR007
+                  - paragraph [ref=e149]: "1.4629"
+                - generic [ref=e150]:
+                  - generic [ref=e151]: IBO001
+                  - paragraph [ref=e152]: "1.3725"
+            - generic [ref=e156]:
+              - generic [ref=e159]:
+                - generic [ref=e160]: 利率互换曲线
+                - link "更多" [ref=e161] [cursor=pointer]:
+                  - /url: /chinese/bkcurvfx/
+                - generic [ref=e162]: 2026-03-12 12:00
+              - generic [ref=e165]:
+                - generic [ref=e166]:
+                  - generic [ref=e167]: LPR1Y 6M
+                  - generic [ref=e168]: "2.9175"
+                - generic [ref=e169]:
+                  - generic [ref=e170]: FR007 1Y
+                  - generic [ref=e171]: "1.5063"
+          - generic [ref=e172]:
+            - generic [ref=e176]:
+              - generic [ref=e178]:
+                - text: 人民币汇率中间价
+                - generic [ref=e179]:
+                  - link "更多" [ref=e180] [cursor=pointer]:
+                    - /url: /chinese/bkccpr/
+                  - generic [ref=e181]: 2026-03-12 9:15
+              - generic [ref=e183]:
+                - generic [ref=e184]:
+                  - img [ref=e185]
+                  - text: 美元/人民币
+                - paragraph [ref=e187]: "6.8959"
+                - generic [ref=e189]: "42.00"
+            - generic [ref=e198]:
+              - generic [ref=e200]:
+                - text: 人民币汇率指数
+                - link "更多" [ref=e201] [cursor=pointer]:
+                  - /url: /chinese/bkrmbidx/
+                - generic [ref=e202]: 2026-03-06
+              - generic [ref=e203]:
+                - generic [ref=e204]:
+                  - generic [ref=e205]: CFETS人民币汇率指数
+                  - paragraph [ref=e207]: "99.65"
+                  - generic [ref=e208]: "1.07"
+                - generic [ref=e210]:
+                  - generic [ref=e211]: BIS货币篮子人民币汇率指数
+                  - paragraph [ref=e213]: "106.96"
+                  - generic [ref=e214]: "1.31"
+                - generic [ref=e216]:
+                  - generic [ref=e217]: SDR货币篮子人民币汇率指数
+                  - paragraph [ref=e219]: "94.77"
+                  - generic [ref=e220]: "0.68"
+          - generic [ref=e223]:
+            - generic:
+              - generic:
+                - list [ref=e225]:
+                  - listitem [ref=e226] [cursor=pointer]:
+                    - generic [ref=e227]: Shibor
+                  - listitem [ref=e228] [cursor=pointer]:
+                    - generic [ref=e229]: 回购定盘利率
+                  - listitem [ref=e230] [cursor=pointer]:
+                    - generic [ref=e231]: 共同分类目录绿债指数
+                  - listitem [ref=e232] [cursor=pointer]:
+                    - generic [ref=e233]: 人民币外汇掉期曲线
+                - generic [ref=e234]:
+                  - generic [ref=e235]:
+                    - generic:
+                      - link "更多" [ref=e236] [cursor=pointer]:
+                        - /url: /chinese/bkshibor/
+                      - generic [ref=e237]: 2026-03-12 11:00
+                  - generic:
+                    - generic [ref=e238]:
+                      - generic [ref=e239]: O/N
+                      - paragraph [ref=e241]: "1.3370"
+                      - generic [ref=e242]: "3.00"
+                    - generic [ref=e248]:
+                      - generic [ref=e249]: 1W
+                      - paragraph [ref=e251]: "1.4650"
+                      - generic [ref=e252]: "0.50"
+                    - generic [ref=e258]:
+                      - generic [ref=e259]: 3M
+                      - paragraph [ref=e261]: "1.5460"
+                      - generic [ref=e262]: "0.10"
+                    - generic [ref=e268]:
+                      - generic [ref=e269]: 1Y
+                      - paragraph [ref=e271]: "1.5790"
+                      - generic [ref=e272]: "0.10"
+      - generic [ref=e279]:
+        - generic [ref=e283]:
+          - list [ref=e285]:
+            - listitem [ref=e286]:
+              - link "要闻关注" [ref=e287] [cursor=pointer]:
+                - /url: javascript:void(0);
+            - listitem [ref=e288]:
+              - link "热点关注" [ref=e289] [cursor=pointer]:
+                - /url: javascript:void(0);
+            - listitem [ref=e290]:
+              - link "债券信息披露" [ref=e291] [cursor=pointer]:
+                - /url: javascript:void(0);
+            - link "更多" [ref=e293] [cursor=pointer]:
+              - /url: /chinese/szywgd/
+          - list [ref=e297]:
+            - listitem [ref=e298]:
+              - generic [ref=e299]:
+                - generic [ref=e300]: 2026-03-09
+                - link "中国人民银行副行长宣昌能出席 “亚洲2050”国际会议" [ref=e302] [cursor=pointer]:
+                  - /url: https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026030917065884593/index.html
+            - listitem [ref=e303]:
+              - generic [ref=e304]:
+                - generic [ref=e305]: 2026-03-06
+                - link "中国人民银行行长潘功胜出席十四届全国人大四次会议经济主题记者会" [ref=e307] [cursor=pointer]:
+                  - /url: https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026030619233673231/index.html
+            - listitem [ref=e308]:
+              - generic [ref=e309]:
+                - generic [ref=e310]: 2026-03-03
+                - link "2026年1月金融市场运行情况" [ref=e312] [cursor=pointer]:
+                  - /url: https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026030210355869267/index.html
+            - listitem [ref=e313]:
+              - generic [ref=e314]:
+                - generic [ref=e315]: 2026-03-03
+                - link "中国人民银行公告〔2026〕第4号" [ref=e317] [cursor=pointer]:
+                  - /url: https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026030309300744110/index.html
+            - listitem [ref=e318]:
+              - generic [ref=e319]:
+                - generic [ref=e320]: 2026-03-02
+                - link "深入践行全过程人民民主 服务保障代表委员履职尽责——中国人民银行高质量完成2025年“两会”建议提案办理工作" [ref=e322] [cursor=pointer]:
+                  - /url: https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026030215305689078/index.html
+            - listitem [ref=e323]:
+              - generic [ref=e324]:
+                - generic [ref=e325]: 2026-03-02
+                - link "中国人民银行党委部署开展树立和践行正确政绩观学习教育" [ref=e327] [cursor=pointer]:
+                  - /url: https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026030209421736842/index.html
+        - generic [ref=e330]:
+          - link [ref=e331] [cursor=pointer]:
+            - /url: /chinese/mgyhjcpgl/
+            - img [ref=e332]
+          - link [ref=e333] [cursor=pointer]:
+            - /url: https://ideal.chinamoney.com.cn
+            - img [ref=e334]
+          - link [ref=e335] [cursor=pointer]:
+            - /url: /chinese/lbzq/
+            - img [ref=e336]
+          - link [ref=e337] [cursor=pointer]:
+            - /url: /chinese/syjzcggg/
+            - img [ref=e338]
+      - generic [ref=e340]:
+        - generic [ref=e342]:
+          - generic [ref=e343]: 专区入口
+          - generic [ref=e347]:
+            - list [ref=e349]:
+              - listitem [ref=e350] [cursor=pointer]:
+                - link "信息自助披露平台" [ref=e351]:
+                  - /url: /disclosure/foregroundUserManager/toLogin.action
+                  - generic [ref=e353]: 信息自助披露平台
+              - listitem [ref=e354] [cursor=pointer]:
+                - link "培训" [ref=e355]:
+                  - /url: /chinese/bbpxynjn/
+                  - generic [ref=e357]: 培训
+              - listitem [ref=e358] [cursor=pointer]:
+                - link "本币市场开户系统" [ref=e359]:
+                  - /url: https://ibrs.chinamoney.com.cn/AAMS
+                  - generic [ref=e361]: 本币市场开户系统
+              - listitem [ref=e362] [cursor=pointer]:
+                - link "iSupport" [ref=e363]:
+                  - /url: https://ideal.chinamoney.com.cn/fx-isp-web/browser/
+                  - generic [ref=e365]: iSupport
+              - listitem [ref=e366] [cursor=pointer]:
+                - link "对外接口一站式服务平台" [ref=e367]:
+                  - /url: https://cass-apitest.chinamoney.com.cn/cass
+                  - generic [ref=e369]: 对外接口一站式服务平台
+            - link [ref=e370] [cursor=pointer]:
+              - /url: javascript:void(0);
+            - link [ref=e371] [cursor=pointer]:
+              - /url: javascript:void(0);
+        - generic [ref=e373]:
+          - generic [ref=e374]: 快速链接
+          - generic [ref=e377]:
+            - list [ref=e379]:
+              - listitem [ref=e380]:
+                - generic [ref=e381]:
+                  - list [ref=e383]:
+                    - listitem [ref=e384]:
+                      - link "债券通专区" [ref=e385] [cursor=pointer]:
+                        - /url: /chinese/bccn/
+                    - listitem [ref=e386]:
+                      - link "外汇区域交易专区" [ref=e387] [cursor=pointer]:
+                        - /url: /chinese/rmbFxzhuanqu/
+                    - listitem [ref=e388]:
+                      - link "外币拆借交易专区" [ref=e389] [cursor=pointer]:
+                        - /url: /chinese/fclzhuanqu/
+                  - list [ref=e391]:
+                    - listitem [ref=e392]:
+                      - link "黄金专区" [ref=e393] [cursor=pointer]:
+                        - /url: /chinese/goldmain/
+                    - listitem [ref=e394]:
+                      - link "中国货币市场杂志" [ref=e395] [cursor=pointer]:
+                        - /url: /chinese/acpub/
+                    - listitem [ref=e396]:
+                      - link "银行间机构汇" [ref=e397] [cursor=pointer]:
+                        - /url: https://ideal.chinamoney.com.cn/rmb/disclosure/
+              - listitem [ref=e398]:
+                - generic [ref=e399]:
+                  - list [ref=e401]:
+                    - listitem [ref=e402]:
+                      - link "友情招聘" [ref=e403] [cursor=pointer]:
+                        - /url: /chinese/syyqzp/
+                  - generic [ref=e404]:
+                    - list
+            - generic [ref=e405]:
+              - link "1" [ref=e406] [cursor=pointer]:
+                - /url: javascript:void(0);
+              - link "2" [ref=e407] [cursor=pointer]:
+                - /url: javascript:void(0);
+  - generic [ref=e408]:
+    - generic [ref=e409]:
+      - generic [ref=e410]:
+        - generic [ref=e411]:
+          - img [ref=e413]
+          - generic [ref=e417]:
+            - paragraph [ref=e418]:
+              - img [ref=e419]
+              - text: 客服热线：
+            - text: "4009787878"
+        - generic [ref=e420]:
+          - generic [ref=e421]:
+            - paragraph [ref=e422]:
+              - img [ref=e423]
+              - text: 扫码获取更多
+            - list [ref=e424]:
+              - listitem [ref=e425]:
+                - img [ref=e427]
+                - generic [ref=e428]: 外汇市场信息
+              - listitem [ref=e429]:
+                - img [ref=e431]
+                - generic [ref=e432]: 本币市场信息
+          - generic [ref=e433]:
+            - paragraph [ref=e434]:
+              - img [ref=e435]
+              - text: 友情链接
+            - list [ref=e436]:
+              - listitem [ref=e437]:
+                - link "中国人民银行" [ref=e438] [cursor=pointer]:
+                  - /url: http://www.pbc.gov.cn/
+              - listitem [ref=e439]:
+                - link "国家外汇管理局" [ref=e440] [cursor=pointer]:
+                  - /url: http://www.safe.gov.cn/
+              - listitem [ref=e441]:
+                - link "Shibor" [ref=e442] [cursor=pointer]:
+                  - /url: https://www.shibor.org/
+              - listitem [ref=e443]:
+                - link "上海国际货币经纪有限责任公司" [ref=e444] [cursor=pointer]:
+                  - /url: http://www.cfets-nex.com.cn/
+              - listitem [ref=e445]:
+                - link "上海中汇亿达金融信息技术有限公司" [ref=e446] [cursor=pointer]:
+                  - /url: http://www.cfets-comstar.com
+              - listitem [ref=e447]:
+                - link "中国债券信息网" [ref=e448] [cursor=pointer]:
+                  - /url: http://www.chinabond.com.cn/
+              - listitem [ref=e449]:
+                - link "上海清算所" [ref=e450] [cursor=pointer]:
+                  - /url: https://www.shclearing.com.cn
+        - generic [ref=e451]:
+          - paragraph [ref=e452]:
+            - img [ref=e453]
+            - text: 更多
+          - list [ref=e454]:
+            - listitem [ref=e455]:
+              - link "网站地图" [ref=e456] [cursor=pointer]:
+                - /url: /chinese/sitemap/
+            - listitem [ref=e457]:
+              - link "法律声明" [ref=e458] [cursor=pointer]:
+                - /url: /chinese/legaldeclaration/
+            - listitem [ref=e459]:
+              - link "用户反馈" [ref=e460] [cursor=pointer]:
+                - /url: /chinese/zxly/
+            - listitem [ref=e461]:
+              - link "联系我们" [ref=e462] [cursor=pointer]:
+                - /url: /chinese/accontact/
+            - listitem [ref=e463]:
+              - link "集中采购公告" [ref=e464] [cursor=pointer]:
+                - /url: /chinese/syjzcggg/
+        - link [ref=e467] [cursor=pointer]:
+          - /url: http://bszs.conac.cn/sitename?method=show&id=2AAC56DA5FB74E02E053012819ACE706
+          - img [ref=e468]
+      - paragraph [ref=e469]: 建议使用Chrome、Safari标准浏览器本站支持IPV6技术
+    - paragraph [ref=e471]:
+      - link "沪ICP备05040578号-12/13" [ref=e472] [cursor=pointer]:
+        - /url: https://beian.miit.gov.cn/
+      - link "沪公网安备31010102003218号" [ref=e473] [cursor=pointer]:
+        - /url: http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102003218
+        - img [ref=e475]
+        - text: 沪公网安备31010102003218号
+      - text: 版权所有 © 中国外汇交易中心暨全国银行间同业拆借中心 未经授权 不得转载
+  - generic [ref=e476]:
+    - generic [ref=e477]:
+      - link "用户反馈" [ref=e478] [cursor=pointer]:
+        - /url: /chinese/zxly/
+      - generic [ref=e479]: 用户反馈
+    - generic [ref=e480]:
+      - link "微信号" [ref=e481] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - list [ref=e483]:
+        - listitem [ref=e484]:
+          - link [ref=e485] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - img [ref=e486]
+          - generic [ref=e487]:
+            - text: 扫码获取更多
+            - text: 外汇市场信息
+        - listitem [ref=e488]:
+          - link [ref=e489] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - img [ref=e490]
+          - generic [ref=e491]:
+            - text: 扫码获取更多
+            - text: 本币市场信息

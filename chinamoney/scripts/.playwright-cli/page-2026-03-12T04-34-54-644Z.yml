@@ -1,0 +1,309 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link [ref=e8] [cursor=pointer]:
+          - /url: javascript:void(0);
+        - link [ref=e10] [cursor=pointer]:
+          - /url: /english/
+        - generic:
+          - link:
+            - /url: javascript:void(0);
+      - generic [ref=e13]:
+        - textbox "请输入债券名称、债券代码、机构名称或关键字..." [ref=e14]
+        - link [ref=e16] [cursor=pointer]:
+          - /url: javascript:void(0)
+    - list [ref=e19]:
+      - listitem [ref=e20]:
+        - link "首页" [ref=e21] [cursor=pointer]:
+          - /url: /chinese/
+      - listitem [ref=e22]:
+        - link "披露" [ref=e23] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e24]:
+        - link "数据" [ref=e25] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e26]:
+        - link "基准" [ref=e27] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e28]:
+        - link "自律" [ref=e29] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e30]:
+        - link "服务" [ref=e31] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e32]:
+        - link "关于" [ref=e33] [cursor=pointer]:
+          - /url: javascript:void(0);
+  - generic [ref=e36]:
+    - generic [ref=e38]:
+      - generic [ref=e39]: 披露
+      - list [ref=e40]:
+        - listitem [ref=e41]:
+          - link "市场公告" [ref=e42] [cursor=pointer]:
+            - /url: /chinese/scgg-whscgg/
+          - list:
+            - listitem [ref=e43]:
+              - link "外汇市场公告" [ref=e44] [cursor=pointer]:
+                - /url: /chinese/scgg-whscgg/
+            - listitem [ref=e45]:
+              - link "本币市场公告" [ref=e46] [cursor=pointer]:
+                - /url: /chinese/scggbbscgg/
+            - listitem [ref=e47]:
+              - link "央行业务公告" [ref=e48] [cursor=pointer]:
+                - /url: /chinese/scggyhywgg/
+        - listitem [ref=e49]:
+          - link "信息披露指南" [ref=e50] [cursor=pointer]:
+            - /url: /chinese/xxplzn/
+          - list
+        - listitem [ref=e51]:
+          - link "信息自助披露平台" [ref=e52] [cursor=pointer]:
+            - /url: /disclosure/foregroundUserManager/toLogin.action
+          - list
+        - listitem [ref=e53]:
+          - link "债券信息披露" [ref=e54] [cursor=pointer]:
+            - /url: /chinese/ywts/
+          - list [ref=e55]:
+            - listitem [ref=e56]:
+              - link "提示信息" [ref=e57] [cursor=pointer]:
+                - /url: /chinese/ywts/
+            - listitem [ref=e58]:
+              - link "债券发行" [ref=e59] [cursor=pointer]:
+                - /url: /chinese/zqfx/
+            - listitem [ref=e60]:
+              - link "流通上市" [ref=e61] [cursor=pointer]:
+                - /url: /chinese/ltsslm/
+            - listitem [ref=e62]:
+              - link "付息兑付" [ref=e63] [cursor=pointer]:
+                - /url: /chinese/fxdflm/
+            - listitem [ref=e64]:
+              - link "评级报告" [ref=e65] [cursor=pointer]:
+                - /url: /chinese/pjgg/
+            - listitem [ref=e66]:
+              - link "重大事项" [ref=e67] [cursor=pointer]:
+                - /url: /chinese/zdsx/
+            - listitem [ref=e68]:
+              - link "财务报告" [ref=e69] [cursor=pointer]:
+                - /url: /chinese/cqcwbglm/
+        - listitem [ref=e70]:
+          - link "机构信息披露" [ref=e71] [cursor=pointer]:
+            - /url: /chinese/jzllbjhxxpllm/
+          - list:
+            - listitem [ref=e72]:
+              - link "基准利率报价行信息披露" [ref=e73] [cursor=pointer]:
+                - /url: /chinese/jzllbjhxxpllm/
+            - listitem [ref=e74]:
+              - link "拆借市场成员信息披露" [ref=e75] [cursor=pointer]:
+                - /url: javascript:void(0);
+            - listitem [ref=e76]:
+              - link "货币经纪公司信息披露" [ref=e77] [cursor=pointer]:
+                - /url: javascript:void(0);
+            - listitem [ref=e78]:
+              - link "现券做市商基本情况" [ref=e79] [cursor=pointer]:
+                - /url: /chinese/bmcmmbi/
+    - generic [ref=e83]:
+      - generic [ref=e85]: 财务报告
+      - generic [ref=e90]:
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e95]: 机构名称
+            - textbox [ref=e97]: 恒大
+          - generic [ref=e98]:
+            - generic [ref=e100]: 报表年度
+            - combobox [ref=e102]:
+              - option "全部"
+              - option "2026"
+              - option "2025"
+              - option "2024" [selected]
+              - option "2023"
+              - option "2022"
+              - option "2021"
+              - option "2020"
+              - option "2019"
+              - option "2018"
+              - option "2017"
+              - option "2016"
+              - option "2015"
+              - option "2014"
+              - option "2013"
+              - option "2012"
+              - option "2011"
+              - option "2010"
+              - option "2009"
+              - option "2008"
+              - option "2007"
+              - option "2006"
+              - option "2005"
+              - option "2004"
+          - generic [ref=e103]:
+            - generic [ref=e105]: 报表类型
+            - combobox [ref=e107]:
+              - option "全部"
+              - option "一季度报告"
+              - option "半年度报告"
+              - option "三季度报告"
+              - option "四季度报告"
+              - option "年度报告" [selected]
+              - option "其他相关报告"
+              - option "未审计年报"
+              - option "审计年报"
+          - link "查询" [ref=e109] [cursor=pointer]:
+            - /url: javascript:void(0);
+        - list [ref=e110]:
+          - listitem [ref=e111]
+          - listitem [ref=e112]
+          - listitem [ref=e113]
+          - listitem [ref=e114]
+          - listitem [ref=e115]
+          - listitem [ref=e116]
+          - listitem [ref=e117]
+          - listitem [ref=e118]
+          - listitem [ref=e119]
+          - listitem [ref=e120]
+          - listitem [ref=e121]
+          - listitem [ref=e122]
+          - listitem [ref=e123]
+          - listitem [ref=e124]
+          - listitem [ref=e125]
+          - listitem [ref=e126]
+          - listitem [ref=e127]
+          - listitem [ref=e128]
+          - listitem [ref=e129]
+          - listitem [ref=e130]
+          - listitem [ref=e131]
+          - listitem [ref=e132]
+          - listitem [ref=e133]
+          - listitem [ref=e134]
+          - listitem [ref=e135]
+          - listitem [ref=e136]
+          - listitem [ref=e137]
+          - listitem [ref=e138]
+          - listitem [ref=e139]
+          - listitem [ref=e140]
+        - list [ref=e144]:
+          - listitem [ref=e145]:
+            - generic [ref=e146]: 共 0 条记录
+          - listitem [ref=e147]:
+            - generic [ref=e148]: 1/1 页
+          - listitem [ref=e149]:
+            - link "第一页" [ref=e150]:
+              - /url: javascript:void(0);
+          - listitem [ref=e151]:
+            - link "上一页" [ref=e152]:
+              - /url: javascript:void(0);
+          - listitem [ref=e153]:
+            - link "下一页" [ref=e154]:
+              - /url: javascript:void(0);
+          - listitem [ref=e155]:
+            - link "最后页" [ref=e156]:
+              - /url: javascript:void(0);
+          - listitem [ref=e157]:
+            - generic [ref=e158]:
+              - text: 跳到第
+              - textbox [ref=e159]
+              - text: 页
+  - generic [ref=e160]:
+    - generic [ref=e161]:
+      - generic [ref=e162]:
+        - generic [ref=e163]:
+          - img [ref=e165]
+          - generic [ref=e169]:
+            - paragraph [ref=e170]:
+              - img [ref=e171]
+              - text: 客服热线：
+            - text: "4009787878"
+        - generic [ref=e172]:
+          - generic [ref=e173]:
+            - paragraph [ref=e174]:
+              - img [ref=e175]
+              - text: 扫码获取更多
+            - list [ref=e176]:
+              - listitem [ref=e177]:
+                - img [ref=e179]
+                - generic [ref=e180]: 外汇市场信息
+              - listitem [ref=e181]:
+                - img [ref=e183]
+                - generic [ref=e184]: 本币市场信息
+          - generic [ref=e185]:
+            - paragraph [ref=e186]:
+              - img [ref=e187]
+              - text: 友情链接
+            - list [ref=e188]:
+              - listitem [ref=e189]:
+                - link "中国人民银行" [ref=e190] [cursor=pointer]:
+                  - /url: http://www.pbc.gov.cn/
+              - listitem [ref=e191]:
+                - link "国家外汇管理局" [ref=e192] [cursor=pointer]:
+                  - /url: http://www.safe.gov.cn/
+              - listitem [ref=e193]:
+                - link "Shibor" [ref=e194] [cursor=pointer]:
+                  - /url: https://www.shibor.org/
+              - listitem [ref=e195]:
+                - link "上海国际货币经纪有限责任公司" [ref=e196] [cursor=pointer]:
+                  - /url: http://www.cfets-nex.com.cn/
+              - listitem [ref=e197]:
+                - link "上海中汇亿达金融信息技术有限公司" [ref=e198] [cursor=pointer]:
+                  - /url: http://www.cfets-comstar.com
+              - listitem [ref=e199]:
+                - link "中国债券信息网" [ref=e200] [cursor=pointer]:
+                  - /url: http://www.chinabond.com.cn/
+              - listitem [ref=e201]:
+                - link "上海清算所" [ref=e202] [cursor=pointer]:
+                  - /url: https://www.shclearing.com.cn
+        - generic [ref=e203]:
+          - paragraph [ref=e204]:
+            - img [ref=e205]
+            - text: 更多
+          - list [ref=e206]:
+            - listitem [ref=e207]:
+              - link "网站地图" [ref=e208] [cursor=pointer]:
+                - /url: /chinese/sitemap/
+            - listitem [ref=e209]:
+              - link "法律声明" [ref=e210] [cursor=pointer]:
+                - /url: /chinese/legaldeclaration/
+            - listitem [ref=e211]:
+              - link "用户反馈" [ref=e212] [cursor=pointer]:
+                - /url: /chinese/zxly/
+            - listitem [ref=e213]:
+              - link "联系我们" [ref=e214] [cursor=pointer]:
+                - /url: /chinese/accontact/
+            - listitem [ref=e215]:
+              - link "集中采购公告" [ref=e216] [cursor=pointer]:
+                - /url: /chinese/syjzcggg/
+        - link [ref=e219] [cursor=pointer]:
+          - /url: http://bszs.conac.cn/sitename?method=show&id=2AAC56DA5FB74E02E053012819ACE706
+          - img [ref=e220]
+      - paragraph [ref=e221]: 建议使用Chrome、Safari标准浏览器本站支持IPV6技术
+    - paragraph [ref=e223]:
+      - link "沪ICP备05040578号-12/13" [ref=e224] [cursor=pointer]:
+        - /url: https://beian.miit.gov.cn/
+      - link "沪公网安备31010102003218号" [ref=e225] [cursor=pointer]:
+        - /url: http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102003218
+        - img [ref=e227]
+        - text: 沪公网安备31010102003218号
+      - text: 版权所有 © 中国外汇交易中心暨全国银行间同业拆借中心 未经授权 不得转载
+  - generic [ref=e228]:
+    - generic [ref=e229]:
+      - link "用户反馈" [ref=e230] [cursor=pointer]:
+        - /url: /chinese/zxly/
+      - generic [ref=e231]: 用户反馈
+    - generic [ref=e232]:
+      - link "微信号" [ref=e233] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - list [ref=e235]:
+        - listitem [ref=e236]:
+          - link [ref=e237] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - img [ref=e238]
+          - generic [ref=e239]:
+            - text: 扫码获取更多
+            - text: 外汇市场信息
+        - listitem [ref=e240]:
+          - link [ref=e241] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - img [ref=e242]
+          - generic [ref=e243]:
+            - text: 扫码获取更多
+            - text: 本币市场信息

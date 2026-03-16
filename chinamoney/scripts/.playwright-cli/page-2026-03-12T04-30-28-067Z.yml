@@ -1,0 +1,73 @@
+- generic [ref=e5]:
+  - generic [ref=e7]:
+    - generic [ref=e8]: 披露
+    - list [ref=e9]:
+      - listitem [ref=e10]:
+        - link "市场公告" [ref=e11] [cursor=pointer]:
+          - /url: /chinese/scgg-whscgg/
+        - list:
+          - listitem [ref=e12]:
+            - link "外汇市场公告" [ref=e13] [cursor=pointer]:
+              - /url: /chinese/scgg-whscgg/
+          - listitem [ref=e14]:
+            - link "本币市场公告" [ref=e15] [cursor=pointer]:
+              - /url: /chinese/scggbbscgg/
+          - listitem [ref=e16]:
+            - link "央行业务公告" [ref=e17] [cursor=pointer]:
+              - /url: http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125431/index.html
+      - listitem [ref=e18]:
+        - link "信息披露指南" [ref=e19] [cursor=pointer]:
+          - /url: /chinese/xxplzn/
+        - list
+      - listitem [ref=e20]:
+        - link "信息自助披露平台" [ref=e21] [cursor=pointer]:
+          - /url: /disclosure/foregroundUserManager/toLogin.action
+        - list
+      - listitem [ref=e22]:
+        - link "债券信息披露" [ref=e23] [cursor=pointer]:
+          - /url: /chinese/ywts/
+        - list:
+          - listitem [ref=e24]:
+            - link "提示信息" [ref=e25] [cursor=pointer]:
+              - /url: /chinese/ywts/
+          - listitem [ref=e26]:
+            - link "债券发行" [ref=e27] [cursor=pointer]:
+              - /url: /chinese/zqfx/
+          - listitem [ref=e28]:
+            - link "流通上市" [ref=e29] [cursor=pointer]:
+              - /url: /chinese/ltsslm/
+          - listitem [ref=e30]:
+            - link "付息兑付" [ref=e31] [cursor=pointer]:
+              - /url: /chinese/fxdflm/
+          - listitem [ref=e32]:
+            - link "评级报告" [ref=e33] [cursor=pointer]:
+              - /url: /chinese/pjgg/
+          - listitem [ref=e34]:
+            - link "重大事项" [ref=e35] [cursor=pointer]:
+              - /url: /chinese/zdsx/
+          - listitem [ref=e36]:
+            - link "财务报告" [ref=e37] [cursor=pointer]:
+              - /url: /chinese/cqcwbglm/
+      - listitem [ref=e38]:
+        - link "机构信息披露" [ref=e39] [cursor=pointer]:
+          - /url: /chinese/jzllbjhxxpllm/
+        - list:
+          - listitem [ref=e40]:
+            - link "基准利率报价行信息披露" [ref=e41] [cursor=pointer]:
+              - /url: /chinese/jzllbjhxxpllm/
+          - listitem [ref=e42]:
+            - link "拆借市场成员信息披露" [ref=e43] [cursor=pointer]:
+              - /url: javascript:void(0);
+          - listitem [ref=e44]:
+            - link "货币经纪公司信息披露" [ref=e45] [cursor=pointer]:
+              - /url: javascript:void(0);
+          - listitem [ref=e46]:
+            - link "现券做市商基本情况" [ref=e47] [cursor=pointer]:
+              - /url: /chinese/bmcmmbi/
+  - list [ref=e52]:
+    - listitem [ref=e53] [cursor=pointer]:
+      - link "财务报告" [ref=e54]:
+        - /url: javascript:void(0);
+    - listitem [ref=e55] [cursor=pointer]:
+      - link "延迟披露公告" [ref=e56]:
+        - /url: javascript:void(0);

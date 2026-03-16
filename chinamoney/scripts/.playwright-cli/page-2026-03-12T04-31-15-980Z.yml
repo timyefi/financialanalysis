@@ -1,0 +1,396 @@
+- generic [ref=e2]:
+  - generic [ref=e58]:
+    - generic [ref=e59]:
+      - link [ref=e60] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e61]:
+        - link [ref=e63] [cursor=pointer]:
+          - /url: javascript:void(0);
+        - link [ref=e65] [cursor=pointer]:
+          - /url: /english/
+        - generic:
+          - link:
+            - /url: javascript:void(0);
+      - generic [ref=e68]:
+        - textbox "请输入债券名称、债券代码、机构名称或关键字..." [ref=e69]
+        - link [ref=e71] [cursor=pointer]:
+          - /url: javascript:void(0)
+    - list [ref=e74]:
+      - listitem [ref=e75]:
+        - link "首页" [ref=e76] [cursor=pointer]:
+          - /url: /chinese/
+      - listitem [ref=e77]:
+        - link "披露" [ref=e78] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e79]:
+        - link "数据" [ref=e80] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e81]:
+        - link "基准" [ref=e82] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e83]:
+        - link "自律" [ref=e84] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e85]:
+        - link "服务" [ref=e86] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e87]:
+        - link "关于" [ref=e88] [cursor=pointer]:
+          - /url: javascript:void(0);
+  - generic [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: 披露
+      - list [ref=e9]:
+        - listitem [ref=e10]:
+          - link "市场公告" [ref=e11] [cursor=pointer]:
+            - /url: /chinese/scgg-whscgg/
+          - list:
+            - listitem [ref=e12]:
+              - link "外汇市场公告" [ref=e13] [cursor=pointer]:
+                - /url: /chinese/scgg-whscgg/
+            - listitem [ref=e14]:
+              - link "本币市场公告" [ref=e15] [cursor=pointer]:
+                - /url: /chinese/scggbbscgg/
+            - listitem [ref=e16]:
+              - link "央行业务公告" [ref=e17] [cursor=pointer]:
+                - /url: http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125431/index.html
+        - listitem [ref=e18]:
+          - link "信息披露指南" [ref=e19] [cursor=pointer]:
+            - /url: /chinese/xxplzn/
+          - list
+        - listitem [ref=e20]:
+          - link "信息自助披露平台" [ref=e21] [cursor=pointer]:
+            - /url: /disclosure/foregroundUserManager/toLogin.action
+          - list
+        - listitem [ref=e22]:
+          - link "债券信息披露" [ref=e23] [cursor=pointer]:
+            - /url: /chinese/ywts/
+          - list [ref=e89]:
+            - listitem [ref=e24]:
+              - link "提示信息" [ref=e25] [cursor=pointer]:
+                - /url: /chinese/ywts/
+            - listitem [ref=e26]:
+              - link "债券发行" [ref=e27] [cursor=pointer]:
+                - /url: /chinese/zqfx/
+            - listitem [ref=e28]:
+              - link "流通上市" [ref=e29] [cursor=pointer]:
+                - /url: /chinese/ltsslm/
+            - listitem [ref=e30]:
+              - link "付息兑付" [ref=e31] [cursor=pointer]:
+                - /url: /chinese/fxdflm/
+            - listitem [ref=e32]:
+              - link "评级报告" [ref=e33] [cursor=pointer]:
+                - /url: /chinese/pjgg/
+            - listitem [ref=e34]:
+              - link "重大事项" [ref=e35] [cursor=pointer]:
+                - /url: /chinese/zdsx/
+            - listitem [ref=e36]:
+              - link "财务报告" [ref=e37] [cursor=pointer]:
+                - /url: /chinese/cqcwbglm/
+        - listitem [ref=e38]:
+          - link "机构信息披露" [ref=e39] [cursor=pointer]:
+            - /url: /chinese/jzllbjhxxpllm/
+          - list:
+            - listitem [ref=e40]:
+              - link "基准利率报价行信息披露" [ref=e41] [cursor=pointer]:
+                - /url: /chinese/jzllbjhxxpllm/
+            - listitem [ref=e42]:
+              - link "拆借市场成员信息披露" [ref=e43] [cursor=pointer]:
+                - /url: javascript:void(0);
+            - listitem [ref=e44]:
+              - link "货币经纪公司信息披露" [ref=e45] [cursor=pointer]:
+                - /url: javascript:void(0);
+            - listitem [ref=e46]:
+              - link "现券做市商基本情况" [ref=e47] [cursor=pointer]:
+                - /url: /chinese/bmcmmbi/
+    - generic [ref=e51]:
+      - list [ref=e52]:
+        - listitem [ref=e53] [cursor=pointer]:
+          - link "财务报告" [ref=e54]:
+            - /url: javascript:void(0);
+        - listitem [ref=e55] [cursor=pointer]:
+          - link "延迟披露公告" [ref=e56]:
+            - /url: javascript:void(0);
+      - generic [ref=e95]:
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - generic [ref=e100]: 机构名称
+            - textbox [active] [ref=e102]: 碧桂园
+          - generic [ref=e103]:
+            - generic [ref=e105]: 报表年度
+            - combobox [ref=e107]:
+              - option "全部"
+              - option "2026"
+              - option "2025"
+              - option "2024" [selected]
+              - option "2023"
+              - option "2022"
+              - option "2021"
+              - option "2020"
+              - option "2019"
+              - option "2018"
+              - option "2017"
+              - option "2016"
+              - option "2015"
+              - option "2014"
+              - option "2013"
+              - option "2012"
+              - option "2011"
+              - option "2010"
+              - option "2009"
+              - option "2008"
+              - option "2007"
+              - option "2006"
+              - option "2005"
+              - option "2004"
+          - generic [ref=e108]:
+            - generic [ref=e110]: 报表类型
+            - combobox [ref=e112]:
+              - option "全部" [selected]
+              - option "一季度报告"
+              - option "半年度报告"
+              - option "三季度报告"
+              - option "四季度报告"
+              - option "年度报告"
+              - option "其他相关报告"
+              - option "未审计年报"
+              - option "审计年报"
+          - link "查询" [ref=e114] [cursor=pointer]:
+            - /url: javascript:void(0);
+        - list [ref=e115]:
+          - listitem [ref=e116]:
+            - generic [ref=e117]:
+              - generic [ref=e118]: 2026-03-12
+              - generic [ref=e119]:
+                - link "上海璞泰来新能源科技集团股份有限公司2025年年度报告" [ref=e120] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260312/3295352.html#cp=cwbg
+                - link "点击下载" [ref=e121] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3295352&priority=0&mode=save
+                  - img [ref=e122]
+          - listitem [ref=e123]:
+            - generic [ref=e124]:
+              - generic [ref=e125]: 2026-03-11
+              - generic [ref=e126]:
+                - link "深圳市深担增信融资担保有限公司2025年三季度未经审计的合并及母公司财务报表" [ref=e127] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260311/3294805.html#cp=cwbg
+                - link "点击下载" [ref=e128] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3294805&priority=0&mode=save
+                  - img [ref=e129]
+          - listitem [ref=e130]:
+            - generic [ref=e131]:
+              - generic [ref=e132]: 2026-03-11
+              - generic [ref=e133]:
+                - link "深圳市深担增信融资担保有限公司2024年度经审计的合并及母公司财务报告" [ref=e134] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260311/3294800.html#cp=cwbg
+                - link "点击下载" [ref=e135] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3294800&priority=0&mode=save
+                  - img [ref=e136]
+          - listitem [ref=e137]:
+            - generic [ref=e138]:
+              - generic [ref=e139]: 2026-03-11
+              - generic [ref=e140]:
+                - link "无锡君来酒店管理集团有限公司2022年度、2023年度经审计的合并及母公司财务报告" [ref=e141] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260311/3294716.html#cp=cwbg
+                - link "点击下载" [ref=e142] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3294716&priority=0&mode=save
+                  - img [ref=e143]
+          - listitem [ref=e144]:
+            - generic [ref=e145]:
+              - generic [ref=e146]: 2026-03-11
+              - generic [ref=e147]:
+                - link "中国北方稀土(集团)高科技股份有限公司2025年第三季度未经审计的合并及母公司财务报表" [ref=e148] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260311/3294601.html#cp=cwbg
+                - link "点击下载" [ref=e149] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3294601&priority=0&mode=save
+                  - img [ref=e150]
+          - listitem [ref=e151]:
+            - generic [ref=e152]:
+              - generic [ref=e153]: 2026-03-11
+              - generic [ref=e154]:
+                - link "中国北方稀土(集团)高科技股份有限公司2024年度审计报告" [ref=e155] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260311/3294599.html#cp=cwbg
+                - link "点击下载" [ref=e156] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3294599&priority=0&mode=save
+                  - img [ref=e157]
+          - listitem [ref=e158]:
+            - generic [ref=e159]:
+              - generic [ref=e160]: 2026-03-10
+              - link "红狮控股集团有限公司关于2024年审计报告变更的公告及变更后的文件" [ref=e162] [cursor=pointer]:
+                - /url: /chinese/cwbg/20260310/3293674.html#cp=cwbg
+          - listitem [ref=e163]:
+            - generic [ref=e164]:
+              - generic [ref=e165]: 2026-03-09
+              - generic [ref=e166]:
+                - link "中兴通讯股份有限公司2025年年度报告" [ref=e167] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260309/3293118.html#cp=cwbg
+                - link "点击下载" [ref=e168] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3293118&priority=0&mode=save
+                  - img [ref=e169]
+          - listitem [ref=e170]:
+            - generic [ref=e171]:
+              - generic [ref=e172]: 2026-03-09
+              - generic [ref=e173]:
+                - link "乌鲁木齐市公共交通集团有限公司2025年三季度合并及母公司财务报表" [ref=e174] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260309/3292783.html#cp=cwbg
+                - link "点击下载" [ref=e175] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3292783&priority=0&mode=save
+                  - img [ref=e176]
+          - listitem [ref=e177]:
+            - generic [ref=e178]:
+              - generic [ref=e179]: 2026-03-09
+              - generic [ref=e180]:
+                - link "乌鲁木齐市公共交通集团有限公司2022年审计报告" [ref=e181] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260309/3292782.html#cp=cwbg
+                - link "点击下载" [ref=e182] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3292782&priority=0&mode=save
+                  - img [ref=e183]
+          - listitem [ref=e184]:
+            - generic [ref=e185]:
+              - generic [ref=e186]: 2026-03-09
+              - generic [ref=e187]:
+                - link "乌鲁木齐市公共交通集团有限公司2023年审计报告" [ref=e188] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260309/3292780.html#cp=cwbg
+                - link "点击下载" [ref=e189] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3292780&priority=0&mode=save
+                  - img [ref=e190]
+          - listitem [ref=e191]:
+            - generic [ref=e192]:
+              - generic [ref=e193]: 2026-03-09
+              - generic [ref=e194]:
+                - link "乌鲁木齐市公共交通集团有限公司2024年审计报告" [ref=e195] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260309/3292779.html#cp=cwbg
+                - link "点击下载" [ref=e196] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3292779&priority=0&mode=save
+                  - img [ref=e197]
+          - listitem [ref=e198]:
+            - generic [ref=e199]:
+              - generic [ref=e200]: 2026-03-09
+              - generic [ref=e201]:
+                - link "乌鲁木齐市公共交通集团有限公司2025年1-6月财务报表" [ref=e202] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260309/3292776.html#cp=cwbg
+                - link "点击下载" [ref=e203] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3292776&priority=0&mode=save
+                  - img [ref=e204]
+          - listitem [ref=e205]:
+            - generic [ref=e206]:
+              - generic [ref=e207]: 2026-03-09
+              - generic [ref=e208]:
+                - link "中国雄安集团有限公司2025年三季度合并及母公司报表" [ref=e209] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260309/3292870.html#cp=cwbg
+                - link "点击下载" [ref=e210] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3292870&priority=0&mode=save
+                  - img [ref=e211]
+          - listitem [ref=e212]:
+            - generic [ref=e213]:
+              - generic [ref=e214]: 2026-03-09
+              - generic [ref=e215]:
+                - link "中国雄安集团有限公司2022年度经审计的合并及母公司财务报告" [ref=e216] [cursor=pointer]:
+                  - /url: /chinese/cwbg/20260309/3292869.html#cp=cwbg
+                - link "点击下载" [ref=e217] [cursor=pointer]:
+                  - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3292869&priority=0&mode=save
+                  - img [ref=e218]
+        - link "更多" [ref=e223] [cursor=pointer]:
+          - /url: /chinese/zqcwbgcwgd/?tabid=0&inextp=3,5&org=&year=&repoType=
+  - generic [ref=e224]:
+    - generic [ref=e225]:
+      - generic [ref=e226]:
+        - generic [ref=e227]:
+          - img [ref=e229]
+          - generic [ref=e233]:
+            - paragraph [ref=e234]:
+              - img [ref=e235]
+              - text: 客服热线：
+            - text: "4009787878"
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - paragraph [ref=e238]:
+              - img [ref=e239]
+              - text: 扫码获取更多
+            - list [ref=e240]:
+              - listitem [ref=e241]:
+                - img [ref=e243]
+                - generic [ref=e244]: 外汇市场信息
+              - listitem [ref=e245]:
+                - img [ref=e247]
+                - generic [ref=e248]: 本币市场信息
+          - generic [ref=e249]:
+            - paragraph [ref=e250]:
+              - img [ref=e251]
+              - text: 友情链接
+            - list [ref=e252]:
+              - listitem [ref=e253]:
+                - link "中国人民银行" [ref=e254] [cursor=pointer]:
+                  - /url: http://www.pbc.gov.cn/
+              - listitem [ref=e255]:
+                - link "国家外汇管理局" [ref=e256] [cursor=pointer]:
+                  - /url: http://www.safe.gov.cn/
+              - listitem [ref=e257]:
+                - link "Shibor" [ref=e258] [cursor=pointer]:
+                  - /url: https://www.shibor.org/
+              - listitem [ref=e259]:
+                - link "上海国际货币经纪有限责任公司" [ref=e260] [cursor=pointer]:
+                  - /url: http://www.cfets-nex.com.cn/
+              - listitem [ref=e261]:
+                - link "上海中汇亿达金融信息技术有限公司" [ref=e262] [cursor=pointer]:
+                  - /url: http://www.cfets-comstar.com
+              - listitem [ref=e263]:
+                - link "中国债券信息网" [ref=e264] [cursor=pointer]:
+                  - /url: http://www.chinabond.com.cn/
+              - listitem [ref=e265]:
+                - link "上海清算所" [ref=e266] [cursor=pointer]:
+                  - /url: https://www.shclearing.com.cn
+        - generic [ref=e267]:
+          - paragraph [ref=e268]:
+            - img [ref=e269]
+            - text: 更多
+          - list [ref=e270]:
+            - listitem [ref=e271]:
+              - link "网站地图" [ref=e272] [cursor=pointer]:
+                - /url: /chinese/sitemap/
+            - listitem [ref=e273]:
+              - link "法律声明" [ref=e274] [cursor=pointer]:
+                - /url: /chinese/legaldeclaration/
+            - listitem [ref=e275]:
+              - link "用户反馈" [ref=e276] [cursor=pointer]:
+                - /url: /chinese/zxly/
+            - listitem [ref=e277]:
+              - link "联系我们" [ref=e278] [cursor=pointer]:
+                - /url: /chinese/accontact/
+            - listitem [ref=e279]:
+              - link "集中采购公告" [ref=e280] [cursor=pointer]:
+                - /url: /chinese/syjzcggg/
+        - link [ref=e283] [cursor=pointer]:
+          - /url: http://bszs.conac.cn/sitename?method=show&id=2AAC56DA5FB74E02E053012819ACE706
+          - img [ref=e284]
+      - paragraph [ref=e285]: 建议使用Chrome、Safari标准浏览器本站支持IPV6技术
+    - paragraph [ref=e287]:
+      - link "沪ICP备05040578号-12/13" [ref=e288] [cursor=pointer]:
+        - /url: https://beian.miit.gov.cn/
+      - link "沪公网安备31010102003218号" [ref=e289] [cursor=pointer]:
+        - /url: http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102003218
+        - img [ref=e291]
+        - text: 沪公网安备31010102003218号
+      - text: 版权所有 © 中国外汇交易中心暨全国银行间同业拆借中心 未经授权 不得转载
+  - generic [ref=e57]:
+    - generic [ref=e292]:
+      - link "用户反馈" [ref=e293] [cursor=pointer]:
+        - /url: /chinese/zxly/
+      - generic [ref=e294]: 用户反馈
+    - generic [ref=e295]:
+      - link "微信号" [ref=e296] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - list [ref=e298]:
+        - listitem [ref=e299]:
+          - link [ref=e300] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - img [ref=e301]
+          - generic [ref=e302]:
+            - text: 扫码获取更多
+            - text: 外汇市场信息
+        - listitem [ref=e303]:
+          - link [ref=e304] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - img [ref=e305]
+          - generic [ref=e306]:
+            - text: 扫码获取更多
+            - text: 本币市场信息

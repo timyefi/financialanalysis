@@ -1,0 +1,53 @@
+{
+    "output_dir": "C:/Users/Administrator/Desktop/项目/信用工作流/余姚工业园区开发建设",
+    "tasks": [
+        {
+            "name": "2024年年报",
+            "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3106435&priority=0&mode=save",
+            "output_path": "年报/浙江余姚工业园区开发建设投资有限公司2024年年度报告.pdf",
+            "retries": 3
+        },
+        {
+            "name": "2023年年报",
+            "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=2867096&priority=0&mode=save",
+            "output_path": "年报/浙江余姚工业园区开发建设投资有限公司2023年年度报告.pdf",
+            "retries": 3
+        },
+        {
+            "name": "2022年年报",
+            "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=2609125&priority=0&mode=save",
+            "output_path": "年报/浙江余姚工业园区开发建设投资有限公司2022年年度报告.pdf",
+            "retries": 3
+        },
+        {
+            "name": "2024年半年报",
+            "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=2950974&priority=0&mode=save",
+            "output_path": "半年报/浙江余姚工业园区开发建设投资有限公司2024年半年度报告.pdf",
+            "retries": 3
+        },
+        {
+            "name": "2023年半年报",
+            "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=2703784&priority=0&mode=save",
+            "output_path": "半年报/浙江余姚工业园区开发建设投资有限公司2023年半年度报告.pdf",
+            "retries": 3
+        },
+        {
+            "name": "2022年半年报",
+            "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=2450365&priority=0&mode=save",
+            "output_path": "半年报/浙江余姚工业园区开发建设投资有限公司2022年半年度报告.pdf",
+            "retries": 3
+        },
+        {
+            "name": "2025年评级报告(8月)",
+            "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3175377&priority=0&mode=save",
+            "output_path": "评级报告/2025年度浙江余姚工业园区开发建设投资有限公司信用评级报告(8月).pdf",
+            "retries": 3
+        },
+        {
+            "name": "2025年评级报告(7月)",
+            "url": "https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3161829&priority=0&mode=save",
+            "output_path": "评级报告/2025年度浙江余姚工业园区开发建设投资有限公司信用评级报告(7月).pdf",
+            "retries": 3
+        }
+    ]
+}
