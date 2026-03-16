@@ -91,6 +91,7 @@ python financial-analyzer/scripts/financial_analyzer.py \
 - `chapter_records.jsonl`
 - `focus_list.json`
 - `final_data.json`
+- `soul_export_payload.json`
 - `pending_updates.json`
 - `analysis_report.md`
 - `financial_output.xlsx`
@@ -105,6 +106,7 @@ python financial-analyzer/scripts/financial_analyzer.py \
 2. `chapter_records.jsonl` 每条记录都包含核心字段：`chapter_no`、`chapter_title`、`status`、`summary`。
 3. `focus_list.json` 不为空，且每个 focus 都有 `evidence_chapters`。
 4. `final_data.json` 至少包含：`entity_profile`、`key_conclusions`、`topic_results`。
+5. `soul_export_payload.json` 至少包含固定骨架模块、`module_manifest` 和 `evidence_index`。
 5. `pending_updates.json` 中每条候选项都包含：
    `source`、`evidence`、`applicable_scope`、`status`、`introduced_in`、`confidence`。
 
@@ -139,4 +141,4 @@ python financial-analyzer/scripts/financial_analyzer.py \
 
 - 新格式先记录到 `pending_updates.json`，不要直接写死到主脚本。
 - 记录新的附注定位关键词、编号样式、标题变体、边界现象。
-- 调整产物契约时读取 `references/open_record_protocol.md` 和 `references/output_contract.md`。
+- 调整产物契约时读取 `references/open_record_protocol.md`、`references/output_contract.md` 和 `references/soul_export_contract.md`。

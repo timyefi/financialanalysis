@@ -56,6 +56,7 @@
 - `chapter_records.jsonl`
 - `focus_list.json`
 - `final_data.json`
+- `soul_export_payload.json`
 - `pending_updates.json`
 
 ### 5.3 原始与中间数据
@@ -421,6 +422,7 @@ Git 协作约束：
 - `spreadsheet` skill 已调研并安装
 - Excel 案例盘点脚本已补充
 - Git 已收敛为单分支策略：本地与远程默认只保留 `main`
+- `financial_analyzer.py` 已新增 `soul_export_payload.json`，用于承接 Soul 固定骨架与可选模块导出契约
 
 ### 进行中
 
@@ -439,6 +441,7 @@ Git 协作约束：
 - `soul_excel_spec_v1.md` 负责：Soul 的结构规范。
 - `soul_excel_case_analysis.md` 负责：基于案例的结构归纳依据。
 - `excel_skill_adoption_plan.md` 负责：Excel 生成技术路线与工具选择。
+- `financial-analyzer/references/soul_export_contract.md` 负责：Soul 导出 JSON 契约。
 - `codex_execution_runbook.md` 负责：如何实际开启和组织多个 Codex 执行线程。
 
 ## 16. 后续维护要求

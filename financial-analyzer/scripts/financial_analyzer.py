@@ -24,7 +24,7 @@ if sys.platform == "win32":
         pass
 
 
-ENGINE_VERSION = "3.0.0"
+ENGINE_VERSION = "3.1.0"
 
 TOPIC_PATTERNS = {
     "audit": ["核数师", "审计", "审计意见", "保留意见", "无法表示意见", "否定意见"],
@@ -73,10 +73,33 @@ SEVERITY_SCORE = {
     "low": 20,
 }
 
+RISK_LABELS = {
+    "extreme_audit_issue": "极端审计意见风险",
+    "high_audit_issue": "审计或持续经营提示",
+    "litigation_or_default": "违约或诉讼风险",
+    "liquidity_pressure": "流动性与再融资压力",
+    "asset_impairment": "资产减值或公允价值下行压力",
+    "restricted_cash": "受限资金占用风险",
+    "interest_capitalization": "资本化利息口径风险",
+    "guarantee_exposure": "担保敞口风险",
+    "fx_or_rate_exposure": "汇率或利率敞口风险",
+}
+
+FORMAL_TOPIC_MODULES = {
+    "investment_property": "投资性房地产",
+    "lgfv_features": "城投平台特征",
+    "inventory_quality": "存货质量",
+    "external_guarantees": "对外担保",
+}
+
 
 def read_text(path):
     with open(path, "r", encoding="utf-8") as handle:
         return handle.read()
+
+
+def now_iso():
+    return datetime.datetime.now().astimezone().isoformat(timespec="seconds")
 
 
 def write_json(path, payload):
@@ -659,6 +682,788 @@ def build_final_data(report_context, chapter_records, focus_list):
     }
 
 
+def chapter_context_text(record):
+    parts = [record["summary"]]
+    parts.extend(item["content"] for item in record.get("evidence", []))
+    parts.extend(item["detail"] for item in record.get("findings", []))
+    parts.extend(item["evidence"] for item in record.get("numeric_data", []))
+    for anomaly in record.get("anomalies", []):
+        parts.extend(anomaly.get("evidence", []))
+    return "\n".join(item for item in parts if item)
+
+
+def infer_industry_tag(chapter_records):
+    topic_tags = set()
+    for record in chapter_records:
+        topic_tags.update(record["attributes"].get("topic_tags", []))
+
+    if "investment_property" in topic_tags:
+        return "property"
+    if "lgfv_features" in topic_tags or any("城投" in tag for tag in topic_tags):
+        return "lgfv"
+    return "general"
+
+
+def normalize_amount_value(raw_value, evidence, currency, prefer_large_unit=False):
+    if raw_value is None:
+        return None, ""
+
+    evidence = evidence or ""
+    currency_prefix = {
+        "HKD": "HKD",
+        "USD": "USD",
+        "CNY": "CNY",
+    }.get(currency, currency or "")
+
+    if "%" in evidence:
+        return raw_value, "%"
+
+    if "倍" in evidence:
+        return raw_value, "x"
+
+    if "亿元" in evidence or "亿港元" in evidence or "亿美元" in evidence:
+        return raw_value, f"{currency_prefix}_100m"
+
+    if "百万元" in evidence or "百萬元" in evidence:
+        if prefer_large_unit:
+            return round(raw_value / 100.0, 2), f"{currency_prefix}_100m"
+        return raw_value, f"{currency_prefix}_mn"
+
+    if prefer_large_unit and raw_value >= 1000:
+        return round(raw_value / 100.0, 2), f"{currency_prefix}_100m"
+
+    if raw_value >= 1000:
+        return raw_value, f"{currency_prefix}_mn"
+
+    return raw_value, ""
+
+
+def make_metric_fact(
+    metric_code,
+    label,
+    value,
+    unit,
+    period,
+    source_status,
+    evidence_refs=None,
+    comparison=None,
+    benchmark=None,
+    risk_level="unknown",
+):
+    return {
+        "metric_code": metric_code,
+        "label": label,
+        "value": value,
+        "unit": unit,
+        "period": period,
+        "comparison": comparison,
+        "benchmark": benchmark,
+        "risk_level": risk_level,
+        "source_status": source_status,
+        "evidence_refs": evidence_refs or [],
+    }
+
+
+def make_table_row(
+    row_code,
+    label,
+    values,
+    source_status,
+    evidence_refs=None,
+    commentary="",
+):
+    return {
+        "row_code": row_code,
+        "label": label,
+        "values": values,
+        "commentary": commentary,
+        "source_status": source_status,
+        "evidence_refs": evidence_refs or [],
+    }
+
+
+def make_manifest_item(sheet_name, module_key, module_type, required, enabled, title, empty_state):
+    return {
+        "sheet_name": sheet_name,
+        "module_key": module_key,
+        "module_type": module_type,
+        "required": required,
+        "enabled": enabled,
+        "title": title,
+        "empty_state": empty_state,
+    }
+
+
+def risk_level_from_value(metric_code, value):
+    if value is None:
+        return "unknown"
+    if metric_code == "net_debt_to_equity":
+        if value >= 60:
+            return "high"
+        if value >= 40:
+            return "medium"
+        return "low"
+    if metric_code == "cash_to_short_term_debt":
+        if value < 1:
+            return "high"
+        if value < 1.5:
+            return "medium"
+        return "low"
+    return "medium"
+
+
+def build_soul_export_payload(report_context, notes_work, run_dir, final_data, focus_list, chapter_records):
+    period = report_context["report_period"]
+    period_end = f"{period}-12-31" if period else ""
+    currency = report_context["currency"]
+    source_artifacts = {
+        "run_manifest": str(run_dir / "run_manifest.json"),
+        "chapter_records": str(run_dir / "chapter_records.jsonl"),
+        "focus_list": str(run_dir / "focus_list.json"),
+        "final_data": str(run_dir / "final_data.json"),
+        "analysis_report": str(run_dir / "analysis_report.md"),
+        "financial_output": str(run_dir / "financial_output.xlsx"),
+        "notes_workfile": notes_work["path"],
+    }
+
+    evidence_index = []
+    next_evidence_id = 1
+
+    def add_evidence(field_path, sheet_name, excerpt, confidence="medium", record=None, source_document="annual_report_notes"):
+        nonlocal next_evidence_id
+        clean_excerpt = shorten(clean_line(excerpt), limit=160)
+        if not clean_excerpt:
+            return []
+
+        evidence_id = f"EVD-{next_evidence_id:04d}"
+        next_evidence_id += 1
+        note_no = None
+        line_span = {"start": None, "end": None}
+        chapter_no = None
+        chapter_title = ""
+        if record:
+            note_no = record["attributes"].get("note_no")
+            line_span = record["attributes"].get("line_span", line_span)
+            chapter_no = record.get("chapter_no")
+            chapter_title = record.get("chapter_title", "")
+
+        evidence_index.append({
+            "evidence_id": evidence_id,
+            "field_path": field_path,
+            "sheet_name": sheet_name,
+            "excerpt": clean_excerpt,
+            "source_document": source_document,
+            "chapter_no": chapter_no,
+            "chapter_title": chapter_title,
+            "note_no": note_no,
+            "line_span": line_span,
+            "confidence": confidence,
+        })
+        return [evidence_id]
+
+    topic_records = collections.defaultdict(list)
+    for record in chapter_records:
+        for tag in record["attributes"].get("topic_tags", []):
+            topic_records[tag].append(record)
+
+    def records_for_tags(*tags):
+        results = []
+        seen = set()
+        for tag in tags:
+            for record in topic_records.get(tag, []):
+                if record["chapter_no"] not in seen:
+                    results.append(record)
+                    seen.add(record["chapter_no"])
+        return results
+
+    def pick_record(records, title_keyword=None):
+        if title_keyword:
+            for record in records:
+                if title_keyword in record["chapter_title"]:
+                    return record
+        return records[0] if records else None
+
+    def search_record(record, pattern, flags=0):
+        if not record:
+            return None
+        match = re.search(pattern, chapter_context_text(record), flags)
+        if not match:
+            return None
+        raw_value = numeric_value(match.group(1))
+        return {
+            "value": raw_value,
+            "excerpt": shorten(clean_line(match.group(0)), limit=160),
+            "record": record,
+        }
+
+    debt_records = records_for_tags("debt", "liquidity", "risk_management")
+    cash_records = records_for_tags("cash")
+    profitability_records = records_for_tags("profitability")
+    investment_property_records = records_for_tags("investment_property")
+
+    debt_record = pick_record(debt_records, "借贷")
+    cash_record = pick_record(cash_records, "现金")
+    profitability_record = profitability_records[0] if profitability_records else None
+
+    debt_total = search_record(debt_record, r"银行贷款及其他借贷总额\s*\(?([\d,]+(?:\.\d+)?)", re.S)
+    short_term_debt = search_record(debt_record, r"列入流动负债下一年内到期款项\s*\(?([\d,]+(?:\.\d+)?)", re.S)
+    net_debt = search_record(cash_record, r"净债项\s*\(?([\d,]+(?:\.\d+)?)", re.S)
+    unused_credit = search_record(debt_record, r"未动用的银行承诺信贷额度[^\d]*港币([\d.]+)亿元", re.S)
+    mtn_remainder = search_record(debt_record, r"等值港币([\d.]+)亿元", re.S)
+    covenant_linked = search_record(debt_record, r"账面值港币([\d.]+)亿元[^。]*借贷受财务契约限制", re.S)
+    cash_equiv = search_record(cash_record, r"现金及现金等价物\s*\(?([\d,]+(?:\.\d+)?)", re.S)
+    cash_deposits = search_record(cash_record, r"现金及银行存款\s*\(?([\d,]+(?:\.\d+)?)", re.S)
+    net_debt_to_equity = search_record(profitability_record, r"净债项股权比率\s*([\d.]+)%", re.S)
+    bank_rate = re.search(r"按([\d.]+)%至([\d.]+)%", chapter_context_text(debt_record) if debt_record else "", re.S)
+    bond_coupon = re.search(r"票面年利率为([\d.]+)%至([\d.]+)%", chapter_context_text(debt_record) if debt_record else "", re.S)
+    debt_compliance = "compliant" if debt_record and "完全遵守" in chapter_context_text(debt_record) else "unknown"
+
+    overview_highlights = []
+    locator_excerpt = "；".join(item.get("excerpt", "") for item in notes_work["locator_evidence"][:2] if item.get("excerpt"))
+    locator_refs = add_evidence(
+        "overview.report_highlights.locator",
+        "00_overview",
+        locator_excerpt or "附注定位成功",
+        confidence="high",
+        source_document="notes_workfile",
+    )
+    overview_highlights.append({
+        "title": "附注定位",
+        "detail": f"已定位附注区间 {notes_work['notes_catalog'][0]['note_no']} - {notes_work['notes_catalog'][-1]['note_no']}",
+        "evidence_refs": locator_refs,
+    })
+    overview_highlights.append({
+        "title": "附注覆盖",
+        "detail": f"当前覆盖 {len(chapter_records)} 个附注章节",
+        "evidence_refs": [],
+    })
+
+    seen_risks = set()
+    key_risks = []
+    for record in chapter_records:
+        for anomaly in record["anomalies"]:
+            signal_name = anomaly["signal_name"]
+            if signal_name in seen_risks:
+                continue
+            seen_risks.add(signal_name)
+            risk_refs = []
+            for excerpt in anomaly.get("evidence", [])[:1]:
+                risk_refs.extend(
+                    add_evidence(
+                        f"overview.key_risks.{signal_name}",
+                        "00_overview",
+                        excerpt,
+                        confidence=anomaly["severity"],
+                        record=record,
+                    )
+                )
+            key_risks.append({
+                "risk_code": signal_name,
+                "label": RISK_LABELS.get(signal_name, signal_name),
+                "risk_level": anomaly["severity"],
+                "description": anomaly["impact_hint"],
+                "evidence_refs": risk_refs,
+            })
+            if len(key_risks) >= 5:
+                break
+        if len(key_risks) >= 5:
+            break
+
+    overview = {
+        "executive_summary": final_data["key_conclusions"][:5],
+        "key_risks": key_risks,
+        "rating_snapshot": [],
+        "report_highlights": overview_highlights,
+    }
+
+    total_debt_value = None
+    total_debt_unit = ""
+    total_debt_refs = []
+    if debt_total:
+        total_debt_value, total_debt_unit = normalize_amount_value(
+            debt_total["value"],
+            debt_total["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        total_debt_refs = add_evidence(
+            "debt_profile.totals.total_interest_bearing_debt",
+            "03_debt_profile",
+            debt_total["excerpt"],
+            record=debt_total["record"],
+        )
+
+    cash_value = None
+    cash_unit = ""
+    cash_refs = []
+    if cash_equiv:
+        cash_value, cash_unit = normalize_amount_value(
+            cash_equiv["value"],
+            cash_equiv["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        cash_refs = add_evidence(
+            "liquidity_and_covenants.cash_metrics.cash_and_cash_equiv",
+            "04_liquidity_and_covenants",
+            cash_equiv["excerpt"],
+            record=cash_equiv["record"],
+        )
+
+    short_term_value = None
+    short_term_unit = ""
+    short_term_refs = []
+    if short_term_debt:
+        short_term_value, short_term_unit = normalize_amount_value(
+            short_term_debt["value"],
+            short_term_debt["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        short_term_refs = add_evidence(
+            "debt_profile.maturity_buckets.within_1y",
+            "03_debt_profile",
+            short_term_debt["excerpt"],
+            record=short_term_debt["record"],
+        )
+
+    long_term_value = None
+    if total_debt_value is not None and short_term_value is not None:
+        long_term_value = round(total_debt_value - short_term_value, 2)
+
+    cash_short_ratio = None
+    if cash_value is not None and short_term_value not in (None, 0):
+        cash_short_ratio = round(cash_value / short_term_value, 2)
+
+    unused_credit_value = None
+    unused_credit_refs = []
+    if unused_credit:
+        unused_credit_value, unused_credit_unit = normalize_amount_value(
+            unused_credit["value"],
+            unused_credit["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        unused_credit_refs = add_evidence(
+            "liquidity_and_covenants.credit_lines.unused_committed_facility",
+            "04_liquidity_and_covenants",
+            unused_credit["excerpt"],
+            record=unused_credit["record"],
+        )
+    else:
+        unused_credit_unit = ""
+
+    mtn_value = None
+    mtn_refs = []
+    if mtn_remainder:
+        mtn_value, mtn_unit = normalize_amount_value(
+            mtn_remainder["value"],
+            mtn_remainder["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        mtn_refs = add_evidence(
+            "optional_modules.bond_detail.bonds.mtn_program",
+            "05_bond_detail",
+            mtn_remainder["excerpt"],
+            record=mtn_remainder["record"],
+        )
+    else:
+        mtn_unit = ""
+
+    covenant_value = None
+    covenant_refs = []
+    if covenant_linked:
+        covenant_value, covenant_unit = normalize_amount_value(
+            covenant_linked["value"],
+            covenant_linked["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        covenant_refs = add_evidence(
+            "liquidity_and_covenants.covenants.covenant_linked_debt",
+            "04_liquidity_and_covenants",
+            covenant_linked["excerpt"],
+            record=covenant_linked["record"],
+        )
+    else:
+        covenant_unit = ""
+
+    debt_profile = {
+        "totals": [
+            make_metric_fact(
+                "total_interest_bearing_debt",
+                "有息债务总额",
+                total_debt_value,
+                total_debt_unit,
+                period_end,
+                "direct" if debt_total else "manual_needed",
+                total_debt_refs,
+                risk_level="medium" if total_debt_value is not None else "unknown",
+            ),
+            make_metric_fact(
+                "net_debt",
+                "净债务",
+                *normalize_amount_value(net_debt["value"], net_debt["excerpt"], currency, prefer_large_unit=True)
+                if net_debt else (None, ""),
+                period_end,
+                "direct" if net_debt else "manual_needed",
+                add_evidence(
+                    "debt_profile.totals.net_debt",
+                    "03_debt_profile",
+                    net_debt["excerpt"],
+                    record=net_debt["record"],
+                ) if net_debt else [],
+                risk_level="medium" if net_debt else "unknown",
+            ),
+        ],
+        "maturity_buckets": [
+            make_table_row(
+                "within_1y",
+                "一年内到期",
+                [{"period": period_end, "value": short_term_value, "unit": short_term_unit}],
+                "direct" if short_term_debt else "manual_needed",
+                short_term_refs,
+            ),
+            make_table_row(
+                "after_1y",
+                "一年后到期",
+                [{"period": period_end, "value": long_term_value, "unit": short_term_unit or total_debt_unit}],
+                "derived" if long_term_value is not None else "manual_needed",
+                short_term_refs + total_debt_refs if long_term_value is not None else [],
+            ),
+        ],
+        "financing_mix": [
+            make_table_row(
+                "bond",
+                "债券/票据",
+                [{"period": period_end, "value": mtn_value, "unit": mtn_unit}],
+                "direct" if mtn_remainder else "manual_needed",
+                mtn_refs,
+            ),
+        ],
+        "rate_profile": [
+            make_table_row(
+                "bank_loan_rate_range",
+                "银行贷款利率区间",
+                [{"period": period_end, "value": f"{bank_rate.group(1)}%~{bank_rate.group(2)}%" if bank_rate else None, "unit": "text"}],
+                "direct" if bank_rate else "manual_needed",
+                add_evidence(
+                    "debt_profile.rate_profile.bank_loan_rate_range",
+                    "03_debt_profile",
+                    bank_rate.group(0),
+                    record=debt_record,
+                ) if bank_rate else [],
+            ),
+            make_table_row(
+                "bond_coupon_range",
+                "债券票面利率区间",
+                [{"period": period_end, "value": f"{bond_coupon.group(1)}%~{bond_coupon.group(2)}%" if bond_coupon else None, "unit": "text"}],
+                "direct" if bond_coupon else "manual_needed",
+                add_evidence(
+                    "debt_profile.rate_profile.bond_coupon_range",
+                    "03_debt_profile",
+                    bond_coupon.group(0),
+                    record=debt_record,
+                ) if bond_coupon else [],
+            ),
+        ],
+        "debt_comments": [
+            {
+                "label": "契约约束借款",
+                "detail": f"{covenant_value}{covenant_unit}" if covenant_value is not None else "",
+                "source_status": "direct" if covenant_linked else "manual_needed",
+                "evidence_refs": covenant_refs,
+            },
+        ],
+    }
+
+    kpi_dashboard = {
+        "periods": [period],
+        "sections": [
+            {
+                "category": "leverage",
+                "metrics": [
+                    make_metric_fact(
+                        "net_debt_to_equity",
+                        "净债务/权益",
+                        net_debt_to_equity["value"] if net_debt_to_equity else None,
+                        "%",
+                        period_end,
+                        "direct" if net_debt_to_equity else "manual_needed",
+                        add_evidence(
+                            "kpi_dashboard.sections.leverage.net_debt_to_equity",
+                            "01_kpi_dashboard",
+                            net_debt_to_equity["excerpt"],
+                            record=net_debt_to_equity["record"],
+                        ) if net_debt_to_equity else [],
+                        risk_level=risk_level_from_value("net_debt_to_equity", net_debt_to_equity["value"] if net_debt_to_equity else None),
+                    ),
+                    make_metric_fact(
+                        "total_interest_bearing_debt",
+                        "有息债务总额",
+                        total_debt_value,
+                        total_debt_unit,
+                        period_end,
+                        "direct" if debt_total else "manual_needed",
+                        total_debt_refs,
+                    ),
+                ],
+            },
+            {
+                "category": "debt_service",
+                "metrics": [
+                    make_metric_fact(
+                        "cash_to_short_term_debt",
+                        "现金短债比",
+                        cash_short_ratio,
+                        "x",
+                        period_end,
+                        "derived" if cash_short_ratio is not None else "manual_needed",
+                        cash_refs + short_term_refs if cash_short_ratio is not None else [],
+                        risk_level=risk_level_from_value("cash_to_short_term_debt", cash_short_ratio),
+                    ),
+                    make_metric_fact(
+                        "unused_committed_facility",
+                        "未动用授信",
+                        unused_credit_value,
+                        unused_credit_unit,
+                        period_end,
+                        "direct" if unused_credit else "manual_needed",
+                        unused_credit_refs,
+                    ),
+                ],
+            },
+            {
+                "category": "profitability",
+                "metrics": [
+                    make_metric_fact(
+                        "operating_profit",
+                        "营业利润",
+                        None,
+                        "",
+                        period_end,
+                        "manual_needed",
+                    ),
+                ],
+            },
+            {
+                "category": "cashflow",
+                "metrics": [
+                    make_metric_fact(
+                        "operating_cash_flow",
+                        "经营现金流净额",
+                        None,
+                        "",
+                        period_end,
+                        "manual_needed",
+                    ),
+                ],
+            },
+        ],
+    }
+
+    liquidity_and_covenants = {
+        "cash_metrics": [
+            make_metric_fact(
+                "cash_and_cash_equiv",
+                "现金及现金等价物",
+                cash_value,
+                cash_unit,
+                period_end,
+                "direct" if cash_equiv else "manual_needed",
+                cash_refs,
+            ),
+            make_metric_fact(
+                "cash_and_bank_deposits",
+                "现金及银行存款",
+                *normalize_amount_value(cash_deposits["value"], cash_deposits["excerpt"], currency, prefer_large_unit=True)
+                if cash_deposits else (None, ""),
+                period_end,
+                "direct" if cash_deposits else "manual_needed",
+                add_evidence(
+                    "liquidity_and_covenants.cash_metrics.cash_and_bank_deposits",
+                    "04_liquidity_and_covenants",
+                    cash_deposits["excerpt"],
+                    record=cash_deposits["record"],
+                ) if cash_deposits else [],
+            ),
+        ],
+        "credit_lines": [
+            make_table_row(
+                "unused_bank_committed_facility",
+                "未动用银行承诺授信",
+                [{"period": period_end, "value": unused_credit_value, "unit": unused_credit_unit}],
+                "direct" if unused_credit else "manual_needed",
+                unused_credit_refs,
+            ),
+            make_table_row(
+                "mtn_program_headroom",
+                "中票/票据计划可发行余额",
+                [{"period": period_end, "value": mtn_value, "unit": mtn_unit}],
+                "direct" if mtn_remainder else "manual_needed",
+                mtn_refs,
+            ),
+        ],
+        "restricted_assets": [],
+        "covenants": [
+            {
+                "covenant_code": "debt_covenant_compliance",
+                "label": "财务契约合规",
+                "status": debt_compliance,
+                "restricted_debt": covenant_value,
+                "unit": covenant_unit,
+                "source_status": "direct" if covenant_linked else "manual_needed",
+                "evidence_refs": covenant_refs,
+            },
+        ],
+        "liquidity_observations": [
+            {
+                "label": "流动性信号",
+                "detail": "存在一年内到期债务与再融资管理要求。" if short_term_debt else "流动性关键信息待补充。",
+                "source_status": "derived" if short_term_debt else "manual_needed",
+                "evidence_refs": short_term_refs,
+            },
+        ],
+    }
+
+    financial_summary = {
+        "unit_label": f"{currency}_100m" if currency else "",
+        "statements": {
+            "balance_sheet": [],
+            "income_statement": [],
+            "cash_flow": [],
+        },
+        "coverage_note": "当前 notes-only 链路无法稳定生成摘要三表，已保留结构待后续标准化报表抽取补足。",
+    }
+
+    optional_modules = []
+    if mtn_remainder or re.search(r"债券|票据|中期票据|美元债", chapter_context_text(debt_record) if debt_record else ""):
+        optional_modules.append({
+            "module_key": "bond_detail",
+            "sheet_name": "05_bond_detail",
+            "module_type": "optional",
+            "title": "债券明细",
+            "payload": {
+                "bonds": [
+                    {
+                        "instrument_name": "中期票据计划余额" if mtn_remainder else "债券/票据",
+                        "balance": mtn_value,
+                        "unit": mtn_unit,
+                        "coupon_range": f"{bond_coupon.group(1)}%~{bond_coupon.group(2)}%" if bond_coupon else "",
+                        "issue_date": "",
+                        "maturity_date": "",
+                        "terms": "",
+                        "guarantee": "",
+                        "source_status": "direct" if mtn_remainder else "manual_needed",
+                        "evidence_refs": mtn_refs or (
+                            add_evidence(
+                                "optional_modules.bond_detail.bonds.fallback",
+                                "05_bond_detail",
+                                debt_record["summary"],
+                                record=debt_record,
+                            ) if debt_record else []
+                        ),
+                    }
+                ],
+            },
+        })
+
+    for topic_key, display_name in FORMAL_TOPIC_MODULES.items():
+        if topic_key not in topic_records and topic_key not in final_data["topic_results"]:
+            continue
+        topic_record = pick_record(topic_records.get(topic_key, []))
+        topic_payload = final_data["topic_results"].get(topic_key, {})
+        topic_summary = topic_payload.get("summary") or (topic_record["summary"] if topic_record else "")
+        topic_refs = add_evidence(
+            f"optional_modules.topic_{topic_key}.summary",
+            f"08_topic_{topic_key}",
+            topic_summary,
+            record=topic_record,
+        ) if topic_summary and topic_record else []
+        section_items = []
+        if topic_record:
+            for numeric_item in topic_record.get("numeric_data", [])[:2]:
+                section_items.append({
+                    "label": numeric_item["label"],
+                    "value": numeric_item["value"],
+                    "unit": numeric_item["unit"],
+                    "source_status": "direct",
+                    "evidence_refs": add_evidence(
+                        f"optional_modules.topic_{topic_key}.sections.numeric",
+                        f"08_topic_{topic_key}",
+                        numeric_item["evidence"],
+                        record=topic_record,
+                    ),
+                })
+        optional_modules.append({
+            "module_key": f"topic_{topic_key}",
+            "sheet_name": f"08_topic_{topic_key}",
+            "module_type": "topic",
+            "title": display_name,
+            "payload": {
+                "topic_key": topic_key,
+                "display_name": display_name,
+                "summary": topic_summary,
+                "summary_evidence_refs": topic_refs,
+                "sections": [
+                    {
+                        "section_title": "案例要点",
+                        "items": section_items,
+                    }
+                ],
+                "ext_fields": {
+                    "risk_signals": topic_payload.get("extensions", {}).get("risk_signals", []),
+                },
+            },
+        })
+
+    module_manifest = [
+        make_manifest_item("00_overview", "overview", "fixed", True, True, "概览", "概览为空时保留执行摘要与风险骨架"),
+        make_manifest_item("01_kpi_dashboard", "kpi_dashboard", "fixed", True, True, "KPI 面板", "无法稳定识别的指标使用 null + source_status"),
+        make_manifest_item("02_financial_summary", "financial_summary", "fixed", True, True, "财务摘要", "notes-only 场景允许空载荷"),
+        make_manifest_item("03_debt_profile", "debt_profile", "fixed", True, True, "债务画像", "债务拆分不足时保留表头骨架"),
+        make_manifest_item("04_liquidity_and_covenants", "liquidity_and_covenants", "fixed", True, True, "流动性与契约", "缺少受限资产时保留空数组"),
+        make_manifest_item("99_evidence_index", "evidence_index", "fixed", True, True, "证据索引", "所有 evidence_refs 必须落地到该表"),
+    ]
+    for module in optional_modules:
+        module_manifest.append(
+            make_manifest_item(
+                module["sheet_name"],
+                module["module_key"],
+                module["module_type"],
+                False,
+                True,
+                module["title"],
+                "按适用性启用，可为空但不默认输出",
+            )
+        )
+
+    return {
+        "contract_version": "soul_export_v1",
+        "template_version": "soul_v1_1_alpha",
+        "generated_at": now_iso(),
+        "entity_profile": {
+            "company_name": final_data["entity_profile"]["company_name"],
+            "report_period": final_data["entity_profile"]["report_period"],
+            "currency": final_data["entity_profile"]["currency"],
+            "report_type": final_data["entity_profile"]["report_type"],
+            "audit_opinion": final_data["entity_profile"]["audit_opinion"],
+            "industry_tag": infer_industry_tag(chapter_records),
+            "input_file": final_data["entity_profile"]["input_file"],
+        },
+        "source_artifacts": source_artifacts,
+        "module_manifest": module_manifest,
+        "overview": overview,
+        "kpi_dashboard": kpi_dashboard,
+        "financial_summary": financial_summary,
+        "debt_profile": debt_profile,
+        "liquidity_and_covenants": liquidity_and_covenants,
+        "optional_modules": optional_modules,
+        "evidence_index": evidence_index,
+    }
+
+
 def report_scope_hint(topic_tags):
     if "investment_property" in topic_tags:
         return "适用于投资性房地产占比较高的地产企业"
@@ -917,6 +1722,7 @@ def build_manifest(md_path, notes_work, run_dir, report_context, chapter_records
             "chapter_records": str(run_dir / "chapter_records.jsonl"),
             "focus_list": str(run_dir / "focus_list.json"),
             "final_data": str(run_dir / "final_data.json"),
+            "soul_export_payload": str(run_dir / "soul_export_payload.json"),
             "pending_updates": str(run_dir / "pending_updates.json"),
             "analysis_report": str(run_dir / "analysis_report.md"),
             "financial_output": str(run_dir / "financial_output.xlsx"),
@@ -1030,6 +1836,14 @@ def main():
     focus_list = build_focus_list(chapter_records)
     final_data = build_final_data(report_context, chapter_records, focus_list)
     pending_updates = build_pending_updates(chapter_records)
+    soul_export_payload = build_soul_export_payload(
+        report_context,
+        notes_work,
+        run_dir,
+        final_data,
+        focus_list,
+        chapter_records,
+    )
     analysis_report = build_report_markdown(
         report_context,
         focus_list,
@@ -1052,6 +1866,7 @@ def main():
     write_jsonl(run_dir / "chapter_records.jsonl", chapter_records)
     write_json(run_dir / "focus_list.json", focus_list)
     write_json(run_dir / "final_data.json", final_data)
+    write_json(run_dir / "soul_export_payload.json", soul_export_payload)
     write_json(run_dir / "pending_updates.json", pending_updates)
 
     with open(run_dir / "analysis_report.md", "w", encoding="utf-8") as handle:

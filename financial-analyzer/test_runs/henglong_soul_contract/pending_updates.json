@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-16T19:13:37",
+    "required_fields": [
+      "source",
+      "evidence",
+      "applicable_scope",
+      "status",
+      "introduced_in",
+      "confidence"
+    ],
+    "governance_rule": "缺少元数据的候选项不能直接进入正式知识库。"
+  },
+  "items": [
+    {
+      "type": "topic_candidate",
+      "title": "现金及银行存款",
+      "proposal": "将章节主题“现金及银行存款”作为开放主题标签候选，等待更多案例验证。",
+      "source": "chapter_1",
+      "evidence": [
+        {
+          "source": "14 现金及银行存款",
+          "type": "summary",
+          "content": "# 14现金及银行存款 综合财务状况表的 现金及银行存款 10,303 减: 存款期大于三个月的银行存款 综合现金流量表的 现金及现金等价物 10,198 年内，本集团现金及银行存款按平均利率每年1.7%（2023年： $2 . 1 \\%$ ）计息；结算日现金及银行存款的货币种类分布如下： 港币 人民币 美元 2 164 10,303 银行贷款及其他借贷扣除现金及银行存款后，本集团于结算日之净债项如下： 银行贷款及其他借贷(附注17) 57,376 50,704 减: 现金及银行存款 (10,303) (5,352) 净债项 47,073 45,352"
+        },
+        {
+          "source": "14 现金及银行存款",
+          "type": "numeric_data",
+          "content": "现金及银行存款 10,303 减: 存款期大于三个月的银行存款 综合现金流量表的"
+        }
+      ],
+      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "medium"
+    },
+    {
+      "type": "field_candidate",
+      "title": "现金及现金等价物",
+      "proposal": "新增可选扩展字段“现金及现金等价物”，保留为案例级扩展载荷。",
+      "source": "chapter_1",
+      "evidence": [
+        {
+          "source": "14 现金及银行存款",
+          "type": "numeric_data",
+          "content": "现金及现金等价物 10,198"
+        }
+      ],
+      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "low"
+    },
+    {
+      "type": "topic_candidate",
+      "title": "应收账款及其他应收款",
+      "proposal": "将章节主题“应收账款及其他应收款”作为开放主题标签候选，等待更多案例验证。",
+      "source": "chapter_2",
+      "evidence": [
+        {
+          "source": "15 应收账款及其他应收款",
+          "type": "summary",
+          "content": "# 15应收账款及其他应收款 已计入应收账款及其他应收款之应收账款账龄分析（以到期日为基础）如下： 未逾期或逾期少于一个 个月 166 138 逾期一至三个月 16 9 逾期三个月以上 2 1 184 148 根据过往违约经验及可能影响租客偿还未清余额能力的前瞻性资料，本集团按个别租户情况评估及计提充足预期信用损失拨备；本集团信贷政策的详情载于附注27(c)"
+        },
+        {
+          "source": "15 应收账款及其他应收款",
+          "type": "numeric_data",
+          "content": "个月 166 138 逾期一至三个月 16 9 逾期三个月以上 2 1 184 148"
+        }
+      ],
+      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "medium"
+    },
+    {
+      "type": "field_candidate",
+      "title": "根据过往违约经验及可能影响租客偿还未清余额能力的前瞻性资料，本集团按个别租户情…",
+      "proposal": "新增可选扩展字段“根据过往违约经验及可能影响租客偿还未清余额能力的前瞻性资料，本集团按个别租户情…”，保留为案例级扩展载荷。",
+      "source": "chapter_2",
+      "evidence": [
+        {
+          "source": "15 应收账款及其他应收款",
+          "type": "numeric_data",
+          "content": "根据过往违约经验及可能影响租客偿还未清余额能力的前瞻性资料，本集团按个别租户情况评估及计提充足预期信用损失拨备。本集团信贷政策的详情载于附注27(c)。"
+        }
+      ],
+      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "low"
+    },
+    {
+      "type": "rule_candidate",
+      "title": "litigation_or_default",
+      "proposal": "补充“litigation_or_default”识别规则，并明确证据模式与适用范围。",
+      "source": "chapter_2",
+      "evidence": [
+        {
+          "source": "15 应收账款及其他应收款",
+          "type": "risk_signal",
+          "content": "未逾期或逾期少于一个"
+        },
+        {
+          "source": "15 应收账款及其他应收款",
+          "type": "risk_signal",
+          "content": "个月 166 138 逾期一至三个月 16 9 逾期三个月以上 2 1 184 148"
+        }
+      ],
+      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "high"
+    },
+    {
+      "type": "topic_candidate",
+      "title": "待售物业",
+      "proposal": "将章节主题“待售物业”作为开放主题标签候选，等待更多案例验证。",
+      "source": "chapter_3",
+      "evidence": [
+        {
+          "source": "16 待售物业",
+          "type": "summary",
+          "content": "# 16待售物业 -待售已建物业 -待售发展中物业 -待售已建物业 967 -待售发展中物业 13,489 14,223 截至2024年12月31日止年度，其中一个内地待售已建物业─由待售物业改变用途至租赁物业─转至投资物业，该账面值为港币3.54亿元（2023年：无）（附注10）；截至2023年12月31日止年度，其中一个位于香港的待售发展中物业改变拟定用途时转至发展中投资物业，该账面值为港币3.47亿元（附注10）"
+        },
+        {
+          "source": "16 待售物业",
+          "type": "numeric_data",
+          "content": "截至2024年12月31日止年度，其中一个内地待售已建物业─由待售物业改变用途至租赁物业─转至投资物业，该账面值为港币3.54亿元（2023年：无）（附注10）。"
+        }
+      ],
+      "applicable_scope": "适用于投资性房地产占比较高的地产企业",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "medium"
+    },
+    {
+      "type": "rule_candidate",
+      "title": "asset_impairment",
+      "proposal": "补充“asset_impairment”识别规则，并明确证据模式与适用范围。",
+      "source": "chapter_3",
+      "evidence": [
+        {
+          "source": "16 待售物业",
+          "type": "risk_signal",
+          "content": "截至2023年12月31日止年度，其中一个位于香港的待售发展中物业改变拟定用途时转至发展中投资物业，该账面值为港币3.47亿元（附注10）。该等物业于转换当日的公允价值为港币3.52亿元。该公允价值与账面值差额已在综合损益表的‘物业之公允价值减少’中计入。"
+        }
+      ],
+      "applicable_scope": "适用于投资性房地产占比较高的地产企业",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "high"
+    },
+    {
+      "type": "topic_candidate",
+      "title": "银行贷款及其他借贷",
+      "proposal": "将章节主题“银行贷款及其他借贷”作为开放主题标签候选，等待更多案例验证。",
+      "source": "chapter_4",
+      "evidence": [
+        {
+          "source": "17 银行贷款及其他借贷",
+          "type": "summary",
+          "content": "# 17银行贷款及其他借贷 于结算日，无抵押银行贷款及其他借贷之还款期如下： 银行贷款（附注17(a)） 一年内或即期 一年后但二年内 二年后但五年内 26,351 22,468 五年以上 42,654 37,235 其他借贷（附注17(b)） 一年内或即期 970 一年后但二年内 二年后但五年内 五年以上 400 14,920 13,663 57,574 50,898 减：未摊销之财务费用 银行贷款及其他借贷总额 57,376 50,704 列入流动负债下一年内到期款项 (9,340) (4,434) 48,036 46,270 (a)所有银行贷款按3.4%至7.0%（2023年：3.7%至6.9%）年利率计息；本集团账面值港币355.38亿元（2023年：港币314.56亿元）之若干借贷受财务契约限制，该等财务契约要求本集团或其子公司于任何时间之综合或其子公司有形资产净值不得低于及借贷占综合有形资产净值之比率不得高于规定水平"
+        },
+        {
+          "source": "17 银行贷款及其他借贷",
+          "type": "numeric_data",
+          "content": "于2024年12月31日，本集团拥有港币125.35亿元（2023年：港币157.17亿元）未动用的银行承诺信贷额度。"
+        }
+      ],
+      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "medium"
+    },
+    {
+      "type": "rule_candidate",
+      "title": "liquidity_pressure",
+      "proposal": "补充“liquidity_pressure”识别规则，并明确证据模式与适用范围。",
+      "source": "chapter_4",
+      "evidence": [
+        {
+          "source": "17 银行贷款及其他借贷",
+          "type": "risk_signal",
+          "content": "银行贷款（附注17(a)） 一年内或即期 一年后但二年内 二年后但五年内 26,351 22,468 五年以上 42,654 37,235 其他借贷（附注17(b)） 一年内或即期 970 一年后但二年内 二年后但五年内 五年以上 400 14,920 13,663 57,574 50,898 减：未摊销之财务费用…"
+        }
+      ],
+      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "status": "candidate",
+      "introduced_in": "3.1.0",
+      "confidence": "high"
+    }
+  ]
+}

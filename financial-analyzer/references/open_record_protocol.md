@@ -56,6 +56,30 @@
 
 各主题节点允许通过 `attributes` 和 `extensions` 自由增长。
 
+## Soul 导出契约
+
+`soul_export_payload.json` 是面向 Soul Excel 导出层的稳定接口，固定核心字段如下：
+
+- `contract_version`
+- `template_version`
+- `generated_at`
+- `entity_profile`
+- `source_artifacts`
+- `module_manifest`
+- `overview`
+- `kpi_dashboard`
+- `financial_summary`
+- `debt_profile`
+- `liquidity_and_covenants`
+- `optional_modules`
+- `evidence_index`
+
+要求：
+
+- 固定骨架模块必须始终存在，即使字段值为空。
+- 所有可追溯字段只能通过 `evidence_refs` 关联 `evidence_index`。
+- `pending_updates.json`、知识候选、内部治理元数据不得进入该契约。
+
 ## 运行清单
 
 `run_manifest.json` 需要显式记录附注工作流结果：

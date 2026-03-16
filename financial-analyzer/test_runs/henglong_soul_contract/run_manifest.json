@@ -1,0 +1,55 @@
+{
+  "engine_version": "3.1.0",
+  "status": "success",
+  "failure_reason": "",
+  "generated_at": "2026-03-16T19:13:37",
+  "input": {
+    "md_path": "/Users/yetim/project/financialanalysis/output/恒隆地产/恒隆地产2024年報/恒隆地产2024年報.md",
+    "md5": "9d36cb9983a4afbe6f5f93f676adb46e",
+    "file_size": 401466,
+    "notes_workfile": "/Users/yetim/project/financialanalysis/financial-analyzer/testdata/henglong_notes_workfile.json"
+  },
+  "entity": {
+    "company_name": "恒隆地产有限公司",
+    "report_period": "2024",
+    "report_type": "hong_kong_full_report",
+    "audit_opinion": "标准无保留"
+  },
+  "notes_locator": {
+    "status": "success",
+    "start_line": 3738,
+    "end_line": 4501,
+    "locator_evidence": [
+      {
+        "step": "keyword_search",
+        "keyword": "财务报表附注",
+        "excerpt": "# 财务报表附注"
+      },
+      {
+        "step": "sample_read",
+        "keyword": "17银行贷款及其他借贷",
+        "excerpt": "# 17银行贷款及其他借贷"
+      }
+    ]
+  },
+  "notes_catalog_summary": {
+    "note_chapter_count": 4,
+    "first_note": "14",
+    "last_note": "17"
+  },
+  "artifacts": {
+    "run_manifest": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/henglong_soul_contract/run_manifest.json",
+    "chapter_records": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/henglong_soul_contract/chapter_records.jsonl",
+    "focus_list": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/henglong_soul_contract/focus_list.json",
+    "final_data": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/henglong_soul_contract/final_data.json",
+    "soul_export_payload": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/henglong_soul_contract/soul_export_payload.json",
+    "pending_updates": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/henglong_soul_contract/pending_updates.json",
+    "analysis_report": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/henglong_soul_contract/analysis_report.md",
+    "financial_output": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/henglong_soul_contract/financial_output.xlsx"
+  },
+  "counts": {
+    "chapter_records": 4,
+    "focus_items": 6,
+    "pending_updates": 9
+  }
+}
