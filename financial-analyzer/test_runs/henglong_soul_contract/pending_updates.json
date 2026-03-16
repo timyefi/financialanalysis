@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-03-16T19:13:37",
+    "generated_at": "2026-03-16T20:58:54",
     "required_fields": [
       "source",
       "evidence",
@@ -168,7 +168,7 @@
           "content": "于2024年12月31日，本集团拥有港币125.35亿元（2023年：港币157.17亿元）未动用的银行承诺信贷额度。"
         }
       ],
-      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "applicable_scope": "适用于受限资金、抵押资产较多的地产或高杠杆主体",
       "status": "candidate",
       "introduced_in": "3.1.0",
       "confidence": "medium"
@@ -185,7 +185,7 @@
           "content": "银行贷款（附注17(a)） 一年内或即期 一年后但二年内 二年后但五年内 26,351 22,468 五年以上 42,654 37,235 其他借贷（附注17(b)） 一年内或即期 970 一年后但二年内 二年后但五年内 五年以上 400 14,920 13,663 57,574 50,898 减：未摊销之财务费用…"
         }
       ],
-      "applicable_scope": "适用于存在明显债务融资结构的发行人",
+      "applicable_scope": "适用于受限资金、抵押资产较多的地产或高杠杆主体",
       "status": "candidate",
       "introduced_in": "3.1.0",
       "confidence": "high"

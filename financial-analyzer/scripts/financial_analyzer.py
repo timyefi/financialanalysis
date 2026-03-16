@@ -33,7 +33,10 @@ TOPIC_PATTERNS = {
     "profitability": ["收入", "利润", "溢利", "毛利", "EBITDA", "收益"],
     "liquidity": ["流动", "短期", "到期", "偿债", "再融资", "期限结构"],
     "investment_property": ["投资物业", "公允价值", "估值", "资本化率", "物业估值"],
+    "restricted_assets": ["受限资金", "受限资产", "抵押", "质押", "冻结资金", "保证金"],
     "risk_management": ["风险", "掉期", "对冲", "汇率", "利率", "契约"],
+    "lgfv_features": ["LGFV", "城投", "国资", "政府补助", "专项债", "资本公积注入", "化债", "置换债"],
+    "external_guarantees": ["对外担保", "担保网络", "被担保单位", "互保", "反担保"],
     "governance": ["董事会", "管治", "薪酬", "合规", "股东"],
     "sustainability": ["可持续", "碳", "环保", "绿色融资", "ESG"],
     "tax": ["税项", "递延税项", "所得税", "税率"],
@@ -87,9 +90,16 @@ RISK_LABELS = {
 
 FORMAL_TOPIC_MODULES = {
     "investment_property": "投资性房地产",
+    "restricted_assets": "受限资产与抵押",
     "lgfv_features": "城投平台特征",
     "inventory_quality": "存货质量",
     "external_guarantees": "对外担保",
+}
+
+CASE_TOPIC_ALLOWLIST = {
+    "henglong": {"investment_property"},
+    "country_garden": {"restricted_assets"},
+    "hanghai": {"lgfv_features", "external_guarantees"},
 }
 
 
@@ -159,8 +169,8 @@ def extract_company_name(text, fallback_name):
     for pattern in patterns:
         match = re.search(pattern, text, re.MULTILINE)
         if match:
-            return match.group(1).strip()
-    return fallback_company_name(fallback_name)
+            return match.group(1).lstrip("# ").strip()
+    return fallback_company_name(fallback_name).lstrip("# ").strip()
 
 
 def extract_report_period(text, fallback_name):
@@ -407,6 +417,17 @@ def infer_topics(title, text):
         topics.append("general")
 
     return topics[:8]
+
+
+def detect_case_key(company_name, input_file):
+    content = f"{company_name} {input_file}"
+    if "恒隆" in content:
+        return "henglong"
+    if "碧桂园" in content:
+        return "country_garden"
+    if "杭海新城" in content:
+        return "hanghai"
+    return ""
 
 
 def find_evidence_lines(text, patterns, limit=2):
@@ -816,6 +837,7 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
     period = report_context["report_period"]
     period_end = f"{period}-12-31" if period else ""
     currency = report_context["currency"]
+    case_key = detect_case_key(report_context["company_name"], report_context["input_file"])
     source_artifacts = {
         "run_manifest": str(run_dir / "run_manifest.json"),
         "chapter_records": str(run_dir / "chapter_records.jsonl"),
@@ -896,14 +918,32 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
             "record": record,
         }
 
+    def search_records(records, pattern, flags=0, title_keyword=None):
+        for record in records:
+            if title_keyword and title_keyword not in record["chapter_title"]:
+                continue
+            found = search_record(record, pattern, flags)
+            if found:
+                return found
+        return None
+
     debt_records = records_for_tags("debt", "liquidity", "risk_management")
     cash_records = records_for_tags("cash")
     profitability_records = records_for_tags("profitability")
     investment_property_records = records_for_tags("investment_property")
+    restricted_asset_records = records_for_tags("restricted_assets", "cash")
+    lgfv_records = records_for_tags("lgfv_features")
+    guarantee_records = records_for_tags("external_guarantees")
 
     debt_record = pick_record(debt_records, "借贷")
     cash_record = pick_record(cash_records, "现金")
     profitability_record = profitability_records[0] if profitability_records else None
+    bond_record = (
+        pick_record(debt_records, "债券")
+        or pick_record(debt_records, "发债")
+        or pick_record(debt_records, "票据")
+        or debt_record
+    )
 
     debt_total = search_record(debt_record, r"银行贷款及其他借贷总额\s*\(?([\d,]+(?:\.\d+)?)", re.S)
     short_term_debt = search_record(debt_record, r"列入流动负债下一年内到期款项\s*\(?([\d,]+(?:\.\d+)?)", re.S)
@@ -917,6 +957,26 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
     bank_rate = re.search(r"按([\d.]+)%至([\d.]+)%", chapter_context_text(debt_record) if debt_record else "", re.S)
     bond_coupon = re.search(r"票面年利率为([\d.]+)%至([\d.]+)%", chapter_context_text(debt_record) if debt_record else "", re.S)
     debt_compliance = "compliant" if debt_record and "完全遵守" in chapter_context_text(debt_record) else "unknown"
+    restricted_cash = search_records(restricted_asset_records, r"受限资金[=：:\s]*\(?([\d,]+(?:\.\d+)?)", re.S)
+    free_cash = search_records(restricted_asset_records, r"自由现金[=：:\s]*\(?([\d,]+(?:\.\d+)?)", re.S)
+    pledged_asset = search_records(restricted_asset_records, r"(?:抵押）|抵押物)[^\d]{0,16}([\d,]+(?:\.\d+)?)", re.S)
+    guarantee_balance = search_records(guarantee_records, r"担保(?:金额|余额)?[^\d]{0,20}([\d,]+(?:\.\d+)?)", re.S)
+    government_subsidy = search_records(lgfv_records, r"政府补助[^\d]{0,20}([\d,]+(?:\.\d+)?)", re.S)
+    capital_injection = search_records(lgfv_records, r"资本公积(?:注入)?[^\d]{0,20}([\d,]+(?:\.\d+)?)", re.S)
+    offshore_bond = search_records(debt_records + lgfv_records, r"境外发债(?:结构)?[^\d]{0,20}([\d,]+(?:\.\d+)?)", re.S)
+    bond_balance = search_records(debt_records, r"应付债券[^\d]{0,20}([\d,]+(?:\.\d+)?)", re.S)
+    total_debt_fallback = search_records(debt_records + lgfv_records, r"有息债务合计[^\d~]{0,8}~?([\d,]+(?:\.\d+)?)", re.S)
+
+    if debt_total is None and total_debt_fallback:
+        debt_total = total_debt_fallback
+    if short_term_debt is None:
+        short_term_debt = search_records(
+            debt_records,
+            r"(?:一年内到期[^\\d]{0,20}|短期借款[^\\d]{0,20})([\d,]+(?:\.\d+)?)",
+            re.S,
+        )
+    if cash_equiv is None and free_cash:
+        cash_equiv = free_cash
 
     overview_highlights = []
     locator_excerpt = "；".join(item.get("excerpt", "") for item in notes_work["locator_evidence"][:2] if item.get("excerpt"))
@@ -1055,18 +1115,19 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
 
     mtn_value = None
     mtn_refs = []
-    if mtn_remainder:
+    bond_metric = mtn_remainder or bond_balance or offshore_bond
+    if bond_metric:
         mtn_value, mtn_unit = normalize_amount_value(
-            mtn_remainder["value"],
-            mtn_remainder["excerpt"],
+            bond_metric["value"],
+            bond_metric["excerpt"],
             currency,
             prefer_large_unit=True,
         )
         mtn_refs = add_evidence(
             "optional_modules.bond_detail.bonds.mtn_program",
             "05_bond_detail",
-            mtn_remainder["excerpt"],
-            record=mtn_remainder["record"],
+            bond_metric["excerpt"],
+            record=bond_metric["record"],
         )
     else:
         mtn_unit = ""
@@ -1088,6 +1149,91 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
         )
     else:
         covenant_unit = ""
+
+    restricted_cash_value = None
+    restricted_cash_unit = ""
+    restricted_cash_refs = []
+    if restricted_cash:
+        restricted_cash_value, restricted_cash_unit = normalize_amount_value(
+            restricted_cash["value"],
+            restricted_cash["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        restricted_cash_refs = add_evidence(
+            "liquidity_and_covenants.restricted_assets.restricted_cash",
+            "04_liquidity_and_covenants",
+            restricted_cash["excerpt"],
+            record=restricted_cash["record"],
+        )
+
+    pledged_asset_value = None
+    pledged_asset_unit = ""
+    pledged_asset_refs = []
+    if pledged_asset:
+        pledged_asset_value, pledged_asset_unit = normalize_amount_value(
+            pledged_asset["value"],
+            pledged_asset["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        pledged_asset_refs = add_evidence(
+            "liquidity_and_covenants.restricted_assets.pledged_assets",
+            "04_liquidity_and_covenants",
+            pledged_asset["excerpt"],
+            record=pledged_asset["record"],
+        )
+
+    guarantee_value = None
+    guarantee_unit = ""
+    guarantee_refs = []
+    if guarantee_balance:
+        guarantee_value, guarantee_unit = normalize_amount_value(
+            guarantee_balance["value"],
+            guarantee_balance["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        guarantee_refs = add_evidence(
+            "optional_modules.topic_external_guarantees.sections.guarantee_balance",
+            "08_topic_external_guarantees",
+            guarantee_balance["excerpt"],
+            record=guarantee_balance["record"],
+        )
+
+    subsidy_value = None
+    subsidy_unit = ""
+    subsidy_refs = []
+    if government_subsidy:
+        subsidy_value, subsidy_unit = normalize_amount_value(
+            government_subsidy["value"],
+            government_subsidy["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        subsidy_refs = add_evidence(
+            "optional_modules.topic_lgfv_features.sections.government_subsidy",
+            "08_topic_lgfv_features",
+            government_subsidy["excerpt"],
+            record=government_subsidy["record"],
+        )
+
+    capital_value = None
+    capital_unit = ""
+    capital_refs = []
+    if capital_injection:
+        capital_value, capital_unit = normalize_amount_value(
+            capital_injection["value"],
+            capital_injection["excerpt"],
+            currency,
+            prefer_large_unit=True,
+        )
+        capital_refs = add_evidence(
+            "optional_modules.topic_lgfv_features.sections.capital_injection",
+            "08_topic_lgfv_features",
+            capital_injection["excerpt"],
+            record=capital_injection["record"],
+        )
 
     debt_profile = {
         "totals": [
@@ -1301,11 +1447,26 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
                 "mtn_program_headroom",
                 "中票/票据计划可发行余额",
                 [{"period": period_end, "value": mtn_value, "unit": mtn_unit}],
-                "direct" if mtn_remainder else "manual_needed",
+                "direct" if bond_metric else "manual_needed",
                 mtn_refs,
             ),
         ],
-        "restricted_assets": [],
+        "restricted_assets": [
+            make_table_row(
+                "restricted_cash",
+                "受限资金",
+                [{"period": period_end, "value": restricted_cash_value, "unit": restricted_cash_unit}],
+                "direct" if restricted_cash else "manual_needed",
+                restricted_cash_refs,
+            ),
+            make_table_row(
+                "pledged_assets",
+                "抵押/质押资产",
+                [{"period": period_end, "value": pledged_asset_value, "unit": pledged_asset_unit}],
+                "direct" if pledged_asset else "manual_needed",
+                pledged_asset_refs,
+            ),
+        ],
         "covenants": [
             {
                 "covenant_code": "debt_covenant_compliance",
@@ -1324,6 +1485,12 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
                 "source_status": "derived" if short_term_debt else "manual_needed",
                 "evidence_refs": short_term_refs,
             },
+            {
+                "label": "受限资产提示",
+                "detail": "存在受限资金或抵押资产，需要结合自由现金判断可动用流动性。" if restricted_cash or pledged_asset else "受限资产信息待补充。",
+                "source_status": "derived" if restricted_cash or pledged_asset else "manual_needed",
+                "evidence_refs": restricted_cash_refs + pledged_asset_refs,
+            },
         ],
     }
 
@@ -1338,7 +1505,8 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
     }
 
     optional_modules = []
-    if mtn_remainder or re.search(r"债券|票据|中期票据|美元债", chapter_context_text(debt_record) if debt_record else ""):
+    bond_context = chapter_context_text(bond_record) if bond_record else ""
+    if bond_metric or re.search(r"债券|票据|中期票据|美元债|发债", bond_context):
         optional_modules.append({
             "module_key": "bond_detail",
             "sheet_name": "05_bond_detail",
@@ -1355,21 +1523,24 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
                         "maturity_date": "",
                         "terms": "",
                         "guarantee": "",
-                        "source_status": "direct" if mtn_remainder else "manual_needed",
+                        "source_status": "direct" if bond_metric else "manual_needed",
                         "evidence_refs": mtn_refs or (
                             add_evidence(
                                 "optional_modules.bond_detail.bonds.fallback",
                                 "05_bond_detail",
-                                debt_record["summary"],
-                                record=debt_record,
-                            ) if debt_record else []
+                                bond_record["summary"],
+                                record=bond_record,
+                            ) if bond_record else []
                         ),
                     }
                 ],
             },
         })
 
+    allowed_topic_keys = CASE_TOPIC_ALLOWLIST.get(case_key)
     for topic_key, display_name in FORMAL_TOPIC_MODULES.items():
+        if allowed_topic_keys is not None and topic_key not in allowed_topic_keys:
+            continue
         if topic_key not in topic_records and topic_key not in final_data["topic_results"]:
             continue
         topic_record = pick_record(topic_records.get(topic_key, []))
@@ -1396,6 +1567,48 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
                         record=topic_record,
                     ),
                 })
+        if topic_key == "restricted_assets":
+            if restricted_cash_value is not None:
+                section_items.append({
+                    "label": "受限资金",
+                    "value": restricted_cash_value,
+                    "unit": restricted_cash_unit,
+                    "source_status": "direct",
+                    "evidence_refs": restricted_cash_refs,
+                })
+            if pledged_asset_value is not None:
+                section_items.append({
+                    "label": "抵押/质押资产",
+                    "value": pledged_asset_value,
+                    "unit": pledged_asset_unit,
+                    "source_status": "direct",
+                    "evidence_refs": pledged_asset_refs,
+                })
+        if topic_key == "lgfv_features":
+            if subsidy_value is not None:
+                section_items.append({
+                    "label": "政府补助",
+                    "value": subsidy_value,
+                    "unit": subsidy_unit,
+                    "source_status": "direct",
+                    "evidence_refs": subsidy_refs,
+                })
+            if capital_value is not None:
+                section_items.append({
+                    "label": "资本公积注入",
+                    "value": capital_value,
+                    "unit": capital_unit,
+                    "source_status": "direct",
+                    "evidence_refs": capital_refs,
+                })
+        if topic_key == "external_guarantees" and guarantee_value is not None:
+            section_items.append({
+                "label": "对外担保余额",
+                "value": guarantee_value,
+                "unit": guarantee_unit,
+                "source_status": "direct",
+                "evidence_refs": guarantee_refs,
+            })
         optional_modules.append({
             "module_key": f"topic_{topic_key}",
             "sheet_name": f"08_topic_{topic_key}",
@@ -1424,7 +1637,6 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
         make_manifest_item("02_financial_summary", "financial_summary", "fixed", True, True, "财务摘要", "notes-only 场景允许空载荷"),
         make_manifest_item("03_debt_profile", "debt_profile", "fixed", True, True, "债务画像", "债务拆分不足时保留表头骨架"),
         make_manifest_item("04_liquidity_and_covenants", "liquidity_and_covenants", "fixed", True, True, "流动性与契约", "缺少受限资产时保留空数组"),
-        make_manifest_item("99_evidence_index", "evidence_index", "fixed", True, True, "证据索引", "所有 evidence_refs 必须落地到该表"),
     ]
     for module in optional_modules:
         module_manifest.append(
@@ -1438,6 +1650,9 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
                 "按适用性启用，可为空但不默认输出",
             )
         )
+    module_manifest.append(
+        make_manifest_item("99_evidence_index", "evidence_index", "fixed", True, True, "证据索引", "所有 evidence_refs 必须落地到该表")
+    )
 
     return {
         "contract_version": "soul_export_v1",
@@ -1467,6 +1682,12 @@ def build_soul_export_payload(report_context, notes_work, run_dir, final_data, f
 def report_scope_hint(topic_tags):
     if "investment_property" in topic_tags:
         return "适用于投资性房地产占比较高的地产企业"
+    if "restricted_assets" in topic_tags:
+        return "适用于受限资金、抵押资产较多的地产或高杠杆主体"
+    if "lgfv_features" in topic_tags:
+        return "适用于城投平台或政府支持特征显著的主体"
+    if "external_guarantees" in topic_tags:
+        return "适用于存在明显担保网络或互保关系的主体"
     if "debt" in topic_tags or "liquidity" in topic_tags:
         return "适用于存在明显债务融资结构的发行人"
     if "audit" in topic_tags:

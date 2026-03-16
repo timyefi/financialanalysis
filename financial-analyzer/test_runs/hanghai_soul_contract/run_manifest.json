@@ -1,0 +1,55 @@
+{
+  "engine_version": "3.1.0",
+  "status": "success",
+  "failure_reason": "",
+  "generated_at": "2026-03-16T20:58:55",
+  "input": {
+    "md_path": "/Users/yetim/project/financialanalysis/cases/杭海新城控股2024年年报分析.md",
+    "md5": "5f846ef686871c0ed0a34798051533d0",
+    "file_size": 4650,
+    "notes_workfile": "/Users/yetim/project/financialanalysis/financial-analyzer/testdata/hanghai_notes_workfile.json"
+  },
+  "entity": {
+    "company_name": "- **公司全称**: 浙江杭海新城控股集团有限公司",
+    "report_period": "2024",
+    "report_type": "nfmii_brief_report",
+    "audit_opinion": "未识别"
+  },
+  "notes_locator": {
+    "status": "success",
+    "start_line": 46,
+    "end_line": 84,
+    "locator_evidence": [
+      {
+        "step": "keyword_search",
+        "keyword": "附注关键发现",
+        "excerpt": "## 附注关键发现"
+      },
+      {
+        "step": "sample_read",
+        "keyword": "对外担保网络",
+        "excerpt": "### 6. 对外担保网络"
+      }
+    ]
+  },
+  "notes_catalog_summary": {
+    "note_chapter_count": 7,
+    "first_note": "1",
+    "last_note": "7"
+  },
+  "artifacts": {
+    "run_manifest": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/hanghai_soul_contract/run_manifest.json",
+    "chapter_records": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/hanghai_soul_contract/chapter_records.jsonl",
+    "focus_list": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/hanghai_soul_contract/focus_list.json",
+    "final_data": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/hanghai_soul_contract/final_data.json",
+    "soul_export_payload": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/hanghai_soul_contract/soul_export_payload.json",
+    "pending_updates": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/hanghai_soul_contract/pending_updates.json",
+    "analysis_report": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/hanghai_soul_contract/analysis_report.md",
+    "financial_output": "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/hanghai_soul_contract/financial_output.xlsx"
+  },
+  "counts": {
+    "chapter_records": 7,
+    "focus_items": 6,
+    "pending_updates": 12
+  }
+}

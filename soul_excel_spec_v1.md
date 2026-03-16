@@ -131,6 +131,7 @@ Soul 采用“固定骨架 + 可选标准模块 + 行业专题模块”的结构
 示例：
 
 - `08_topic_investment_property`
+- `08_topic_restricted_assets`
 - `08_topic_lgfv_features`
 - `08_topic_inventory_quality`
 - `08_topic_external_guarantees`

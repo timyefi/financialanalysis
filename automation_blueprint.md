@@ -407,7 +407,7 @@ Git 协作约束：
 截至 2026-03-16，建议优先级如下：
 
 1. 固化 Soul 数据契约和导出分层。
-2. 选两个差异化案例做 Excel 模板打样。
+2. 选三个差异化案例做 Excel 模板打样。
 3. 将 `financial_analyzer.py` 与 Soul 导出层拆开。
 4. 建立回归案例目录和运行校验。
 5. 再推进批处理和知识治理。
@@ -423,15 +423,18 @@ Git 协作约束：
 - Excel 案例盘点脚本已补充
 - Git 已收敛为单分支策略：本地与远程默认只保留 `main`
 - `financial_analyzer.py` 已新增 `soul_export_payload.json`，用于承接 Soul 固定骨架与可选模块导出契约
+- 已补充碧桂园、杭海新城控股的 `notes_workfile` 测试输入，可复现生成 3 个案例的 Soul 契约样本
+- 已新增独立 `soul_exporter.py`，可从 `soul_export_payload.json` 生成 Soul v1.1-alpha 工作簿
+- 已完成恒隆地产、碧桂园、杭海新城控股三案例的 Soul v1.1-alpha 样稿与 PDF/PNG 预览产物
+- 已验证首轮专题模块：`investment_property`、`restricted_assets`、`lgfv_features`、`external_guarantees`
 
 ### 进行中
 
-- 将 Soul 从概念规范推进为可执行导出模板
+- Financial Analysis -> Soul 导出层正式拆分
 
 ### 待启动
 
-- Financial Analysis -> Soul 数据契约拆分
-- 双案例模板打样
+- 将 `financial_analyzer.py` 的最终 Excel 导出切换为独立 Soul exporter
 - 批处理与任务编排
 - 知识审核与采纳流程
 

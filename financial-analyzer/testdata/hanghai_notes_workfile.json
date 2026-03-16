@@ -1,0 +1,81 @@
+{
+  "notes_start_line": 46,
+  "notes_end_line": 84,
+  "locator_evidence": [
+    {
+      "step": "keyword_search",
+      "keyword": "附注关键发现",
+      "excerpt": "## 附注关键发现"
+    },
+    {
+      "step": "sample_read",
+      "keyword": "对外担保网络",
+      "excerpt": "### 6. 对外担保网络"
+    }
+  ],
+  "notes_catalog": [
+    {
+      "note_no": "1",
+      "chapter_title": "1. 存货结构（LGFV典型）",
+      "start_line": 48,
+      "end_line": 54,
+      "evidence": [
+        "### 1. 存货结构（LGFV典型）"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "2. 应收账款（全部为政府单位）",
+      "start_line": 55,
+      "end_line": 59,
+      "evidence": [
+        "### 2. 应收账款（全部为政府单位）"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "3. 其他应收款（政府间往来）",
+      "start_line": 60,
+      "end_line": 64,
+      "evidence": [
+        "### 3. 其他应收款（政府间往来）"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "4. 长期应付款（三类需区分）",
+      "start_line": 65,
+      "end_line": 69,
+      "evidence": [
+        "### 4. 长期应付款（三类需区分）"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "5. 资本公积注入（政府支持的直接体现）",
+      "start_line": 70,
+      "end_line": 74,
+      "evidence": [
+        "### 5. 资本公积注入（政府支持的直接体现）"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "6. 对外担保网络",
+      "start_line": 75,
+      "end_line": 79,
+      "evidence": [
+        "### 6. 对外担保网络"
+      ]
+    },
+    {
+      "note_no": "7",
+      "chapter_title": "7. 境外发债结构",
+      "start_line": 80,
+      "end_line": 84,
+      "evidence": [
+        "### 7. 境外发债结构"
+      ]
+    }
+  ]
+}

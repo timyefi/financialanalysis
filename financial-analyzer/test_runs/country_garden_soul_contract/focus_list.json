@@ -3,87 +3,117 @@
     "focus_name": "asset_impairment",
     "why_selected": "基于章节证据密度与风险信号强度自动选出，需在综合分析时优先展开。",
     "evidence_chapters": [
-      3
+      4,
+      14,
+      29,
+      30
     ],
     "focus_attributes": {
       "severity": "high",
-      "score": 70,
-      "evidence_count": 1
+      "score": 280,
+      "evidence_count": 4
     },
     "related_topics": [
-      "investment_property",
-      "待售物业"
+      "restricted_assets",
+      "risk_management",
+      "信用减值损失",
+      "其他应收款",
+      "商誉",
+      "资产减值损失"
     ],
     "knowledge_gap": "待确认是否需要沉淀为正式规则",
     "impact_scope": [
-      "investment_property",
-      "待售物业"
+      "restricted_assets",
+      "risk_management",
+      "信用减值损失"
     ]
   },
   {
     "focus_name": "liquidity_pressure",
     "why_selected": "基于章节证据密度与风险信号强度自动选出，需在综合分析时优先展开。",
     "evidence_chapters": [
-      4
+      1,
+      19,
+      20,
+      23
     ],
     "focus_attributes": {
       "severity": "high",
-      "score": 70,
-      "evidence_count": 1
+      "score": 280,
+      "evidence_count": 4
     },
     "related_topics": [
+      "cash",
       "debt",
+      "investment_property",
       "liquidity",
-      "restricted_assets"
+      "restricted_assets",
+      "risk_management"
     ],
     "knowledge_gap": "待确认是否需要沉淀为正式规则",
     "impact_scope": [
+      "cash",
       "debt",
-      "liquidity",
-      "restricted_assets"
-    ]
-  },
-  {
-    "focus_name": "litigation_or_default",
-    "why_selected": "基于章节证据密度与风险信号强度自动选出，需在综合分析时优先展开。",
-    "evidence_chapters": [
-      2
-    ],
-    "focus_attributes": {
-      "severity": "high",
-      "score": 70,
-      "evidence_count": 1
-    },
-    "related_topics": [
-      "liquidity",
-      "应收账款及其他应收款"
-    ],
-    "knowledge_gap": "待确认是否需要沉淀为正式规则",
-    "impact_scope": [
-      "liquidity",
-      "应收账款及其他应收款"
+      "investment_property"
     ]
   },
   {
     "focus_name": "debt",
     "why_selected": "基于章节证据密度与风险信号强度自动选出，需在综合分析时优先展开。",
     "evidence_chapters": [
-      1,
-      4
+      2,
+      6,
+      10,
+      13,
+      18,
+      19,
+      20,
+      21,
+      23
     ],
     "focus_attributes": {
       "severity": "low",
-      "score": 40,
-      "evidence_count": 2
+      "score": 148,
+      "evidence_count": 9
+    },
+    "related_topics": [
+      "debt",
+      "investment_property",
+      "liquidity",
+      "profitability",
+      "restricted_assets",
+      "risk_management",
+      "交易性金融资产",
+      "固定资产",
+      "无形资产"
+    ],
+    "knowledge_gap": "已有主题，可继续补充案例证据",
+    "impact_scope": [
+      "debt",
+      "investment_property",
+      "liquidity"
+    ]
+  },
+  {
+    "focus_name": "restricted_cash",
+    "why_selected": "基于章节证据密度与风险信号强度自动选出，需在综合分析时优先展开。",
+    "evidence_chapters": [
+      1,
+      18,
+      20
+    ],
+    "focus_attributes": {
+      "severity": "medium",
+      "score": 135,
+      "evidence_count": 3
     },
     "related_topics": [
       "cash",
       "debt",
       "liquidity",
-      "restricted_assets",
-      "risk_management"
+      "restricted_assets"
     ],
-    "knowledge_gap": "已有主题，可继续补充案例证据",
+    "knowledge_gap": "待确认是否需要沉淀为正式规则",
     "impact_scope": [
       "cash",
       "debt",
@@ -91,45 +121,53 @@
     ]
   },
   {
-    "focus_name": "investment_property",
+    "focus_name": "guarantee_exposure",
     "why_selected": "基于章节证据密度与风险信号强度自动选出，需在综合分析时优先展开。",
     "evidence_chapters": [
-      3
+      9,
+      23
     ],
     "focus_attributes": {
-      "severity": "low",
-      "score": 16,
-      "evidence_count": 1
+      "severity": "medium",
+      "score": 90,
+      "evidence_count": 2
     },
     "related_topics": [
+      "debt",
       "investment_property",
-      "待售物业"
+      "liquidity",
+      "restricted_assets",
+      "risk_management",
+      "投资性房地产"
     ],
-    "knowledge_gap": "已有主题，可继续补充案例证据",
+    "knowledge_gap": "待确认是否需要沉淀为正式规则",
     "impact_scope": [
+      "debt",
       "investment_property",
-      "待售物业"
+      "liquidity"
     ]
   },
   {
-    "focus_name": "liquidity",
+    "focus_name": "litigation_or_default",
     "why_selected": "基于章节证据密度与风险信号强度自动选出，需在综合分析时优先展开。",
     "evidence_chapters": [
-      2
+      23
     ],
     "focus_attributes": {
-      "severity": "low",
-      "score": 12,
+      "severity": "high",
+      "score": 70,
       "evidence_count": 1
     },
     "related_topics": [
+      "debt",
       "liquidity",
-      "应收账款及其他应收款"
+      "risk_management"
     ],
-    "knowledge_gap": "已有主题，可继续补充案例证据",
+    "knowledge_gap": "待确认是否需要沉淀为正式规则",
     "impact_scope": [
+      "debt",
       "liquidity",
-      "应收账款及其他应收款"
+      "risk_management"
     ]
   }
 ]
