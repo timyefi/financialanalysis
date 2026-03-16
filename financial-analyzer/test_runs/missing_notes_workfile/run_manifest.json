@@ -1,0 +1,33 @@
+{
+  "engine_version": "3.0.0",
+  "status": "failed",
+  "failure_reason": "notes_workfile_missing",
+  "generated_at": "2026-03-16T11:19:57",
+  "input": {
+    "md_path": "C:\\Users\\Administrator\\Desktop\\项目\\信用工作流\\年报训练\\output\\恒隆地产\\恒隆地产2024年報\\恒隆地产2024年報.md",
+    "md5": "a8b5726fbcc2fbad290ada9d2e6f1e9f",
+    "file_size": 401512,
+    "notes_workfile": "C:\\Users\\Administrator\\Desktop\\项目\\信用工作流\\年报训练\\financial-analyzer\\testdata\\missing_notes_workfile.json"
+  },
+  "entity": {
+    "company_name": "恒隆地产有限公司",
+    "report_period": "2024",
+    "report_type": "hong_kong_full_report",
+    "audit_opinion": "标准无保留"
+  },
+  "notes_locator": {
+    "status": "failed",
+    "start_line": null,
+    "end_line": null,
+    "locator_evidence": []
+  },
+  "notes_catalog_summary": {
+    "note_chapter_count": 0,
+    "first_note": "",
+    "last_note": ""
+  },
+  "artifacts": {
+    "run_manifest": "C:\\Users\\Administrator\\Desktop\\项目\\信用工作流\\年报训练\\financial-analyzer\\test_runs\\missing_notes_workfile\\run_manifest.json"
+  },
+  "details": "notes_workfile 不存在: C:\\Users\\Administrator\\Desktop\\项目\\信用工作流\\年报训练\\financial-analyzer\\testdata\\missing_notes_workfile.json"
+}

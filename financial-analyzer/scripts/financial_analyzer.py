@@ -227,41 +227,55 @@ def load_notes_workfile(notes_workfile_path, total_lines):
     notes_start_line = payload["notes_start_line"]
     notes_end_line = payload["notes_end_line"]
     notes_catalog = payload["notes_catalog"]
+    locator_evidence = payload["locator_evidence"]
 
     if not isinstance(notes_start_line, int) or not isinstance(notes_end_line, int):
         raise ValueError("notes_start_line 和 notes_end_line 必须为整数")
     if notes_start_line < 1 or notes_end_line < notes_start_line or notes_end_line > total_lines:
         raise ValueError("附注区间无效")
+    if not isinstance(locator_evidence, list) or not locator_evidence:
+        raise ValueError("locator_evidence 不能为空")
     if not isinstance(notes_catalog, list) or not notes_catalog:
         raise ValueError("notes_catalog 不能为空")
 
     normalized_catalog = []
     required_note_fields = ["note_no", "chapter_title", "start_line", "end_line", "evidence"]
+    previous_end_line = notes_start_line - 1
     for index, note in enumerate(notes_catalog, start=1):
         missing_note_fields = [field for field in required_note_fields if field not in note]
         if missing_note_fields:
             raise ValueError(f"notes_catalog 第 {index} 项缺少字段: {', '.join(missing_note_fields)}")
 
+        chapter_title = str(note["chapter_title"]).strip()
         start_line = note["start_line"]
         end_line = note["end_line"]
+        evidence = note["evidence"]
+
+        if not chapter_title:
+            raise ValueError(f"notes_catalog 第 {index} 项 chapter_title 不能为空")
         if not isinstance(start_line, int) or not isinstance(end_line, int):
             raise ValueError(f"notes_catalog 第 {index} 项边界必须为整数")
         if start_line < notes_start_line or end_line > notes_end_line or end_line < start_line:
             raise ValueError(f"notes_catalog 第 {index} 项边界超出附注区间")
+        if start_line <= previous_end_line:
+            raise ValueError(f"notes_catalog 第 {index} 项边界未按顺序排列")
+        if not isinstance(evidence, list) or not evidence:
+            raise ValueError(f"notes_catalog 第 {index} 项 evidence 不能为空")
 
         normalized_catalog.append({
             "note_no": str(note["note_no"]).strip(),
-            "chapter_title": str(note["chapter_title"]).strip(),
+            "chapter_title": chapter_title,
             "start_line": start_line,
             "end_line": end_line,
-            "evidence": note["evidence"],
+            "evidence": evidence,
         })
+        previous_end_line = end_line
 
     return {
         "path": str(notes_workfile),
         "notes_start_line": notes_start_line,
         "notes_end_line": notes_end_line,
-        "locator_evidence": payload["locator_evidence"],
+        "locator_evidence": locator_evidence,
         "notes_catalog": normalized_catalog,
     }
 

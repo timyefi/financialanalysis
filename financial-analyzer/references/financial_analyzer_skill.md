@@ -206,27 +206,18 @@
 - 净现比 = 经营现金流 / 净利润
 - 收现比 = 销售收现 / 营业收入
 
-### 步骤4：生成Excel
+### 步骤4：生成统一产物
 
-当数据已规范化为JSON后，使用 Python subprocess 模式执行：
+当附注定位、抽样确认和主附注目录已整理为 `notes_workfile` 后，统一调用主脚本：
 
-```python
-import subprocess
-import sys
-
-result = subprocess.run(
-    [sys.executable, 'scripts/generate_excel.py', 
-     '--data', '<json文件>', 
-     '--output', '<excel文件>',
-     '--industry', '<行业模板>'],
-    capture_output=True, text=True, encoding='utf-8'
-)
-print(result.stdout)
+```powershell
+python "C:\Users\Administrator\Desktop\项目\信用工作流\年报训练\financial-analyzer\scripts\financial_analyzer.py" `
+  --md "C:\path\report.md" `
+  --notes-workfile "C:\path\notes_workfile.json" `
+  --run-dir "C:\path\run_dir"
 ```
 
-**行业模板**：
-- `general` - 通用模板
-- `realestate` - 房地产模板
+主脚本只消费已确认附注章节，不再负责全文切章或自动定位附注。
 
 ## 输出Excel结构
 
