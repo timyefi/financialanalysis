@@ -52,6 +52,17 @@
 2. 一个线程只追求一个主交付物。
 3. 避免在同一线程里同时改采集、解析、分析、Excel、编排。
 
+### 2.3 Subagents 使用原则
+
+`subagents` 适合做边界清晰、可以并行汇总的子任务，不适合多人同时改同一个核心入口文件或同一个最终规范。
+
+当前项目建议如下：
+
+1. 主线程仍负责最终决策、主文档更新和核心入口整合。
+2. `subagents` 优先用于并行读取案例、汇总差异、验证失败路径、设计 QA 检查项。
+3. 不要让多个 `subagents` 同时改同一个主脚本、同一个契约文件或同一个批处理入口。
+4. 如果使用 `subagents`，主线程结束前仍应统一回写 `automation_blueprint.md` 和相关规范文档。
+
 ## 3. 什么时候要新开对话
 
 满足以下任一条件，就应该新开对话，而不是继续在旧线程里叠加：
@@ -64,20 +75,21 @@
 
 ## 4. 当前剩余执行顺序
 
-基于 2026-03-16 当前仓库进展，W4 契约、W4 模板打样、W3/W4 导出分层已经落地；当前剩余主线建议如下：
+基于 2026-03-17 当前仓库进展，W4 契约、W4 模板打样、W3/W4 导出分层和 W6 最小回归已经落地；当前剩余主线建议如下：
 
 | 顺序 | 类型 | Workstream | 主目标 | 交付物 |
 |------|------|------------|--------|--------|
 | 0 | 总控线程 | PM | 维护蓝图、排序任务、审查结果 | 状态更新、下一步安排 |
-| 1 | 执行线程 | W6 | 完成多案例回归与质量检查 | 回归脚本/说明 + 3 案例验证结果 |
-| 2 | 执行线程 | W5 | 建立知识治理最小闭环 | 候选项汇总、分级规则、审核入口 |
+| 1 | 执行线程 | W5 | 建立知识治理最小闭环 | 候选项汇总、分级规则、审核入口 |
+| 2 | 并行增强轨 | W6.1 | 补齐更细粒度 QA | 失败路径回归、预览检查、golden diff 方案 |
 | 3 | 执行线程 | W7 | 任务编排与批处理 | 编排方案或入口脚本 |
 
 说明：
 
-- W4 与 W3/W4 不是取消，而是已完成的上游阶段；只有发现回归问题时才回头重开。
-- W5 现在应排在 W7 之前，因为仓库里已经有 3 个案例的 `pending_updates.json` 样本，也已有 `knowledge_manager.py` 的校验/汇总能力。
-- W7 不要早于 W5，否则批处理会先固化一条还没有知识治理边界的链路。
+- W4、W3/W4 和 W6 基线不是取消，而是已完成的上游阶段；只有发现回归问题时才回头重开。
+- W5 仍是主线程下一步，因为仓库里已经有 3 个案例的 `pending_updates.json` 样本，也已有 `knowledge_manager.py` 的校验/汇总能力。
+- `W6.1` 是当前最适合结合 `subagents` 的并行增强轨，可并行拆成失败路径、预览检查、golden diff 等侧任务。
+- W7 不要早于 W5/W6.1 的边界稳定，否则批处理会先固化一条知识治理和 QA 口径都未完全定型的链路。
 
 ## 5. 每次新线程的标准开场动作
 
@@ -275,7 +287,7 @@ git branch -r
 先阅读 AGENTS.md、automation_blueprint.md、excel_skill_adoption_plan.md，以及最新的 Soul 数据契约文档。当前聚焦 W3/W4 交界。请将 financial_analyzer 的最终 Excel 导出改为“先输出稳定契约，再调用独立 Soul 导出层”，并至少跑通 1 个案例验证。
 ```
 
-## 6.4 线程 D：W6 / 回归与质量检查（当前优先）
+## 6.4 线程 D：W6 / 回归与质量检查（已完成参考）
 
 ### 目标
 
@@ -312,7 +324,7 @@ git branch -r
 先阅读 AGENTS.md 和 automation_blueprint.md。当前聚焦 W6。请把现有多案例产物收敛为最小可用的回归检查，至少覆盖 run_manifest、analysis_report、soul_export_payload 和 Soul Excel 的生成结果，并用三个案例做验证，输出已知缺口清单。
 ```
 
-## 6.5 线程 E：W5 / 知识进化与治理（当前优先）
+## 6.5 线程 E：W5 / 知识进化与治理（当前主线程）
 
 ### 目标
 
@@ -346,6 +358,7 @@ git branch -r
 2. 能识别跨案例重复出现的主题、字段、规则候选。
 3. 能把“候选观察”与“正式采纳”明确隔离。
 4. 不会让 W5 的结果直接污染 Soul 导出契约。
+5. 主线程能把升级规则和审核入口回写到规范文档。
 
 ### 可直接复制的提示词
 
@@ -353,7 +366,58 @@ git branch -r
 先阅读 AGENTS.md、automation_blueprint.md、financial-analyzer/SKILL.md、financial-analyzer/references/output_contract.md、financial-analyzer/references/open_record_protocol.md，以及 financial-analyzer/scripts/knowledge_manager.py。当前聚焦 W5。请基于至少三个案例的 pending_updates.json，建立最小可用的知识治理闭环：完成候选项校验、跨案例汇总、candidate/validated/promoted 升级规则和审核入口设计，但不要直接批量写入 knowledge_base.json，也不要修改 Soul 结构。
 ```
 
-## 6.6 线程 F：W7 / 编排与批处理（后置）
+## 6.6 线程 F：W6.1 / 更细粒度 QA（适合结合 Subagents）
+
+### 目标
+
+- 在 W6 最小回归已通过的基础上，补齐失败路径回归、预览检查和内容级差异校验。
+
+### 开始前阅读
+
+- `automation_blueprint.md`
+- `AGENTS.md`
+- `financial-analyzer/scripts/run_w6_regression.py`
+- 最近一次 `w6_regression_report.md`
+
+### 推荐的 Subagents 拆法
+
+1. 一个子线程专门补失败路径回归，例如 `missing_notes_workfile`
+2. 一个子线程专门评估 workbook 预览或 PNG/PDF 视觉检查
+3. 一个子线程专门设计可持续的 golden diff 范围
+
+主线程负责：
+
+- 统一决定哪些检查正式纳入 W6.1
+- 合并到主回归脚本或主 QA 说明
+- 更新蓝图与执行手册
+
+### 本线程不做
+
+- 不重写 W5 升级规则
+- 不提前开始批处理编排
+- 不让多个子线程同时改同一个主回归入口
+
+### 交付物
+
+- W6.1 检查方案
+- 至少一个新增失败路径回归
+- 预览检查或 golden diff 的落地建议
+- 明确哪些检查先进入主线，哪些保留为后续增强
+
+### 验收标准
+
+1. 至少补上一条失败路径回归。
+2. 能说明预览检查是否值得进入主线。
+3. 能说明 golden diff 应比较哪些稳定字段，而不是比整个工作簿二进制。
+4. 使用 `subagents` 时，主线程仍能统一收敛结果并更新文档。
+
+### 可直接复制的提示词
+
+```text
+先阅读 AGENTS.md、automation_blueprint.md、financial-analyzer/scripts/run_w6_regression.py，以及最近一次 W6 回归结果。当前聚焦 W6.1。请在 W6 最小回归已通过的前提下，补齐失败路径回归、评估 workbook 预览检查和 golden diff 范围；如果适合，请使用 subagents 并行处理这些子问题，但主线程要统一整合结果，不要多人同时改同一个主回归入口。
+```
+
+## 6.7 线程 G：W7 / 编排与批处理（后置）
 
 ### 目标
 
@@ -413,16 +477,16 @@ git branch -r
 
 ## 9. 建议你现在就怎么开始
 
-如果你现在仍在收尾 W6，建议先用下面这句完成 W6：
-
-```text
-先阅读 AGENTS.md 和 automation_blueprint.md。当前聚焦 W6。请把现有多案例产物收敛为最小可用的回归检查，至少覆盖 run_manifest、analysis_report、soul_export_payload 和 Soul Excel 的生成结果，并用三个案例做验证，输出已知缺口清单。
-```
-
-如果 `W6` 已经收尾，下一执行线程建议直接从 `W5` 开始：
+如果你现在需要继续主线程，建议下一步直接开 `W5`：
 
 ```text
 先阅读 AGENTS.md、automation_blueprint.md、financial-analyzer/SKILL.md、financial-analyzer/references/output_contract.md、financial-analyzer/references/open_record_protocol.md，以及 financial-analyzer/scripts/knowledge_manager.py。当前聚焦 W5。请基于至少三个案例的 pending_updates.json，建立最小可用的知识治理闭环：完成候选项校验、跨案例汇总、candidate/validated/promoted 升级规则和审核入口设计，但不要直接批量写入 knowledge_base.json，也不要修改 Soul 结构。
 ```
 
-这是当前最能减少 `W7` 返工的一步。
+如果你想开始第一条真正适合使用 `subagents` 的并行增强轨，建议开 `W6.1`：
+
+```text
+先阅读 AGENTS.md、automation_blueprint.md、financial-analyzer/scripts/run_w6_regression.py，以及最近一次 W6 回归结果。当前聚焦 W6.1。请在 W6 最小回归已通过的前提下，补齐失败路径回归、评估 workbook 预览检查和 golden diff 范围；如果适合，请使用 subagents 并行处理这些子问题，但主线程要统一整合结果，不要多人同时改同一个主回归入口。
+```
+
+当前最稳的组合是：主线程先做 `W5`，并行增强轨再做 `W6.1`，最后才进入 `W7`。
