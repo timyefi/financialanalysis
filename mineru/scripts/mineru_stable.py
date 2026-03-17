@@ -6,6 +6,7 @@ MinerU Document Parser - 稳健串行版 (适合网络不稳定)
 """
 
 import argparse
+import json
 import os
 import sys
 import time
@@ -23,11 +24,23 @@ if sys.platform == 'win32':
         pass
 
 API_BASE = "https://mineru.net/api/v4"
+SCRIPT_DIR = Path(__file__).resolve().parent
+CONFIG_FILE = SCRIPT_DIR.parent / "config.json"
 
 SUPPORTED_EXTS = {
     ".pdf", ".docx", ".pptx",
     ".jpg", ".jpeg", ".png",
 }
+
+
+def load_config_token():
+    if not CONFIG_FILE.exists():
+        return ""
+    try:
+        payload = json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    return str(payload.get("token", "")).strip()
 
 
 def collect_files(path: Path) -> list[Path]:
@@ -39,7 +52,7 @@ def collect_files(path: Path) -> list[Path]:
 
 
 def get_token(args):
-    return args.token or os.environ.get("MINERU_TOKEN")
+    return args.token or os.environ.get("MINERU_TOKEN") or load_config_token()
 
 
 def headers(token):

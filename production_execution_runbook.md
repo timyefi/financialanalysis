@@ -257,6 +257,18 @@
 - 实际批次目录
 - 运行结果汇总
 - 失败与风险清单
+- 下载阶段 manifest、P5 总 manifest、batch task list
+
+### 当前实现约定
+
+- 统一入口：`financial-analyzer/scripts/run_p5_cold_start_simulation.py`
+- 上游输入固定为某次 P4 输出目录中的：
+  - `selection_manifest.json`
+  - `download_config.json`
+  - `task_seed_list.json`
+- 阶段 A 先做真实下载验证，并输出 `download_phase_manifest.json`
+- 只有当真实下载成功数 `>= 8/10` 时，才进入 MinerU、`notes_workfile`、batch task list 和 `run_batch_pipeline.py`
+- 若下载 gate 未通过，P5 必须在阶段 A 停止，并在 `p5_run_manifest.json` 中明确标记下载链路阻塞
 
 ### 本线程不做
 

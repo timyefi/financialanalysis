@@ -464,18 +464,28 @@ Subagents 协作约束：
 - 生产化 P4 已完成第一版：新增 [chinamoney/scripts/discover_reports.py](/Users/yetim/project/financialanalysis/chinamoney/scripts/discover_reports.py) 与 [financial-analyzer/scripts/generate_p4_test_entry.py](/Users/yetim/project/financialanalysis/financial-analyzer/scripts/generate_p4_test_entry.py)，可基于 ChinaMoney 官方 JSON 接口自动发现 2024 年报候选并生成 `selection_manifest.json`、`download_config.json`、`task_seed_list.json`
 - `chinamoney` 已完成第一版 API-first 升级：正式记录 `financeRepo` / `staYearAndType` 接口、会话预热要求、官方来源字段和与批量下载配置的映射
 - P4 已记录当前 ChinaMoney 下载网关约束：当前环境下附件 `HEAD/GET` 大量返回 `421 Misdirected Request`，因此选样链路已加入“本地案例尺寸校准 + 标题语义估算”的保守降级，并在 manifest 中记录 `content_length_source`
+- 生产化 P5 已完成第一版入口：新增 [financial-analyzer/scripts/run_p5_cold_start_simulation.py](/Users/yetim/project/financialanalysis/financial-analyzer/scripts/run_p5_cold_start_simulation.py)，按“两阶段”执行冷启动仿真，先生成下载阶段 manifest，再以真实下载成功 `>= 8/10` 作为下游闸门
+- P5 第一版已把下载成功样本到 MinerU / `notes_workfile` / batch task list / [financial-analyzer/scripts/run_batch_pipeline.py](/Users/yetim/project/financialanalysis/financial-analyzer/scripts/run_batch_pipeline.py) 的适配链路落地，并为 P5 输出独立 `p5_run_manifest.json`
+- P4 已新增官方镜像优先下载能力：`generate_p4_test_entry.py` 会为候选探测 CNInfo 官方 PDF 镜像，并将可用镜像直接写入 `download_config.json` / `task_seed_list.json`，从而绕开当前环境下 ChinaMoney 附件网关的 `421` 限流
+- 已验证新一轮 P4/P5：基于 [runtime/state/tmp/p4_auto_test_entry/20260317_163558](/Users/yetim/project/financialanalysis/runtime/state/tmp/p4_auto_test_entry/20260317_163558) 的 10 个 CNInfo 镜像样本，P5 下载阶段已在 [runtime/state/tmp/p5_cold_start/20260317_163658](/Users/yetim/project/financialanalysis/runtime/state/tmp/p5_cold_start/20260317_163658) 实现 `10/10` 下载成功并通过 `>= 8/10` gate
+- P5 准备阶段已补一轮韧性增强：`run_p5_cold_start_simulation.py` 现支持 `--resume-output-dir` 复用已下载 / 已解析产物、为单份 MinerU 增加最大尝试次数与耗时记录，并把“批量准备失败后必须全量重跑”的成本降下来
+- `mineru/scripts/mineru_stable.py` 已补 `mineru/config.json` token fallback；即使调用方未显式注入 `MINERU_TOKEN`，脚本自身也会先尝试读取本地配置，避免再次出现“manifest 记录 token_present=true、实际子进程却报未设置 token”的割裂状态
 
 ### 进行中
 
 - W5 后续项：基于 `financial-analyzer/test_runs/w5_knowledge_governance/` 的审核包做抽样复核，并设计独立的 apply 流程；当前仍不直接批量写入 `knowledge_base.json`
 - 更细粒度导出 QA 的剩余项：workbook 单元格级 golden diff、预览版式语义检查、`soul_export_failed` 等更深失败矩阵
-- W7 后续项：如需进入真正的全链路编排，应先把 ChinaMoney / MinerU 上游入口收敛为与当前 batch runner 一致的稳定 CLI，再考虑并入统一状态机
-- 生产化阶段进行中：P1/P2/P3/P4 已完成第一版；P5/P6 仍待推进
+- W7 后续项：如需进一步统一状态机，仍可在 P5 第一版编排已验证后，再评估是否把 ChinaMoney / MinerU 上游入口继续收敛为与当前 batch runner 更一致的 CLI
+- 生产化阶段进行中：P1/P2/P3/P4 已完成第一版，P5 已完成第一版入口与门槛控制，P6 仍待推进
+- 当前新的主阻塞已从下载切换为 MinerU/准备阶段：下载 gate 已通过，但 `notes_workfile` 生成前的 MinerU 解析仍需继续压测和收敛
+- 当前已确认单样本链路 `PDF -> MinerU Markdown -> notes_workfile` 可跑通，下一阶段重点不再是功能缺口，而是批量解析的耗时分布、偶发失败率和断点恢复效率
 
 ### 下一步
 
-- 先推进生产化 P5：基于 `runtime/state/tmp/p4_auto_test_entry/` 下生成的 `download_config.json` 与 `task_seed_list.json` 执行冷启动全真生产仿真。
-- P5 期间重点验证 ChinaMoney 下载网关、MinerU 解析、`notes_workfile` 补齐和 batch task list 转换链路。
+- 先基于最新 P4 输出目录实际运行 `financial-analyzer/scripts/run_p5_cold_start_simulation.py`，确认下载阶段 manifest 与 `>= 8/10` gate 是否通过。
+- 继续基于已通过下载 gate 的 [runtime/state/tmp/p5_cold_start/20260317_163658](/Users/yetim/project/financialanalysis/runtime/state/tmp/p5_cold_start/20260317_163658) 处理 MinerU、`notes_workfile`、batch task list 与 batch 结果，把当前阻塞从“下载”推进到“准备链路”。
+- 优先用带 `--resume-output-dir` 的 P5 重跑结果继续压测准备阶段，统计每份 PDF 的 MinerU 耗时与失败原因，再决定是否要上更激进的并发解析或更细粒度 retry 策略。
+- 保留 ChinaMoney 附件网关 `421` 作为环境级风险记录，但生产仿真默认应优先复用官方镜像样本，不再把附件网关是否恢复作为 P5 下载成功的唯一前提。
 - 最后整理生产化 P6：go-live checklist、人工复核点和回滚策略。
 
 ## 15. 与其他文档的关系

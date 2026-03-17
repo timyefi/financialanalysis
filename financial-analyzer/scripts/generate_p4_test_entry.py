@@ -14,6 +14,8 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+import requests
+
 from runtime_support import load_runtime_config, resolve_runtime_path
 
 
@@ -48,6 +50,9 @@ DEFAULT_PAGE_SIZE = 30
 DEFAULT_SAMPLE_COUNT = 10
 DEFAULT_RESERVE_COUNT = 5
 DEFAULT_MAX_HEAD_CHECKS = 60
+DEFAULT_CNINFO_LOOKUPS = 80
+CNINFO_SEARCH_URL = "https://www.cninfo.com.cn/new/hisAnnouncement/query"
+CNINFO_STATIC_BASE_URL = "https://static.cninfo.com.cn/"
 
 FINANCE_EXCLUDE_KEYWORDS = [
     "银行",
@@ -209,10 +214,13 @@ def better_candidate(left: Dict[str, Any], right: Dict[str, Any]) -> bool:
 
 def selection_reason(candidate: Dict[str, Any]) -> str:
     size_mb = (candidate.get("content_length") or 0) / 1024 / 1024
+    official_source = candidate.get("official_source", "")
+    official_text = official_source or "none"
     return (
         f"bucket={candidate['bucket']}; "
         f"size_mb={size_mb:.2f}; "
         f"size_source={candidate.get('content_length_source', 'unknown')}; "
+        f"official_source={official_text}; "
         f"release_date={candidate['release_date']}; "
         f"score={candidate['quality_score']:.2f}"
     )
@@ -552,6 +560,90 @@ def dedupe_candidates(qualified: List[Dict[str, Any]]) -> Tuple[List[Dict[str, A
     return list(deduped.values()), dedupe_events
 
 
+def cninfo_query_candidates(issuer_name: str) -> List[Dict[str, Any]]:
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "X-Requested-With": "XMLHttpRequest",
+        "Referer": "https://www.cninfo.com.cn/new/commonUrl/pageOfSearch?url=disclosure/list/search",
+        "Accept": "application/json, text/javascript, */*; q=0.01",
+    }
+    for column, plate in (("szse", "sz"), ("sse", "sh")):
+        response = requests.post(
+            CNINFO_SEARCH_URL,
+            headers=headers,
+            data={
+                "pageNum": "1",
+                "pageSize": "10",
+                "column": column,
+                "tabName": "fulltext",
+                "plate": plate,
+                "searchkey": issuer_name,
+                "secid": "",
+                "category": "category_ndbg_szsh;",
+            },
+            timeout=30,
+        )
+        response.raise_for_status()
+        payload = response.json()
+        announcements = payload.get("announcements") or []
+        if announcements:
+            return announcements
+    return []
+
+
+def resolve_cninfo_mirror(issuer_name: str) -> Dict[str, Any]:
+    announcements = cninfo_query_candidates(issuer_name)
+    for item in announcements:
+        title = str(item.get("announcementTitle", ""))
+        adjunct_url = str(item.get("adjunctUrl", ""))
+        if "2024年年度报告" not in title or "摘要" in title or not adjunct_url:
+            continue
+        pdf_url = CNINFO_STATIC_BASE_URL + adjunct_url.lstrip("/")
+        head_response = requests.head(pdf_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, allow_redirects=True)
+        head_response.raise_for_status()
+        content_length = int(head_response.headers.get("Content-Length") or 0)
+        return {
+            "official_source": "cninfo_static_pdf",
+            "official_download_url": pdf_url,
+            "official_content_length": content_length,
+            "official_announcement_title": title,
+            "official_announcement_id": str(item.get("announcementId", "")),
+            "official_adjunct_url": adjunct_url,
+            "official_sec_code": str(item.get("secCode", "")),
+            "official_sec_name": str(item.get("secName", "")),
+        }
+    return {}
+
+
+def enrich_candidates_with_official_mirrors(
+    candidates: List[Dict[str, Any]],
+    *,
+    max_lookups: int = DEFAULT_CNINFO_LOOKUPS,
+) -> List[Dict[str, Any]]:
+    ordered = sorted(
+        candidates,
+        key=lambda item: (
+            float(item["quality_score"]),
+            item.get("content_length") or 0,
+            item["release_date"],
+        ),
+        reverse=True,
+    )
+    for candidate in ordered[:max_lookups]:
+        try:
+            mirror = resolve_cninfo_mirror(candidate["issuer_name"])
+        except Exception as exc:
+            candidate["official_source_error"] = str(exc)
+            continue
+        if not mirror:
+            continue
+        candidate.update(mirror)
+        if int(mirror.get("official_content_length") or 0) > 0:
+            candidate["content_length"] = int(mirror["official_content_length"])
+            candidate["content_length_source"] = mirror["official_source"]
+    return candidates
+
+
 def choose_selected_and_reserve(
     deduped: List[Dict[str, Any]],
     *,
@@ -561,6 +653,7 @@ def choose_selected_and_reserve(
     ordered = sorted(
         deduped,
         key=lambda item: (
+            1 if item.get("official_download_url") else 0,
             float(item["quality_score"]),
             item.get("content_length") or 0,
             item["release_date"],
@@ -568,33 +661,16 @@ def choose_selected_and_reserve(
         reverse=True,
     )
 
-    bucket_counts = {bucket: 0 for bucket in DEFAULT_BUCKET_ORDER}
     selected: List[Dict[str, Any]] = []
     selected_ids = set()
-
-    for bucket in DEFAULT_BUCKET_ORDER:
-        for candidate in ordered:
-            if candidate["content_id"] in selected_ids:
-                continue
-            if candidate["bucket"] != bucket:
-                continue
-            if bucket_counts[bucket] >= BUCKET_TARGET or len(selected) >= sample_count:
-                break
-            selected.append(candidate)
-            selected_ids.add(candidate["content_id"])
-            bucket_counts[bucket] += 1
 
     for candidate in ordered:
         if len(selected) >= sample_count:
             break
         if candidate["content_id"] in selected_ids:
             continue
-        bucket = candidate["bucket"]
-        if bucket_counts.get(bucket, 0) >= BUCKET_CAP:
-            continue
         selected.append(candidate)
         selected_ids.add(candidate["content_id"])
-        bucket_counts[bucket] = bucket_counts.get(bucket, 0) + 1
 
     reserve: List[Dict[str, Any]] = []
     for candidate in ordered:
@@ -610,15 +686,18 @@ def choose_selected_and_reserve(
 def build_download_task(candidate: Dict[str, Any], out_dir: Path) -> Dict[str, Any]:
     filename = sanitize_filename(f"{candidate['title']}.pdf")
     relative_path = Path("downloads") / candidate["task_id"] / filename
+    effective_download_url = candidate.get("official_download_url") or candidate["download_url"]
     return {
         "name": candidate["title"],
-        "url": candidate["download_url"],
+        "url": effective_download_url,
         "output_path": str(relative_path),
         "retries": 3,
         "source": {
             "content_id": candidate["content_id"],
             "draft_page_url": candidate["draft_page_url"],
             "release_date": candidate["release_date"],
+            "official_source": candidate.get("official_source", ""),
+            "official_download_url": candidate.get("official_download_url", ""),
         },
     }
 
@@ -642,6 +721,9 @@ def build_task_seed(candidate: Dict[str, Any], out_dir: Path) -> Dict[str, Any]:
             "title": candidate["title"],
             "draft_page_url": candidate["draft_page_url"],
             "download_url": candidate["download_url"],
+            "effective_download_url": candidate.get("official_download_url") or candidate["download_url"],
+            "official_source": candidate.get("official_source", ""),
+            "official_download_url": candidate.get("official_download_url", ""),
             "release_date": candidate["release_date"],
             "content_length": candidate["content_length"],
         },
@@ -660,6 +742,11 @@ def make_candidate_summary(candidate: Dict[str, Any]) -> Dict[str, Any]:
         "release_date": candidate["release_date"],
         "draft_page_url": candidate["draft_page_url"],
         "download_url": candidate["download_url"],
+        "effective_download_url": candidate.get("official_download_url") or candidate["download_url"],
+        "official_source": candidate.get("official_source", ""),
+        "official_download_url": candidate.get("official_download_url", ""),
+        "official_announcement_title": candidate.get("official_announcement_title", ""),
+        "official_sec_code": candidate.get("official_sec_code", ""),
         "content_length": candidate["content_length"],
         "content_length_source": candidate.get("content_length_source", ""),
         "source_kind": candidate.get("source_kind", ""),
@@ -698,6 +785,7 @@ def main():
         max_head_checks=args.max_head_checks,
     )
     deduped, dedupe_events = dedupe_candidates(qualified)
+    deduped = enrich_candidates_with_official_mirrors(deduped)
 
     for candidate in deduped:
         candidate["task_id"] = ascii_task_id(candidate["content_id"])
@@ -752,6 +840,12 @@ def main():
                 "bucket_cap": BUCKET_CAP,
                 "bucket_order": DEFAULT_BUCKET_ORDER,
             },
+            "download_priority": [
+                "official_mirror_available",
+                "quality_score",
+                "content_length",
+                "release_date",
+            ],
         },
         "candidate_pool_summary": {
             "reported_total_records": market_payload["reported_total_records"],
@@ -761,6 +855,7 @@ def main():
             "repo_seed_issuer_count": market_payload.get("repo_seed_issuer_count", 0),
             "qualified_before_dedupe_count": len(qualified),
             "qualified_after_dedupe_count": len(deduped),
+            "official_mirror_candidate_count": sum(1 for item in deduped if item.get("official_download_url")),
             "excluded_count": len(excluded),
         },
         "dedupe_events": dedupe_events,
