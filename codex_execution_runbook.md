@@ -324,7 +324,7 @@ git branch -r
 先阅读 AGENTS.md 和 automation_blueprint.md。当前聚焦 W6。请把现有多案例产物收敛为最小可用的回归检查，至少覆盖 run_manifest、analysis_report、soul_export_payload 和 Soul Excel 的生成结果，并用三个案例做验证，输出已知缺口清单。
 ```
 
-## 6.5 线程 E：W5 / 知识进化与治理（当前主线程）
+## 6.5 线程 E：W5 / 知识进化与治理（已完成）
 
 ### 目标
 
