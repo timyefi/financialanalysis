@@ -66,6 +66,78 @@ python financial-analyzer/scripts/financial_analyzer.py \
   --run-dir /path/to/run_dir
 ```
 
+生产/批处理入口：
+
+- `scripts/run_batch_pipeline.py`
+- `scripts/knowledge_manager.py`
+
+推荐显式传入项目内 runtime 配置：
+
+```bash
+python financial-analyzer/scripts/run_batch_pipeline.py \
+  --runtime-config /abs/path/to/repo/runtime/runtime_config.json \
+  --task-list /path/to/task_list.json
+```
+
+```bash
+python financial-analyzer/scripts/knowledge_manager.py \
+  --runtime-config /abs/path/to/repo/runtime/runtime_config.json \
+  build-review-bundle \
+  --input /path/to/case_a/pending_updates.json /path/to/case_b/pending_updates.json /path/to/case_c/pending_updates.json \
+  --output-dir /path/to/output_dir
+```
+
+只有在当前工作目录本身位于项目仓库内时，才可以省略 `--runtime-config`，依赖自动发现。
+
+## 生产态 Runtime 绑定
+
+已安装 skill 在生产态必须绑定项目内 runtime，而不是把动态状态写回 `~/.codex/skills`。
+
+### `runtime_config` 发现顺序
+
+1. CLI 参数 `--runtime-config`
+2. 环境变量 `FINANCIAL_ANALYZER_RUNTIME_CONFIG`
+3. 从当前工作目录向上逐级搜索 `runtime/runtime_config.json`
+
+约束：
+
+- 不扫描 skill 安装目录。
+- 找不到配置时直接失败，不回退到 `financial-analyzer/test_runs/batches`。
+- `runtime_config.json`、`project_root`、`runtime_root`、`paths.*` 必须满足项目内 runtime 契约。
+
+### 找不到配置时的处理
+
+- `run_batch_pipeline.py` 和读取正式知识基线的 `knowledge_manager.py` 属于 runtime-bound 入口。
+- 找不到 `runtime_config.json`、配置非法、路径越界、或正式 `knowledge_base.json` 缺失时，命令必须直接失败并提示修复方式。
+- 运行态目录不存在时允许自动创建，但不会自动改写 skill 文档或 skill 目录内容。
+
+### 哪些内容必须走外部 runtime
+
+- `runtime/runtime_config.json`
+- `runtime/knowledge/knowledge_base.json`
+- `runtime/state/registry/processed_reports/processed_reports.json`
+- `runtime/state/batches/`
+- `runtime/state/governance_review/`
+- `runtime/state/logs/`
+- `runtime/state/tmp/`
+- 相关 lock、snapshot、batch 运行态文件
+
+### 哪些内容可以保留在项目仓库
+
+- `SKILL.md`、`references/`、模板、脚本源码
+- 输入 PDF、Markdown、`notes_workfile`
+- `financial-analyzer/test_runs/` 等开发/回归目录
+- 单案 `financial_analyzer.py --run-dir <path>` 的显式输出目录
+
+### 明确禁止
+
+以下内容不得写入 `~/.codex/skills`：
+
+- 任意 `runtime_config`
+- 任意正式 `knowledge_base` 副本
+- 任意 registry / batches / governance_review / logs / tmp 运行态目录
+- 运行中对 `SKILL.md`、`references/*.md` 的自发改写
+
 ## notes_workfile 契约
 
 顶层至少包含：

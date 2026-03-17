@@ -1,6 +1,6 @@
 # P2 Registry Regression Report
 
-- Generated At: 2026-03-17T12:57:28+08:00
+- Generated At: 2026-03-17T14:55:21+08:00
 - Scenario Count: 9
 - All Passed: True
 - Registry Path: /Users/yetim/project/financialanalysis/runtime/state/registry/processed_reports/processed_reports.json

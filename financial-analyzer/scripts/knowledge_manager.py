@@ -8,11 +8,12 @@ import argparse
 import collections
 import datetime
 import json
-import os
 import re
 import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+
+from runtime_support import RuntimeConfigError, load_runtime_config, resolve_runtime_path
 
 
 VALID_CANDIDATE_TYPES = {
@@ -71,6 +72,23 @@ def default_pending_input_paths() -> List[Path]:
 
 def default_review_output_dir() -> Path:
     return script_root() / "test_runs" / "w5_knowledge_governance"
+
+
+def load_formal_runtime_config(runtime_config_arg: Optional[str]) -> Dict[str, Any]:
+    try:
+        return load_runtime_config(
+            config_path=Path(runtime_config_arg) if runtime_config_arg else None,
+            cwd=Path.cwd(),
+            require_knowledge_base=True,
+            ensure_state_dirs=True,
+        )
+    except RuntimeConfigError as exc:
+        raise SystemExit(str(exc)) from exc
+
+
+def formal_knowledge_base_path(runtime_config_arg: Optional[str]) -> Path:
+    runtime_config = load_formal_runtime_config(runtime_config_arg)
+    return resolve_runtime_path(runtime_config, "knowledge_base")
 
 
 class KnowledgeBaseManager:
@@ -908,6 +926,10 @@ def print_validation_results(results: List[Dict[str, Any]]):
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="财务分析知识库和 W5 知识治理工具")
+    parser.add_argument(
+        "--runtime-config",
+        help="显式指定 runtime/runtime_config.json；优先级高于环境变量和 cwd 自动搜索",
+    )
     subparsers = parser.add_subparsers(dest="command")
 
     validate_parser = subparsers.add_parser("validate-pending", help="校验一个或多个 pending_updates.json")
@@ -951,9 +973,8 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def run_legacy_demo():
-    kb_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "knowledge_base.json")
-    manager = KnowledgeBaseManager(kb_path)
+def run_legacy_demo(runtime_config_arg: Optional[str]):
+    manager = KnowledgeBaseManager(str(formal_knowledge_base_path(runtime_config_arg)))
     manager.print_summary()
     print("\n=== 搜索'融资租赁' ===")
     results = manager.search_by_keyword("融资租赁")
@@ -966,7 +987,7 @@ def main():
     governance = PendingUpdateGovernance()
 
     if not args.command:
-        run_legacy_demo()
+        run_legacy_demo(args.runtime_config)
         return
 
     if args.command == "validate-pending":

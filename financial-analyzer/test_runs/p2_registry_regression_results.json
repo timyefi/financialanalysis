@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generated_at": "2026-03-17T12:57:28+08:00",
+    "generated_at": "2026-03-17T14:55:21+08:00",
     "scenario_count": 9,
     "all_passed": true,
     "passed_scenarios": 9,
@@ -86,8 +86,8 @@
             "batch_name": "batch_variant_a",
             "batch_run_dir": "/Users/yetim/project/financialanalysis/runtime/state/batches/p2_registry_regression/batch_variant_a_first",
             "task_list_path": "/Users/yetim/project/financialanalysis/runtime/state/tmp/p2_registry_regression/batch_variant_a.json",
-            "created_at": "2026-03-17T12:57:15+08:00",
-            "generated_at": "2026-03-17T12:57:22+08:00",
+            "created_at": "2026-03-17T14:55:09+08:00",
+            "generated_at": "2026-03-17T14:55:16+08:00",
             "summary": {
               "task_count": 1,
               "success_count": 1,
@@ -95,8 +95,8 @@
               "pending_count": 0
             },
             "latest_run": {
-              "started_at": "2026-03-17T12:57:15+08:00",
-              "completed_at": "2026-03-17T12:57:22+08:00",
+              "started_at": "2026-03-17T14:55:09+08:00",
+              "completed_at": "2026-03-17T14:55:16+08:00",
               "resume": false,
               "only_failed": false,
               "build_review_bundle": false,
@@ -110,7 +110,7 @@
             "registry": {
               "registry_path": "/Users/yetim/project/financialanalysis/runtime/state/registry/processed_reports/processed_reports.json",
               "schema_version": "processed_reports_registry_v1",
-              "updated_at": "2026-03-17T12:57:22+08:00",
+              "updated_at": "2026-03-17T14:55:16+08:00",
               "stats": {
                 "report_count": 4,
                 "document_version_count": 4,
@@ -185,8 +185,8 @@
               "notes_workfile_changed"
             ],
             "skip_allowed": true,
-            "latest_attempt_id": "7343bc4756a01af8f5dd66645a7e8d7b2671ea80f8fc2819a56f90e142e700a0",
-            "latest_success_attempt_id": "7343bc4756a01af8f5dd66645a7e8d7b2671ea80f8fc2819a56f90e142e700a0"
+            "latest_attempt_id": "95f279a202a7ba64e052361f36aebca990ade36f86c9d31468527b33a8529e59",
+            "latest_success_attempt_id": "95f279a202a7ba64e052361f36aebca990ade36f86c9d31468527b33a8529e59"
           },
           "errors": []
         }
@@ -215,8 +215,8 @@
             "batch_name": "batch_variant_a",
             "batch_run_dir": "/Users/yetim/project/financialanalysis/runtime/state/batches/p2_registry_regression/batch_variant_a_resume",
             "task_list_path": "/Users/yetim/project/financialanalysis/runtime/state/tmp/p2_registry_regression/batch_variant_a.json",
-            "created_at": "2026-03-17T12:57:22+08:00",
-            "generated_at": "2026-03-17T12:57:22+08:00",
+            "created_at": "2026-03-17T14:55:16+08:00",
+            "generated_at": "2026-03-17T14:55:16+08:00",
             "summary": {
               "task_count": 1,
               "success_count": 0,
@@ -224,8 +224,8 @@
               "pending_count": 0
             },
             "latest_run": {
-              "started_at": "2026-03-17T12:57:22+08:00",
-              "completed_at": "2026-03-17T12:57:22+08:00",
+              "started_at": "2026-03-17T14:55:16+08:00",
+              "completed_at": "2026-03-17T14:55:16+08:00",
               "resume": true,
               "only_failed": false,
               "build_review_bundle": false,
@@ -241,7 +241,7 @@
             "registry": {
               "registry_path": "/Users/yetim/project/financialanalysis/runtime/state/registry/processed_reports/processed_reports.json",
               "schema_version": "processed_reports_registry_v1",
-              "updated_at": "2026-03-17T12:57:22+08:00",
+              "updated_at": "2026-03-17T14:55:16+08:00",
               "stats": {
                 "report_count": 4,
                 "document_version_count": 4,
@@ -345,8 +345,8 @@
               "notes_workfile_changed"
             ],
             "skip_allowed": false,
-            "latest_attempt_id": "453011781b97d64792875ef3a7f2ff13aa4cdc348ee86271c10e360c63884bc9",
-            "latest_success_attempt_id": "453011781b97d64792875ef3a7f2ff13aa4cdc348ee86271c10e360c63884bc9"
+            "latest_attempt_id": "ae8b0f2d467a18b472d43c70462c92e7b070cb9f84e2752fbf3d4f49a00a5052",
+            "latest_success_attempt_id": "ae8b0f2d467a18b472d43c70462c92e7b070cb9f84e2752fbf3d4f49a00a5052"
           },
           "errors": []
         }
@@ -384,8 +384,8 @@
               "notes_workfile_changed"
             ],
             "skip_allowed": false,
-            "latest_attempt_id": "453011781b97d64792875ef3a7f2ff13aa4cdc348ee86271c10e360c63884bc9",
-            "latest_success_attempt_id": "453011781b97d64792875ef3a7f2ff13aa4cdc348ee86271c10e360c63884bc9"
+            "latest_attempt_id": "ae8b0f2d467a18b472d43c70462c92e7b070cb9f84e2752fbf3d4f49a00a5052",
+            "latest_success_attempt_id": "ae8b0f2d467a18b472d43c70462c92e7b070cb9f84e2752fbf3d4f49a00a5052"
           },
           "errors": []
         }
@@ -422,8 +422,8 @@
               "notes_workfile_changed"
             ],
             "skip_allowed": true,
-            "latest_attempt_id": "453011781b97d64792875ef3a7f2ff13aa4cdc348ee86271c10e360c63884bc9",
-            "latest_success_attempt_id": "453011781b97d64792875ef3a7f2ff13aa4cdc348ee86271c10e360c63884bc9"
+            "latest_attempt_id": "ae8b0f2d467a18b472d43c70462c92e7b070cb9f84e2752fbf3d4f49a00a5052",
+            "latest_success_attempt_id": "ae8b0f2d467a18b472d43c70462c92e7b070cb9f84e2752fbf3d4f49a00a5052"
           },
           "errors": []
         }

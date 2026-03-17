@@ -182,6 +182,26 @@
 - 缺省路径与报错策略
 - 必要代码改造或文档说明
 
+### 当前已定口径（2026-03-17）
+
+- `runtime_config` 发现顺序固定为：
+  1. CLI 参数 `--runtime-config`
+  2. 环境变量 `FINANCIAL_ANALYZER_RUNTIME_CONFIG`
+  3. 从当前工作目录向上逐级搜索 `runtime/runtime_config.json`
+- 找不到 `runtime_config.json`、配置非法、路径越界、或正式 `runtime/knowledge/knowledge_base.json` 缺失时，runtime-bound 入口直接失败，不再 silent fallback。
+- `run_batch_pipeline.py`、`processed_reports_registry.py`、读取正式知识基线的 `knowledge_manager.py` 都属于 runtime-bound 入口。
+- `financial_analyzer.py` 保持单案独立，只继续依赖 `--run-dir`，不强制要求 runtime。
+- 正式读写统一落到项目内 runtime：
+  - `runtime/runtime_config.json`
+  - `runtime/knowledge/knowledge_base.json`
+  - `runtime/state/registry/processed_reports/processed_reports.json`
+  - `runtime/state/batches/`
+  - `runtime/state/governance_review/`
+  - `runtime/state/logs/`
+  - `runtime/state/tmp/`
+- `SKILL.md`、`references/`、源码、模板、输入文件、`financial-analyzer/test_runs/` 仍留在项目仓库，不视为正式 production runtime。
+- 运行态目录允许按需创建，但不得写入 `~/.codex/skills`，也不得在运行中自发改写 `SKILL.md` 或 reference 文档。
+
 ### 本线程不做
 
 - 不在批内自动升级分析规则

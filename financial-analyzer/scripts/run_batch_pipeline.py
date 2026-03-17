@@ -15,16 +15,19 @@ from typing import Any, Dict, List, Tuple
 
 from processed_reports_registry import ProcessedReportsRegistry
 from runtime_support import (
+    RuntimeConfigError,
     current_engine_version,
     load_knowledge_base_version,
-    resolve_default_batch_root,
-    try_load_runtime_config,
+    load_runtime_config,
+    resolve_input_path,
+    resolve_runtime_path,
+    runtime_project_root,
 )
 
 
-ROOT_DIR = Path(__file__).resolve().parents[2]
-ANALYZER_SCRIPT = ROOT_DIR / "financial-analyzer" / "scripts" / "financial_analyzer.py"
-KNOWLEDGE_MANAGER_SCRIPT = ROOT_DIR / "financial-analyzer" / "scripts" / "knowledge_manager.py"
+SCRIPT_DIR = Path(__file__).resolve().parent
+ANALYZER_SCRIPT = SCRIPT_DIR / "financial_analyzer.py"
+KNOWLEDGE_MANAGER_SCRIPT = SCRIPT_DIR / "knowledge_manager.py"
 TASK_RESULT_LOG = "task_results.jsonl"
 FAILED_TASKS_FILE = "failed_tasks.json"
 PENDING_UPDATES_INDEX_FILE = "pending_updates_index.json"
@@ -92,7 +95,14 @@ def slugify(value: str) -> str:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="W7 Markdown-first 批处理入口")
     parser.add_argument("--task-list", required=True, help="任务清单 JSON 路径")
-    parser.add_argument("--batch-run-dir", help="批次运行目录；默认写入 financial-analyzer/test_runs/batches/<batch_name>")
+    parser.add_argument(
+        "--runtime-config",
+        help="显式指定 runtime/runtime_config.json；优先级高于环境变量和 cwd 自动搜索",
+    )
+    parser.add_argument(
+        "--batch-run-dir",
+        help="批次运行目录；默认写入 runtime_config.paths.batch_root/<batch_name>",
+    )
     parser.add_argument("--resume", action="store_true", help="跳过已有成功结果的任务")
     parser.add_argument("--only-failed", action="store_true", help="仅复跑 failed_tasks.json 中记录的任务")
     parser.add_argument("--build-review-bundle", action="store_true", help="对成功任务的 pending_updates 构建 W5 审核包")
@@ -273,7 +283,7 @@ def summarize_pending_updates(path: Path) -> int:
     return len(items)
 
 
-def run_single_task(task: Dict[str, Any]) -> Dict[str, Any]:
+def run_single_task(task: Dict[str, Any], *, project_root: Path) -> Dict[str, Any]:
     started_at = now_iso()
     run_dir = Path(task["run_dir"])
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -328,7 +338,7 @@ def run_single_task(task: Dict[str, Any]) -> Dict[str, Any]:
     with open(log_path, "w", encoding="utf-8") as handle:
         completed = subprocess.run(
             command,
-            cwd=str(ROOT_DIR),
+            cwd=str(project_root),
             stdout=handle,
             stderr=subprocess.STDOUT,
             text=True,
@@ -453,6 +463,8 @@ def run_governance_review(
     batch_run_dir: Path,
     build_review_bundle: bool,
     latest_results: Dict[str, Dict[str, Any]],
+    runtime_config_path: Path,
+    project_root: Path,
 ) -> Dict[str, Any]:
     success_items = [
         item
@@ -489,6 +501,8 @@ def run_governance_review(
     command = [
         sys.executable,
         str(KNOWLEDGE_MANAGER_SCRIPT),
+        "--runtime-config",
+        str(runtime_config_path),
         "build-review-bundle",
         "--input",
     ]
@@ -498,7 +512,7 @@ def run_governance_review(
     with open(build_log_path, "w", encoding="utf-8") as handle:
         completed = subprocess.run(
             command,
-            cwd=str(ROOT_DIR),
+            cwd=str(project_root),
             stdout=handle,
             stderr=subprocess.STDOUT,
             text=True,
@@ -634,16 +648,30 @@ def main():
     if not isinstance(batch_name, str) or not batch_name.strip():
         raise SystemExit("任务清单缺少合法的 batch_name")
 
-    runtime_config = try_load_runtime_config()
-    registry = ProcessedReportsRegistry(runtime_config=runtime_config) if runtime_config else None
+    try:
+        runtime_config = load_runtime_config(
+            config_path=Path(args.runtime_config) if args.runtime_config else None,
+            cwd=Path.cwd(),
+            require_knowledge_base=True,
+            ensure_state_dirs=True,
+        )
+    except RuntimeConfigError as exc:
+        raise SystemExit(str(exc)) from exc
+
+    project_root = runtime_project_root(runtime_config)
+    runtime_config_path = Path(str(runtime_config["_config_path"])).resolve()
+    registry = ProcessedReportsRegistry(runtime_config=runtime_config)
     target_engine_version = current_engine_version()
     knowledge_base_version = load_knowledge_base_version(runtime_config)
-    default_batch_root = resolve_default_batch_root(runtime_config)
-    batch_run_dir = (
-        Path(args.batch_run_dir).resolve()
-        if args.batch_run_dir
-        else (default_batch_root / slugify(batch_name))
-    )
+    default_batch_root = resolve_runtime_path(runtime_config, "batch_root")
+    if args.batch_run_dir:
+        batch_run_dir = resolve_input_path(Path(args.batch_run_dir), cwd=Path.cwd())
+        try:
+            batch_run_dir.relative_to(project_root)
+        except ValueError as exc:
+            raise SystemExit(f"--batch-run-dir 必须位于 project_root 内: {batch_run_dir}") from exc
+    else:
+        batch_run_dir = default_batch_root / slugify(batch_name)
     batch_run_dir.mkdir(parents=True, exist_ok=True)
 
     task_list = load_task_list(task_list_path, batch_run_dir)
@@ -688,7 +716,7 @@ def main():
 
     run_started_at = now_iso()
     for task in selected_tasks:
-        result = run_single_task(task)
+        result = run_single_task(task, project_root=project_root)
         registry_update = {
             "registered": False,
             "report_key": registry_contexts.get(task["task_id"], {}).get("report_key", ""),
@@ -751,24 +779,13 @@ def main():
         batch_run_dir,
         args.build_review_bundle,
         latest_results,
+        runtime_config_path,
+        project_root,
     )
     run_completed_at = now_iso()
-    registry_payload = (
-        registry.registry_summary(
-            knowledge_base_version=knowledge_base_version,
-            engine_version_value=target_engine_version,
-        )
-        if registry
-        else {
-            "registry_path": "",
-            "schema_version": "",
-            "updated_at": "",
-            "stats": {},
-            "knowledge_base_version": knowledge_base_version,
-            "engine_version": target_engine_version,
-            "backfill_performed_on_init": False,
-            "init_warnings": ["runtime_config_missing"],
-        }
+    registry_payload = registry.registry_summary(
+        knowledge_base_version=knowledge_base_version,
+        engine_version_value=target_engine_version,
     )
 
     batch_manifest = build_batch_manifest(

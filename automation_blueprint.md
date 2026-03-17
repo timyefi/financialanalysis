@@ -458,18 +458,21 @@ Subagents 协作约束：
 - W7 已补充 `financial-analyzer/testdata/w7_batch_tasks/` 样例任务清单，以及 `financial-analyzer/scripts/run_w7_batch_regression.py` 回归脚本，覆盖混合批次、全成功批次、`--resume`、`--only-failed` 和 review bundle 门槛
 - 生产化 P2 已完成第一版：新增项目内 processed reports registry 规范文档、runtime helper、registry helper，并把 [runtime/state/registry/processed_reports/processed_reports.json](/Users/yetim/project/financialanalysis/runtime/state/registry/processed_reports/processed_reports.json) 接入 `run_batch_pipeline.py`
 - P2 已实现 W6 历史单案回填、W7 batch 回填告警口径、全局去重/重跑判定，以及 `financial-analyzer/scripts/run_p2_registry_regression.py` 专项回归脚本
+- 生产化 P3 已完成第一版：已安装 `financial-analyzer` skill 现通过 `--runtime-config` / `FINANCIAL_ANALYZER_RUNTIME_CONFIG` / `cwd` 向上搜索三层优先级稳定绑定项目内 [runtime/runtime_config.json](/Users/yetim/project/financialanalysis/runtime/runtime_config.json)
+- P3 已把 `run_batch_pipeline.py`、`processed_reports_registry.py` 和正式知识基线入口绑定到外部 runtime，并明确单案 `financial_analyzer.py` 继续保持 `--run-dir` 独立模式
+- P3 已把“找不到 runtime 配置或正式 knowledge_base 时直接失败、不再回退 skill 目录或 `financial-analyzer/test_runs/batches`”写入代码与 `financial-analyzer/SKILL.md`
 
 ### 进行中
 
 - W5 后续项：基于 `financial-analyzer/test_runs/w5_knowledge_governance/` 的审核包做抽样复核，并设计独立的 apply 流程；当前仍不直接批量写入 `knowledge_base.json`
 - 更细粒度导出 QA 的剩余项：workbook 单元格级 golden diff、预览版式语义检查、`soul_export_failed` 等更深失败矩阵
 - W7 后续项：如需进入真正的全链路编排，应先把 ChinaMoney / MinerU 上游入口收敛为与当前 batch runner 一致的稳定 CLI，再考虑并入统一状态机
-- 生产化阶段进行中：P1/P2 已完成；P3/P5/P6 仍待推进
+- 生产化阶段进行中：P1/P2/P3 已完成；P4/P5/P6 仍待推进
 
 ### 下一步
 
-- 先推进生产化 P3：让已安装 skill 基于 `runtime/runtime_config.json` 稳定绑定项目内 runtime。
-- 待 runtime/registry 落地后，再推进生产化 P4/P5：自动找 10 份财报并执行冷启动全真生产仿真。
+- 先推进生产化 P4：定义“自动找 10 份财报”的测试入口、来源记录和任务清单生成方式。
+- 然后推进生产化 P5：在已安装 skill + 项目内 runtime + 全局 registry 口径下执行冷启动全真生产仿真。
 - 最后整理生产化 P6：go-live checklist、人工复核点和回滚策略。
 
 ## 15. 与其他文档的关系

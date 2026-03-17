@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generated_at": "2026-03-17T12:58:13+08:00",
+    "generated_at": "2026-03-17T14:56:08+08:00",
     "scenario_count": 5,
     "all_passed": true,
     "passed_scenarios": 5,
@@ -214,8 +214,8 @@
           "name": "latest_run",
           "passed": true,
           "details": {
-            "started_at": "2026-03-17T12:58:12+08:00",
-            "completed_at": "2026-03-17T12:58:12+08:00",
+            "started_at": "2026-03-17T14:56:08+08:00",
+            "completed_at": "2026-03-17T14:56:08+08:00",
             "resume": true,
             "only_failed": false,
             "build_review_bundle": true,
@@ -255,8 +255,8 @@
           "name": "latest_run",
           "passed": true,
           "details": {
-            "started_at": "2026-03-17T12:58:12+08:00",
-            "completed_at": "2026-03-17T12:58:13+08:00",
+            "started_at": "2026-03-17T14:56:08+08:00",
+            "completed_at": "2026-03-17T14:56:08+08:00",
             "resume": false,
             "only_failed": true,
             "build_review_bundle": true,

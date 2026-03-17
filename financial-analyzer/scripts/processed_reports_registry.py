@@ -13,7 +13,6 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from runtime_support import (
-    ROOT_DIR,
     current_engine_version,
     detect_report_identity,
     load_knowledge_base_version,
@@ -22,6 +21,7 @@ from runtime_support import (
     now_iso,
     read_json,
     resolve_runtime_path,
+    runtime_project_root,
 )
 
 
@@ -95,7 +95,11 @@ class ProcessedReportsRegistry:
         registry_path: Optional[Path] = None,
         enable_backfill: bool = True,
     ):
-        self.runtime_config = runtime_config or load_runtime_config()
+        self.runtime_config = runtime_config or load_runtime_config(
+            cwd=Path.cwd(),
+            require_knowledge_base=True,
+            ensure_state_dirs=True,
+        )
         self.registry_path = registry_path or resolve_runtime_path(
             self.runtime_config,
             "processed_reports_registry",
@@ -770,7 +774,8 @@ class ProcessedReportsRegistry:
     def _backfill_payload(self, payload: Dict[str, Any]) -> List[str]:
         warnings: List[str] = []
         knowledge_base_version = load_knowledge_base_version(self.runtime_config)
-        test_runs_root = ROOT_DIR / "financial-analyzer" / "test_runs"
+        project_root = runtime_project_root(self.runtime_config)
+        test_runs_root = project_root / "financial-analyzer" / "test_runs"
 
         for run_dir in sorted(test_runs_root.glob("w6_*")):
             manifest_path = run_dir / "run_manifest.json"

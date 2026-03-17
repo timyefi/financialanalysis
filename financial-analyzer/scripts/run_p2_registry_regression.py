@@ -28,7 +28,11 @@ TEST_RUNS_DIR = ROOT_DIR / "financial-analyzer" / "test_runs"
 BATCH_SCRIPT = SCRIPT_DIR / "run_batch_pipeline.py"
 RESULTS_PATH = TEST_RUNS_DIR / "p2_registry_regression_results.json"
 REPORT_PATH = TEST_RUNS_DIR / "p2_registry_regression_report.md"
-RUNTIME_CONFIG = load_runtime_config()
+RUNTIME_CONFIG = load_runtime_config(
+    cwd=ROOT_DIR,
+    require_knowledge_base=True,
+    ensure_state_dirs=True,
+)
 REGISTRY_PATH = resolve_runtime_path(RUNTIME_CONFIG, "processed_reports_registry")
 TMP_ROOT = resolve_runtime_path(RUNTIME_CONFIG, "tmp_root") / "p2_registry_regression"
 BATCH_ROOT = resolve_runtime_path(RUNTIME_CONFIG, "batch_root") / "p2_registry_regression"
