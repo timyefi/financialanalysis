@@ -1,10 +1,61 @@
-# 批量下载工具使用说明
+# 批量下载与自动发现工具使用说明
 
 ## 工具组成
 
-1. **download.py** - 通用文件下载工具（支持进度显示、自动重试）
-2. **batch-download.py** - 批量下载工具（配置文件驱动）
-3. **download-config.json** - 下载任务配置文件
+1. **discover_reports.py** - ChinaMoney 官方 JSON 接口发现工具
+2. **download.py** - 通用文件下载工具（支持进度显示、自动重试）
+3. **batch-download.py** - 批量下载工具（配置文件驱动）
+4. **download-config.json** - 下载任务配置文件
+
+## API-first 发现工作流
+
+当前推荐优先走官方 JSON 接口，而不是先用浏览器手工点查。
+
+### 1. 全市场发现 2024 年报
+
+```bash
+python chinamoney/scripts/discover_reports.py \
+  --year 2024 \
+  --report-type 4 \
+  --max-pages 3 \
+  --output /tmp/chinamoney-2024-market.json
+```
+
+说明：
+
+- `discover_reports.py` 会先访问 `https://www.chinamoney.com.cn/chinese/zqcwbgcwgd/` 建立会话
+- 再调用 `https://www.chinamoney.com.cn/ags/ms/cm-u-notice-issue/financeRepo`
+- 支持 `orgName=''` 的全市场分页发现
+
+### 2. 精确查询单个 issuer
+
+```bash
+python chinamoney/scripts/discover_reports.py \
+  --year 2024 \
+  --report-type 4 \
+  --org-name "万科企业股份有限公司" \
+  --max-pages 1 \
+  --output /tmp/vanke-2024.json
+```
+
+### 3. 自动生成 P4 下载任务
+
+```bash
+python financial-analyzer/scripts/generate_p4_test_entry.py \
+  --year 2024 \
+  --sample-count 10 \
+  --reserve-count 5 \
+  --max-pages 20 \
+  --max-head-checks 60
+```
+
+默认输出：
+
+- `runtime/state/tmp/p4_auto_test_entry/<timestamp>/selection_manifest.json`
+- `runtime/state/tmp/p4_auto_test_entry/<timestamp>/download_config.json`
+- `runtime/state/tmp/p4_auto_test_entry/<timestamp>/task_seed_list.json`
+
+其中 `download_config.json` 可直接喂给 `batch-download.py`。
 
 ## 使用方式
 
@@ -99,7 +150,19 @@ python batch-download.py
 
 ## 中国货币网财报下载工作流
 
+### 重要说明：当前下载网关约束
+
+2026-03-17 实测，ChinaMoney 附件下载网关对当前环境大量返回 `421 Misdirected Request`。因此：
+
+- `discover_reports.py` 负责官方来源发现
+- P4 生成器会优先尝试 `HEAD`
+- 若 live `HEAD` 失败，会回退到“本地案例尺寸校准 + 标题语义估算”
+
+这意味着当前版本可以稳定完成“发现与选样”，但 P5 前仍应再次验证真实下载链路。
+
 ### 第一步：搜索获取下载链接
+
+这是浏览器手工兜底流程，不再是主路径。
 
 使用 playwright-cli 访问中国货币网，搜索财报：
 
@@ -195,6 +258,7 @@ A: 工具会进行安全验证：
 
 | 文件 | 说明 |
 |------|------|
+| discover_reports.py | 官方 JSON 接口发现工具 |
 | download.py | 核心下载工具，可独立使用 |
 | batch-download.py | 批量下载工具，读取配置文件 |
 | download-config.json | 下载任务配置 |

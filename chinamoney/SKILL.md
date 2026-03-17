@@ -78,23 +78,29 @@ Use this skill when:
 
 This skill relies on the following tools located in the skill's `scripts/` directory:
 
-### 1. playwright-cli - Browser Automation
+### 1. discover_reports.py - API-first Discovery Tool
+- Bootstraps a valid ChinaMoney session before calling official JSON APIs
+- Supports market-wide discovery with `orgName=''`
+- Supports exact issuer lookup
+- Produces structured records with `contentId`, `draftPath`, `releaseDate`, and download URL
+
+### 2. playwright-cli - Browser Automation
 - Opens China Money Network web pages
 - Fills search forms and navigates results
 - Extracts download links (contentId values)
 
-### 2. download.py - Single File Download Tool
+### 3. download.py - Single File Download Tool
 - Downloads files with progress display
 - Supports resume capability for large files
 - Automatic retry mechanism (up to 3 retries by default)
 - Validates file integrity
 
-### 3. batch-download.py - Batch Download Tool
+### 4. batch-download.py - Batch Download Tool
 - Configuration-driven batch downloads
 - Processes multiple files from JSON config
 - Direct Python import (no subprocess encoding issues)
 
-### 4. download-config.json - Configuration File Template
+### 5. download-config.json - Configuration File Template
 - Defines download tasks
 - Specifies output directories
 - Configures retry counts
@@ -114,7 +120,26 @@ pip install requests
 
 ## Workflow
 
-### Step 1: Open Financial Report Page
+### Step 1: Prefer API-first Discovery
+
+Use the official JSON endpoint through the discovery script:
+
+```bash
+python scripts/discover_reports.py --year 2024 --report-type 4 --max-pages 3 --output /tmp/chinamoney-market.json
+```
+
+Exact issuer lookup:
+
+```bash
+python scripts/discover_reports.py --year 2024 --report-type 4 --org-name "万科企业股份有限公司" --max-pages 1 --output /tmp/vanke.json
+```
+
+Current observed facts:
+- call `https://www.chinamoney.com.cn/chinese/zqcwbgcwgd/` first to establish session
+- then call `https://www.chinamoney.com.cn/ags/ms/cm-u-notice-issue/financeRepo`
+- direct attachment HEAD/GET may return `421 Misdirected Request` in the current environment, so report discovery and attachment-size probing must be treated as separate concerns
+
+### Step 2: Open Financial Report Page
 
 Use Firefox browser (headless mode works):
 
@@ -122,7 +147,7 @@ Use Firefox browser (headless mode works):
 playwright-cli open https://www.chinamoney.com.cn/chinese/cqcwbglm/ --browser=firefox
 ```
 
-### Step 2: Get Page Snapshot
+### Step 3: Get Page Snapshot
 
 Extract current page structure:
 
@@ -132,7 +157,7 @@ playwright-cli snapshot
 
 The snapshot saves to `.playwright-cli/page-*.yml` with element references.
 
-### Step 3: Fill Search Conditions
+### Step 4: Fill Search Conditions
 
 Extract element refs from snapshot:
 - Search box: Find `textbox` followed by `[ref=exxx]`
@@ -162,7 +187,7 @@ If click times out, use JavaScript:
 playwright-cli eval "document.querySelector('a[onclick*=\"financeSearch\"]').click()"
 ```
 
-### Step 4: Wait for Results and Extract Download Links
+### Step 5: Wait for Results and Extract Download Links
 
 Query opens new tab. Switch to results tab:
 
@@ -187,7 +212,7 @@ Extract the `contentId=XXXXXX` and construct full URL:
 https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3109042&priority=0&mode=save
 ```
 
-### Step 5: Configure Batch Download
+### Step 6: Configure Batch Download
 
 Edit `download-config.json` to add download tasks:
 
@@ -205,7 +230,7 @@ Edit `download-config.json` to add download tasks:
 }
 ```
 
-### Step 6: Execute Batch Download
+### Step 7: Execute Batch Download
 
 ```bash
 python scripts/batch-download.py
@@ -217,7 +242,7 @@ The download tool will:
 - Validate file integrity
 - Report success/failure statistics
 
-### Step 7: Close Browser
+### Step 8: Close Browser
 
 ```bash
 playwright-cli close

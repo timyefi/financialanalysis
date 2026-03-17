@@ -461,18 +461,21 @@ Subagents 协作约束：
 - 生产化 P3 已完成第一版：已安装 `financial-analyzer` skill 现通过 `--runtime-config` / `FINANCIAL_ANALYZER_RUNTIME_CONFIG` / `cwd` 向上搜索三层优先级稳定绑定项目内 [runtime/runtime_config.json](/Users/yetim/project/financialanalysis/runtime/runtime_config.json)
 - P3 已把 `run_batch_pipeline.py`、`processed_reports_registry.py` 和正式知识基线入口绑定到外部 runtime，并明确单案 `financial_analyzer.py` 继续保持 `--run-dir` 独立模式
 - P3 已把“找不到 runtime 配置或正式 knowledge_base 时直接失败、不再回退 skill 目录或 `financial-analyzer/test_runs/batches`”写入代码与 `financial-analyzer/SKILL.md`
+- 生产化 P4 已完成第一版：新增 [chinamoney/scripts/discover_reports.py](/Users/yetim/project/financialanalysis/chinamoney/scripts/discover_reports.py) 与 [financial-analyzer/scripts/generate_p4_test_entry.py](/Users/yetim/project/financialanalysis/financial-analyzer/scripts/generate_p4_test_entry.py)，可基于 ChinaMoney 官方 JSON 接口自动发现 2024 年报候选并生成 `selection_manifest.json`、`download_config.json`、`task_seed_list.json`
+- `chinamoney` 已完成第一版 API-first 升级：正式记录 `financeRepo` / `staYearAndType` 接口、会话预热要求、官方来源字段和与批量下载配置的映射
+- P4 已记录当前 ChinaMoney 下载网关约束：当前环境下附件 `HEAD/GET` 大量返回 `421 Misdirected Request`，因此选样链路已加入“本地案例尺寸校准 + 标题语义估算”的保守降级，并在 manifest 中记录 `content_length_source`
 
 ### 进行中
 
 - W5 后续项：基于 `financial-analyzer/test_runs/w5_knowledge_governance/` 的审核包做抽样复核，并设计独立的 apply 流程；当前仍不直接批量写入 `knowledge_base.json`
 - 更细粒度导出 QA 的剩余项：workbook 单元格级 golden diff、预览版式语义检查、`soul_export_failed` 等更深失败矩阵
 - W7 后续项：如需进入真正的全链路编排，应先把 ChinaMoney / MinerU 上游入口收敛为与当前 batch runner 一致的稳定 CLI，再考虑并入统一状态机
-- 生产化阶段进行中：P1/P2/P3 已完成；P4/P5/P6 仍待推进
+- 生产化阶段进行中：P1/P2/P3/P4 已完成第一版；P5/P6 仍待推进
 
 ### 下一步
 
-- 先推进生产化 P4：定义“自动找 10 份财报”的测试入口、来源记录和任务清单生成方式。
-- 然后推进生产化 P5：在已安装 skill + 项目内 runtime + 全局 registry 口径下执行冷启动全真生产仿真。
+- 先推进生产化 P5：基于 `runtime/state/tmp/p4_auto_test_entry/` 下生成的 `download_config.json` 与 `task_seed_list.json` 执行冷启动全真生产仿真。
+- P5 期间重点验证 ChinaMoney 下载网关、MinerU 解析、`notes_workfile` 补齐和 batch task list 转换链路。
 - 最后整理生产化 P6：go-live checklist、人工复核点和回滚策略。
 
 ## 15. 与其他文档的关系
