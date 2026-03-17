@@ -1,0 +1,63 @@
+{
+  "batch_name": "w7_mixed_smoke",
+  "defaults": {},
+  "tasks": [
+    {
+      "task_id": "henglong_2024",
+      "issuer": "恒隆地产",
+      "year": 2024,
+      "md_path": "../../../output/恒隆地产/恒隆地产2024年報/恒隆地产2024年報.md",
+      "notes_workfile": "../henglong_notes_workfile.json",
+      "tags": [
+        "w7",
+        "success"
+      ]
+    },
+    {
+      "task_id": "country_garden_2024",
+      "issuer": "碧桂园",
+      "year": 2024,
+      "md_path": "../../../cases/碧桂园2024年年报分析.md",
+      "notes_workfile": "../country_garden_notes_workfile.json",
+      "tags": [
+        "w7",
+        "success"
+      ]
+    },
+    {
+      "task_id": "hanghai_2024",
+      "issuer": "杭海新城控股",
+      "year": 2024,
+      "md_path": "../../../cases/杭海新城控股2024年年报分析.md",
+      "notes_workfile": "../hanghai_notes_workfile.json",
+      "tags": [
+        "w7",
+        "success"
+      ]
+    },
+    {
+      "task_id": "missing_notes_workfile",
+      "issuer": "恒隆地产",
+      "year": 2024,
+      "md_path": "../../../output/恒隆地产/恒隆地产2024年報/恒隆地产2024年報.md",
+      "notes_workfile": "../missing_notes_workfile.json",
+      "retry_group": "missing_input",
+      "tags": [
+        "w7",
+        "failure"
+      ]
+    },
+    {
+      "task_id": "invalid_notes_workfile",
+      "issuer": "恒隆地产",
+      "year": 2024,
+      "md_path": "../../../output/恒隆地产/恒隆地产2024年報/恒隆地产2024年報.md",
+      "notes_workfile": "../henglong_notes_workfile_invalid.json",
+      "retry_group": "invalid_input",
+      "tags": [
+        "w7",
+        "failure"
+      ]
+    }
+  ]
+}

@@ -417,7 +417,7 @@ git branch -r
 先阅读 AGENTS.md、automation_blueprint.md、financial-analyzer/scripts/run_w6_regression.py，以及最近一次 W6 回归结果。当前聚焦 W6.1。请在 W6 最小回归已通过的前提下，补齐失败路径回归、评估 workbook 预览检查和 golden diff 范围；如果适合，请使用 subagents 并行处理这些子问题，但主线程要统一整合结果，不要多人同时改同一个主回归入口。
 ```
 
-## 6.7 线程 G：W7 / 编排与批处理（后置）
+## 6.7 线程 G：W7 / 编排与批处理（已完成 v1）
 
 ### 目标
 
@@ -440,6 +440,9 @@ git branch -r
 - 编排方案
 - 任务队列格式
 - 批处理入口脚本或设计说明
+- `financial-analyzer/scripts/run_batch_pipeline.py`
+- `financial-analyzer/testdata/w7_batch_tasks/*.json`
+- `financial-analyzer/scripts/run_w7_batch_regression.py`
 
 ### 验收标准
 

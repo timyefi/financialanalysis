@@ -449,21 +449,20 @@ Subagents 协作约束：
 - W6.1 已将 `notes_workfile_missing`、`notes_workfile_invalid` 纳入失败路径回归，并新增 `w6_missing_notes_workfile`、`w6_invalid_notes_workfile` 专用目录
 - W6.1 已把 workbook 预览结构检查纳入硬门禁：要求生成 `preview.pdf` 与连续编号的 `preview-*.png`，且 PNG 尺寸一致
 - W6.1 已新增按案例维护的 golden 基线 JSON，并对成功态 payload 子集、失败态 manifest 子集执行非门禁 diff 评估
+- W7 已新增 `financial-analyzer/scripts/run_batch_pipeline.py`，支持 Markdown-first 任务清单批跑、失败记录、`--resume`、`--only-failed`、`pending_updates_index.json` 与可选的 W5 review bundle 构建
+- W7 已补充 `financial-analyzer/testdata/w7_batch_tasks/` 样例任务清单，以及 `financial-analyzer/scripts/run_w7_batch_regression.py` 回归脚本，覆盖混合批次、全成功批次、`--resume`、`--only-failed` 和 review bundle 门槛
 
 ### 进行中
 
 - W5 后续项：基于 `financial-analyzer/test_runs/w5_knowledge_governance/` 的审核包做抽样复核，并设计独立的 apply 流程；当前仍不直接批量写入 `knowledge_base.json`
 - 更细粒度导出 QA 的剩余项：workbook 单元格级 golden diff、预览版式语义检查、`soul_export_failed` 等更深失败矩阵
-
-### 待启动
-
-- 批处理与任务编排
+- W7 后续项：如需进入真正的全链路编排，应先把 ChinaMoney / MinerU 上游入口收敛为与当前 batch runner 一致的稳定 CLI，再考虑并入统一状态机
 
 ### 下一步
 
 - 先消费 W5 审核包：优先抽样复核 `recommended_status=promoted`、存在标题噪声的组，以及适用范围分歧的组，再决定 apply 流程的落地方式。
 - W6 后续增强优先聚焦 exporter 兼容性修复，解决 `w6_country_garden` 的 workbook XML 值问题，再评估单元格级 golden diff。
-- 待 W5/W6.1 边界稳定后，再进入 W7 的批处理与任务编排。
+- W7 进入后续增强阶段：仅在上游下载/解析入口稳定后，再把 ChinaMoney/MinerU 纳入统一批处理；当前主线先保持 Markdown-first 口径。
 
 ## 15. 与其他文档的关系
 

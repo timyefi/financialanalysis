@@ -1,0 +1,271 @@
+{
+  "summary": {
+    "generated_at": "2026-03-17T09:03:23+08:00",
+    "scenario_count": 5,
+    "all_passed": true,
+    "passed_scenarios": 5,
+    "failed_scenarios": 0
+  },
+  "results": [
+    {
+      "scenario": {
+        "name": "mixed_initial",
+        "command": [
+          "/opt/homebrew/opt/python@3.13/bin/python3.13",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/scripts/run_batch_pipeline.py",
+          "--task-list",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/testdata/w7_batch_tasks/mixed_batch_tasks.json",
+          "--batch-run-dir",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke",
+          "--build-review-bundle"
+        ],
+        "returncode": 0,
+        "stdout_tail": "[OK] 批次目录: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke\n[OK] 结果汇总: success=3, failed=2, pending=0\n[OK] failed_tasks: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke/failed_tasks.json\n[OK] pending_updates_index: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke/pending_updates_index.json\n[OK] governance_status: review_bundle_built"
+      },
+      "checks": [
+        {
+          "name": "batch_manifest",
+          "passed": true,
+          "details": {
+            "manifest_exists": true,
+            "pending_updates_index_exists": true,
+            "failed_tasks_exists": true,
+            "summary": {
+              "task_count": 5,
+              "success_count": 3,
+              "failed_count": 2,
+              "pending_count": 0
+            },
+            "governance_status": "review_bundle_built"
+          },
+          "errors": []
+        },
+        {
+          "name": "pending_updates_index",
+          "passed": true,
+          "details": {
+            "success_task_count": 3,
+            "item_count": 3
+          },
+          "errors": []
+        },
+        {
+          "name": "failed_tasks",
+          "passed": true,
+          "details": {
+            "failed_count": 2,
+            "task_count": 2
+          },
+          "errors": []
+        },
+        {
+          "name": "governance_review_artifacts",
+          "passed": true,
+          "details": {
+            "bundle_exists": true,
+            "report_exists": true
+          },
+          "errors": []
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "name": "success_initial",
+        "command": [
+          "/opt/homebrew/opt/python@3.13/bin/python3.13",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/scripts/run_batch_pipeline.py",
+          "--task-list",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/testdata/w7_batch_tasks/success_batch_tasks.json",
+          "--batch-run-dir",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke",
+          "--build-review-bundle"
+        ],
+        "returncode": 0,
+        "stdout_tail": "[OK] 批次目录: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke\n[OK] 结果汇总: success=3, failed=0, pending=0\n[OK] failed_tasks: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke/failed_tasks.json\n[OK] pending_updates_index: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke/pending_updates_index.json\n[OK] governance_status: review_bundle_built"
+      },
+      "checks": [
+        {
+          "name": "batch_manifest",
+          "passed": true,
+          "details": {
+            "manifest_exists": true,
+            "pending_updates_index_exists": true,
+            "failed_tasks_exists": true,
+            "summary": {
+              "task_count": 3,
+              "success_count": 3,
+              "failed_count": 0,
+              "pending_count": 0
+            },
+            "governance_status": "review_bundle_built"
+          },
+          "errors": []
+        },
+        {
+          "name": "pending_updates_index",
+          "passed": true,
+          "details": {
+            "success_task_count": 3,
+            "item_count": 3
+          },
+          "errors": []
+        },
+        {
+          "name": "failed_tasks",
+          "passed": true,
+          "details": {
+            "failed_count": 0,
+            "task_count": 0
+          },
+          "errors": []
+        },
+        {
+          "name": "governance_review_artifacts",
+          "passed": true,
+          "details": {
+            "bundle_exists": true,
+            "report_exists": true
+          },
+          "errors": []
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "name": "pair_initial",
+        "command": [
+          "/opt/homebrew/opt/python@3.13/bin/python3.13",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/scripts/run_batch_pipeline.py",
+          "--task-list",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/testdata/w7_batch_tasks/pair_batch_tasks.json",
+          "--batch-run-dir",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_pair_smoke",
+          "--build-review-bundle"
+        ],
+        "returncode": 0,
+        "stdout_tail": "[OK] 批次目录: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_pair_smoke\n[OK] 结果汇总: success=2, failed=0, pending=0\n[OK] failed_tasks: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_pair_smoke/failed_tasks.json\n[OK] pending_updates_index: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_pair_smoke/pending_updates_index.json\n[INFO] governance_note: insufficient_successful_cases_for_review_bundle"
+      },
+      "checks": [
+        {
+          "name": "batch_manifest",
+          "passed": true,
+          "details": {
+            "manifest_exists": true,
+            "pending_updates_index_exists": true,
+            "failed_tasks_exists": true,
+            "summary": {
+              "task_count": 2,
+              "success_count": 2,
+              "failed_count": 0,
+              "pending_count": 0
+            },
+            "governance_status": "not_built"
+          },
+          "errors": []
+        },
+        {
+          "name": "pending_updates_index",
+          "passed": true,
+          "details": {
+            "success_task_count": 2,
+            "item_count": 2
+          },
+          "errors": []
+        },
+        {
+          "name": "failed_tasks",
+          "passed": true,
+          "details": {
+            "failed_count": 0,
+            "task_count": 0
+          },
+          "errors": []
+        },
+        {
+          "name": "governance_review_artifacts",
+          "passed": true,
+          "details": {
+            "bundle_exists": false,
+            "report_exists": false
+          },
+          "errors": []
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "name": "success_resume",
+        "command": [
+          "/opt/homebrew/opt/python@3.13/bin/python3.13",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/scripts/run_batch_pipeline.py",
+          "--task-list",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/testdata/w7_batch_tasks/success_batch_tasks.json",
+          "--batch-run-dir",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke",
+          "--build-review-bundle",
+          "--resume"
+        ],
+        "returncode": 0,
+        "stdout_tail": "[OK] 批次目录: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke\n[OK] 结果汇总: success=3, failed=0, pending=0\n[OK] failed_tasks: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke/failed_tasks.json\n[OK] pending_updates_index: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke/pending_updates_index.json\n[OK] governance_status: review_bundle_built"
+      },
+      "checks": [
+        {
+          "name": "latest_run",
+          "passed": true,
+          "details": {
+            "started_at": "2026-03-17T09:03:23+08:00",
+            "completed_at": "2026-03-17T09:03:23+08:00",
+            "resume": true,
+            "only_failed": false,
+            "build_review_bundle": true,
+            "selected_task_count": 0,
+            "executed_task_count": 0,
+            "skipped_existing_success_count": 3,
+            "skipped_existing_success_task_ids": [
+              "henglong_2024",
+              "country_garden_2024",
+              "hanghai_2024"
+            ]
+          },
+          "errors": []
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "name": "mixed_only_failed",
+        "command": [
+          "/opt/homebrew/opt/python@3.13/bin/python3.13",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/scripts/run_batch_pipeline.py",
+          "--task-list",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/testdata/w7_batch_tasks/mixed_batch_tasks.json",
+          "--batch-run-dir",
+          "/Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke",
+          "--build-review-bundle",
+          "--only-failed"
+        ],
+        "returncode": 0,
+        "stdout_tail": "[OK] 批次目录: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke\n[OK] 结果汇总: success=3, failed=2, pending=0\n[OK] failed_tasks: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke/failed_tasks.json\n[OK] pending_updates_index: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke/pending_updates_index.json\n[OK] governance_status: review_bundle_built"
+      },
+      "checks": [
+        {
+          "name": "latest_run",
+          "passed": true,
+          "details": {
+            "started_at": "2026-03-17T09:03:23+08:00",
+            "completed_at": "2026-03-17T09:03:23+08:00",
+            "resume": false,
+            "only_failed": true,
+            "build_review_bundle": true,
+            "selected_task_count": 2,
+            "executed_task_count": 2,
+            "skipped_existing_success_count": 0,
+            "skipped_existing_success_task_ids": []
+          },
+          "errors": []
+        }
+      ]
+    }
+  ]
+}
