@@ -15,13 +15,22 @@
 3. 正式知识学习由 Codex 按章复核后，通过 adoption log 直写 `runtime/knowledge/knowledge_base.json`。
 4. `knowledge_manager.py` 只负责正式知识库审计、摘要与兼容入口，不再承担候选治理主路径。
 5. 任何章节级知识写入都必须能回滚，并且能被摘要工具看见。
+6. `chapter_records.jsonl` 的 `status=completed` 只表示模板抽取完成，不代表已复核、已采纳或已正式成稿。
+
+## 2.1 R1 控制面边界
+
+1. `chapter_records.jsonl` 继续作为抽取层记录，只承载已确认附注主章节的结构化初稿。
+2. 章节复核的主记录改为独立的 `chapter_review_ledger.jsonl`，不写入 Soul 契约，不写回 `chapter_records.jsonl`。
+3. `chapter_review_ledger.jsonl` 采用章节级状态机，最新一条有效记录代表该章节当前复核状态。
+4. adoption gate 只控制“是否允许写入正式 `knowledge_base.json`”，finalization gate 只控制“是否允许把整案收口为正式交付”。
+5. rollback boundary 以单个 adoption log 为原子单元；回滚只恢复正式知识库，不回写 Soul 结构，也不重写 `chapter_records.jsonl`。
 
 ## 3. 推荐执行顺序
 
 | 顺序 | 类型 | 主目标 | 核心交付物 |
 |------|------|--------|------------|
 | 0 | 总控线程 | 维护复核状态、排序任务 | 状态更新、下一步安排 |
-| 1 | 执行线程 | 建立复核与直写控制面 | chapter review ledger、finalization gate |
+| 1 | 执行线程 | 建立复核与直写控制面 | chapter review ledger、adoption gate、finalization gate、rollback boundary |
 | 2 | 执行线程 | 定义 knowledge adoption delta contract | delta schema、validation 规则、rollback 约束 |
 | 3 | 执行线程 | 做 1-2 个完整案例的 scaffold -> adopt 演练 | 正式 knowledge_base、adoption logs、正式成稿 |
 | 4 | 执行线程 | 形成 go-live checklist | 上线门禁、人工复核点、回滚策略 |
@@ -39,7 +48,8 @@
 
 ### 目标
 
-- 把“章节复核 -> 直写知识 -> 正式交付”的控制面标准化，替代旧的 `pending_updates / review bundle` 主路径。
+- 把“模板脚本输出 scaffold -> Codex 逐章复核 -> 直写正式 knowledge_base -> 生成正式交付”的控制面标准化，替代旧的 `pending_updates / review bundle` 主路径。
+- 明确章节状态机、adoption gate、finalization gate、rollback boundary 和 direct adopt 交接规则。
 
 ### 开始前阅读
 
@@ -54,8 +64,10 @@
 ### 交付物
 
 - 复核状态机
+- adoption gate
 - finalization gate
 - 章节级 review ledger 口径
+- rollback boundary
 - 与 direct adopt 的交接规则
 
 ### 本线程不做
@@ -64,10 +76,18 @@
 - 不再推进 `pending_updates` 主路径
 - 不直接改 Soul 模板结构
 
+### R1 交接规则
+
+1. `chapter_records.jsonl` 只负责“抽取已完成”的事实，不承载 review 判定。
+2. `chapter_review_ledger.jsonl` 只负责 review 过程和决策，不承载 Soul 输出。
+3. `write_knowledge_adoption.py` 只接受已通过 adoption gate 的章节级 delta。
+4. `rollback_knowledge_adoption.py` 只回滚已写入的正式知识，不修正抽取层记录。
+5. `show_knowledge_adoption.py` 和 `knowledge_manager.py` 只做正式知识库与 adoption log 的摘要/审计，不作为 review 主路径。
+
 ### 可直接复制的 Prompt
 
 ```text
-先阅读 AGENTS.md、automation_blueprint.md、codex_execution_runbook.md、production_execution_runbook.md、financial-analyzer/SKILL.md、financial-analyzer/references/open_record_protocol.md、financial-analyzer/references/output_contract.md。当前聚焦 R1：Codex Review & Direct Adopt Control Plane。请把“模板脚本输出 scaffold -> Codex 逐章复核 -> 直写正式 knowledge_base -> 生成正式交付”的控制面标准化，定义 review 状态机、finalization gate、章节级 review ledger 口径以及与 direct adopt 的交接规则，并把结果落成仓库文档。不要继续按 `pending_updates / review bundle` 主路径推进，也不要开始 10 案测试。
+先阅读 AGENTS.md、automation_blueprint.md、codex_execution_runbook.md、production_execution_runbook.md、financial-analyzer/SKILL.md、financial-analyzer/references/open_record_protocol.md、financial-analyzer/references/output_contract.md。当前聚焦 R1：Codex Review & Direct Adopt Control Plane。请把“模板脚本输出 scaffold -> Codex 逐章复核 -> 直写正式 knowledge_base -> 生成正式交付”的控制面标准化，明确 review 状态机、adoption gate、finalization gate、章节级 review ledger 口径、rollback boundary 以及与 direct adopt 的交接规则，并把结果落成仓库文档。不要继续按 `pending_updates / review bundle` 主路径推进，也不要开始 10 案测试。
 ```
 
 ### 4.2 线程 R2：Knowledge Adoption Delta Contract

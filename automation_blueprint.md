@@ -427,17 +427,16 @@ Subagents 协作约束：
 
 ## 13. 当前优先级排序
 
-截至 2026-03-18，在 W1-W7 主线和 P1-P5 基础设施已基本落地后，建议优先级如下：
+截至 2026-03-18，在 W1-W7 主线和 P1-P5 基础设施已基本落地后，R1 第一版控制面已完成文档落地，当前优先级如下：
 
-1. 建立复核与直写控制面（R1）。
-2. 固化 knowledge adoption delta contract 与章节级 review ledger（R2）。
-3. 用 1-2 个完整案例演练 scaffold -> adopt -> formal 的闭环（R3）。
-4. 在闭环稳定后再整理 go-live checklist（P6）。
+1. 固化 knowledge adoption delta contract 与章节级 review ledger（R2）。
+2. 用 1-2 个完整案例演练 scaffold -> adopt -> formal 的闭环（R3）。
+3. 在闭环稳定后再整理 go-live checklist（P6）。
 
 排序原因：
 
 - scaffold-only 已切换为当前主线；正式知识学习不再依赖 `pending_updates`，而是依赖逐章复核后的 direct adopt。
-- 当前最关键的缺口不是新的抽取能力，而是章节复核状态机、delta 契约、rollback 约束和正式成稿门禁。
+- 当前最关键的缺口已经从“控制面是否存在”转为“delta 契约是否稳定、闭环是否可验证、回滚是否可审计”。
 - 没有先跑通 1-2 个完整案例的 scaffold -> adopt 闭环，就直接上 P6 会缺少最小可验证基线。
 
 ## 14. 当前状态看板
@@ -484,11 +483,11 @@ Subagents 协作约束：
 - 2026-03-17 新一轮 P5 已在 [runtime/state/tmp/p5_cold_start/20260317_171925](/Users/yetim/project/financialanalysis/runtime/state/tmp/p5_cold_start/20260317_171925) 完成 `10/10` 下载、`10/10` 准备和 `10/10` batch 成功；P5 主目录保留编排与中间产物，而正式 batch 产物已对齐写入 `runtime/state/batches/`
 - `financial_analyzer.py` 已切换为 scaffold-only 模式：脚本主线只生成 `chapter_records.jsonl`、`analysis_report_scaffold.md`、`focus_list_scaffold.json`、`final_data_scaffold.json`、`soul_export_payload_scaffold.json` 和标记 `codex_review_required=true` 的 `run_manifest.json`
 - 已新增 `write_knowledge_adoption.py`、`rollback_knowledge_adoption.py`、`show_knowledge_adoption.py`，用于支撑 Codex 逐章直写正式 `runtime/knowledge/knowledge_base.json` 并保留 adoption log / rollback 能力
-- 生产化 R1/R2/R3 待启动：复核与直写控制面、知识 adoption delta contract、1-2 个完整案例的 scaffold -> adopt 演练
+- 生产化 R1 第一版已落地：已明确章节复核状态机、adoption gate、finalization gate、rollback boundary 与 `chapter_review_ledger` 控制面口径
+- 生产化 R2/R3/P6 待推进：知识 adoption delta contract、1-2 个完整案例的 scaffold -> adopt 演练、go-live checklist
 
 ### 进行中
 
-- R1 待推进：把章节复核状态机、finalization gate 与 direct adopt 的职责边界写成统一控制面
 - R2 待推进：把 delta contract、rollback 约束和审计字段写成正式规范
 - R3 待推进：用 1-2 个完整案例验证 scaffold -> adopt -> formal 闭环
 - P6 待在 R1-R3 跑通后再推进
@@ -497,9 +496,8 @@ Subagents 协作约束：
 
 ### 下一步
 
-- 先推进 R1：把章节复核状态机、finalization gate、direct adopt 边界写清楚。
-- 再推进 R2：把知识 adoption delta contract 和回滚字段固定下来。
-- 然后推进 R3：用 1-2 个完整案例演练 scaffold -> adopt -> formal 闭环。
+- 先推进 R2：把知识 adoption delta contract 和回滚字段固定下来。
+- 再推进 R3：用 1-2 个完整案例演练 scaffold -> adopt -> formal 闭环。
 - 最后再整理 P6：go-live checklist、人工抽检点和回滚策略。
 
 ## 15. 与其他文档的关系

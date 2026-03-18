@@ -26,6 +26,7 @@
 - `extensions`
 
 记录范围仅限“已确认附注主章节”，正文不进入 `chapter_records.jsonl`。
+其中 `status=completed` 只表示模板抽取完成，不代表已复核、已采纳或已正式成稿。
 `attributes` 至少补充：
 
 - `note_no`
@@ -33,6 +34,64 @@
 - `locator_evidence`
 
 读取旧记录时，只依赖固定核心字段；扩展字段缺失不能导致失败。
+
+## 章节复核 ledger
+
+`chapter_review_ledger.jsonl` 是复核与直写控制面的主记录，建议落在 `runtime/state/governance_review/<case_name>/<run_id>/chapter_review_ledger.jsonl`。
+它是 append-only 的章节级状态日志，最新一条有效记录代表该章节当前复核状态。
+
+### 固定核心字段
+
+- `ledger_version`
+- `record_type`
+- `case_name`
+- `run_dir`
+- `run_manifest_path`
+- `chapter_no`
+- `chapter_title`
+- `chapter_record_path`
+- `state`
+- `previous_state`
+- `adoption_gate`
+- `finalization_gate`
+- `review`
+- `evidence_refs`
+- `updated_at`
+- `actor`
+- `decision`
+
+### 建议状态机
+
+- `scaffold_ready`：模板抽取完成，等待人工或 Codex 开始复核。
+- `reviewing`：正在核对章节边界、证据和增量结论。
+- `reviewed`：复核已完成，但尚未满足直写条件。
+- `adopt_ready`：review 已通过，delta 与证据已齐备，可以进入正式写入。
+- `adopted`：已通过 `write_knowledge_adoption.py` 写入正式 `knowledge_base.json`，且对应 adoption log 已生成。
+- `finalized`：该章节已进入正式成稿收口状态，且不再存在未闭环的 ledger 项。
+- `blocked`：因证据、边界、delta 或运行态条件不足而暂停。
+- `rejected`：章节不应进入正式采纳。
+- `rolled_back`：此前已采纳，但随后被 `rollback_knowledge_adoption.py` 回滚。
+
+### 门禁口径
+
+- adoption gate 只在以下条件都满足时为 `true`：
+  - 章节已确认属于正式附注主章节
+  - 证据已挂接到 `evidence_refs`
+  - delta 结构完整，且可被正式写入工具稳定消费
+  - review 结论明确通过
+  - 不存在跨章混写或未决冲突
+- finalization gate 只在以下条件都满足时为 `true`：
+  - 目标章节全部处于 `adopted` 或 `finalized`
+  - 正式 `knowledge_base.json` 处于稳定可读状态
+  - 运行目录中不存在未结案的 review ledger 项
+  - 正式输出已基于采纳后的知识重新生成
+
+### 交接边界
+
+- `chapter_records.jsonl` 只记录抽取层事实，不承载复核决策。
+- `chapter_review_ledger.jsonl` 只记录复核决策，不承载 Soul 结构。
+- adoption log 只记录正式知识写入的 before/after snapshot 与 delta，不替代 review ledger。
+- 回滚只撤销正式知识写入，不修正 `chapter_records.jsonl`，也不改 Soul 输出契约。
 
 ## 模板脚本 scaffold
 
