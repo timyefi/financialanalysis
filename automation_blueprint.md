@@ -484,6 +484,7 @@ Subagents 协作约束：
 - 已新增 `write_knowledge_adoption.py`、`rollback_knowledge_adoption.py`、`show_knowledge_adoption.py`，用于支撑 Codex 逐章直写正式 `runtime/knowledge/knowledge_base.json` 并保留 adoption log / rollback 能力
 - 生产化 R1 第一版已落地：已明确章节复核状态机、adoption gate、finalization gate、rollback boundary 与 `chapter_review_ledger` 控制面口径
 - 生产化 R2 已完成文档收口：知识 adoption delta contract、审计外壳、rollback 约束与校验规则已统一到仓库文档
+- 生产化 R2 已进一步收口为 canonical contract：后续 Codex 线程必须直接消费 `identity / source / review / operations / evidence_refs / hashes / rollback / audit` 口径，不再自造 flat 变体
 - 生产化 R3/P6 待推进：1-2 个完整案例的 scaffold -> adopt 演练、go-live checklist
 
 ### 进行中
@@ -496,6 +497,7 @@ Subagents 协作约束：
 ### 下一步
 
 - 先推进 R3：用 1-2 个完整案例演练 scaffold -> adopt -> formal 闭环。
+- 复核与直写线程直接消费 `knowledge_adoption_delta_contract.md` 的 canonical 口径，不再沿旧 flat 变体分叉。
 - 最后再整理 P6：go-live checklist、人工抽检点和回滚策略。
 
 ## 15. 与其他文档的关系

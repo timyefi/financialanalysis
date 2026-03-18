@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List
 
+from adoption_record_utils import normalize_audit, normalize_hashes, normalize_identity, normalize_review, normalize_source
 from runtime_support import RuntimeConfigError, load_runtime_config, resolve_runtime_path
 
 
@@ -45,14 +46,21 @@ def main():
 
     for path in log_paths:
         payload = read_json(path)
-        source = payload.get("source") or {}
+        identity = normalize_identity(payload)
+        source = normalize_source(payload)
+        review = normalize_review(payload)
+        hashes = normalize_hashes(payload)
+        audit = normalize_audit(payload)
         print(f"=== {path.name} ===")
-        print(f"logged_at: {payload.get('logged_at', '')}")
+        print(f"adoption_id: {identity.get('adoption_id', '')}")
+        print(f"logged_at: {identity.get('logged_at', '')}")
+        print(f"result: {identity.get('result', '')}")
         print(f"case: {source.get('case_name', source.get('issuer', ''))}")
         print(f"chapter: {source.get('chapter_no', '')} {source.get('chapter_title', '')}")
-        print(f"before_hash: {payload.get('before_hash', '')}")
-        print(f"after_hash: {payload.get('after_hash', '')}")
-        print(f"summary: {payload.get('summary', '')}")
+        print(f"review_state: {review.get('review_state', '')}")
+        print(f"before_hash: {hashes.get('before_hash', '')}")
+        print(f"after_hash: {hashes.get('after_hash', '')}")
+        print(f"summary: {audit.get('summary', '')}")
         print()
 
 

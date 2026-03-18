@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict
 
+from adoption_record_utils import normalize_audit, normalize_identity, normalize_rollback, stringify
 from runtime_support import RuntimeConfigError, load_runtime_config, resolve_runtime_path
 
 
@@ -63,8 +64,12 @@ def main():
         raise SystemExit(str(exc)) from exc
 
     log_payload = read_json(log_path)
+    identity = normalize_identity(log_payload)
+    rollback = normalize_rollback(log_payload)
+    audit = normalize_audit(log_payload)
     knowledge_base_path = resolve_runtime_path(runtime_config, "knowledge_base")
-    backup_path = Path(str(log_payload.get("backup_path", ""))).resolve()
+    backup_candidate = rollback.get("backup_path") or audit.get("backup_path") or log_payload.get("backup_path", "")
+    backup_path = Path(stringify(backup_candidate)).resolve()
     if not backup_path.exists():
         raise SystemExit(f"backup snapshot 不存在: {backup_path}")
 
@@ -73,15 +78,19 @@ def main():
     write_json(knowledge_base_path, backup_payload)
 
     adoption_log_dir = resolve_runtime_path(runtime_config, "knowledge_adoption_log_dir")
-    rollback_log_path = adoption_log_dir / f"{log_path.stem}.rollback.json"
+    rollback_stem = log_path.name[:-len(".log.json")] if log_path.name.endswith(".log.json") else log_path.stem
+    rollback_log_path = adoption_log_dir / f"{rollback_stem}.rollback.json"
     write_json(
         rollback_log_path,
         {
             "rolled_back_at": now_iso(),
+            "adoption_id": identity.get("adoption_id", ""),
+            "result": "rolled_back",
             "source_log": str(log_path),
             "knowledge_base_path": str(knowledge_base_path),
             "backup_path": str(backup_path),
             "restored_hash": restored_hash,
+            "rollback_log_path": str(rollback_log_path),
         },
     )
 

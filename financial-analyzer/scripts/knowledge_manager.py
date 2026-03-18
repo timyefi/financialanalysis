@@ -12,6 +12,7 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
+from adoption_record_utils import normalize_audit, normalize_hashes, normalize_identity, normalize_review, normalize_source
 from runtime_support import RuntimeConfigError, load_runtime_config, resolve_runtime_path
 
 
@@ -180,18 +181,23 @@ def print_adoption_summary(runtime_config_arg: Optional[str], limit: int = 10):
     print(f"案例分布: {format_counter(summary['case_counts'])}")
     print(f"章节分布: {format_counter(summary['chapter_counts'])}")
     for log in summary["logs"]:
-        source = log.get("source") or {}
+        identity = normalize_identity(log)
+        source = normalize_source(log)
+        review = normalize_review(log)
+        hashes = normalize_hashes(log)
+        audit = normalize_audit(log)
         print(
             "- "
-            f"{log.get('logged_at', 'unknown')} "
+            f"{identity.get('logged_at', 'unknown')} "
             f"{source.get('case_name', 'unknown')}#"
             f"{source.get('chapter_no', 'unknown')} "
             f"{source.get('chapter_title', '')}"
         )
-        if log.get("summary"):
-            print(f"  summary: {log['summary']}")
-        print(f"  before_hash: {log.get('before_hash', '')}")
-        print(f"  after_hash: {log.get('after_hash', '')}")
+        print(f"  result: {identity.get('result', 'unknown')} review_state: {review.get('review_state', 'unknown')}")
+        if audit.get("summary"):
+            print(f"  summary: {audit['summary']}")
+        print(f"  before_hash: {hashes.get('before_hash', '')}")
+        print(f"  after_hash: {hashes.get('after_hash', '')}")
 
 
 def format_counter(counter: Dict[str, int]) -> str:

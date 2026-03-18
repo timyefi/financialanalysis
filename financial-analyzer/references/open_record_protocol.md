@@ -161,29 +161,22 @@
 - `runtime/knowledge/knowledge_base.json`
 - `runtime/knowledge/adoption_logs/`
 
-章节级复核、写入前后的结构化 delta、审计外壳和回滚约束的正式口径见 [knowledge_adoption_delta_contract.md](/Users/yetim/project/financialanalysis/knowledge_adoption_delta_contract.md)。
+章节级复核、写入前后的结构化 delta、审计外壳和回滚约束的正式口径见 [knowledge_adoption_delta_contract.md](/Users/yetim/project/financialanalysis/knowledge_adoption_delta_contract.md)。该契约是 canonical 口径；当前脚本实现仍兼容 flat 字段别名，但后续线程不得再以别名发明新形状。
 
 ### 正式 adoption 记录的最小核心字段
 
-一条正式 adoption 记录应同时覆盖 delta payload 和 audit envelope，至少包含：
+一条正式 adoption 记录应同时覆盖 delta payload 和 audit envelope，canonical 最小形状至少包含：
 
-- `adoption_id`
-- `delta_version`
-- `logged_at`
-- `result`
+- `identity`
 - `source`
 - `review`
 - `operations`
 - `evidence_refs`
-- `before_hash`
-- `after_hash`
-- `knowledge_base_version_before`
-- `knowledge_base_version_after`
+- `hashes`
 - `rollback`
-- `delta_path`
-- `knowledge_base_path`
-- `backup_path`
-- `summary`
+- `audit`
+
+其中 `identity` 至少包含 `adoption_id`、`delta_version`、`logged_at`、`result`；`hashes` 至少包含 `before_hash`、`after_hash`、`knowledge_base_version_before`、`knowledge_base_version_after`；`audit` 至少包含 `adoption_id`、`logged_at`、`result`、`delta_path`、`knowledge_base_path`、`backup_path`、`summary`。
 
 ### 回滚记录的最小核心字段
 
@@ -198,9 +191,9 @@
 
 ### 兼容与摘要
 
-- 当前脚本实现已经稳定覆盖 `source`、`summary`、`before_hash`、`after_hash`、`backup_path` 和 `operations` 的最小子集。
+- 当前脚本实现已经稳定写出 canonical nested adoption record，并额外保留 flat 字段别名供兼容读取。
 - canonical 口径以 `knowledge_adoption_delta_contract.md` 为准；后续 Codex 线程应按正式字段补齐，不再把旧 `pending_updates` 或 review bundle 当主路径。
-- `show_knowledge_adoption.py` 的摘要目标应至少展示 `source / review / hash / result`，对缺失字段保持兼容。
-- 旧 adoption log 如果还没有 `review` 或 `result`，摘要工具应显示 `unknown` 或空值，而不是报错中断。
+- `show_knowledge_adoption.py` 的摘要目标已经直接展示 `identity.adoption_id / identity.result / source / review / hashes`，对缺失字段保持兼容。
+- 旧 adoption log 如果还没有 `review`、`result` 或 `hashes`，摘要工具应显示 `unknown` 或空值，而不是报错中断。
 
 缺少 adoption log 的知识写入视为非法实现。
