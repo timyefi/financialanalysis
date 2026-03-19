@@ -43,13 +43,13 @@ description: 企业年报附注优先财务分析 skill。用于让 Codex 先保
    - `soul_export_payload.json`
    - `financial_output.xlsx`
    这一步不是复跑模板，而是基于既有正式产物做第二轮独立阅读和 synthesis。
-9. Codex 逐章阅读 `chapter_records`，边读边写 `chapter_review_ledger.jsonl`，逐章提炼：
-   - 章节结论
-   - 证据摘录
-   - 风险判断
-   - 对正式知识库的增量或修正
-10. 在完成逐章阅读之后，由 Codex 自己写成正式 `analysis_report.md`，再据此整理 `final_data.json` 和 `soul_export_payload.json`；不要让模板脚本替代这一步。
-11. 由 `soul_export_payload.json` 生成 `financial_output.xlsx`；需要时可再用 `spreadsheet` 做版式收尾，但不能改分析口径。
+9. Codex 逐章阅读 `chapter_records` 中的章节原文与结构化要素，边读边写 `chapter_review_ledger.jsonl`，逐章提炼：
+    - 章节结论
+    - 证据摘录
+    - 风险判断
+    - 对正式知识库的增量或修正
+10. 在完成逐章阅读之后，基于 `chapter_text` / `chapter_text_cleaned`、`chapter_review_ledger.jsonl` 和既有知识库，由 Codex 自己完成指标口径核对、数值整理与正式 `analysis_report.md` 写作，再据此整理 `final_data.json` 和 `soul_export_payload.json`。不要让模板脚本替代这一步。
+11. 由 `soul_export_payload.json` 生成 `financial_output.xlsx`。需要时可再用 `spreadsheet` 做版式收尾，但不能改分析口径。
 12. 最后才做知识库净化：先和现有知识库比对，再通过 adoption log 写入正式 `knowledge_base.json`。
 13. 如果某一步还没读完、没写完、没比对完，就不要进入下一步的正式化。
 
@@ -58,6 +58,13 @@ description: 企业年报附注优先财务分析 skill。用于让 Codex 先保
 - 角色定位必须是资深固收/信用分析师，不是摘要器。
 - 正式 `analysis_report.md` 必须体现“完整阅读后再写作”的结果，不得只是 scaffold 改写、主题拼接或模板填空。
 - 正式报告必须以 `chapter_records.jsonl` 和 `chapter_review_ledger.jsonl` 为主阅读底座；`final_data.json`、`soul_export_payload.json` 只能作为摘要索引和交叉校验，不能单独承担写作来源。
+- 逐章阅读时优先使用 `chapter_text` / `chapter_text_cleaned`，不要只依赖 `summary`。
+- 指标核算必须优先调用知识库中的公式口径，尤其是：
+  - 有息债务规模
+  - 净债务与净负债率
+  - 现金短债比
+  - 利息支出含资本化后的融资成本
+  - EBITDA、利息保障倍数和经营现金流/债务
 - 如果 `evidence_index` 过于稀疏，说明中间产物还不够支撑客户级研报，必须回到章节级信息挖掘补强。
 - 报告结构优先采用“总览 + 附注科目拆解 + 结论”骨架：
   1. 基本信息
@@ -74,6 +81,7 @@ description: 企业年报附注优先财务分析 skill。用于让 Codex 先保
   - 数字或计算
   - 信用含义
   - 学习点
+- 报告正文中应显式写出关键派生指标的计算过程，不要只给结论值。
 - 报告写法要像研究员手稿再提纯后的正式稿：
   - 允许较长段落
   - 允许表格

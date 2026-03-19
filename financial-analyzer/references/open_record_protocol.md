@@ -14,10 +14,12 @@
 - `chapter_no`
 - `chapter_title`
 - `status`
+- `chapter_text`
 - `summary`
 
 扩展载荷如下：
 
+- `chapter_text_cleaned`
 - `attributes`
 - `numeric_data`
 - `findings`
@@ -26,6 +28,7 @@
 - `extensions`
 
 记录范围仅限“已确认附注主章节”，正文不进入 `chapter_records.jsonl`。
+其中 `chapter_text` 保存该章对应的原文切片，供 Codex 逐章阅读与指标核算；`summary` 只作为速览，不可替代原文。
 其中 `status=completed` 只表示模板抽取完成，不代表已复核、已采纳或已正式成稿。
 `attributes` 至少补充：
 
@@ -109,10 +112,11 @@
 正式 `final_data.json` 固定核心字段如下：
 
 - `entity_profile`
-- `key_conclusions`
-- `topic_results`
+- `chapter_count`
+- `focus_count`
+- `extensions`
 
-各主题节点允许通过 `attributes` 和 `extensions` 自由增长。
+正式 `final_data.json` 只承担运行元信息与章节数量摘要，不承载脚本式分析结论。
 
 ## Soul 导出契约
 
