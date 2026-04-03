@@ -8,6 +8,7 @@
 2. [architecture.md](architecture.md)
 3. [contracts.md](contracts.md)
 4. [troubleshooting.md](troubleshooting.md)
+5. [projects.md](projects.md)
 
 ## 文档说明
 
@@ -15,5 +16,6 @@
 - `architecture.md`：项目为什么这样分层。
 - `contracts.md`：关键文件、目录和产物之间怎么对接。
 - `troubleshooting.md`：常见故障和恢复方法。
+- `projects.md`：GitHub Projects 的优先级拆分、字段约定和维护规则。
 
 如果你只想快速理解项目，先读 `quickstart.md`，再看 `architecture.md`。

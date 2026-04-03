@@ -1,0 +1,87 @@
+name: Project task
+description: Create a task that can be routed into the priority-based GitHub Projects structure.
+title: "[P1] "
+labels:
+  - project-task
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to create tasks that belong in the priority-based project boards.
+        Pick one priority and one primary workstream.
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Select the project priority bucket.
+      options:
+        - P0
+        - P1
+        - P2
+        - P3
+    validations:
+      required: true
+  - type: dropdown
+    id: workstream
+    attributes:
+      label: Workstream
+      description: Select the primary workstream.
+      options:
+        - W1 采集与原始数据治理
+        - W2 MinerU 接入与文档标准化
+        - W3 Financial Analysis 核心引擎
+        - W4 Soul Excel 生成系统
+        - W5 知识进化与治理
+        - W6 QA、回归与可运维性
+        - W7 编排、自动化与项目运营
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      description: Select the current status.
+      options:
+        - backlog
+        - ready
+        - in-progress
+        - blocked
+        - review
+        - done
+    validations:
+      required: true
+  - type: input
+    id: target_case
+    attributes:
+      label: Target case or subject
+      description: Optional case name, issuer or scenario.
+      placeholder: henglong_2024
+    validations:
+      required: false
+  - type: textarea
+    id: blocking_reason
+    attributes:
+      label: Blocking reason
+      description: Fill this when the task is blocked.
+      placeholder: Missing runtime config / missing source data / needs review
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: List the conditions that make this task done.
+      placeholder: |
+        - Input data is available
+        - Output file is generated
+        - Validation passes
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Add context, links or implementation notes.
+      placeholder: Any extra context for the assignee.
+    validations:
+      required: false

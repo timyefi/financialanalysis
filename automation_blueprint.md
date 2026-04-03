@@ -434,6 +434,7 @@ Subagents 协作约束：
 
 1. 维护 [go_live_checklist.md](/Users/yetim/project/financialanalysis/go_live_checklist.md) 与其交叉引用，按实际运行反馈微调门禁。
 2. 后续若出现新的风险模式或运行口径变化，优先回写到 go-live 门禁和 runtime 治理文档，而不是另起一套上线标准。
+3. 远端协作层将按 P0 / P1 / P2 / P3 四档拆分 GitHub Projects，其中 P0 对应阻塞与上线门禁，P1 对应信息收集，P2 对应文档理解与分析主链，P3 对应导出、QA 与知识治理收口。
 
 排序原因：
 
@@ -490,6 +491,7 @@ Subagents 协作约束：
 - 生产化 R2 已进一步收口为 canonical contract：后续 Codex 线程必须直接消费 `identity / source / review / operations / evidence_refs / hashes / rollback / audit` 口径，不再自造 flat 变体
 - 生产化 R3 已完成双案例演练：`henglong_2024` 与 `country_garden_2024` 已跑通 scaffold -> adopt -> rollback -> formal closed loop，`P6` 现在可以直接接手 go-live checklist
 - `go_live_checklist.md` 已落地，作为正式投入使用前的单一 go-live 门禁清单
+- GitHub Projects 的优先级拆分方案已定为 P0 / P1 / P2 / P3 四档，后续会以此作为远端项目板的默认分层
 
 ### 进行中
 

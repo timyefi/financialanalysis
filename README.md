@@ -137,6 +137,16 @@
 3. [docs/architecture.md](docs/architecture.md)
 4. [docs/contracts.md](docs/contracts.md)
 5. [docs/troubleshooting.md](docs/troubleshooting.md)
+6. [docs/projects.md](docs/projects.md)
+
+## 快速上手 issues
+
+下面这几条 issue 已经把常见的启动、案例复盘、调试经验和思路沉淀好了，适合新同事直接打开照着看：
+
+1. [Codex 快速上手包：新同事协作与启动指南](issues/8)
+2. [案例复盘：万科 2024 年报分析与调试经验](issues/9)
+3. [案例复盘：恒隆地产与 Soul 模块化设计](issues/10)
+4. [调试与排障：常见故障和运行坑](issues/11)
 
 如果你要开始开发，建议先看 [docs/quickstart.md](docs/quickstart.md)，再看 [docs/architecture.md](docs/architecture.md) 和 [docs/contracts.md](docs/contracts.md)。
 

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Repository docs
+    url: https://github.com/timyefi/financialanalysis
+    about: Read the repository docs before filing a project task.
