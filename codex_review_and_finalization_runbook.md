@@ -18,6 +18,7 @@
 6. `knowledge_manager.py` 只负责正式知识库审计、摘要与兼容入口，不再承担候选治理主路径。
 7. 任何章节级知识写入都必须能回滚，并且能被摘要工具看见。
 8. `knowledge_adoption_delta_contract.md` 定义正式 delta payload、审计外壳和 rollback 规则，canonical 形状固定为 `identity / source / review / operations / evidence_refs / hashes / rollback / audit`，后续线程不得各自发明变体口径。
+9. 正式 Excel 工作底稿中的计算指标必须保留公式层；如使用隐藏原始输入表，必须确保派生值仍可回溯，不能把计算结果硬编码成静态值。
 
 ## 2.1 R1 控制面边界
 
@@ -206,3 +207,10 @@ R1、R2、R3 与 P6 都已收口到文档与结果，后续只需按运行反馈
 `P6` 只在 `R3` 跑通之后再开；当前 `go_live_checklist.md` 已作为正式收口文档落地。
 
 当前状态：`R3` 已在 `henglong_2024` 与 `country_garden_2024` 上完成 scaffold -> read -> write -> adopt -> rollback -> formal 闭环，后续线程可直接进入 `P6` 的 go-live checklist 收口。
+
+## 6. 复跑约束
+
+- 后续任何同类案例复跑，都必须沿用同一主序列：`scaffold -> read -> write -> adopt`。
+- 其中 `read` 的含义固定为先完整阅读中间产物，再阅读正式 `financial_output.xlsx`，然后才写正式 `analysis_report.md`。
+- 不允许把 `finalize_scaffold_run.py` 的收口结果直接视为客户正式稿；它只能作为复核和落盘工具。
+- 如果正式产物已存在，复跑时要先比对同运行目录的 `financial_output.xlsx` 与 `chapter_review_ledger.jsonl`，不能从其他案例复制报告结构。

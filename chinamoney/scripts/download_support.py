@@ -236,6 +236,77 @@ def _looks_like_pdf(path: Path) -> bool:
         return False
 
 
+def _is_probably_simplified_pdf(output_path: Path, *, fallback_lookup: Optional[Dict[str, Any]] = None) -> bool:
+    if not output_path.exists() or not _looks_like_pdf(output_path):
+        return False
+
+    report_type = str((fallback_lookup or {}).get("report_type", "")).strip()
+    if report_type and report_type not in {"年度报告", "半年度报告", "三季度报告", "四季度报告"}:
+        return False
+
+    try:
+        from pypdf import PdfReader
+    except Exception:
+        return False
+
+    try:
+        reader = PdfReader(str(output_path))
+    except Exception:
+        return False
+
+    page_count = len(reader.pages)
+    if page_count >= 20:
+        return False
+
+    keywords = (
+        "财务报表及审阅报告",
+        "财务报表及审计报告",
+        "审阅报告",
+        "审计报告",
+        "合并资产负债表",
+        "母公司资产负债表",
+        "合并利润表",
+        "母公司利润表",
+        "合并现金流量表",
+        "母公司现金流量表",
+        "合并股东权益变动表",
+        "母公司股东权益变动表",
+        "附注",
+    )
+    combined_text = []
+    for page in reader.pages[: min(5, page_count)]:
+        try:
+            page_text = page.extract_text() or ""
+        except Exception:
+            page_text = ""
+        if page_text:
+            combined_text.append(page_text)
+
+    try:
+        outlines = reader.outline  # type: ignore[attr-defined]
+    except Exception:
+        outlines = []
+
+    outline_titles: List[str] = []
+
+    def _collect_titles(items: Any) -> None:
+        if isinstance(items, list):
+            for item in items:
+                _collect_titles(item)
+        elif isinstance(items, dict):
+            title = str(items.get("/Title", "")).strip()
+            if title:
+                outline_titles.append(title)
+
+    _collect_titles(outlines)
+
+    text_blob = "\n".join(combined_text + ["\n".join(outline_titles)])
+    if any(keyword in text_blob for keyword in keywords):
+        return False
+
+    return page_count < 20
+
+
 def _attempt_download(
     *,
     session: requests.Session,
@@ -424,6 +495,8 @@ def download_file_with_metadata(
         "output_path": str(output.resolve()),
     }
 
+    simplified_requery_hint = fallback_lookup or {}
+
     primary = _attempt_download(
         session=client,
         source_label="chinamoney_official",
@@ -443,6 +516,24 @@ def download_file_with_metadata(
         result.update(primary)
         result["attempt_logs"] = primary_logs
         result["resolved_fallback"] = False
+        if _is_probably_simplified_pdf(output, fallback_lookup=simplified_requery_hint):
+            result["followup_required"] = True
+            result["followup_reason"] = "brief_pdf_should_be_used_as_index_for_official_exchange_links"
+            result["followup_action"] = "extract_official_exchange_links_from_brief_pdf"
+            result["followup_targets"] = ["szse", "sse"]
+            result["brief_pdf_detected"] = True
+            result["brief_pdf_message"] = (
+                "downloaded_pdf_looks_like_brief_index_follow_official_exchange_links"
+            )
+            result["file_size_bytes"] = output.stat().st_size if output.exists() else 0
+            result["followup_hint"] = {
+                "issuer_name": simplified_requery_hint.get("issuer_name", ""),
+                "year": simplified_requery_hint.get("year"),
+                "report_type": simplified_requery_hint.get("report_type", ""),
+                "message": "downloaded_index_style_pdf_follow_szse_or_sse_links_for_full_report",
+                "action": "follow_official_exchange_links",
+            }
+            return result
         return result
 
     resolved_fallback_url = fallback_url.strip()
@@ -487,6 +578,24 @@ def download_file_with_metadata(
             result["attempt_count"] = total_attempt_count
             if fallback_metadata:
                 result["fallback_metadata"] = fallback_metadata
+            if _is_probably_simplified_pdf(output, fallback_lookup=simplified_requery_hint):
+                result["followup_required"] = True
+                result["followup_reason"] = "brief_pdf_should_be_used_as_index_for_official_exchange_links"
+                result["followup_action"] = "extract_official_exchange_links_from_brief_pdf"
+                result["followup_targets"] = ["szse", "sse"]
+                result["brief_pdf_detected"] = True
+                result["brief_pdf_message"] = (
+                    "downloaded_pdf_looks_like_brief_index_follow_official_exchange_links"
+                )
+                result["file_size_bytes"] = output.stat().st_size if output.exists() else 0
+                result["followup_hint"] = {
+                    "issuer_name": simplified_requery_hint.get("issuer_name", ""),
+                    "year": simplified_requery_hint.get("year"),
+                    "report_type": simplified_requery_hint.get("report_type", ""),
+                    "message": "downloaded_index_style_pdf_follow_szse_or_sse_links_for_full_report",
+                    "action": "follow_official_exchange_links",
+                }
+                return result
             return result
         result["fallback_used"] = True
         if fallback_metadata:

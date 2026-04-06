@@ -11,6 +11,7 @@ import tempfile
 from pathlib import Path
 
 import xlsxwriter
+from xlsxwriter.utility import xl_rowcol_to_cell
 
 
 RISK_TEXT = {
@@ -99,6 +100,77 @@ def render_preview(output_path):
     )
 
 
+class RawValueStore:
+    def __init__(self):
+        self.entries = []
+        self.refs = {}
+
+    def add(self, key, label, value, unit="", note=""):
+        if key in self.refs:
+            return self.refs[key]
+        row_index = len(self.entries) + 2
+        self.entries.append({
+            "key": key,
+            "label": label,
+            "value": value,
+            "unit": unit,
+            "note": note,
+            "row_index": row_index,
+        })
+        self.refs[key] = f"'RAW_INPUTS'!$B${row_index}"
+        return self.refs[key]
+
+    def get(self, key):
+        return self.refs.get(key)
+
+
+def raw_formula_ref(raw_ref):
+    return f"={raw_ref}"
+
+
+def add_raw_value(raw_store, key, label, value, unit="", note=""):
+    if isinstance(value, (int, float)):
+        return raw_store.add(key, label, value, unit, note)
+    return None
+
+
+def first_numeric_value(values):
+    first = values[0] if values else {}
+    value = first.get("value")
+    if isinstance(value, (int, float)):
+        return first
+    return None
+
+
+def write_formula_or_number(sheet, row, col, value, fmt, raw_ref=None, formula=None):
+    if formula:
+        sheet.write_formula(row, col, formula, fmt, value)
+    elif raw_ref:
+        sheet.write_formula(row, col, raw_formula_ref(raw_ref), fmt, value)
+    elif isinstance(value, (int, float)):
+        sheet.write_number(row, col, value, fmt)
+    elif value is None:
+        sheet.write(row, col, "-", fmt)
+    else:
+        sheet.write(row, col, value, fmt)
+
+
+def render_raw_inputs_sheet(workbook, raw_store, formats):
+    sheet = workbook.add_worksheet("RAW_INPUTS")
+    sheet.hide()
+    sheet.set_column("A:A", 34)
+    sheet.set_column("B:B", 18)
+    sheet.set_column("C:C", 12)
+    sheet.set_column("D:D", 36)
+    sheet.write_row(0, 0, ["键", "数值", "单位", "说明"], formats["header"])
+    for entry in raw_store.entries:
+        row = entry["row_index"] - 1
+        sheet.write(row, 0, entry["label"], formats["text"])
+        sheet.write_number(row, 1, entry["value"], formats["number"])
+        sheet.write(row, 2, entry["unit"], formats["text"])
+        sheet.write(row, 3, entry["note"], formats["text"])
+
+
 def build_formats(workbook):
     return {
         "title": workbook.add_format({
@@ -180,9 +252,10 @@ def build_formats(workbook):
 
 
 def value_format(formats, unit):
-    if unit == "%":
+    normalized = str(unit or "").strip()
+    if normalized in {"%", "pct", "percent"}:
         return formats["percent_text"]
-    if unit == "x":
+    if normalized in {"x", "倍", "亿元/x"}:
         return formats["multiple"]
     return formats["number"]
 
@@ -201,6 +274,57 @@ def add_sheet_base(sheet):
 def write_title(sheet, title, subtitle, formats):
     sheet.merge_range(0, 0, 0, 5, title, formats["title"])
     sheet.write(1, 0, subtitle, formats["note"])
+
+
+def register_section_values(raw_store, prefix, items):
+    for item in items or []:
+        values = item.get("values") or []
+        first = first_numeric_value(values)
+        if not first:
+            continue
+        key = f"{prefix}.{item.get('metric_code') or item.get('row_code') or item.get('label')}"
+        add_raw_value(raw_store, key, item.get("label", key), first.get("value"), first.get("unit", ""), item.get("commentary", ""))
+
+
+def register_topic_values(raw_store, module_key, sections):
+    for section in sections or []:
+        section_title = section.get("section_title", "section")
+        for item in section.get("items", []):
+            value = item.get("value")
+            if isinstance(value, (int, float)):
+                key = f"{module_key}.{section_title}.{item.get('label', '')}"
+                add_raw_value(raw_store, key, item.get("label", key), value, item.get("unit", ""), item.get("source_status", ""))
+
+
+def register_payload_inputs(payload, raw_store):
+    formula_inputs = payload.get("formula_inputs", {})
+    for key, item in formula_inputs.items():
+        add_raw_value(raw_store, f"formula_inputs.{key}", item.get("label", key), item.get("value"), item.get("unit", ""), "公式辅助输入")
+
+    for section in payload.get("kpi_dashboard", {}).get("sections", []):
+        for metric in section.get("metrics", []):
+            value = metric.get("value")
+            if isinstance(value, (int, float)):
+                key = f"kpi_dashboard.{section.get('category', 'section')}.{metric.get('metric_code') or metric.get('label', '')}"
+                add_raw_value(raw_store, key, metric.get("label", key), value, metric.get("unit", ""), metric.get("source_status", ""))
+
+    financial_summary = payload.get("financial_summary", {}).get("statements", {})
+    register_section_values(raw_store, "financial_summary.balance_sheet", financial_summary.get("balance_sheet", []))
+    register_section_values(raw_store, "financial_summary.income_statement", financial_summary.get("income_statement", []))
+    register_section_values(raw_store, "financial_summary.cash_flow", financial_summary.get("cash_flow", []))
+
+    debt_profile = payload.get("debt_profile", {})
+    register_section_values(raw_store, "debt_profile.totals", debt_profile.get("totals", []))
+    register_section_values(raw_store, "debt_profile.maturity_buckets", debt_profile.get("maturity_buckets", []))
+    register_section_values(raw_store, "debt_profile.financing_mix", debt_profile.get("financing_mix", []))
+    register_section_values(raw_store, "debt_profile.rate_profile", debt_profile.get("rate_profile", []))
+
+    liquidity = payload.get("liquidity_and_covenants", {})
+    register_section_values(raw_store, "liquidity.cash_metrics", liquidity.get("cash_metrics", []))
+    register_section_values(raw_store, "liquidity.restricted_assets", liquidity.get("restricted_assets", []))
+
+    for module in payload.get("optional_modules", []):
+        register_topic_values(raw_store, module.get("module_key", "optional"), module.get("payload", {}).get("sections", []))
 
 
 def render_overview(sheet, payload, evidence_map, formats):
@@ -256,7 +380,7 @@ def render_overview(sheet, payload, evidence_map, formats):
         row += 1
 
 
-def render_kpi_dashboard(sheet, payload, evidence_map, formats):
+def render_kpi_dashboard(sheet, payload, evidence_map, formats, raw_store):
     add_sheet_base(sheet)
     write_title(sheet, "KPI Dashboard", "固定骨架模块 01", formats)
     sheet.set_column("A:A", 14)
@@ -268,21 +392,6 @@ def render_kpi_dashboard(sheet, payload, evidence_map, formats):
     sheet.set_column("G:G", 14)
     sheet.set_column("H:H", 24)
     sheet.set_column("J:K", 12, None, {"hidden": True})
-
-    liquidity = payload["liquidity_and_covenants"]
-    debt = payload["debt_profile"]
-    cash_metric = next((item for item in liquidity.get("cash_metrics", []) if item["metric_code"] == "cash_and_cash_equiv"), None)
-    short_metric = None
-    for item in debt.get("maturity_buckets", []):
-        if item["row_code"] == "within_1y" and item.get("values"):
-            short_metric = item["values"][0]
-            break
-    helper_cash_row = 1
-    helper_short_row = 2
-    if cash_metric and cash_metric["value"] is not None:
-        sheet.write_number(helper_cash_row, 9, cash_metric["value"])
-    if short_metric and short_metric["value"] is not None:
-        sheet.write_number(helper_short_row, 9, short_metric["value"])
 
     row = 3
     sheet.write_row(row, 0, ["分类", "指标", "当前值", "单位", "风险", "来源", "对比", "证据"], formats["header"])
@@ -296,9 +405,33 @@ def render_kpi_dashboard(sheet, payload, evidence_map, formats):
         for metric in metrics:
             sheet.write(row, 1, metric["label"], formats["text"])
             metric_format = value_format(formats, metric.get("unit"))
-            if metric["metric_code"] == "cash_to_short_term_debt" and cash_metric and short_metric:
-                formula = f'=IFERROR($J${helper_cash_row + 1}/$J${helper_short_row + 1},"")'
+            raw_key = f"kpi_dashboard.{section.get('category', 'section')}.{metric.get('metric_code') or metric['label']}"
+            raw_ref = raw_store.get(raw_key)
+            if metric["metric_code"] == "equity_ratio":
+                total_assets_ref = raw_store.get("kpi_dashboard.leverage.total_assets")
+                total_liabilities_ref = raw_store.get("kpi_dashboard.leverage.total_liabilities")
+                formula = f'=IFERROR(({total_assets_ref}-{total_liabilities_ref})/{total_assets_ref}*100,"")'
                 sheet.write_formula(row, 2, formula, metric_format, metric.get("value"))
+            elif metric["metric_code"] == "current_ratio":
+                current_assets_ref = raw_store.get("financial_summary.balance_sheet.流动资产合计")
+                current_liabilities_ref = raw_store.get("financial_summary.balance_sheet.流动负债合计")
+                formula = f'=IFERROR({current_assets_ref}/{current_liabilities_ref},"")'
+                sheet.write_formula(row, 2, formula, metric_format, metric.get("value"))
+            elif metric["metric_code"] == "gross_margin":
+                revenue_ref = raw_store.get("financial_summary.income_statement.营业收入")
+                cost_ref = raw_store.get("financial_summary.income_statement.营业成本")
+                formula = f'=IFERROR(({revenue_ref}-{cost_ref})/{revenue_ref}*100,"")'
+                sheet.write_formula(row, 2, formula, metric_format, metric.get("value"))
+            elif metric["metric_code"] == "cash_to_short_term_debt":
+                cash_ref = raw_store.get("financial_summary.cash_flow.期末现金及现金等价物") or raw_store.get("liquidity.cash_metrics.现金及现金等价物")
+                short_debt_ref = raw_store.get("debt_profile.totals.短期借款")
+                formula = f'=IFERROR({cash_ref}/{short_debt_ref},"")'
+                sheet.write_formula(row, 2, formula, metric_format, metric.get("value"))
+            elif metric["metric_code"] == "cash_and_cash_equiv":
+                cash_ref = raw_store.get("financial_summary.cash_flow.期末现金及现金等价物") or raw_store.get("liquidity.cash_metrics.现金及现金等价物")
+                write_formula_or_number(sheet, row, 2, metric.get("value"), metric_format, raw_ref=cash_ref)
+            elif raw_ref:
+                write_formula_or_number(sheet, row, 2, metric.get("value"), metric_format, raw_ref=raw_ref)
             elif isinstance(metric.get("value"), (int, float)):
                 sheet.write_number(row, 2, metric["value"], metric_format)
             elif metric.get("value") is None:
@@ -325,7 +458,7 @@ def render_kpi_dashboard(sheet, payload, evidence_map, formats):
             sheet.merge_range(start_row, 0, row - 1, 0, category_label, formats["section"])
 
 
-def write_statement_block(sheet, row, title, rows, formats):
+def write_statement_block(sheet, row, title, rows, formats, raw_store=None, prefix=""):
     sheet.merge_range(row, 0, row, 4, title, formats["section"])
     row += 1
     sheet.write_row(row, 0, ["项目", "期间", "数值", "单位", "说明"], formats["header"])
@@ -338,8 +471,11 @@ def write_statement_block(sheet, row, title, rows, formats):
         first = values[0] if values else {}
         sheet.write(row, 0, item["label"], formats["text"])
         sheet.write(row, 1, first.get("period", ""), formats["text"])
+        raw_ref = None
+        if raw_store:
+            raw_ref = raw_store.get(f"{prefix}.{item.get('label', '')}")
         if isinstance(first.get("value"), (int, float)):
-            sheet.write_number(row, 2, first["value"], value_format(formats, first.get("unit", "")))
+            write_formula_or_number(sheet, row, 2, first["value"], value_format(formats, first.get("unit", "")), raw_ref=raw_ref)
         else:
             sheet.write(row, 2, first.get("value") or "-", formats["text"])
         sheet.write(row, 3, first.get("unit", ""), formats["text"])
@@ -348,7 +484,7 @@ def write_statement_block(sheet, row, title, rows, formats):
     return row + 1
 
 
-def render_financial_summary(sheet, payload, formats):
+def render_financial_summary(sheet, payload, formats, raw_store):
     add_sheet_base(sheet)
     write_title(sheet, "Financial Summary", "固定骨架模块 02", formats)
     sheet.set_column("A:A", 24)
@@ -356,12 +492,12 @@ def render_financial_summary(sheet, payload, formats):
     sheet.merge_range(2, 0, 2, 4, payload["financial_summary"].get("coverage_note", ""), formats["note"])
     row = 4
     statements = payload["financial_summary"].get("statements", {})
-    row = write_statement_block(sheet, row, "资产负债表摘要", statements.get("balance_sheet", []), formats)
-    row = write_statement_block(sheet, row, "利润表摘要", statements.get("income_statement", []), formats)
-    write_statement_block(sheet, row, "现金流量表摘要", statements.get("cash_flow", []), formats)
+    row = write_statement_block(sheet, row, "资产负债表摘要", statements.get("balance_sheet", []), formats, raw_store, "financial_summary.balance_sheet")
+    row = write_statement_block(sheet, row, "利润表摘要", statements.get("income_statement", []), formats, raw_store, "financial_summary.income_statement")
+    write_statement_block(sheet, row, "现金流量表摘要", statements.get("cash_flow", []), formats, raw_store, "financial_summary.cash_flow")
 
 
-def write_table_rows(sheet, start_row, title, rows, formats, evidence_map):
+def write_table_rows(sheet, start_row, title, rows, formats, evidence_map, raw_store=None, prefix=""):
     sheet.merge_range(start_row, 0, start_row, 5, title, formats["section"])
     row = start_row + 1
     sheet.write_row(row, 0, ["项目", "期间", "数值", "单位", "备注", "证据"], formats["header"])
@@ -374,8 +510,11 @@ def write_table_rows(sheet, start_row, title, rows, formats, evidence_map):
         first = values[0] if values else {}
         sheet.write(row, 0, item.get("label", ""), formats["text"])
         sheet.write(row, 1, first.get("period", ""), formats["text"])
+        raw_ref = None
+        if raw_store:
+            raw_ref = raw_store.get(f"{prefix}.{item.get('row_code') or item.get('label', '')}")
         if isinstance(first.get("value"), (int, float)):
-            sheet.write_number(row, 2, first["value"], value_format(formats, first.get("unit", "")))
+            write_formula_or_number(sheet, row, 2, first["value"], value_format(formats, first.get("unit", "")), raw_ref=raw_ref)
         else:
             sheet.write(row, 2, first.get("value") or "-", formats["text"])
         sheet.write(row, 3, first.get("unit", ""), formats["text"])
@@ -387,16 +526,39 @@ def write_table_rows(sheet, start_row, title, rows, formats, evidence_map):
     return row + 1
 
 
-def render_debt_profile(sheet, payload, evidence_map, formats):
+def render_debt_profile(sheet, payload, evidence_map, formats, raw_store):
     add_sheet_base(sheet)
     write_title(sheet, "Debt Profile", "固定骨架模块 03", formats)
     sheet.set_column("A:A", 22)
     sheet.set_column("B:F", 16)
     row = 3
-    row = write_table_rows(sheet, row, "债务总览", payload["debt_profile"].get("totals", []), formats, evidence_map)
-    row = write_table_rows(sheet, row, "期限结构", payload["debt_profile"].get("maturity_buckets", []), formats, evidence_map)
-    row = write_table_rows(sheet, row, "融资结构", payload["debt_profile"].get("financing_mix", []), formats, evidence_map)
-    row = write_table_rows(sheet, row, "利率结构", payload["debt_profile"].get("rate_profile", []), formats, evidence_map)
+    row = write_table_rows(sheet, row, "债务总览", payload["debt_profile"].get("totals", []), formats, evidence_map, raw_store, "debt_profile.totals")
+    row = write_table_rows(sheet, row, "期限结构", payload["debt_profile"].get("maturity_buckets", []), formats, evidence_map, raw_store, "debt_profile.maturity_buckets")
+    row = write_table_rows(sheet, row, "融资结构", payload["debt_profile"].get("financing_mix", []), formats, evidence_map, raw_store, "debt_profile.financing_mix")
+
+    rate_profile = payload["debt_profile"].get("rate_profile", [])
+    sheet.merge_range(row, 0, row, 5, "利率结构", formats["section"])
+    row += 1
+    sheet.write_row(row, 0, ["项目", "期间", "数值", "单位", "说明"], formats["header"])
+    row += 1
+    for item in rate_profile:
+        values = item.get("values", [])
+        first = values[0] if values else {}
+        sheet.write(row, 0, item.get("label", ""), formats["text"])
+        sheet.write(row, 1, first.get("period", ""), formats["text"])
+        raw_key = f"debt_profile.rate_profile.{item.get('label', '')}"
+        raw_ref = raw_store.get(raw_key)
+        if item.get("label") == "债务平均利率":
+            interest_ref = raw_store.get("debt_profile.rate_profile.利息支出")
+            begin_ref = raw_store.get("formula_inputs.interest_bearing_liabilities_begin")
+            end_ref = raw_store.get("formula_inputs.interest_bearing_liabilities_end")
+            formula = f'=IFERROR({interest_ref}/(({begin_ref}+{end_ref})/2)*100,"")'
+            sheet.write_formula(row, 2, formula, value_format(formats, first.get("unit", "")), first.get("value"))
+        else:
+            write_formula_or_number(sheet, row, 2, first.get("value"), value_format(formats, first.get("unit", "")), raw_ref=raw_ref)
+        sheet.write(row, 3, first.get("unit", ""), formats["text"])
+        sheet.write(row, 4, item.get("commentary", ""), formats["text"])
+        row += 1
     debt_comments = payload["debt_profile"].get("debt_comments", [])
     sheet.merge_range(row, 0, row, 5, "债务评论", formats["section"])
     row += 1
@@ -411,16 +573,16 @@ def render_debt_profile(sheet, payload, evidence_map, formats):
         row += 1
 
 
-def render_liquidity(sheet, payload, evidence_map, formats):
+def render_liquidity(sheet, payload, evidence_map, formats, raw_store):
     add_sheet_base(sheet)
     write_title(sheet, "Liquidity And Covenants", "固定骨架模块 04", formats)
     sheet.set_column("A:A", 22)
     sheet.set_column("B:F", 16)
     row = 3
     liquidity = payload["liquidity_and_covenants"]
-    row = write_table_rows(sheet, row, "现金指标", liquidity.get("cash_metrics", []), formats, evidence_map)
-    row = write_table_rows(sheet, row, "授信与债务窗口", liquidity.get("credit_lines", []), formats, evidence_map)
-    row = write_table_rows(sheet, row, "受限资产", liquidity.get("restricted_assets", []), formats, evidence_map)
+    row = write_table_rows(sheet, row, "现金指标", liquidity.get("cash_metrics", []), formats, evidence_map, raw_store, "liquidity.cash_metrics")
+    row = write_table_rows(sheet, row, "授信与债务窗口", liquidity.get("credit_lines", []), formats, evidence_map, raw_store, "liquidity.credit_lines")
+    row = write_table_rows(sheet, row, "受限资产", liquidity.get("restricted_assets", []), formats, evidence_map, raw_store, "liquidity.restricted_assets")
 
     sheet.merge_range(row, 0, row, 5, "财务契约", formats["section"])
     row += 1
@@ -473,7 +635,7 @@ def render_bond_detail(sheet, module, evidence_map, formats):
         row += 1
 
 
-def render_topic(sheet, module, evidence_map, formats):
+def render_topic(sheet, module, evidence_map, formats, raw_store):
     add_sheet_base(sheet)
     write_title(sheet, module["title"], "专题模块", formats)
     sheet.set_column("A:A", 20)
@@ -495,8 +657,61 @@ def render_topic(sheet, module, evidence_map, formats):
             continue
         for item in items:
             sheet.write(row, 0, item.get("label", ""), formats["text"])
-            if isinstance(item.get("value"), (int, float)):
-                sheet.write_number(row, 1, item["value"], value_format(formats, item.get("unit", "")))
+            raw_key = f"{module.get('module_key', 'optional')}.{section.get('section_title', 'section')}.{item.get('label', '')}"
+            raw_ref = raw_store.get(raw_key)
+            if module.get("module_key") == "financing_cost":
+                revenue_ref = raw_store.get("financial_summary.income_statement.营业收入")
+                if item.get("label") == "净利息负担":
+                    interest_ref = raw_store.get("financing_cost.融资成本口径.利息支出")
+                    income_ref = raw_store.get("financing_cost.融资成本口径.利息收入")
+                    formula = f'=IFERROR({interest_ref}-{income_ref},"")'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                elif item.get("label") == "财务费用/营业收入":
+                    finance_ref = raw_store.get("financing_cost.融资成本口径.财务费用")
+                    formula = f'=IFERROR({finance_ref}/{revenue_ref}*100,"")'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                elif item.get("label") == "利息支出/平均有息负债":
+                    interest_ref = raw_store.get("financing_cost.融资成本口径.利息支出")
+                    begin_ref = raw_store.get("formula_inputs.interest_bearing_liabilities_begin")
+                    end_ref = raw_store.get("formula_inputs.interest_bearing_liabilities_end")
+                    formula = f'=IFERROR({interest_ref}/(({begin_ref}+{end_ref})/2)*100,"")'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                else:
+                    write_formula_or_number(sheet, row, 1, item.get("value"), value_format(formats, item.get("unit", "")), raw_ref=raw_ref)
+            elif module.get("module_key") == "platform_special":
+                if item.get("label") == "政府相关库存资产":
+                    total_ref = raw_store.get("formula_inputs.platform_inventory_total")
+                    market_ref = raw_store.get("formula_inputs.platform_inventory_market")
+                    formula = f'=IFERROR({total_ref}-{market_ref},"")'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                elif item.get("label") == "市场相关库存资产":
+                    formula_ref = raw_store.get("formula_inputs.platform_inventory_market")
+                    formula = f'={formula_ref}'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                elif item.get("label") == "政府相关库存占比":
+                    gov_ref = raw_store.get("platform_special.城投业务拆分.政府相关库存资产")
+                    total_ref = raw_store.get("formula_inputs.platform_inventory_total")
+                    formula = f'=IFERROR({gov_ref}/{total_ref}*100,"")'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                elif item.get("label") == "应收账款政府组合占比":
+                    gov_ref = raw_store.get("platform_special.政府往来与资产端.应收账款政府组合")
+                    total_ref = raw_store.get("formula_inputs.platform_ar_total")
+                    formula = f'=IFERROR({gov_ref}/{total_ref}*100,"")'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                elif item.get("label") == "其他应收款政府组合占比":
+                    gov_ref = raw_store.get("platform_special.政府往来与资产端.其他应收款政府组合")
+                    total_ref = raw_store.get("formula_inputs.platform_other_ar_total")
+                    formula = f'=IFERROR({gov_ref}/{total_ref}*100,"")'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                elif item.get("label") == "预付款项政府对象占比":
+                    gov_ref = raw_store.get("platform_special.政府往来与资产端.预付款项政府对象")
+                    total_ref = raw_store.get("formula_inputs.platform_prepayment_total")
+                    formula = f'=IFERROR({gov_ref}/{total_ref}*100,"")'
+                    sheet.write_formula(row, 1, formula, value_format(formats, item.get("unit", "")), item.get("value"))
+                else:
+                    write_formula_or_number(sheet, row, 1, item.get("value"), value_format(formats, item.get("unit", "")), raw_ref=raw_ref)
+            elif isinstance(item.get("value"), (int, float)):
+                write_formula_or_number(sheet, row, 1, item.get("value"), value_format(formats, item.get("unit", "")), raw_ref=raw_ref)
             else:
                 sheet.write(row, 1, item.get("value") or "-", formats["text"])
             sheet.write(row, 2, item.get("unit", ""), formats["text"])
@@ -554,6 +769,8 @@ def render_workbook(payload, output_path):
         "company": "Codex",
     })
     formats = build_formats(workbook)
+    raw_store = RawValueStore()
+    register_payload_inputs(payload, raw_store)
     evidence_map = {
         entry["evidence_id"]: entry
         for entry in payload.get("evidence_index", [])
@@ -571,13 +788,13 @@ def render_workbook(payload, output_path):
         if module_key == "overview":
             render_overview(sheet, payload, evidence_map, formats)
         elif module_key == "kpi_dashboard":
-            render_kpi_dashboard(sheet, payload, evidence_map, formats)
+            render_kpi_dashboard(sheet, payload, evidence_map, formats, raw_store)
         elif module_key == "financial_summary":
-            render_financial_summary(sheet, payload, formats)
+            render_financial_summary(sheet, payload, formats, raw_store)
         elif module_key == "debt_profile":
-            render_debt_profile(sheet, payload, evidence_map, formats)
+            render_debt_profile(sheet, payload, evidence_map, formats, raw_store)
         elif module_key == "liquidity_and_covenants":
-            render_liquidity(sheet, payload, evidence_map, formats)
+            render_liquidity(sheet, payload, evidence_map, formats, raw_store)
         elif module_key == "evidence_index":
             render_evidence_index(sheet, payload, formats)
         else:
@@ -587,7 +804,9 @@ def render_workbook(payload, output_path):
             if module_key == "bond_detail":
                 render_bond_detail(sheet, module, evidence_map, formats)
             else:
-                render_topic(sheet, module, evidence_map, formats)
+                render_topic(sheet, module, evidence_map, formats, raw_store)
+
+    render_raw_inputs_sheet(workbook, raw_store, formats)
 
     workbook.close()
     render_preview(output_path)

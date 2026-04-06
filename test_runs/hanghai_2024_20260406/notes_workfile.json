@@ -1,0 +1,117 @@
+{
+  "notes_start_line": 431,
+  "notes_end_line": 1694,
+  "locator_evidence": [
+    {
+      "step": "manual_section_mapping",
+      "keyword": "财务报表附注",
+      "excerpt": "# 财务报表附注"
+    },
+    {
+      "step": "manual_section_mapping",
+      "keyword": "五、合并财务报表项目注释",
+      "excerpt": "# 五、合并财务报表项目注释"
+    }
+  ],
+  "notes_catalog": [
+    {
+      "note_no": "1",
+      "chapter_title": "一、公司基本情况",
+      "start_line": 431,
+      "end_line": 436,
+      "evidence": [
+        "# 一、公司基本情况"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "二、财务报表的编制基础",
+      "start_line": 437,
+      "end_line": 446,
+      "evidence": [
+        "# 二、财务报表的编制基础"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "三、重要会计政策和会计估计",
+      "start_line": 447,
+      "end_line": 1015,
+      "evidence": [
+        "# 三、重要会计政策和会计估计"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "四、税（费）项",
+      "start_line": 1016,
+      "end_line": 1023,
+      "evidence": [
+        "# 四、税（费）项"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "五、合并财务报表项目注释",
+      "start_line": 1024,
+      "end_line": 1509,
+      "evidence": [
+        "# 五、合并财务报表项目注释"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "六、在其他主体中的权益",
+      "start_line": 1510,
+      "end_line": 1531,
+      "evidence": [
+        "# 六、在其他主体中的权益"
+      ]
+    },
+    {
+      "note_no": "7",
+      "chapter_title": "七、政府补助",
+      "start_line": 1532,
+      "end_line": 1541,
+      "evidence": [
+        "# 七、政府补助"
+      ]
+    },
+    {
+      "note_no": "8",
+      "chapter_title": "八、公允价值的披露",
+      "start_line": 1542,
+      "end_line": 1550,
+      "evidence": [
+        "# 八、公允价值的披露"
+      ]
+    },
+    {
+      "note_no": "9",
+      "chapter_title": "九、关联方及关联交易",
+      "start_line": 1551,
+      "end_line": 1595,
+      "evidence": [
+        "# 九、关联方及关联交易"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "十、承诺及或有事项",
+      "start_line": 1596,
+      "end_line": 1605,
+      "evidence": [
+        "# 十、承诺及或有事项"
+      ]
+    },
+    {
+      "note_no": "11",
+      "chapter_title": "十一、母公司财务报表主要项目注释",
+      "start_line": 1606,
+      "end_line": 1694,
+      "evidence": [
+        "# 十一、母公司财务报表主要项目注释"
+      ]
+    }
+  ]
+}

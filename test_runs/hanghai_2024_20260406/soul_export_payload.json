@@ -1,0 +1,1571 @@
+{
+  "contract_version": "soul_export_v1",
+  "template_version": "soul_v1_1_alpha",
+  "generated_at": "2026-04-06T13:10:28+08:00",
+  "entity_profile": {
+    "company_name": "浙江杭海新城控股集团有限公司",
+    "report_period": "2024",
+    "currency": "CNY",
+    "report_type": "a_share_full_report",
+    "audit_opinion": "未识别",
+    "industry_tag": "lgfv",
+    "input_file": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/hanghai_2024_mineru/浙江杭海新城控股集团有限公司2024年年度报告/浙江杭海新城控股集团有限公司2024年年度报告.md"
+  },
+  "source_artifacts": {
+    "run_manifest": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/hanghai_2024_20260406/run_manifest.json",
+    "chapter_records": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/hanghai_2024_20260406/chapter_records.jsonl",
+    "focus_list_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/hanghai_2024_20260406/focus_list_scaffold.json",
+    "final_data_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/hanghai_2024_20260406/final_data_scaffold.json",
+    "analysis_report_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/hanghai_2024_20260406/analysis_report_scaffold.md",
+    "notes_workfile": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/hanghai_2024_20260406/notes_workfile.json"
+  },
+    "formula_inputs": {
+      "interest_bearing_liabilities_begin": {
+        "label": "期初有息负债合计",
+        "value": 383.0788006469,
+        "unit": "亿元"
+      },
+      "interest_bearing_liabilities_end": {
+        "label": "期末有息负债合计",
+        "value": 476.9292795902,
+        "unit": "亿元"
+      },
+      "platform_inventory_market": {
+        "label": "市场相关库存资产",
+        "value": 0.5297904293,
+        "unit": "亿元"
+      },
+      "platform_inventory_total": {
+        "label": "存货总额",
+        "value": 610.3141381583,
+        "unit": "亿元"
+      },
+      "platform_inventory_stock_goods": {
+        "label": "库存商品",
+        "value": 0.000478265,
+        "unit": "亿元"
+      },
+      "platform_inventory_commercial_property": {
+        "label": "商品房、商业地产",
+        "value": 0.52904071,
+        "unit": "亿元"
+      },
+      "platform_ar_total": {
+        "label": "应收账款总额",
+        "value": 19.7563573824,
+        "unit": "亿元"
+      },
+      "platform_other_ar_total": {
+        "label": "其他应收款总额",
+        "value": 61.0685413299,
+        "unit": "亿元"
+      },
+      "platform_prepayment_total": {
+        "label": "预付款项总额",
+        "value": 8.1705178984,
+        "unit": "亿元"
+      }
+    },
+  "module_manifest": [
+    {
+      "sheet_name": "00_overview",
+      "module_key": "overview",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "概览",
+      "empty_state": "仅保留运行壳，不做脚本摘要"
+    },
+    {
+      "sheet_name": "01_kpi_dashboard",
+      "module_key": "kpi_dashboard",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "KPI 面板",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "02_financial_summary",
+      "module_key": "financial_summary",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "财务摘要",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "03_debt_profile",
+      "module_key": "debt_profile",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "债务画像",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "04_liquidity_and_covenants",
+      "module_key": "liquidity_and_covenants",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "流动性与契约",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "05_financing_cost",
+      "module_key": "financing_cost",
+      "module_type": "optional",
+      "required": false,
+      "enabled": true,
+      "title": "融资成本计算",
+      "empty_state": "由专题分析生成"
+    },
+    {
+      "sheet_name": "06_platform_special",
+      "module_key": "platform_special",
+      "module_type": "optional",
+      "required": false,
+      "enabled": true,
+      "title": "城投专题分析",
+      "empty_state": "由专题分析生成"
+    },
+    {
+      "sheet_name": "99_evidence_index",
+      "module_key": "evidence_index",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "证据索引",
+      "empty_state": "仅保留章节证据索引"
+    }
+  ],
+  "overview": {
+    "executive_summary": [
+      "公司仍保持“平台公司+开发经营”双重属性，报告期末资产总额 809.95 亿元，负债总额 530.00 亿元，归母所有者权益 247.81 亿元。",
+      "收入端表面平稳，全年营业收入 12.51 亿元、净利润 0.81 亿元，但经营现金流净额为 -68.73 亿元，利润与现金回收明显背离。",
+      "存货 610.31 亿元、应收账款 19.58 亿元、其他应收款 61.07 亿元，资产结构高度偏向土地开发、代建和平台往来。",
+      "有息负债规模较大，短期借款 67.44 亿元，一年内到期非流动负债 27.09 亿元，应付债券 79.14 亿元，流动性依赖再融资和政府支持。"
+    ],
+    "key_risks": [
+      {
+        "label": "再融资依赖",
+        "risk_level": "high",
+        "description": "短期借款和一年内到期债务合计规模较大，期末现金短债比仅约 0.28 倍。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "低效占资",
+        "risk_level": "high",
+        "description": "存货、预付款和往来款占用资金量大，经营现金流持续为负，资产周转压力高。",
+        "evidence_refs": [
+          "EVD-0010"
+        ]
+      },
+      {
+        "label": "关联与政府项目依赖",
+        "risk_level": "medium",
+        "description": "应收、预付、租赁和往来关系大量集中于政府及国有平台，外部市场化回款属性偏弱。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "或有负债与担保",
+        "risk_level": "high",
+        "description": "对外担保余额较大，且涉及多家平台公司与长期到期项目，尾部风险需要持续跟踪。",
+        "evidence_refs": [
+          "EVD-0010"
+        ]
+      },
+      {
+        "label": "融资成本侵蚀利润",
+        "risk_level": "high",
+        "description": "财务费用率接近四分之一，净利息负担仍处高位，融资成本持续消耗利润空间。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "rating_snapshot": [
+      {
+        "label": "资产规模",
+        "value": 809.95,
+        "unit": "亿元",
+        "commentary": "体量继续扩张。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "经营现金流",
+        "value": -68.73,
+        "unit": "亿元",
+        "commentary": "现金回收弱于利润形成。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "现金短债比",
+        "value": 0.28,
+        "unit": "x",
+        "commentary": "短期偿债缓冲偏弱。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "report_highlights": [
+      {
+        "title": "收入与利润",
+        "detail": "营业收入 12.51 亿元，营业利润 0.92 亿元，净利润 0.81 亿元，仍能维持正向利润，但利润质量受政府补助和非经常性因素影响较大。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "title": "现金流",
+        "detail": "经营活动现金流净额 -68.73 亿元，投资活动净流出 8.80 亿元，全年主要依靠筹资活动净流入 73.88 亿元对冲。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "title": "资产结构",
+        "detail": "存货 610.31 亿元，其中开发成本 559.92 亿元；投资性房地产 45.50 亿元，在建工程 13.85 亿元，典型平台开发资产占比高。",
+        "evidence_refs": [
+          "EVD-0010"
+        ]
+      },
+      {
+        "title": "融资成本",
+        "detail": "财务费用 3.09 亿元，利息支出 3.12 亿元，财务费用率约 24.72%，说明融资成本对利润形成持续挤压。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "title": "负债结构",
+        "detail": "短期借款 67.44 亿元、长期借款 277.45 亿元、应付债券 79.14 亿元，融资结构以银行及债券融资为主。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ]
+  },
+  "kpi_dashboard": {
+    "periods": [
+      "2024"
+    ],
+    "sections": [
+      {
+        "category": "leverage",
+        "metrics": [
+          {
+            "metric_code": "total_assets",
+            "label": "资产总额",
+            "value": 809.9478657888,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "合并资产负债表",
+            "comparison": "较上年增加 116.04 亿元",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "total_liabilities",
+            "label": "负债总额",
+            "value": 530.0038850819,
+            "unit": "亿元",
+            "risk_level": "high",
+            "source_status": "合并资产负债表",
+            "comparison": "负债率约 65.4%",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "equity_ratio",
+            "label": "权益占比",
+            "value": 34.6,
+            "unit": "",
+            "risk_level": "medium",
+            "source_status": "合并资产负债表",
+            "comparison": "归母权益 247.81 亿元",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "current_ratio",
+            "label": "流动比率",
+            "value": 5.48,
+            "unit": "x",
+            "risk_level": "low",
+            "source_status": "资产负债表推算",
+            "comparison": "流动资产 722.16 亿元 / 流动负债 131.83 亿元",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "debt_service",
+        "metrics": [
+          {
+            "metric_code": "cash_and_cash_equiv",
+            "label": "现金及现金等价物",
+            "value": 19.175386399,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "现金流量表",
+            "comparison": "期末现金 19.18 亿元",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "cash_to_short_term_debt",
+            "label": "现金短债比",
+            "value": 0.28,
+            "unit": "x",
+            "risk_level": "high",
+            "source_status": "计算指标",
+            "comparison": "低于 1 倍",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "current_maturity_debt",
+            "label": "一年内到期债务",
+            "value": 27.0947156237,
+            "unit": "亿元",
+            "risk_level": "high",
+            "source_status": "长期负债到期结构",
+            "comparison": "一年内到期债务较大",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "interest_bearing_liabilities",
+            "label": "计息负债合计",
+            "value": 476.9292795902,
+            "unit": "亿元",
+            "risk_level": "high",
+            "source_status": "筹资活动负债变动表",
+            "comparison": "以银行借款和债券为主",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "profitability",
+        "metrics": [
+          {
+            "metric_code": "revenue",
+            "label": "营业收入",
+            "value": 12.5129022227,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "合并利润表",
+            "comparison": "同比增长 15.1%",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "net_profit",
+            "label": "净利润",
+            "value": 0.8094876796,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "合并利润表",
+            "comparison": "净利率约 6.5%",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "parent_net_profit",
+            "label": "归母净利润",
+            "value": 0.2956894742,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "合并利润表",
+            "comparison": "少数股东损益贡献较大",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "gross_margin",
+            "label": "毛利率",
+            "value": 3.1,
+            "unit": "",
+            "risk_level": "high",
+            "source_status": "收入成本测算",
+            "comparison": "收入 12.51 亿元 / 成本 12.12 亿元",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "cashflow",
+        "metrics": [
+          {
+            "metric_code": "operating_cash_flow",
+            "label": "经营活动现金流净额",
+            "value": -68.7263297047,
+            "unit": "亿元",
+            "risk_level": "high",
+            "source_status": "合并现金流量表",
+            "comparison": "持续为负",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "investing_cash_flow",
+            "label": "投资活动现金流净额",
+            "value": -8.7990375971,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "合并现金流量表",
+            "comparison": "继续投向项目与股权",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "financing_cash_flow",
+            "label": "筹资活动现金流净额",
+            "value": 73.8792818543,
+            "unit": "亿元",
+            "risk_level": "high",
+            "source_status": "合并现金流量表",
+            "comparison": "依赖外部融资补流",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          },
+          {
+            "metric_code": "restricted_cash",
+            "label": "受限资金",
+            "value": 1.4373736789,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "受限资产注释",
+            "comparison": "资金受限约 1.44 亿元",
+            "evidence_refs": [
+              "EVD-0009"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "financial_summary": {
+    "unit_label": "CNY_100m",
+    "statements": {
+      "balance_sheet": [
+        {
+          "label": "资产总计",
+          "values": [
+            {
+              "period": "2024-12-31",
+              "value": 809.9478657888,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "资产端继续扩张。"
+        },
+        {
+          "label": "负债合计",
+          "values": [
+            {
+              "period": "2024-12-31",
+              "value": 530.0038850819,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "有息负债与往来负债占比高。"
+        },
+        {
+          "label": "归母所有者权益",
+          "values": [
+            {
+              "period": "2024-12-31",
+              "value": 247.8066885576,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "资本公积和未分配利润构成主体。"
+        },
+        {
+          "label": "流动资产合计",
+          "values": [
+            {
+              "period": "2024-12-31",
+              "value": 722.1557189289,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "流动资产占比极高。"
+        },
+        {
+          "label": "流动负债合计",
+          "values": [
+            {
+              "period": "2024-12-31",
+              "value": 131.8335091465,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "一年内到期债务压力仍然存在。"
+        }
+      ],
+      "income_statement": [
+        {
+          "label": "营业收入",
+          "values": [
+            {
+              "period": "2024",
+              "value": 12.5129022227,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "同比增长。"
+        },
+        {
+          "label": "营业成本",
+          "values": [
+            {
+              "period": "2024",
+              "value": 12.1200473774,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "成本接近收入。"
+        },
+        {
+          "label": "营业利润",
+          "values": [
+            {
+              "period": "2024",
+              "value": 0.9171704711,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "主业盈利但空间较薄。"
+        },
+        {
+          "label": "净利润",
+          "values": [
+            {
+              "period": "2024",
+              "value": 0.8094876796,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "利润主要受补助和资产处置影响。"
+        },
+        {
+          "label": "归母净利润",
+          "values": [
+            {
+              "period": "2024",
+              "value": 0.2956894742,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "少数股东损益占比较高。"
+        }
+      ],
+      "cash_flow": [
+        {
+          "label": "经营活动现金流净额",
+          "values": [
+            {
+              "period": "2024",
+              "value": -68.7263297047,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "经营造血能力偏弱。"
+        },
+        {
+          "label": "投资活动现金流净额",
+          "values": [
+            {
+              "period": "2024",
+              "value": -8.7990375971,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "继续投入项目和股权。"
+        },
+        {
+          "label": "筹资活动现金流净额",
+          "values": [
+            {
+              "period": "2024",
+              "value": 73.8792818543,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "融资补流特征明显。"
+        },
+        {
+          "label": "期末现金及现金等价物",
+          "values": [
+            {
+              "period": "2024-12-31",
+              "value": 19.175386399,
+              "unit": "亿元"
+            }
+          ],
+          "commentary": "剔除受限资金后缓冲有限。"
+        }
+      ]
+    },
+    "coverage_note": "以合并报表三大表和核心附注为依据，单位统一换算为亿元展示。"
+  },
+  "debt_profile": {
+    "totals": [
+      {
+        "label": "计息负债合计",
+        "values": [
+          {
+            "period": "2024-12-31",
+            "value": 476.9292795902,
+            "unit": "亿元"
+          }
+        ],
+        "commentary": "含借款、债券、租赁负债与长期应付款。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "短期借款",
+        "values": [
+          {
+            "period": "2024-12-31",
+            "value": 67.4408484828,
+            "unit": "亿元"
+          }
+        ],
+        "commentary": "保证借款占主导。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "一年内到期非流动负债",
+        "values": [
+          {
+            "period": "2024-12-31",
+            "value": 27.0947156237,
+            "unit": "亿元"
+          }
+        ],
+        "commentary": "短期化压力较明显。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "应付债券",
+        "values": [
+          {
+            "period": "2024-12-31",
+            "value": 79.144959035,
+            "unit": "亿元"
+          }
+        ],
+        "commentary": "境内外债券并行。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "maturity_buckets": [
+      {
+        "row_code": "within_1y",
+        "label": "1年内",
+        "values": [
+          {
+            "period": "2024-12-31",
+            "value": 2709471562.37,
+            "unit": "元"
+          }
+        ],
+        "commentary": "到期压力较高。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "row_code": "1_to_3y",
+        "label": "1-3年",
+        "values": [
+          {
+            "period": "2024-12-31",
+            "value": 0.0,
+            "unit": "元"
+          }
+        ],
+        "commentary": "按现有披露口径难以直接拆分。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "row_code": "over_3y",
+        "label": "3年以上",
+        "values": [
+          {
+            "period": "2024-12-31",
+            "value": 0.0,
+            "unit": "元"
+          }
+        ],
+        "commentary": "由债券与借款滚动形成。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "financing_mix": [
+      {
+        "label": "银行及担保借款",
+        "values": [
+          {
+            "period": "2024",
+            "value": 72.3,
+            "unit": ""
+          }
+        ],
+        "commentary": "仍是融资主轴。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "债券融资",
+        "values": [
+          {
+            "period": "2024",
+            "value": 16.6,
+            "unit": ""
+          }
+        ],
+        "commentary": "资本市场融资占比高。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "其他融资",
+        "values": [
+          {
+            "period": "2024",
+            "value": 11.1,
+            "unit": ""
+          }
+        ],
+        "commentary": "包含租赁和长期应付款。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "rate_profile": [
+      {
+        "label": "利息支出",
+        "values": [
+          {
+            "period": "2024",
+            "value": 3.1247382171,
+            "unit": "亿元"
+          }
+        ],
+        "commentary": "财务费用压力较大。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "债务平均利率",
+        "values": [
+          {
+            "period": "2024",
+            "value": 7.27,
+            "unit": ""
+          }
+        ],
+        "commentary": "按期初期末平均有息负债与利息支出测算。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "debt_comments": [
+      {
+        "label": "负债扩张",
+        "detail": "报告期内短期借款、长期借款和债券余额均保持高位，融资结构对再融资窗口依赖明显。",
+        "source_status": "年报附注与三大表一致",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "期限错配",
+        "detail": "一年内到期负债规模较大，而经营现金流为负，期限错配风险仍是核心关注点。",
+        "source_status": "年报附注与现金流量表一致",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ]
+  },
+  "liquidity_and_covenants": {
+    "cash_metrics": [
+      {
+        "metric_code": "cash_and_cash_equiv",
+        "label": "现金及现金等价物",
+        "value": 19.175386399,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "现金流量表",
+        "comparison": "期末现金 19.18 亿元",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "metric_code": "restricted_cash",
+        "label": "受限资金",
+        "value": 1.4373736789,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "受限资产注释",
+        "comparison": "受限金额约 1.44 亿元",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "metric_code": "cash_to_short_term_debt",
+        "label": "现金短债比",
+        "value": 0.28,
+        "unit": "x",
+        "risk_level": "high",
+        "source_status": "测算指标",
+        "comparison": "低于 1 倍",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "metric_code": "operating_cash_flow",
+        "label": "经营现金流",
+        "value": -68.7263297047,
+        "unit": "亿元",
+        "risk_level": "high",
+        "source_status": "现金流量表",
+        "comparison": "持续净流出",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "credit_lines": [
+      {
+        "label": "公开授信披露",
+        "value": "未单独披露",
+        "unit": "",
+        "risk_level": "unknown",
+        "source_status": "年报未见单列",
+        "comparison": "以债券和借款滚动为主",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "restricted_assets": [
+      {
+        "label": "受限资产总额",
+        "value": 234.273602295,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "受限资产注释",
+        "comparison": "主要来自投资性房地产、存货和货币资金",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      },
+      {
+        "label": "受限货币资金",
+        "value": 1.4373736789,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "受限资金注释",
+        "comparison": "资金池和发债保证金占比高",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "covenants": [
+      {
+        "label": "财务契约披露",
+        "status": "unknown",
+        "restricted_debt": null,
+        "unit": "",
+        "source_status": "未单列披露",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ],
+    "liquidity_observations": [
+      {
+        "label": "经营性资金占用",
+        "detail": "应收、预付和其他应收合计规模大，叠加存货 610.31 亿元，导致经营性占资持续高位。",
+        "evidence_refs": [
+          "EVD-0010"
+        ]
+      },
+      {
+        "label": "回款与补流",
+        "detail": "经营现金流持续为负，筹资现金流为正，说明当前仍需要外部融资维持项目推进。",
+        "evidence_refs": [
+          "EVD-0009"
+        ]
+      }
+    ]
+  },
+  "optional_modules": [
+    {
+      "module_key": "financing_cost",
+      "title": "融资成本计算",
+      "payload": {
+        "summary": "2024 年财务费用 3.09 亿元，利息支出 3.12 亿元、利息收入 0.13 亿元，净利息负担约 3.00 亿元；财务费用率约 24.72%，融资成本对利润侵蚀明显。",
+        "summary_evidence_refs": [
+          "EVD-0009",
+          "EVD-0013"
+        ],
+        "sections": [
+          {
+            "section_title": "融资成本口径",
+            "items": [
+              {
+                "label": "财务费用",
+                "value": 3.0921103442,
+                "unit": "亿元",
+                "source_status": "财务费用注释",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              },
+              {
+                "label": "利息支出",
+                "value": 3.1247382171,
+                "unit": "亿元",
+                "source_status": "财务费用注释",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              },
+              {
+                "label": "利息收入",
+                "value": 0.1294099041,
+                "unit": "亿元",
+                "source_status": "财务费用注释",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              },
+              {
+                "label": "净利息负担",
+                "value": 2.995328313,
+                "unit": "亿元",
+                "source_status": "财务费用注释测算",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              },
+              {
+                "label": "财务费用/营业收入",
+                "value": 24.72,
+                "unit": "",
+                "source_status": "收入与费用测算",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              },
+              {
+                "label": "利息支出/平均有息负债",
+                "value": 7.27,
+                "unit": "",
+                "source_status": "按期初期末平均有息负债测算",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              }
+            ]
+          },
+          {
+            "section_title": "判断",
+            "items": [
+              {
+                "label": "结论",
+                "value": "融资成本仍是利润表的重要消耗项，且主要依赖再融资滚动消化。",
+                "unit": "",
+                "source_status": "专题判断",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              }
+            ]
+          }
+        ],
+        "ext_fields": {
+          "risk_signals": [
+            {
+              "signal_name": "融资成本侵蚀利润",
+              "severity": "high",
+              "evidence": [
+                "财务费用 309,211,034.42",
+                "利息支出 312,473,821.71"
+              ],
+              "impact_hint": "财务费用率约 24.72%，融资成本压力高。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "module_key": "platform_special",
+      "title": "城投专题分析",
+      "payload": {
+        "summary": "公司城投属性突出，开发存货几乎全部由政府项目构成，应收、其他应收和预付款项也高度集中于政府及国有平台，市场化资产占比很低。",
+        "summary_evidence_refs": [
+          "EVD-0010",
+          "EVD-0017",
+          "EVD-0018"
+        ],
+        "sections": [
+          {
+            "section_title": "城投业务拆分",
+            "items": [
+              {
+                "label": "存货总额",
+                "value": 610.3141381583,
+                "unit": "亿元",
+                "source_status": "存货注释",
+                "evidence_refs": [
+                  "EVD-0010"
+                ]
+              },
+              {
+                "label": "政府相关库存资产",
+                "value": 609.784347729,
+                "unit": "亿元",
+                "source_status": "按项目拆分",
+                "evidence_refs": [
+                  "EVD-0010"
+                ]
+              },
+              {
+                "label": "市场相关库存资产",
+                "value": 0.5297904293,
+                "unit": "亿元",
+                "source_status": "按项目拆分",
+                "evidence_refs": [
+                  "EVD-0010"
+                ]
+              },
+              {
+                "label": "政府相关库存占比",
+                "value": 99.91,
+                "unit": "",
+                "source_status": "按项目拆分",
+                "evidence_refs": [
+                  "EVD-0010"
+                ]
+              },
+              {
+                "label": "土地一级开发",
+                "value": 401.2110889997,
+                "unit": "亿元",
+                "source_status": "开发成本拆分",
+                "evidence_refs": [
+                  "EVD-0010"
+                ]
+              },
+              {
+                "label": "代建项目",
+                "value": 135.4280622742,
+                "unit": "亿元",
+                "source_status": "开发成本拆分",
+                "evidence_refs": [
+                  "EVD-0010"
+                ]
+              },
+              {
+                "label": "保障安置房成本",
+                "value": 23.282794117,
+                "unit": "亿元",
+                "source_status": "开发成本拆分",
+                "evidence_refs": [
+                  "EVD-0010"
+                ]
+              }
+            ]
+          },
+          {
+            "section_title": "政府往来与资产端",
+            "items": [
+              {
+                "label": "应收账款政府组合",
+                "value": 16.0071379729,
+                "unit": "亿元",
+                "source_status": "应收账款组合",
+                "evidence_refs": [
+                  "EVD-0018"
+                ]
+              },
+              {
+                "label": "应收账款政府组合占比",
+                "value": 81.75,
+                "unit": "",
+                "source_status": "应收账款组合",
+                "evidence_refs": [
+                  "EVD-0018"
+                ]
+              },
+              {
+                "label": "其他应收款政府组合",
+                "value": 34.8657445039,
+                "unit": "亿元",
+                "source_status": "其他应收款组合",
+                "evidence_refs": [
+                  "EVD-0018"
+                ]
+              },
+              {
+                "label": "其他应收款政府组合占比",
+                "value": 57.11,
+                "unit": "",
+                "source_status": "其他应收款组合",
+                "evidence_refs": [
+                  "EVD-0018"
+                ]
+              },
+              {
+                "label": "预付款项政府对象",
+                "value": 4.726334991,
+                "unit": "亿元",
+                "source_status": "预付款项前五名",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              },
+              {
+                "label": "预付款项政府对象占比",
+                "value": 57.85,
+                "unit": "",
+                "source_status": "预付款项前五名",
+                "evidence_refs": [
+                  "EVD-0009"
+                ]
+              }
+            ]
+          },
+          {
+            "section_title": "判断",
+            "items": [
+              {
+                "label": "结论",
+                "value": "资产端政府化程度高，项目结算与财政安排决定回款节奏，市场化业务占比很低。",
+                "unit": "",
+                "source_status": "专题判断",
+                "evidence_refs": [
+                  "EVD-0010",
+                  "EVD-0017"
+                ]
+              }
+            ]
+          }
+        ],
+        "ext_fields": {
+          "risk_signals": [
+            {
+              "signal_name": "政府回款集中",
+              "severity": "high",
+              "evidence": [
+                "应收政府及国有控股单位款项组合 16,007,137,972.90",
+                "其他应收款政府组合 34,865,744,503.90"
+              ],
+              "impact_hint": "结算与回款节奏高度依赖政府和平台。"
+            },
+            {
+              "signal_name": "市场化资产占比低",
+              "severity": "medium",
+              "evidence": [
+                "政府相关库存资产 609.784347729",
+                "市场相关库存资产 0.5297904293"
+              ],
+              "impact_hint": "存货几乎全部由城投项目构成。"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "evidence_index": [
+    {
+      "evidence_id": "EVD-0001",
+      "field_path": "chapter_records.1.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 一、公司基本情况 浙江杭海新城控股集团有限公司（以下简称公司或本公司）原名海宁高新区科创中心有限公司（以下简称科创中心），科创中心原由海宁仰山实业集团有限公司(以下简称仰山实业)发起设立，设立时注册资本 500万元，并于 2015年 9 月 25 日在海宁市市场监督管理局登记注册；经历次增资及股权转让，公司股东变…",
+      "source_document": "chapter_records",
+      "chapter_no": 1,
+      "chapter_title": "1 一、公司基本情况",
+      "note_no": "1",
+      "line_span": {
+        "start": 431,
+        "end": 436
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0002",
+      "field_path": "chapter_records.1.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "浙江杭海新城控股集团有限公司（以下简称公司或本公司）原名海宁高新区科创中心有限公司（以下简称科创中心），科创中心原由海宁仰山实业集团有限公司(以下简称仰山实业)发起设立，设立时注册资本 500万元，并于 2015年 9 月 25 日在海宁市市场监督管理局登记注册。经历次增资及股权转让，公司股东变更为海宁市人民政府国有…",
+      "source_document": "chapter_records",
+      "chapter_no": 1,
+      "chapter_title": "1 一、公司基本情况",
+      "note_no": "1",
+      "line_span": {
+        "start": 431,
+        "end": 436
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0003",
+      "field_path": "chapter_records.2.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 二、财务报表的编制基础 # (一) 编制基础 本公司财务报表以持续经营为编制基础；# (二) 持续经营能力评价 本公司不存在导致对报告期末起 12个月内的持续经营能力产生重大疑虑的事项或情况",
+      "source_document": "chapter_records",
+      "chapter_no": 2,
+      "chapter_title": "2 二、财务报表的编制基础",
+      "note_no": "2",
+      "line_span": {
+        "start": 437,
+        "end": 446
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0004",
+      "field_path": "chapter_records.2.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本公司不存在导致对报告期末起 12个月内的持续经营能力产生重大疑虑的事项或情况。",
+      "source_document": "chapter_records",
+      "chapter_no": 2,
+      "chapter_title": "2 二、财务报表的编制基础",
+      "note_no": "2",
+      "line_span": {
+        "start": 437,
+        "end": 446
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0005",
+      "field_path": "chapter_records.3.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 三、重要会计政策和会计估计 # (一) 遵循企业会计准则的声明 本财务报表符合企业会计准则的要求，真实、完整地反映了企业的财务状况、经营成果和现金流量等有关信息；# (二) 会计期间 会计年度自公历 1 月 1 日起至 12 月 31 日止",
+      "source_document": "chapter_records",
+      "chapter_no": 3,
+      "chapter_title": "3 三、重要会计政策和会计估计",
+      "note_no": "3",
+      "line_span": {
+        "start": 447,
+        "end": 1015
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0006",
+      "field_path": "chapter_records.3.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "[注]根据海宁市人民政府《关于印发海宁市主要污染物排污权总量指标管理办法（试行）的通知》(海政发〔2017〕54 号)有关精神，公司取得的排污权可永久性使用，故无需进行摊销",
+      "source_document": "chapter_records",
+      "chapter_no": 3,
+      "chapter_title": "3 三、重要会计政策和会计估计",
+      "note_no": "3",
+      "line_span": {
+        "start": 447,
+        "end": 1015
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0007",
+      "field_path": "chapter_records.4.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 四、税（费）项 # (一) 主要税种及税率 税 种 计税依据 税 率 增值税 房产销售收入、租赁收入、建筑服务收入等，按税法规定计算的销售货物和应税劳务收入为基础按适用征收率计缴 3%、5%、6%、9%、13% 房产税 从价计征的，按房产原值一次减除30%后余值的1.2%计缴；从租计征的，按租金收入的12%计缴…",
+      "source_document": "chapter_records",
+      "chapter_no": 4,
+      "chapter_title": "4 四、税（费）项",
+      "note_no": "4",
+      "line_span": {
+        "start": 1016,
+        "end": 1023
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0008",
+      "field_path": "chapter_records.4.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "税 种 计税依据 税 率 增值税 房产销售收入、租赁收入、建筑服务收入等，按税法规定计算的销售货物和应税劳务收入为基础按适用征收率计缴 3%、5%、6%、9%、13% 房产税 从价计征的，按房产原值一次减除30%后余值的1.2%计缴；从租计征的，按租金收入的12%计缴 1.2%、12% 城市维护建设税 实际缴纳的流转…",
+      "source_document": "chapter_records",
+      "chapter_no": 4,
+      "chapter_title": "4 四、税（费）项",
+      "note_no": "4",
+      "line_span": {
+        "start": 1016,
+        "end": 1023
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0009",
+      "field_path": "chapter_records.5.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 五、合并财务报表项目注释 # (一) 合并资产负债表项目注释 # 1. 货币资金 # (1) 明细情况 项目 期末数 期初数 库存现金 7,953.43 26,404.10 银行存款 1,917,588,357.41 2,288,119,772.34 其他货币资金 143,679,696.95 114,916,2…",
+      "source_document": "chapter_records",
+      "chapter_no": 5,
+      "chapter_title": "5 五、合并财务报表项目注释",
+      "note_no": "5",
+      "line_span": {
+        "start": 1024,
+        "end": 1509
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0010",
+      "field_path": "chapter_records.5.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目名称 期末数 期初数 土地一级开发项目 40,121,108,899.97 32,972,588,134.89 代建项目 13,542,806,227.42 12,618,894,844.40 保障安置房 2,328,279,411.70 2,220,168,821.39 小计 55,992,194,539.09…",
+      "source_document": "chapter_records",
+      "chapter_no": 5,
+      "chapter_title": "5 五、合并财务报表项目注释",
+      "note_no": "5",
+      "line_span": {
+        "start": 1024,
+        "end": 1509
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0011",
+      "field_path": "chapter_records.6.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 六、在其他主体中的权益 # (一) 企业集团的构成 1. 公司将下述子公司纳入合并财务报表范围 序号 子公司全称 子公司类型 子公司简称 1 海宁仰山实业集团有限公司 全资子公司 仰山实业 1-1 海宁仰山资产管理有限公司 仰山实业之全资子公司 仰山资产 1-2 海宁仰山开发建设有限公司 仰山实业之全资子公司 仰…",
+      "source_document": "chapter_records",
+      "chapter_no": 6,
+      "chapter_title": "6 六、在其他主体中的权益",
+      "note_no": "6",
+      "line_span": {
+        "start": 1510,
+        "end": 1531
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0012",
+      "field_path": "chapter_records.6.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "宁市周王庙镇博儒股份经济合作社、海宁市周王庙镇云龙股份经济合作社、海宁市周王庙镇长春股份经济合作社、海宁市周王庙镇星火股份经济合作社、海宁市周王庙镇上林股份经济合作社共同出资设立梓盛产业。梓盛产业注册资本 186,789,952.11 元，其中钱塘新农村认缴 65,819,952.11 元，认缴比例 $3 5 . 2…",
+      "source_document": "chapter_records",
+      "chapter_no": 6,
+      "chapter_title": "6 六、在其他主体中的权益",
+      "note_no": "6",
+      "line_span": {
+        "start": 1510,
+        "end": 1531
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0013",
+      "field_path": "chapter_records.7.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 七、政府补助 # (一) 本期新增的政府补助情况 项目 本期数 上年同期数 与资产相关的政府补助 其中:计入其他收益 与收益相关的政府补助 661,826,694.70 460,815,127.43 其中:计入其他收益 661,826,694.70 460,815,127.43 财政贴息 60,000,000.0…",
+      "source_document": "chapter_records",
+      "chapter_no": 7,
+      "chapter_title": "7 七、政府补助",
+      "note_no": "7",
+      "line_span": {
+        "start": 1532,
+        "end": 1541
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0014",
+      "field_path": "chapter_records.7.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 本期数 上年同期数 与资产相关的政府补助 其中:计入其他收益 与收益相关的政府补助 661,826,694.70 460,815,127.43 其中:计入其他收益 661,826,694.70 460,815,127.43 财政贴息 60,000,000.00 其中:冲减财务费用 60,000,000.00 合…",
+      "source_document": "chapter_records",
+      "chapter_no": 7,
+      "chapter_title": "7 七、政府补助",
+      "note_no": "7",
+      "line_span": {
+        "start": 1532,
+        "end": 1541
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0015",
+      "field_path": "chapter_records.8.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 八、公允价值的披露 项目 期末公允价值[注] 第一层次公允价值计量 第二层次公允价值计量 第三层次公允价值计量 合计 持续的公允价值计量 1．交易性金融资产和其他非流动金融资产 10,060,000.00 457,000,000.00 467,060,000.00 (1)分类为以公允价值计量且其变动计入当期损益的…",
+      "source_document": "chapter_records",
+      "chapter_no": 8,
+      "chapter_title": "8 八、公允价值的披露",
+      "note_no": "8",
+      "line_span": {
+        "start": 1542,
+        "end": 1550
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0016",
+      "field_path": "chapter_records.8.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "(2) 持续第二层次公允价值计量项目，公司按照在计量日活跃市场中类似资产或负债的报价、非活跃市场中相同或类似资产或负债的报价，以及在正常报价间隔期间可观察的利率或收益率曲线等确定公允价值。",
+      "source_document": "chapter_records",
+      "chapter_no": 8,
+      "chapter_title": "8 八、公允价值的披露",
+      "note_no": "8",
+      "line_span": {
+        "start": 1542,
+        "end": 1550
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0017",
+      "field_path": "chapter_records.9.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 九、关联方及关联交易 # (一) 关联方情况 1. 本公司最终控制方是海宁市人民政府国有资产监督管理办公室；2. 本公司的子公司情况详见本财务报表附注六(一)之说明",
+      "source_document": "chapter_records",
+      "chapter_no": 9,
+      "chapter_title": "9 九、关联方及关联交易",
+      "note_no": "9",
+      "line_span": {
+        "start": 1551,
+        "end": 1595
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0018",
+      "field_path": "chapter_records.9.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "[注]公司向海宁市长安城北皮草置业有限公司拆出的资金 639,665.66 元，按照相关协议约定，不计息",
+      "source_document": "chapter_records",
+      "chapter_no": 9,
+      "chapter_title": "9 九、关联方及关联交易",
+      "note_no": "9",
+      "line_span": {
+        "start": 1551,
+        "end": 1595
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0019",
+      "field_path": "chapter_records.10.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 十、承诺及或有事项 # (一) 为其他单位提供债务担保形成的或有负债及其财务影响 # 1. 公司及子公司为非关联方提供的担保 被担保单位 担保金额（万元） 担保到期日 海宁市兴潮资产运营有限公司 26,110.72 2029-12-31 海宁家纺产业基地投资开发有限公司 3,100.00 2029-12-25 海…",
+      "source_document": "chapter_records",
+      "chapter_no": 10,
+      "chapter_title": "10 十、承诺及或有事项",
+      "note_no": "10",
+      "line_span": {
+        "start": 1596,
+        "end": 1605
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0020",
+      "field_path": "chapter_records.10.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "被担保单位 担保金额（万元） 担保到期日 海宁市兴潮资产运营有限公司 26,110.72 2029-12-31 海宁家纺产业基地投资开发有限公司 3,100.00 2029-12-25 海宁家纺产业基地投资开发有限公司 4,865.00 2029-12-25 海宁市湾芯投资开发有限公司 70,000.00 2027-…",
+      "source_document": "chapter_records",
+      "chapter_no": 10,
+      "chapter_title": "10 十、承诺及或有事项",
+      "note_no": "10",
+      "line_span": {
+        "start": 1596,
+        "end": 1605
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0021",
+      "field_path": "chapter_records.11.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 十一、母公司财务报表主要项目注释 # (一) 母公司资产负债表项目注释 # 1. 应收账款 # (1) 账龄情况 账龄 期末数 期初数 2-3年 7,449,788.27 3年以上 7,449,788.27 合计 7,449,788.27 7,449,788.27 # (2) 坏账准备计提情况 # 1) 类别明细…",
+      "source_document": "chapter_records",
+      "chapter_no": 11,
+      "chapter_title": "11 十一、母公司财务报表主要项目注释",
+      "note_no": "11",
+      "line_span": {
+        "start": 1606,
+        "end": 1694
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0022",
+      "field_path": "chapter_records.11.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 期末数 期初数 账面余额 减值准备 账面价值 账面余额 减值准备 账面价值 对子公司投资 13,143,341,814.55 13,143,341,814.55 11,143,341,814.55 11,143,341,814.55 合计 13,143,341,814.55 13,143,341,814.55…",
+      "source_document": "chapter_records",
+      "chapter_no": 11,
+      "chapter_title": "11 十一、母公司财务报表主要项目注释",
+      "note_no": "11",
+      "line_span": {
+        "start": 1606,
+        "end": 1694
+      },
+      "confidence": "medium"
+    }
+  ]
+}

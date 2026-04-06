@@ -552,6 +552,20 @@ def detect_case_key(company_name, input_file):
     return ""
 
 
+def infer_industry_tag(chapter_records):
+    combined_text = " ".join(
+        f"{record.get('chapter_title', '')} {record.get('chapter_text_cleaned', '')}"
+        for record in chapter_records
+    )
+    if any(keyword in combined_text for keyword in ["LGFV", "城投", "地方政府融资平台", "化债", "专项债"]):
+        return "lgfv"
+    if any(keyword in combined_text for keyword in ["银行", "证券", "保险", "金融", "理财", "信托"]):
+        return "financial"
+    if any(keyword in combined_text for keyword in ["房地产", "物业", "租赁", "商业开发", "开发业务", "房地产业"]):
+        return "property"
+    return "general"
+
+
 def find_evidence_lines(text, patterns, limit=2):
     evidences = []
     for raw_line in text.splitlines():
@@ -760,6 +774,18 @@ def build_final_data(report_context, chapter_records, focus_list):
         "extensions": {
             "classification_basis": report_context["classification_basis"],
         },
+    }
+
+
+def make_manifest_item(sheet_name, module_key, module_type, required, enabled, title, empty_state):
+    return {
+        "sheet_name": sheet_name,
+        "module_key": module_key,
+        "module_type": module_type,
+        "required": required,
+        "enabled": enabled,
+        "title": title,
+        "empty_state": empty_state,
     }
 
 
