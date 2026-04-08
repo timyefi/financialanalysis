@@ -1,0 +1,3853 @@
+{
+  "notes_start_line": 1112,
+  "notes_end_line": 4155,
+  "used_statement_fallback": false,
+  "locator_evidence": [
+    {
+      "step": "keyword_search",
+      "keyword": "财务报表附注",
+      "excerpt": "我们审阅了后附的万科企业股份有限公司(以下简称“万科”)财务报表，包括 2025年6月30日的合并及母公司资产负债表，2025年 1月 1日至 6月 30日止期间的合并及母公司利润表、合并及母公司现金流量表、合并及母公司股东权益变动表以及相关财务报表附注。这些财务报表的编制是万科管理层的责任，我们的责任是在实施审阅工作的基础上对这些财务报表出具审阅报告。"
+    },
+    {
+      "step": "sample_read",
+      "keyword": "公司概况",
+      "excerpt": "# 1、公司概况"
+    }
+  ],
+  "notes_catalog": [
+    {
+      "note_no": "1",
+      "chapter_title": "公司概况",
+      "start_line": 1269,
+      "end_line": 1272,
+      "evidence": [
+        "# 1、公司概况"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "财务报表批准报出日",
+      "start_line": 1273,
+      "end_line": 1278,
+      "evidence": [
+        "# 2、财务报表批准报出日"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "编制基础",
+      "start_line": 1279,
+      "end_line": 1282,
+      "evidence": [
+        "# 1、编制基础"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "持续经营",
+      "start_line": 1283,
+      "end_line": 1288,
+      "evidence": [
+        "# 2、持续经营"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "持续经营 -续",
+      "start_line": 1289,
+      "end_line": 1301,
+      "evidence": [
+        "# 2、持续经营 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "记账基础和计价原则",
+      "start_line": 1302,
+      "end_line": 1313,
+      "evidence": [
+        "# 3、记账基础和计价原则"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "记账基础和计价原则 -续",
+      "start_line": 1314,
+      "end_line": 1325,
+      "evidence": [
+        "# 3、记账基础和计价原则 -续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "遵循企业会计准则的声明",
+      "start_line": 1326,
+      "end_line": 1329,
+      "evidence": [
+        "# 1、遵循企业会计准则的声明"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "会计期间",
+      "start_line": 1330,
+      "end_line": 1333,
+      "evidence": [
+        "# 2、会计期间"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "营业周期",
+      "start_line": 1334,
+      "end_line": 1337,
+      "evidence": [
+        "# 3、营业周期"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "记账本位币",
+      "start_line": 1338,
+      "end_line": 1343,
+      "evidence": [
+        "# 4、记账本位币"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "同一控制下和非同一控制下企业合并的会计处理方法",
+      "start_line": 1344,
+      "end_line": 1347,
+      "evidence": [
+        "# 5、同一控制下和非同一控制下企业合并的会计处理方法"
+      ]
+    },
+    {
+      "note_no": "5.1",
+      "chapter_title": "同一控制下的企业合并",
+      "start_line": 1348,
+      "end_line": 1355,
+      "evidence": [
+        "# 5.1同一控制下的企业合并"
+      ]
+    },
+    {
+      "note_no": "5.2",
+      "chapter_title": "非同一控制下的企业合并及商誉",
+      "start_line": 1356,
+      "end_line": 1369,
+      "evidence": [
+        "# 5.2非同一控制下的企业合并及商誉"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "控制的判断标准和合并财务报表的编制方法",
+      "start_line": 1370,
+      "end_line": 1371,
+      "evidence": [
+        "# 6、控制的判断标准和合并财务报表的编制方法"
+      ]
+    },
+    {
+      "note_no": "6.1",
+      "chapter_title": "控制的判断标准",
+      "start_line": 1372,
+      "end_line": 1375,
+      "evidence": [
+        "# 6.1控制的判断标准"
+      ]
+    },
+    {
+      "note_no": "6.2",
+      "chapter_title": "合并财务报表的编制方法",
+      "start_line": 1376,
+      "end_line": 1399,
+      "evidence": [
+        "# 6.2合并财务报表的编制方法"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "控制的判断标准和合并财务报表的编制方法 - 续",
+      "start_line": 1400,
+      "end_line": 1401,
+      "evidence": [
+        "# 6、控制的判断标准和合并财务报表的编制方法 - 续"
+      ]
+    },
+    {
+      "note_no": "6.2",
+      "chapter_title": "合并财务报表的编制方法 -续",
+      "start_line": 1402,
+      "end_line": 1409,
+      "evidence": [
+        "# 6.2合并财务报表的编制方法 -续"
+      ]
+    },
+    {
+      "note_no": "7",
+      "chapter_title": "合营安排分类及共同经营会计处理方法",
+      "start_line": 1410,
+      "end_line": 1417,
+      "evidence": [
+        "# 7、合营安排分类及共同经营会计处理方法"
+      ]
+    },
+    {
+      "note_no": "7",
+      "chapter_title": "合营安排分类及共同经营会计处理方法 -续",
+      "start_line": 1418,
+      "end_line": 1421,
+      "evidence": [
+        "# 7、合营安排分类及共同经营会计处理方法 -续"
+      ]
+    },
+    {
+      "note_no": "8",
+      "chapter_title": "现金及现金等价物的确定标准",
+      "start_line": 1422,
+      "end_line": 1425,
+      "evidence": [
+        "# 8、现金及现金等价物的确定标准"
+      ]
+    },
+    {
+      "note_no": "9",
+      "chapter_title": "外币业务和外币财务报表折算",
+      "start_line": 1426,
+      "end_line": 1427,
+      "evidence": [
+        "# 9、外币业务和外币财务报表折算"
+      ]
+    },
+    {
+      "note_no": "9.1",
+      "chapter_title": "外币业务",
+      "start_line": 1428,
+      "end_line": 1439,
+      "evidence": [
+        "# 9.1外币业务"
+      ]
+    },
+    {
+      "note_no": "9",
+      "chapter_title": "外币业务和外币财务报表折算 - 续",
+      "start_line": 1440,
+      "end_line": 1441,
+      "evidence": [
+        "# 9、外币业务和外币财务报表折算 - 续"
+      ]
+    },
+    {
+      "note_no": "9.2",
+      "chapter_title": "外币财务报表折算",
+      "start_line": 1442,
+      "end_line": 1453,
+      "evidence": [
+        "# 9.2外币财务报表折算"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具",
+      "start_line": 1454,
+      "end_line": 1463,
+      "evidence": [
+        "# 10、金融工具"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1464,
+      "end_line": 1471,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.1",
+      "chapter_title": "金融资产的分类、确认与计量",
+      "start_line": 1472,
+      "end_line": 1483,
+      "evidence": [
+        "# 10.1金融资产的分类、确认与计量"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1484,
+      "end_line": 1485,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.1",
+      "chapter_title": "金融资产的分类、确认与计量-续",
+      "start_line": 1486,
+      "end_line": 1500,
+      "evidence": [
+        "# 10.1金融资产的分类、确认与计量-续"
+      ]
+    },
+    {
+      "note_no": "10.1",
+      "chapter_title": "1 以摊余成本计量的金融资产",
+      "start_line": 1501,
+      "end_line": 1511,
+      "evidence": [
+        "# 10.1.1 以摊余成本计量的金融资产"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1512,
+      "end_line": 1524,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "金融工具减值",
+      "start_line": 1525,
+      "end_line": 1532,
+      "evidence": [
+        "# 10.2金融工具减值"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1533,
+      "end_line": 1534,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "金融工具减值-续",
+      "start_line": 1535,
+      "end_line": 1540,
+      "evidence": [
+        "# 10.2金融工具减值-续"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "1信用风险显著增加",
+      "start_line": 1541,
+      "end_line": 1555,
+      "evidence": [
+        "# 10.2.1信用风险显著增加"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1556,
+      "end_line": 1557,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "金融工具减值-续",
+      "start_line": 1558,
+      "end_line": 1559,
+      "evidence": [
+        "# 10.2金融工具减值-续"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "1信用风险显著增加-续",
+      "start_line": 1560,
+      "end_line": 1572,
+      "evidence": [
+        "# 10.2.1信用风险显著增加-续"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "2 已发生信用减值的金融资产",
+      "start_line": 1573,
+      "end_line": 1588,
+      "evidence": [
+        "# 10.2.2 已发生信用减值的金融资产"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1589,
+      "end_line": 1590,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "金融工具减值-续",
+      "start_line": 1591,
+      "end_line": 1592,
+      "evidence": [
+        "# 10.2金融工具减值-续"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "3预期信用损失的确定",
+      "start_line": 1593,
+      "end_line": 1602,
+      "evidence": [
+        "# 10.2.3预期信用损失的确定"
+      ]
+    },
+    {
+      "note_no": "10.2",
+      "chapter_title": "4 减记金融资产",
+      "start_line": 1603,
+      "end_line": 1606,
+      "evidence": [
+        "# 10.2.4 减记金融资产"
+      ]
+    },
+    {
+      "note_no": "10.3",
+      "chapter_title": "金融资产的转移",
+      "start_line": 1607,
+      "end_line": 1612,
+      "evidence": [
+        "# 10.3金融资产的转移"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1613,
+      "end_line": 1614,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.3",
+      "chapter_title": "金融资产的转移 -续",
+      "start_line": 1615,
+      "end_line": 1627,
+      "evidence": [
+        "# 10.3金融资产的转移 -续"
+      ]
+    },
+    {
+      "note_no": "10.4",
+      "chapter_title": "金融负债和权益工具的分类",
+      "start_line": 1628,
+      "end_line": 1633,
+      "evidence": [
+        "# 10.4金融负债和权益工具的分类"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1634,
+      "end_line": 1659,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1660,
+      "end_line": 1665,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.4",
+      "chapter_title": "1.2 其他金融负债",
+      "start_line": 1666,
+      "end_line": 1671,
+      "evidence": [
+        "# 10.4.1.2 其他金融负债"
+      ]
+    },
+    {
+      "note_no": "10.4",
+      "chapter_title": "1.2.1 财务担保合同",
+      "start_line": 1672,
+      "end_line": 1675,
+      "evidence": [
+        "# 10.4.1.2.1 财务担保合同"
+      ]
+    },
+    {
+      "note_no": "10.4",
+      "chapter_title": "2金融负债的终止确认",
+      "start_line": 1676,
+      "end_line": 1681,
+      "evidence": [
+        "# 10.4.2金融负债的终止确认"
+      ]
+    },
+    {
+      "note_no": "10.4",
+      "chapter_title": "3 权益工具",
+      "start_line": 1682,
+      "end_line": 1687,
+      "evidence": [
+        "# 10.4.3 权益工具"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "金融工具 -续",
+      "start_line": 1688,
+      "end_line": 1709,
+      "evidence": [
+        "# 10、金融工具 -续"
+      ]
+    },
+    {
+      "note_no": "10.6",
+      "chapter_title": "金融资产和金融负债的抵销",
+      "start_line": 1710,
+      "end_line": 1715,
+      "evidence": [
+        "# 10.6金融资产和金融负债的抵销"
+      ]
+    },
+    {
+      "note_no": "11",
+      "chapter_title": "应收账款",
+      "start_line": 1716,
+      "end_line": 1717,
+      "evidence": [
+        "# 11、应收账款"
+      ]
+    },
+    {
+      "note_no": "11.1",
+      "chapter_title": "应收账款的预期信用损失的确定方法及会计处理方法",
+      "start_line": 1718,
+      "end_line": 1721,
+      "evidence": [
+        "# 11.1 应收账款的预期信用损失的确定方法及会计处理方法"
+      ]
+    },
+    {
+      "note_no": "11.2",
+      "chapter_title": "基于账龄确认信用风险特征组合的账龄的计算方法",
+      "start_line": 1722,
+      "end_line": 1725,
+      "evidence": [
+        "# 11.2基于账龄确认信用风险特征组合的账龄的计算方法"
+      ]
+    },
+    {
+      "note_no": "12",
+      "chapter_title": "其他应收款",
+      "start_line": 1726,
+      "end_line": 1731,
+      "evidence": [
+        "# 12、其他应收款"
+      ]
+    },
+    {
+      "note_no": "13",
+      "chapter_title": "存货",
+      "start_line": 1732,
+      "end_line": 1735,
+      "evidence": [
+        "# 13、存货"
+      ]
+    },
+    {
+      "note_no": "13.1",
+      "chapter_title": "1 存货类别",
+      "start_line": 1736,
+      "end_line": 1745,
+      "evidence": [
+        "# 13.1.1 存货类别"
+      ]
+    },
+    {
+      "note_no": "13",
+      "chapter_title": "存货 -续",
+      "start_line": 1746,
+      "end_line": 1749,
+      "evidence": [
+        "# 13、存货 -续"
+      ]
+    },
+    {
+      "note_no": "13.1",
+      "chapter_title": "2发出存货的计价方法",
+      "start_line": 1750,
+      "end_line": 1753,
+      "evidence": [
+        "# 13.1.2发出存货的计价方法"
+      ]
+    },
+    {
+      "note_no": "13.1",
+      "chapter_title": "3存货的盘存制度",
+      "start_line": 1754,
+      "end_line": 1757,
+      "evidence": [
+        "# 13.1.3存货的盘存制度"
+      ]
+    },
+    {
+      "note_no": "13.1",
+      "chapter_title": "4低值易耗品和包装物的摊销方法",
+      "start_line": 1758,
+      "end_line": 1761,
+      "evidence": [
+        "# 13.1.4低值易耗品和包装物的摊销方法"
+      ]
+    },
+    {
+      "note_no": "13.2",
+      "chapter_title": "存货跌价准备的确认标准和计提方法",
+      "start_line": 1762,
+      "end_line": 1769,
+      "evidence": [
+        "# 13.2存货跌价准备的确认标准和计提方法"
+      ]
+    },
+    {
+      "note_no": "13.3",
+      "chapter_title": "按照组合计提存货跌价准备的组合类别及确定依据、不同类别存货可变现净值的确定 依据",
+      "start_line": 1770,
+      "end_line": 1775,
+      "evidence": [
+        "# 13.3按照组合计提存货跌价准备的组合类别及确定依据、不同类别存货可变现净值的确定 依据"
+      ]
+    },
+    {
+      "note_no": "14",
+      "chapter_title": "合同资产",
+      "start_line": 1776,
+      "end_line": 1777,
+      "evidence": [
+        "# 14、合同资产"
+      ]
+    },
+    {
+      "note_no": "14.1",
+      "chapter_title": "合同资产的确认方法及标准",
+      "start_line": 1778,
+      "end_line": 1781,
+      "evidence": [
+        "# 14.1合同资产的确认方法及标准"
+      ]
+    },
+    {
+      "note_no": "14.2",
+      "chapter_title": "合同资产预期信用损失的确定及会计处理方法",
+      "start_line": 1782,
+      "end_line": 1785,
+      "evidence": [
+        "# 14.2合同资产预期信用损失的确定及会计处理方法"
+      ]
+    },
+    {
+      "note_no": "15",
+      "chapter_title": "持有待售非流动资产或处置组",
+      "start_line": 1786,
+      "end_line": 1787,
+      "evidence": [
+        "# 15、持有待售非流动资产或处置组"
+      ]
+    },
+    {
+      "note_no": "15.1",
+      "chapter_title": "划分为持有待售的非流动资产或处置组的确认标准和会计处理方法",
+      "start_line": 1788,
+      "end_line": 1803,
+      "evidence": [
+        "# 15.1划分为持有待售的非流动资产或处置组的确认标准和会计处理方法"
+      ]
+    },
+    {
+      "note_no": "15",
+      "chapter_title": "持有待售非流动资产或处置组 - 续",
+      "start_line": 1804,
+      "end_line": 1805,
+      "evidence": [
+        "# 15、持有待售非流动资产或处置组 - 续"
+      ]
+    },
+    {
+      "note_no": "15.2",
+      "chapter_title": "终止经营的认定标准和列报方法",
+      "start_line": 1806,
+      "end_line": 1815,
+      "evidence": [
+        "# 15.2终止经营的认定标准和列报方法"
+      ]
+    },
+    {
+      "note_no": "16",
+      "chapter_title": "长期股权投资",
+      "start_line": 1816,
+      "end_line": 1817,
+      "evidence": [
+        "# 16、长期股权投资"
+      ]
+    },
+    {
+      "note_no": "16.1",
+      "chapter_title": "共同控制、重要影响的判断标准",
+      "start_line": 1818,
+      "end_line": 1823,
+      "evidence": [
+        "# 16.1共同控制、重要影响的判断标准"
+      ]
+    },
+    {
+      "note_no": "16",
+      "chapter_title": "长期股权投资 - 续",
+      "start_line": 1824,
+      "end_line": 1825,
+      "evidence": [
+        "# 16、长期股权投资 - 续"
+      ]
+    },
+    {
+      "note_no": "16.2",
+      "chapter_title": "初始投资成本的确定",
+      "start_line": 1826,
+      "end_line": 1837,
+      "evidence": [
+        "# 16.2初始投资成本的确定"
+      ]
+    },
+    {
+      "note_no": "16",
+      "chapter_title": "长期股权投资 - 续",
+      "start_line": 1838,
+      "end_line": 1839,
+      "evidence": [
+        "# 16、长期股权投资 - 续"
+      ]
+    },
+    {
+      "note_no": "16.3",
+      "chapter_title": "后续计量及损益确认方法",
+      "start_line": 1840,
+      "end_line": 1841,
+      "evidence": [
+        "# 16.3后续计量及损益确认方法"
+      ]
+    },
+    {
+      "note_no": "16.3",
+      "chapter_title": "1按成本法核算的长期股权投资",
+      "start_line": 1842,
+      "end_line": 1847,
+      "evidence": [
+        "# 16.3.1按成本法核算的长期股权投资"
+      ]
+    },
+    {
+      "note_no": "16.3",
+      "chapter_title": "2 按权益法核算的长期股权投资",
+      "start_line": 1848,
+      "end_line": 1859,
+      "evidence": [
+        "# 16.3.2 按权益法核算的长期股权投资"
+      ]
+    },
+    {
+      "note_no": "16",
+      "chapter_title": "长期股权投资 - 续",
+      "start_line": 1860,
+      "end_line": 1861,
+      "evidence": [
+        "# 16、长期股权投资 - 续"
+      ]
+    },
+    {
+      "note_no": "16.4",
+      "chapter_title": "长期股权投资处置",
+      "start_line": 1862,
+      "end_line": 1873,
+      "evidence": [
+        "# 16.4长期股权投资处置"
+      ]
+    },
+    {
+      "note_no": "17",
+      "chapter_title": "投资性房地产",
+      "start_line": 1874,
+      "end_line": 1887,
+      "evidence": [
+        "# 17、投资性房地产"
+      ]
+    },
+    {
+      "note_no": "18",
+      "chapter_title": "固定资产",
+      "start_line": 1888,
+      "end_line": 1889,
+      "evidence": [
+        "# 18、固定资产"
+      ]
+    },
+    {
+      "note_no": "18.1",
+      "chapter_title": "确认条件",
+      "start_line": 1890,
+      "end_line": 1897,
+      "evidence": [
+        "# 18.1 确认条件"
+      ]
+    },
+    {
+      "note_no": "18",
+      "chapter_title": "固定资产 -续",
+      "start_line": 1898,
+      "end_line": 1899,
+      "evidence": [
+        "# 18、固定资产 -续"
+      ]
+    },
+    {
+      "note_no": "18.2",
+      "chapter_title": "折旧方法",
+      "start_line": 1900,
+      "end_line": 1907,
+      "evidence": [
+        "# 18.2 折旧方法"
+      ]
+    },
+    {
+      "note_no": "18.3",
+      "chapter_title": "其他说明",
+      "start_line": 1908,
+      "end_line": 1913,
+      "evidence": [
+        "# 18.3 其他说明"
+      ]
+    },
+    {
+      "note_no": "19",
+      "chapter_title": "在建工程",
+      "start_line": 1914,
+      "end_line": 1925,
+      "evidence": [
+        "# 19、在建工程"
+      ]
+    },
+    {
+      "note_no": "20",
+      "chapter_title": "借款费用",
+      "start_line": 1926,
+      "end_line": 1931,
+      "evidence": [
+        "# 20、借款费用"
+      ]
+    },
+    {
+      "note_no": "21",
+      "chapter_title": "生物资产",
+      "start_line": 1932,
+      "end_line": 1935,
+      "evidence": [
+        "# 21、生物资产"
+      ]
+    },
+    {
+      "note_no": "21.1",
+      "chapter_title": "消耗性生物资产",
+      "start_line": 1936,
+      "end_line": 1945,
+      "evidence": [
+        "# 21.1消耗性生物资产"
+      ]
+    },
+    {
+      "note_no": "21",
+      "chapter_title": "生物资产- 续",
+      "start_line": 1946,
+      "end_line": 1947,
+      "evidence": [
+        "# 21、生物资产- 续"
+      ]
+    },
+    {
+      "note_no": "21.2",
+      "chapter_title": "生产性生物资产",
+      "start_line": 1948,
+      "end_line": 1967,
+      "evidence": [
+        "# 21.2生产性生物资产"
+      ]
+    },
+    {
+      "note_no": "22",
+      "chapter_title": "无形资产",
+      "start_line": 1968,
+      "end_line": 1979,
+      "evidence": [
+        "# 22、无形资产"
+      ]
+    },
+    {
+      "note_no": "22.2",
+      "chapter_title": "研发支出的归集范围及相关会计处理方法",
+      "start_line": 1980,
+      "end_line": 1995,
+      "evidence": [
+        "# 22.2研发支出的归集范围及相关会计处理方法"
+      ]
+    },
+    {
+      "note_no": "23",
+      "chapter_title": "长期资产减值",
+      "start_line": 1996,
+      "end_line": 2007,
+      "evidence": [
+        "# 23、长期资产减值"
+      ]
+    },
+    {
+      "note_no": "24",
+      "chapter_title": "长期待摊费用",
+      "start_line": 2008,
+      "end_line": 2011,
+      "evidence": [
+        "# 24、长期待摊费用"
+      ]
+    },
+    {
+      "note_no": "25",
+      "chapter_title": "合同负债",
+      "start_line": 2012,
+      "end_line": 2015,
+      "evidence": [
+        "# 25、合同负债"
+      ]
+    },
+    {
+      "note_no": "26",
+      "chapter_title": "职工薪酬",
+      "start_line": 2016,
+      "end_line": 2017,
+      "evidence": [
+        "# 26、职工薪酬"
+      ]
+    },
+    {
+      "note_no": "26.1",
+      "chapter_title": "短期薪酬的会计处理方法",
+      "start_line": 2018,
+      "end_line": 2023,
+      "evidence": [
+        "# 26.1短期薪酬的会计处理方法"
+      ]
+    },
+    {
+      "note_no": "26",
+      "chapter_title": "职工薪酬- 续",
+      "start_line": 2024,
+      "end_line": 2025,
+      "evidence": [
+        "# 26、职工薪酬- 续"
+      ]
+    },
+    {
+      "note_no": "26.1",
+      "chapter_title": "短期薪酬的会计处理方法 -续",
+      "start_line": 2026,
+      "end_line": 2029,
+      "evidence": [
+        "# 26.1 短期薪酬的会计处理方法 -续"
+      ]
+    },
+    {
+      "note_no": "26.2",
+      "chapter_title": "离职后福利的会计处理方法",
+      "start_line": 2030,
+      "end_line": 2035,
+      "evidence": [
+        "# 26.2离职后福利的会计处理方法"
+      ]
+    },
+    {
+      "note_no": "26.3",
+      "chapter_title": "辞退福利的会计处理方法",
+      "start_line": 2036,
+      "end_line": 2039,
+      "evidence": [
+        "# 26.3辞退福利的会计处理方法"
+      ]
+    },
+    {
+      "note_no": "27",
+      "chapter_title": "预计负债",
+      "start_line": 2040,
+      "end_line": 2047,
+      "evidence": [
+        "# 27、预计负债"
+      ]
+    },
+    {
+      "note_no": "28",
+      "chapter_title": "股份支付",
+      "start_line": 2048,
+      "end_line": 2053,
+      "evidence": [
+        "# 28、股份支付"
+      ]
+    },
+    {
+      "note_no": "28",
+      "chapter_title": "股份支付- 续",
+      "start_line": 2054,
+      "end_line": 2055,
+      "evidence": [
+        "# 28、股份支付- 续"
+      ]
+    },
+    {
+      "note_no": "28.1",
+      "chapter_title": "以权益结算的股份支付",
+      "start_line": 2056,
+      "end_line": 2063,
+      "evidence": [
+        "# 28.1以权益结算的股份支付"
+      ]
+    },
+    {
+      "note_no": "28.2",
+      "chapter_title": "实施、修改、终止股份支付计划的相关会计处理",
+      "start_line": 2064,
+      "end_line": 2069,
+      "evidence": [
+        "# 28.2实施、修改、终止股份支付计划的相关会计处理"
+      ]
+    },
+    {
+      "note_no": "29",
+      "chapter_title": "收入",
+      "start_line": 2070,
+      "end_line": 2071,
+      "evidence": [
+        "# 29、收入"
+      ]
+    },
+    {
+      "note_no": "29.1",
+      "chapter_title": "按照业务类型披露收入确认和计量所采用的会计政策",
+      "start_line": 2072,
+      "end_line": 2077,
+      "evidence": [
+        "# 29.1按照业务类型披露收入确认和计量所采用的会计政策"
+      ]
+    },
+    {
+      "note_no": "29",
+      "chapter_title": "收入-续",
+      "start_line": 2078,
+      "end_line": 2079,
+      "evidence": [
+        "# 29、收入-续"
+      ]
+    },
+    {
+      "note_no": "29.1",
+      "chapter_title": "按照业务类型披露收入确认和计量所采用的会计政策-续",
+      "start_line": 2080,
+      "end_line": 2097,
+      "evidence": [
+        "# 29.1 按照业务类型披露收入确认和计量所采用的会计政策-续"
+      ]
+    },
+    {
+      "note_no": "29",
+      "chapter_title": "收入 -续",
+      "start_line": 2098,
+      "end_line": 2099,
+      "evidence": [
+        "# 29、收入 -续"
+      ]
+    },
+    {
+      "note_no": "29.1",
+      "chapter_title": "按照业务类型披露收入确认和计量所采用的会计政策-续",
+      "start_line": 2100,
+      "end_line": 2121,
+      "evidence": [
+        "# 29.1 按照业务类型披露收入确认和计量所采用的会计政策-续"
+      ]
+    },
+    {
+      "note_no": "29",
+      "chapter_title": "收入 -续",
+      "start_line": 2122,
+      "end_line": 2129,
+      "evidence": [
+        "# 29、收入 -续"
+      ]
+    },
+    {
+      "note_no": "30",
+      "chapter_title": "合同成本",
+      "start_line": 2130,
+      "end_line": 2131,
+      "evidence": [
+        "# 30、合同成本"
+      ]
+    },
+    {
+      "note_no": "30.1",
+      "chapter_title": "取得合同的成本",
+      "start_line": 2132,
+      "end_line": 2135,
+      "evidence": [
+        "# 30.1取得合同的成本"
+      ]
+    },
+    {
+      "note_no": "30.2",
+      "chapter_title": "履行合同的成本",
+      "start_line": 2136,
+      "end_line": 2139,
+      "evidence": [
+        "# 30.2履行合同的成本"
+      ]
+    },
+    {
+      "note_no": "30.3",
+      "chapter_title": "与合同成本有关的资产的减值损失",
+      "start_line": 2140,
+      "end_line": 2145,
+      "evidence": [
+        "# 30.3与合同成本有关的资产的减值损失"
+      ]
+    },
+    {
+      "note_no": "31",
+      "chapter_title": "政府补助",
+      "start_line": 2146,
+      "end_line": 2151,
+      "evidence": [
+        "# 31、政府补助"
+      ]
+    },
+    {
+      "note_no": "31",
+      "chapter_title": "政府补助 -续",
+      "start_line": 2152,
+      "end_line": 2155,
+      "evidence": [
+        "# 31、政府补助 -续"
+      ]
+    },
+    {
+      "note_no": "31.1",
+      "chapter_title": "与资产相关的政府补助判断依据及会计处理方法",
+      "start_line": 2156,
+      "end_line": 2161,
+      "evidence": [
+        "# 31.1 与资产相关的政府补助判断依据及会计处理方法"
+      ]
+    },
+    {
+      "note_no": "31.2",
+      "chapter_title": "与收益相关的政府补助判断依据及会计处理方法",
+      "start_line": 2162,
+      "end_line": 2169,
+      "evidence": [
+        "# 31.2与收益相关的政府补助判断依据及会计处理方法"
+      ]
+    },
+    {
+      "note_no": "32",
+      "chapter_title": "递延所得税资产/递延所得税负债",
+      "start_line": 2170,
+      "end_line": 2173,
+      "evidence": [
+        "# 32、递延所得税资产/递延所得税负债"
+      ]
+    },
+    {
+      "note_no": "32.1",
+      "chapter_title": "当期所得税",
+      "start_line": 2174,
+      "end_line": 2179,
+      "evidence": [
+        "# 32.1当期所得税"
+      ]
+    },
+    {
+      "note_no": "32",
+      "chapter_title": "递延所得税资产/递延所得税负债- 续",
+      "start_line": 2180,
+      "end_line": 2181,
+      "evidence": [
+        "# 32、递延所得税资产/递延所得税负债- 续"
+      ]
+    },
+    {
+      "note_no": "32.2",
+      "chapter_title": "递延所得税资产及递延所得税负债",
+      "start_line": 2182,
+      "end_line": 2197,
+      "evidence": [
+        "# 32.2递延所得税资产及递延所得税负债"
+      ]
+    },
+    {
+      "note_no": "32.3",
+      "chapter_title": "所得税的抵销",
+      "start_line": 2198,
+      "end_line": 2203,
+      "evidence": [
+        "# 32.3所得税的抵销"
+      ]
+    },
+    {
+      "note_no": "32",
+      "chapter_title": "递延所得税资产/递延所得税负债- 续",
+      "start_line": 2204,
+      "end_line": 2205,
+      "evidence": [
+        "# 32、递延所得税资产/递延所得税负债- 续"
+      ]
+    },
+    {
+      "note_no": "32.3",
+      "chapter_title": "所得税的抵销-续",
+      "start_line": 2206,
+      "end_line": 2209,
+      "evidence": [
+        "# 32.3所得税的抵销-续"
+      ]
+    },
+    {
+      "note_no": "33",
+      "chapter_title": "租赁",
+      "start_line": 2210,
+      "end_line": 2215,
+      "evidence": [
+        "# 33、租赁"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "本集团作为承租人",
+      "start_line": 2216,
+      "end_line": 2217,
+      "evidence": [
+        "# 33.1本集团作为承租人"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "1 租赁的分拆",
+      "start_line": 2218,
+      "end_line": 2221,
+      "evidence": [
+        "# 33.1.1 租赁的分拆"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "2 使用权资产",
+      "start_line": 2222,
+      "end_line": 2234,
+      "evidence": [
+        "# 33.1.2 使用权资产"
+      ]
+    },
+    {
+      "note_no": "33",
+      "chapter_title": "租赁 -续",
+      "start_line": 2235,
+      "end_line": 2236,
+      "evidence": [
+        "# 33、租赁 -续"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "本集团作为承租人 -续",
+      "start_line": 2237,
+      "end_line": 2238,
+      "evidence": [
+        "# 33.1本集团作为承租人 -续"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "2 使用权资产- 续",
+      "start_line": 2239,
+      "end_line": 2242,
+      "evidence": [
+        "# 33.1.2 使用权资产- 续"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "3 租赁负债",
+      "start_line": 2243,
+      "end_line": 2261,
+      "evidence": [
+        "# 33.1.3 租赁负债"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "4作为承租方对短期租赁和低价值资产租赁进行简化处理的判断依据和会计处理方法",
+      "start_line": 2262,
+      "end_line": 2267,
+      "evidence": [
+        "# 33.1.4作为承租方对短期租赁和低价值资产租赁进行简化处理的判断依据和会计处理方法"
+      ]
+    },
+    {
+      "note_no": "33",
+      "chapter_title": "租赁 -续",
+      "start_line": 2268,
+      "end_line": 2269,
+      "evidence": [
+        "# 33、租赁 -续"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "本集团作为承租人 -续",
+      "start_line": 2270,
+      "end_line": 2271,
+      "evidence": [
+        "# 33.1本集团作为承租人 -续"
+      ]
+    },
+    {
+      "note_no": "33.1",
+      "chapter_title": "5 租赁变更",
+      "start_line": 2272,
+      "end_line": 2282,
+      "evidence": [
+        "# 33.1.5 租赁变更"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "本集团作为出租人",
+      "start_line": 2283,
+      "end_line": 2284,
+      "evidence": [
+        "# 33.2本集团作为出租人"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "1 租赁的分拆",
+      "start_line": 2285,
+      "end_line": 2288,
+      "evidence": [
+        "# 33.2.1 租赁的分拆"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "2作为出租方租赁的分类标准和会计处理方法",
+      "start_line": 2289,
+      "end_line": 2292,
+      "evidence": [
+        "# 33.2.2作为出租方租赁的分类标准和会计处理方法"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "2.1本集团作为出租人记录经营租赁业务",
+      "start_line": 2293,
+      "end_line": 2300,
+      "evidence": [
+        "# 33.2.2.1本集团作为出租人记录经营租赁业务"
+      ]
+    },
+    {
+      "note_no": "33",
+      "chapter_title": "租赁 -续",
+      "start_line": 2301,
+      "end_line": 2302,
+      "evidence": [
+        "# 33、租赁 -续"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "本集团作为出租人 -续",
+      "start_line": 2303,
+      "end_line": 2304,
+      "evidence": [
+        "# 33.2本集团作为出租人 -续"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "2作为出租方租赁的分类标准和会计处理方法-续",
+      "start_line": 2305,
+      "end_line": 2306,
+      "evidence": [
+        "# 33.2.2作为出租方租赁的分类标准和会计处理方法-续"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "2.2 本集团作为出租人记录融资租赁业务",
+      "start_line": 2307,
+      "end_line": 2322,
+      "evidence": [
+        "# 33.2.2.2 本集团作为出租人记录融资租赁业务"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "3 转租赁",
+      "start_line": 2323,
+      "end_line": 2326,
+      "evidence": [
+        "# 33.2.3 转租赁"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "4 租赁变更",
+      "start_line": 2327,
+      "end_line": 2332,
+      "evidence": [
+        "# 33.2.4 租赁变更"
+      ]
+    },
+    {
+      "note_no": "33",
+      "chapter_title": "租赁 -续",
+      "start_line": 2333,
+      "end_line": 2334,
+      "evidence": [
+        "# 33、租赁 -续"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "本集团作为出租人 -续",
+      "start_line": 2335,
+      "end_line": 2336,
+      "evidence": [
+        "# 33.2本集团作为出租人 -续"
+      ]
+    },
+    {
+      "note_no": "33.2",
+      "chapter_title": "4 租赁变更- 续",
+      "start_line": 2337,
+      "end_line": 2348,
+      "evidence": [
+        "# 33.2.4 租赁变更- 续"
+      ]
+    },
+    {
+      "note_no": "34",
+      "chapter_title": "套期会计",
+      "start_line": 2349,
+      "end_line": 2350,
+      "evidence": [
+        "# 34、套期会计"
+      ]
+    },
+    {
+      "note_no": "34.1",
+      "chapter_title": "采用套期会计的依据与会计处理方法",
+      "start_line": 2351,
+      "end_line": 2358,
+      "evidence": [
+        "# 34.1采用套期会计的依据与会计处理方法"
+      ]
+    },
+    {
+      "note_no": "34",
+      "chapter_title": "套期会计 -续",
+      "start_line": 2359,
+      "end_line": 2360,
+      "evidence": [
+        "# 34、套期会计 -续"
+      ]
+    },
+    {
+      "note_no": "34.1",
+      "chapter_title": "采用套期会计的依据与会计处理方法-续",
+      "start_line": 2361,
+      "end_line": 2379,
+      "evidence": [
+        "# 34.1 采用套期会计的依据与会计处理方法-续"
+      ]
+    },
+    {
+      "note_no": "34",
+      "chapter_title": "套期会计 -续",
+      "start_line": 2380,
+      "end_line": 2381,
+      "evidence": [
+        "# 34、套期会计 -续"
+      ]
+    },
+    {
+      "note_no": "34.1",
+      "chapter_title": "采用套期会计的依据与会计处理方法-续",
+      "start_line": 2382,
+      "end_line": 2387,
+      "evidence": [
+        "# 34.1 采用套期会计的依据与会计处理方法-续"
+      ]
+    },
+    {
+      "note_no": "34.2",
+      "chapter_title": "套期有效性评估方法",
+      "start_line": 2388,
+      "end_line": 2397,
+      "evidence": [
+        "# 34.2套期有效性评估方法"
+      ]
+    },
+    {
+      "note_no": "35",
+      "chapter_title": "重要会计政策和会计估计的变更",
+      "start_line": 2398,
+      "end_line": 2399,
+      "evidence": [
+        "# 35、重要会计政策和会计估计的变更"
+      ]
+    },
+    {
+      "note_no": "35.1",
+      "chapter_title": "重要会计政策变更",
+      "start_line": 2400,
+      "end_line": 2403,
+      "evidence": [
+        "# 35.1重要会计政策变更"
+      ]
+    },
+    {
+      "note_no": "35.2",
+      "chapter_title": "重要会计估计变更",
+      "start_line": 2404,
+      "end_line": 2409,
+      "evidence": [
+        "# 35.2重要会计估计变更"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "主要税种及税率",
+      "start_line": 2410,
+      "end_line": 2420,
+      "evidence": [
+        "# 1、主要税种及税率"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "税收优惠",
+      "start_line": 2421,
+      "end_line": 2428,
+      "evidence": [
+        "# 2、税收优惠"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "货币资金",
+      "start_line": 2429,
+      "end_line": 2436,
+      "evidence": [
+        "# 1、货币资金"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "交易性金融资产",
+      "start_line": 2437,
+      "end_line": 2440,
+      "evidence": [
+        "# 2、交易性金融资产"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "应收账款",
+      "start_line": 2441,
+      "end_line": 2450,
+      "evidence": [
+        "# 3、应收账款"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "应收账款 -续",
+      "start_line": 2451,
+      "end_line": 2452,
+      "evidence": [
+        "# 3、应收账款 -续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "按坏账计提方法分类披露",
+      "start_line": 2453,
+      "end_line": 2470,
+      "evidence": [
+        "# (2)按坏账计提方法分类披露"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "坏账准备情况",
+      "start_line": 2471,
+      "end_line": 2481,
+      "evidence": [
+        "# (3)坏账准备情况"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "应收账款 -续",
+      "start_line": 2482,
+      "end_line": 2489,
+      "evidence": [
+        "# 3、应收账款 -续"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "预付款项",
+      "start_line": 2490,
+      "end_line": 2496,
+      "evidence": [
+        "# 4、预付款项"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "其他应收款",
+      "start_line": 2497,
+      "end_line": 2498,
+      "evidence": [
+        "# 5、其他应收款"
+      ]
+    },
+    {
+      "note_no": "5.1",
+      "chapter_title": "项目列示",
+      "start_line": 2499,
+      "end_line": 2506,
+      "evidence": [
+        "# 5.1项目列示"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "其他应收款 -续",
+      "start_line": 2507,
+      "end_line": 2508,
+      "evidence": [
+        "# 5、其他应收款 -续"
+      ]
+    },
+    {
+      "note_no": "5.2",
+      "chapter_title": "其他应收款",
+      "start_line": 2509,
+      "end_line": 2510,
+      "evidence": [
+        "# 5.2其他应收款"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "按账龄披露",
+      "start_line": 2511,
+      "end_line": 2516,
+      "evidence": [
+        "# (1)按账龄披露"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "按款项性质分类情况",
+      "start_line": 2517,
+      "end_line": 2522,
+      "evidence": [
+        "# (2)按款项性质分类情况"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "按坏账计提方法分类披露",
+      "start_line": 2523,
+      "end_line": 2534,
+      "evidence": [
+        "# (3)按坏账计提方法分类披露"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "其他应收款 -续",
+      "start_line": 2535,
+      "end_line": 2536,
+      "evidence": [
+        "# 5、其他应收款 -续"
+      ]
+    },
+    {
+      "note_no": "5.2",
+      "chapter_title": "其他应收款-续",
+      "start_line": 2537,
+      "end_line": 2538,
+      "evidence": [
+        "# 5.2其他应收款-续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "按坏账计提方法分类披露 - 续",
+      "start_line": 2539,
+      "end_line": 2544,
+      "evidence": [
+        "# (3)按坏账计提方法分类披露 - 续"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "坏账准备计提情况",
+      "start_line": 2545,
+      "end_line": 2559,
+      "evidence": [
+        "# (4)坏账准备计提情况"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货",
+      "start_line": 2560,
+      "end_line": 2561,
+      "evidence": [
+        "# 6、存货"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "存货分类",
+      "start_line": 2562,
+      "end_line": 2571,
+      "evidence": [
+        "# (1)存货分类"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "存货跌价准备",
+      "start_line": 2572,
+      "end_line": 2583,
+      "evidence": [
+        "# (2)存货跌价准备"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2584,
+      "end_line": 2585,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表",
+      "start_line": 2586,
+      "end_line": 2595,
+      "evidence": [
+        "# (3)存货明细表"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2596,
+      "end_line": 2597,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2598,
+      "end_line": 2607,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2608,
+      "end_line": 2609,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2610,
+      "end_line": 2619,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2620,
+      "end_line": 2621,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2622,
+      "end_line": 2631,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2632,
+      "end_line": 2633,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2634,
+      "end_line": 2647,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2648,
+      "end_line": 2649,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2650,
+      "end_line": 2663,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2664,
+      "end_line": 2665,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2666,
+      "end_line": 2679,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2680,
+      "end_line": 2681,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2682,
+      "end_line": 2695,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2696,
+      "end_line": 2697,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2698,
+      "end_line": 2713,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2714,
+      "end_line": 2715,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2716,
+      "end_line": 2735,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2736,
+      "end_line": 2737,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2738,
+      "end_line": 2747,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "存货 -续",
+      "start_line": 2748,
+      "end_line": 2749,
+      "evidence": [
+        "# 6、存货 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "存货明细表 - 续",
+      "start_line": 2750,
+      "end_line": 2757,
+      "evidence": [
+        "# (3)存货明细表 - 续"
+      ]
+    },
+    {
+      "note_no": "7",
+      "chapter_title": "合同资产",
+      "start_line": 2758,
+      "end_line": 2759,
+      "evidence": [
+        "# 7、合同资产"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "合同资产情况",
+      "start_line": 2760,
+      "end_line": 2769,
+      "evidence": [
+        "# (1)合同资产情况"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "本期账面价值发生重大变动",
+      "start_line": 2770,
+      "end_line": 2777,
+      "evidence": [
+        "# (2)本期账面价值发生重大变动"
+      ]
+    },
+    {
+      "note_no": "8",
+      "chapter_title": "其他流动资产",
+      "start_line": 2778,
+      "end_line": 2793,
+      "evidence": [
+        "# 8、其他流动资产"
+      ]
+    },
+    {
+      "note_no": "9",
+      "chapter_title": "长期股权投资",
+      "start_line": 2794,
+      "end_line": 2803,
+      "evidence": [
+        "# 9、长期股权投资"
+      ]
+    },
+    {
+      "note_no": "9",
+      "chapter_title": "长期股权投资 - 续",
+      "start_line": 2804,
+      "end_line": 2805,
+      "evidence": [
+        "# 9、长期股权投资 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "长期股权投资本期变动情况",
+      "start_line": 2806,
+      "end_line": 2811,
+      "evidence": [
+        "# (2)长期股权投资本期变动情况"
+      ]
+    },
+    {
+      "note_no": "10",
+      "chapter_title": "其他权益工具投资",
+      "start_line": 2812,
+      "end_line": 2823,
+      "evidence": [
+        "# 10、其他权益工具投资"
+      ]
+    },
+    {
+      "note_no": "11",
+      "chapter_title": "其他非流动金融资产",
+      "start_line": 2824,
+      "end_line": 2829,
+      "evidence": [
+        "# 11、其他非流动金融资产"
+      ]
+    },
+    {
+      "note_no": "12",
+      "chapter_title": "投资性房地产",
+      "start_line": 2830,
+      "end_line": 2831,
+      "evidence": [
+        "# 12、投资性房地产"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "采用成本计量模式的投资性房地产",
+      "start_line": 2832,
+      "end_line": 2842,
+      "evidence": [
+        "# (1)采用成本计量模式的投资性房地产"
+      ]
+    },
+    {
+      "note_no": "13",
+      "chapter_title": "固定资产",
+      "start_line": 2843,
+      "end_line": 2844,
+      "evidence": [
+        "# 13、固定资产"
+      ]
+    },
+    {
+      "note_no": "13.1",
+      "chapter_title": "固定资产汇总",
+      "start_line": 2845,
+      "end_line": 2850,
+      "evidence": [
+        "# 13.1固定资产汇总"
+      ]
+    },
+    {
+      "note_no": "13.2",
+      "chapter_title": "固定资产",
+      "start_line": 2851,
+      "end_line": 2852,
+      "evidence": [
+        "# 13.2 固定资产"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "固定资产情况",
+      "start_line": 2853,
+      "end_line": 2868,
+      "evidence": [
+        "# (1)固定资产情况"
+      ]
+    },
+    {
+      "note_no": "14",
+      "chapter_title": "在建工程",
+      "start_line": 2869,
+      "end_line": 2870,
+      "evidence": [
+        "# 14、在建工程"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "在建工程情况",
+      "start_line": 2871,
+      "end_line": 2879,
+      "evidence": [
+        "# (1)在建工程情况"
+      ]
+    },
+    {
+      "note_no": "15",
+      "chapter_title": "生产性生物资产",
+      "start_line": 2880,
+      "end_line": 2883,
+      "evidence": [
+        "# 15、生产性生物资产"
+      ]
+    },
+    {
+      "note_no": "16",
+      "chapter_title": "使用权资产",
+      "start_line": 2884,
+      "end_line": 2891,
+      "evidence": [
+        "# 16、使用权资产"
+      ]
+    },
+    {
+      "note_no": "17",
+      "chapter_title": "无形资产",
+      "start_line": 2892,
+      "end_line": 2893,
+      "evidence": [
+        "# 17、无形资产"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "无形资产情况",
+      "start_line": 2894,
+      "end_line": 2902,
+      "evidence": [
+        "# (1)无形资产情况"
+      ]
+    },
+    {
+      "note_no": "18",
+      "chapter_title": "商誉",
+      "start_line": 2903,
+      "end_line": 2904,
+      "evidence": [
+        "# 18、商誉"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "商誉账面原值",
+      "start_line": 2905,
+      "end_line": 2912,
+      "evidence": [
+        "# (1)商誉账面原值"
+      ]
+    },
+    {
+      "note_no": "18",
+      "chapter_title": "商誉 -续",
+      "start_line": 2913,
+      "end_line": 2914,
+      "evidence": [
+        "# 18、商誉 -续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "商誉账面原值 - 续",
+      "start_line": 2915,
+      "end_line": 2918,
+      "evidence": [
+        "# (1)商誉账面原值 - 续"
+      ]
+    },
+    {
+      "note_no": "19",
+      "chapter_title": "长期待摊费用",
+      "start_line": 2919,
+      "end_line": 2924,
+      "evidence": [
+        "# 19、长期待摊费用"
+      ]
+    },
+    {
+      "note_no": "20",
+      "chapter_title": "递延所得税资产/递延所得税负债",
+      "start_line": 2925,
+      "end_line": 2926,
+      "evidence": [
+        "# 20、递延所得税资产/递延所得税负债"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "递延所得税资产",
+      "start_line": 2927,
+      "end_line": 2932,
+      "evidence": [
+        "# (1)递延所得税资产"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "递延所得税负债",
+      "start_line": 2933,
+      "end_line": 2940,
+      "evidence": [
+        "# (2)递延所得税负债"
+      ]
+    },
+    {
+      "note_no": "20",
+      "chapter_title": "递延所得税资产/递延所得税负债- 续",
+      "start_line": 2941,
+      "end_line": 2942,
+      "evidence": [
+        "# 20、递延所得税资产/递延所得税负债- 续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "未确认递延所得税资产明细",
+      "start_line": 2943,
+      "end_line": 2948,
+      "evidence": [
+        "# (3)未确认递延所得税资产明细"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "未确认递延所得税资产的可抵扣亏损将于以下年度到期",
+      "start_line": 2949,
+      "end_line": 2956,
+      "evidence": [
+        "# (4)未确认递延所得税资产的可抵扣亏损将于以下年度到期"
+      ]
+    },
+    {
+      "note_no": "21",
+      "chapter_title": "其他非流动资产",
+      "start_line": 2957,
+      "end_line": 2962,
+      "evidence": [
+        "# 21、其他非流动资产"
+      ]
+    },
+    {
+      "note_no": "22",
+      "chapter_title": "短期借款",
+      "start_line": 2963,
+      "end_line": 2964,
+      "evidence": [
+        "# 22、短期借款"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "短期借款分类",
+      "start_line": 2965,
+      "end_line": 2976,
+      "evidence": [
+        "# (1)短期借款分类"
+      ]
+    },
+    {
+      "note_no": "23",
+      "chapter_title": "衍生金融负债",
+      "start_line": 2977,
+      "end_line": 2980,
+      "evidence": [
+        "# 23、衍生金融负债"
+      ]
+    },
+    {
+      "note_no": "24",
+      "chapter_title": "应付账款",
+      "start_line": 2981,
+      "end_line": 2988,
+      "evidence": [
+        "# 24、应付账款"
+      ]
+    },
+    {
+      "note_no": "25",
+      "chapter_title": "合同负债",
+      "start_line": 2989,
+      "end_line": 2990,
+      "evidence": [
+        "# 25、合同负债"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "合同负债情况",
+      "start_line": 2991,
+      "end_line": 2998,
+      "evidence": [
+        "# (1)合同负债情况"
+      ]
+    },
+    {
+      "note_no": "25",
+      "chapter_title": "合同负债 -续",
+      "start_line": 2999,
+      "end_line": 3000,
+      "evidence": [
+        "# 25、合同负债 -续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "账龄超过 1年的重要合同负债",
+      "start_line": 3001,
+      "end_line": 3006,
+      "evidence": [
+        "# (2)账龄超过 1年的重要合同负债"
+      ]
+    },
+    {
+      "note_no": "26",
+      "chapter_title": "应付职工薪酬",
+      "start_line": 3007,
+      "end_line": 3008,
+      "evidence": [
+        "# 26、应付职工薪酬"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "应付职工薪酬列示",
+      "start_line": 3009,
+      "end_line": 3014,
+      "evidence": [
+        "# (1)应付职工薪酬列示"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "短期薪酬列示",
+      "start_line": 3015,
+      "end_line": 3020,
+      "evidence": [
+        "# (2)短期薪酬列示"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "设定提存计划",
+      "start_line": 3021,
+      "end_line": 3028,
+      "evidence": [
+        "# (3)设定提存计划"
+      ]
+    },
+    {
+      "note_no": "27",
+      "chapter_title": "应交税费",
+      "start_line": 3029,
+      "end_line": 3036,
+      "evidence": [
+        "# 27、应交税费"
+      ]
+    },
+    {
+      "note_no": "28",
+      "chapter_title": "其他应付款",
+      "start_line": 3037,
+      "end_line": 3038,
+      "evidence": [
+        "# 28、其他应付款"
+      ]
+    },
+    {
+      "note_no": "28.1",
+      "chapter_title": "项目列示",
+      "start_line": 3039,
+      "end_line": 3044,
+      "evidence": [
+        "# 28.1 项目列示"
+      ]
+    },
+    {
+      "note_no": "28.2",
+      "chapter_title": "其他应付款",
+      "start_line": 3045,
+      "end_line": 3046,
+      "evidence": [
+        "# 28.2其他应付款"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "按款项性质列示其他应付款",
+      "start_line": 3047,
+      "end_line": 3056,
+      "evidence": [
+        "# (1)按款项性质列示其他应付款"
+      ]
+    },
+    {
+      "note_no": "28",
+      "chapter_title": "其他应付款 -续",
+      "start_line": 3057,
+      "end_line": 3058,
+      "evidence": [
+        "# 28、其他应付款 -续"
+      ]
+    },
+    {
+      "note_no": "28.2",
+      "chapter_title": "其他应付款-续",
+      "start_line": 3059,
+      "end_line": 3060,
+      "evidence": [
+        "# 28.2其他应付款-续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "按款项性质列示其他应付款 - 续",
+      "start_line": 3061,
+      "end_line": 3068,
+      "evidence": [
+        "# (1)按款项性质列示其他应付款 - 续"
+      ]
+    },
+    {
+      "note_no": "29",
+      "chapter_title": "一年内到期的非流动负债",
+      "start_line": 3069,
+      "end_line": 3070,
+      "evidence": [
+        "# 29、一年内到期的非流动负债"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "一年内到期的非流动负债分类",
+      "start_line": 3071,
+      "end_line": 3080,
+      "evidence": [
+        "# (1)一年内到期的非流动负债分类"
+      ]
+    },
+    {
+      "note_no": "30",
+      "chapter_title": "其他流动负债",
+      "start_line": 3081,
+      "end_line": 3088,
+      "evidence": [
+        "# 30、其他流动负债"
+      ]
+    },
+    {
+      "note_no": "31",
+      "chapter_title": "长期借款",
+      "start_line": 3089,
+      "end_line": 3090,
+      "evidence": [
+        "# 31、长期借款"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "长期借款分类",
+      "start_line": 3091,
+      "end_line": 3098,
+      "evidence": [
+        "# (1)长期借款分类"
+      ]
+    },
+    {
+      "note_no": "31",
+      "chapter_title": "长期借款 -续",
+      "start_line": 3099,
+      "end_line": 3100,
+      "evidence": [
+        "# 31、长期借款 -续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "长期借款分类 - 续",
+      "start_line": 3101,
+      "end_line": 3111,
+      "evidence": [
+        "# (1)长期借款分类 - 续"
+      ]
+    },
+    {
+      "note_no": "31",
+      "chapter_title": "长期借款 -续",
+      "start_line": 3112,
+      "end_line": 3113,
+      "evidence": [
+        "# 31、长期借款 -续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "长期借款分类 - 续",
+      "start_line": 3114,
+      "end_line": 3121,
+      "evidence": [
+        "# (1)长期借款分类 - 续"
+      ]
+    },
+    {
+      "note_no": "32",
+      "chapter_title": "应付债券",
+      "start_line": 3122,
+      "end_line": 3131,
+      "evidence": [
+        "# 32、应付债券"
+      ]
+    },
+    {
+      "note_no": "32",
+      "chapter_title": "应付债券 -续",
+      "start_line": 3132,
+      "end_line": 3143,
+      "evidence": [
+        "# 32、应付债券 -续"
+      ]
+    },
+    {
+      "note_no": "33",
+      "chapter_title": "租赁负债",
+      "start_line": 3144,
+      "end_line": 3149,
+      "evidence": [
+        "# 33、租赁负债"
+      ]
+    },
+    {
+      "note_no": "34",
+      "chapter_title": "预计负债",
+      "start_line": 3150,
+      "end_line": 3157,
+      "evidence": [
+        "# 34、预计负债"
+      ]
+    },
+    {
+      "note_no": "35",
+      "chapter_title": "其他非流动负债",
+      "start_line": 3158,
+      "end_line": 3166,
+      "evidence": [
+        "# 35、其他非流动负债"
+      ]
+    },
+    {
+      "note_no": "36",
+      "chapter_title": "股本",
+      "start_line": 3167,
+      "end_line": 3174,
+      "evidence": [
+        "# 36、股本"
+      ]
+    },
+    {
+      "note_no": "37",
+      "chapter_title": "资本公积",
+      "start_line": 3175,
+      "end_line": 3180,
+      "evidence": [
+        "# 37、资本公积"
+      ]
+    },
+    {
+      "note_no": "38",
+      "chapter_title": "库存股",
+      "start_line": 3181,
+      "end_line": 3184,
+      "evidence": [
+        "# 38、库存股"
+      ]
+    },
+    {
+      "note_no": "39",
+      "chapter_title": "其他综合收益",
+      "start_line": 3185,
+      "end_line": 3190,
+      "evidence": [
+        "# 39、其他综合收益"
+      ]
+    },
+    {
+      "note_no": "40",
+      "chapter_title": "盈余公积",
+      "start_line": 3191,
+      "end_line": 3196,
+      "evidence": [
+        "# 40、盈余公积"
+      ]
+    },
+    {
+      "note_no": "41",
+      "chapter_title": "未分配利润",
+      "start_line": 3197,
+      "end_line": 3206,
+      "evidence": [
+        "# 41、未分配利润"
+      ]
+    },
+    {
+      "note_no": "42",
+      "chapter_title": "营业收入和营业成本",
+      "start_line": 3207,
+      "end_line": 3208,
+      "evidence": [
+        "# 42、营业收入和营业成本"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "营业收入和营业成本情况",
+      "start_line": 3209,
+      "end_line": 3220,
+      "evidence": [
+        "# (1)营业收入和营业成本情况"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "主营业务(分行业)",
+      "start_line": 3221,
+      "end_line": 3234,
+      "evidence": [
+        "# (2)主营业务(分行业)"
+      ]
+    },
+    {
+      "note_no": "42",
+      "chapter_title": "营业收入和营业成本 -续",
+      "start_line": 3235,
+      "end_line": 3236,
+      "evidence": [
+        "# 42、营业收入和营业成本 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "营业收入的分解",
+      "start_line": 3237,
+      "end_line": 3240,
+      "evidence": [
+        "# (3)营业收入的分解"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "分摊至剩余履约义务的说明",
+      "start_line": 3241,
+      "end_line": 3244,
+      "evidence": [
+        "# (4)分摊至剩余履约义务的说明"
+      ]
+    },
+    {
+      "note_no": "43",
+      "chapter_title": "税金及附加",
+      "start_line": 3245,
+      "end_line": 3250,
+      "evidence": [
+        "# 43、税金及附加"
+      ]
+    },
+    {
+      "note_no": "44",
+      "chapter_title": "销售费用",
+      "start_line": 3251,
+      "end_line": 3260,
+      "evidence": [
+        "# 44、销售费用"
+      ]
+    },
+    {
+      "note_no": "45",
+      "chapter_title": "管理费用",
+      "start_line": 3261,
+      "end_line": 3266,
+      "evidence": [
+        "# 45、管理费用"
+      ]
+    },
+    {
+      "note_no": "46",
+      "chapter_title": "财务费用",
+      "start_line": 3267,
+      "end_line": 3272,
+      "evidence": [
+        "# 46、财务费用"
+      ]
+    },
+    {
+      "note_no": "47",
+      "chapter_title": "投资收益(损失)",
+      "start_line": 3273,
+      "end_line": 3278,
+      "evidence": [
+        "# 47、投资收益(损失)"
+      ]
+    },
+    {
+      "note_no": "48",
+      "chapter_title": "公允价值变动收益(损失)",
+      "start_line": 3279,
+      "end_line": 3286,
+      "evidence": [
+        "# 48、公允价值变动收益(损失)"
+      ]
+    },
+    {
+      "note_no": "49",
+      "chapter_title": "信用减值损失",
+      "start_line": 3287,
+      "end_line": 3292,
+      "evidence": [
+        "# 49、信用减值损失"
+      ]
+    },
+    {
+      "note_no": "50",
+      "chapter_title": "资产减值损失",
+      "start_line": 3293,
+      "end_line": 3298,
+      "evidence": [
+        "# 50、资产减值损失"
+      ]
+    },
+    {
+      "note_no": "51",
+      "chapter_title": "营业外收入",
+      "start_line": 3299,
+      "end_line": 3304,
+      "evidence": [
+        "# 51、营业外收入"
+      ]
+    },
+    {
+      "note_no": "52",
+      "chapter_title": "营业外支出",
+      "start_line": 3305,
+      "end_line": 3310,
+      "evidence": [
+        "# 52、营业外支出"
+      ]
+    },
+    {
+      "note_no": "53",
+      "chapter_title": "所得税费用",
+      "start_line": 3311,
+      "end_line": 3312,
+      "evidence": [
+        "# 53、所得税费用"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "所得税费用表",
+      "start_line": 3313,
+      "end_line": 3320,
+      "evidence": [
+        "# (1)所得税费用表"
+      ]
+    },
+    {
+      "note_no": "53",
+      "chapter_title": "所得税费用 -续",
+      "start_line": 3321,
+      "end_line": 3328,
+      "evidence": [
+        "# 53、所得税费用 -续"
+      ]
+    },
+    {
+      "note_no": "54",
+      "chapter_title": "基本每股收益和稀释每股收益的计算过程",
+      "start_line": 3329,
+      "end_line": 3344,
+      "evidence": [
+        "# 54、基本每股收益和稀释每股收益的计算过程"
+      ]
+    },
+    {
+      "note_no": "55",
+      "chapter_title": "利润表补充资料",
+      "start_line": 3345,
+      "end_line": 3350,
+      "evidence": [
+        "# 55、利润表补充资料"
+      ]
+    },
+    {
+      "note_no": "56",
+      "chapter_title": "现金流量表项目",
+      "start_line": 3351,
+      "end_line": 3352,
+      "evidence": [
+        "# 56、现金流量表项目"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "与经营活动有关的现金",
+      "start_line": 3353,
+      "end_line": 3368,
+      "evidence": [
+        "# (1)与经营活动有关的现金"
+      ]
+    },
+    {
+      "note_no": "56",
+      "chapter_title": "现金流量表项目 -续",
+      "start_line": 3369,
+      "end_line": 3370,
+      "evidence": [
+        "# 56、现金流量表项目 -续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "与投资活动有关的现金",
+      "start_line": 3371,
+      "end_line": 3384,
+      "evidence": [
+        "# (2)与投资活动有关的现金"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "与筹资活动有关的现金",
+      "start_line": 3385,
+      "end_line": 3396,
+      "evidence": [
+        "# (3)与筹资活动有关的现金"
+      ]
+    },
+    {
+      "note_no": "57",
+      "chapter_title": "现金流量表补充资料",
+      "start_line": 3397,
+      "end_line": 3398,
+      "evidence": [
+        "# 57、现金流量表补充资料"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "现金流量表补充资料",
+      "start_line": 3399,
+      "end_line": 3404,
+      "evidence": [
+        "# (1)现金流量表补充资料"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "本期支付的取得子公司的现金净额",
+      "start_line": 3405,
+      "end_line": 3414,
+      "evidence": [
+        "# (2)本期支付的取得子公司的现金净额"
+      ]
+    },
+    {
+      "note_no": "57",
+      "chapter_title": "现金流量表补充资料 -续",
+      "start_line": 3415,
+      "end_line": 3416,
+      "evidence": [
+        "# 57、现金流量表补充资料 -续"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "本期收到的处置子公司的现金净额",
+      "start_line": 3417,
+      "end_line": 3424,
+      "evidence": [
+        "# (3)本期收到的处置子公司的现金净额"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "现金和现金等价物的构成",
+      "start_line": 3425,
+      "end_line": 3430,
+      "evidence": [
+        "# (4)现金和现金等价物的构成"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "不属于现金及现金等价物的货币资金",
+      "start_line": 3431,
+      "end_line": 3436,
+      "evidence": [
+        "# (5)不属于现金及现金等价物的货币资金"
+      ]
+    },
+    {
+      "note_no": "58",
+      "chapter_title": "外币货币性项目",
+      "start_line": 3437,
+      "end_line": 3442,
+      "evidence": [
+        "# 58、外币货币性项目"
+      ]
+    },
+    {
+      "note_no": "59",
+      "chapter_title": "租赁",
+      "start_line": 3443,
+      "end_line": 3444,
+      "evidence": [
+        "# 59、租赁"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "作为承租人",
+      "start_line": 3445,
+      "end_line": 3452,
+      "evidence": [
+        "# (1)作为承租人"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "作为出租人",
+      "start_line": 3453,
+      "end_line": 3468,
+      "evidence": [
+        "# (2)作为出租人"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "非同一控制下企业合并",
+      "start_line": 3469,
+      "end_line": 3472,
+      "evidence": [
+        "# 1、非同一控制下企业合并"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "同一控制下企业合并",
+      "start_line": 3473,
+      "end_line": 3478,
+      "evidence": [
+        "# 2、同一控制下企业合并"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "处置子公司",
+      "start_line": 3479,
+      "end_line": 3482,
+      "evidence": [
+        "# 3、处置子公司"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "其他原因的合并范围变动",
+      "start_line": 3483,
+      "end_line": 3484,
+      "evidence": [
+        "# 4、其他原因的合并范围变动"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "本期新纳入合并范围的子公司",
+      "start_line": 3485,
+      "end_line": 3500,
+      "evidence": [
+        "# (1)本期新纳入合并范围的子公司"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "其他原因的合并范围变动 -续",
+      "start_line": 3501,
+      "end_line": 3502,
+      "evidence": [
+        "# 4、其他原因的合并范围变动 -续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "本期不再纳入合并范围的子公司",
+      "start_line": 3503,
+      "end_line": 3514,
+      "evidence": [
+        "# (2)本期不再纳入合并范围的子公司"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "在子公司中的权益",
+      "start_line": 3515,
+      "end_line": 3516,
+      "evidence": [
+        "# 1、在子公司中的权益"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "企业集团的构成",
+      "start_line": 3517,
+      "end_line": 3524,
+      "evidence": [
+        "# (1)企业集团的构成"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "在子公司中的权益 - 续",
+      "start_line": 3525,
+      "end_line": 3526,
+      "evidence": [
+        "# 1、在子公司中的权益 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "企业集团的构成 - 续",
+      "start_line": 3527,
+      "end_line": 3538,
+      "evidence": [
+        "# (1)企业集团的构成 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "在子公司中的权益 - 续",
+      "start_line": 3539,
+      "end_line": 3540,
+      "evidence": [
+        "# 1、在子公司中的权益 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "企业集团的构成 - 续",
+      "start_line": 3541,
+      "end_line": 3546,
+      "evidence": [
+        "# (1)企业集团的构成 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "重要的非全资子公司",
+      "start_line": 3547,
+      "end_line": 3550,
+      "evidence": [
+        "# (2)重要的非全资子公司"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "在子公司的所有者权益份额发生变化且仍控制子公司的交易",
+      "start_line": 3551,
+      "end_line": 3558,
+      "evidence": [
+        "# 2、在子公司的所有者权益份额发生变化且仍控制子公司的交易"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "在合营企业或联营企业中的权益",
+      "start_line": 3559,
+      "end_line": 3566,
+      "evidence": [
+        "# 3、在合营企业或联营企业中的权益"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "在合营企业或联营企业中的权益 -续",
+      "start_line": 3567,
+      "end_line": 3590,
+      "evidence": [
+        "# 3、在合营企业或联营企业中的权益 -续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "风险管理目标、政策和程序，以及本期发生的变化",
+      "start_line": 3591,
+      "end_line": 3594,
+      "evidence": [
+        "# 1、风险管理目标、政策和程序，以及本期发生的变化"
+      ]
+    },
+    {
+      "note_no": "1.1",
+      "chapter_title": "市场风险",
+      "start_line": 3595,
+      "end_line": 3596,
+      "evidence": [
+        "# 1.1市场风险"
+      ]
+    },
+    {
+      "note_no": "1.1",
+      "chapter_title": "1 外汇风险",
+      "start_line": 3597,
+      "end_line": 3606,
+      "evidence": [
+        "# 1.1.1 外汇风险"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "风险管理目标、政策和程序，以及本期发生的变化 -续",
+      "start_line": 3607,
+      "end_line": 3624,
+      "evidence": [
+        "# 1、风险管理目标、政策和程序，以及本期发生的变化 -续"
+      ]
+    },
+    {
+      "note_no": "1.1",
+      "chapter_title": "2.利率风险－现金流量变动风险",
+      "start_line": 3625,
+      "end_line": 3630,
+      "evidence": [
+        "# 1.1.2.利率风险－现金流量变动风险"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "风险管理目标、政策和程序，以及本期发生的变化 -续",
+      "start_line": 3631,
+      "end_line": 3632,
+      "evidence": [
+        "# 1、风险管理目标、政策和程序，以及本期发生的变化 -续"
+      ]
+    },
+    {
+      "note_no": "1.1",
+      "chapter_title": "市场风险-续",
+      "start_line": 3633,
+      "end_line": 3634,
+      "evidence": [
+        "# 1.1市场风险-续"
+      ]
+    },
+    {
+      "note_no": "1.1",
+      "chapter_title": "2.利率风险－现金流量变动风险-续",
+      "start_line": 3635,
+      "end_line": 3654,
+      "evidence": [
+        "# 1.1.2.利率风险－现金流量变动风险-续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "风险管理目标、政策和程序，以及本期发生的变化 -续",
+      "start_line": 3655,
+      "end_line": 3656,
+      "evidence": [
+        "# 1、风险管理目标、政策和程序，以及本期发生的变化 -续"
+      ]
+    },
+    {
+      "note_no": "1.2",
+      "chapter_title": "信用风险",
+      "start_line": 3657,
+      "end_line": 3676,
+      "evidence": [
+        "# 1.2信用风险"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "风险管理目标、政策和程序，以及本期发生的变化 -续",
+      "start_line": 3677,
+      "end_line": 3678,
+      "evidence": [
+        "# 1、风险管理目标、政策和程序，以及本期发生的变化 -续"
+      ]
+    },
+    {
+      "note_no": "1.3",
+      "chapter_title": "流动性风险",
+      "start_line": 3679,
+      "end_line": 3690,
+      "evidence": [
+        "# 1.3流动性风险"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "以公允价值计量的资产和负债的期末公允价值",
+      "start_line": 3691,
+      "end_line": 3704,
+      "evidence": [
+        "# 1、以公允价值计量的资产和负债的期末公允价值"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "持续和非持续第一层次公允价值计量项目市价的确定依据：",
+      "start_line": 3705,
+      "end_line": 3708,
+      "evidence": [
+        "# 2、持续和非持续第一层次公允价值计量项目市价的确定依据："
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "持续和非持续第二层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息：",
+      "start_line": 3709,
+      "end_line": 3712,
+      "evidence": [
+        "# 3、持续和非持续第二层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息："
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "持续和非持续第三层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息：",
+      "start_line": 3713,
+      "end_line": 3718,
+      "evidence": [
+        "# 4、持续和非持续第三层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息："
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "未以公允价值计量的金融资产和金融负债的公允价值情况：",
+      "start_line": 3719,
+      "end_line": 3724,
+      "evidence": [
+        "# 5、未以公允价值计量的金融资产和金融负债的公允价值情况："
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "本公司的母公司情况",
+      "start_line": 3725,
+      "end_line": 3728,
+      "evidence": [
+        "# 1、本公司的母公司情况"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "本公司的子公司情况",
+      "start_line": 3729,
+      "end_line": 3732,
+      "evidence": [
+        "# 2、本公司的子公司情况"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "本公司的合营和联营企业情况",
+      "start_line": 3733,
+      "end_line": 3736,
+      "evidence": [
+        "# 3、本公司的合营和联营企业情况"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "其他关联方情况",
+      "start_line": 3737,
+      "end_line": 3740,
+      "evidence": [
+        "# 4、其他关联方情况"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "关联方交易情况",
+      "start_line": 3741,
+      "end_line": 3742,
+      "evidence": [
+        "# 5、关联方交易情况"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "关联担保情况",
+      "start_line": 3743,
+      "end_line": 3752,
+      "evidence": [
+        "# (1)关联担保情况"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "关联方交易情况 -续",
+      "start_line": 3753,
+      "end_line": 3754,
+      "evidence": [
+        "# 5、关联方交易情况 -续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "关键管理人员报酬",
+      "start_line": 3755,
+      "end_line": 3760,
+      "evidence": [
+        "# (2)关键管理人员报酬"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "其他关联方交易",
+      "start_line": 3761,
+      "end_line": 3776,
+      "evidence": [
+        "# (3)其他关联方交易"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况",
+      "start_line": 3777,
+      "end_line": 3778,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "应收项目",
+      "start_line": 3779,
+      "end_line": 3786,
+      "evidence": [
+        "# (1)应收项目"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3787,
+      "end_line": 3788,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "应收项目 - 续",
+      "start_line": 3789,
+      "end_line": 3796,
+      "evidence": [
+        "# (1)应收项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3797,
+      "end_line": 3798,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "应收项目 - 续",
+      "start_line": 3799,
+      "end_line": 3806,
+      "evidence": [
+        "# (1)应收项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3807,
+      "end_line": 3808,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "应收项目 - 续",
+      "start_line": 3809,
+      "end_line": 3816,
+      "evidence": [
+        "# (1)应收项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3817,
+      "end_line": 3818,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "应收项目 - 续",
+      "start_line": 3819,
+      "end_line": 3826,
+      "evidence": [
+        "# (1)应收项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3827,
+      "end_line": 3828,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "应收项目 - 续",
+      "start_line": 3829,
+      "end_line": 3840,
+      "evidence": [
+        "# (1)应收项目 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "应付项目",
+      "start_line": 3841,
+      "end_line": 3848,
+      "evidence": [
+        "# (2)应付项目"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3849,
+      "end_line": 3850,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "应付项目 - 续",
+      "start_line": 3851,
+      "end_line": 3858,
+      "evidence": [
+        "# (2)应付项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3859,
+      "end_line": 3860,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "应付项目 - 续",
+      "start_line": 3861,
+      "end_line": 3868,
+      "evidence": [
+        "# (2)应付项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3869,
+      "end_line": 3870,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "应付项目 - 续",
+      "start_line": 3871,
+      "end_line": 3878,
+      "evidence": [
+        "# (2)应付项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3879,
+      "end_line": 3880,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "应付项目 - 续",
+      "start_line": 3881,
+      "end_line": 3888,
+      "evidence": [
+        "# (2)应付项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3889,
+      "end_line": 3890,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "应付项目 - 续",
+      "start_line": 3891,
+      "end_line": 3898,
+      "evidence": [
+        "# (2)应付项目 - 续"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应收、应付关联方等未结算项目情况 - 续",
+      "start_line": 3899,
+      "end_line": 3900,
+      "evidence": [
+        "# 6、应收、应付关联方等未结算项目情况 - 续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "应付项目 - 续",
+      "start_line": 3901,
+      "end_line": 3930,
+      "evidence": [
+        "# (2)应付项目 - 续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "重要承诺事项",
+      "start_line": 3931,
+      "end_line": 3940,
+      "evidence": [
+        "# 1、重要承诺事项"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "或有事项",
+      "start_line": 3941,
+      "end_line": 3954,
+      "evidence": [
+        "# 2、或有事项"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "关联方交易",
+      "start_line": 3955,
+      "end_line": 3960,
+      "evidence": [
+        "# 1、关联方交易"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "分部信息",
+      "start_line": 3961,
+      "end_line": 3962,
+      "evidence": [
+        "# 1、分部信息"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "报告分部的确定依据与会计政策",
+      "start_line": 3963,
+      "end_line": 3966,
+      "evidence": [
+        "# (1) 报告分部的确定依据与会计政策"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "报告分部的财务信息",
+      "start_line": 3967,
+      "end_line": 3984,
+      "evidence": [
+        "# (2) 报告分部的财务信息"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "分部信息 -续",
+      "start_line": 3985,
+      "end_line": 4000,
+      "evidence": [
+        "# 1、分部信息 -续"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "其他应收款",
+      "start_line": 4001,
+      "end_line": 4002,
+      "evidence": [
+        "# 1、其他应收款"
+      ]
+    },
+    {
+      "note_no": "1.1",
+      "chapter_title": "项目列示",
+      "start_line": 4003,
+      "end_line": 4008,
+      "evidence": [
+        "# 1.1项目列示"
+      ]
+    },
+    {
+      "note_no": "1.2",
+      "chapter_title": "其他应收款",
+      "start_line": 4009,
+      "end_line": 4010,
+      "evidence": [
+        "# 1.2其他应收款"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "按款项性质分类情况",
+      "start_line": 4011,
+      "end_line": 4018,
+      "evidence": [
+        "# (1)按款项性质分类情况"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "其他应收款 -续",
+      "start_line": 4019,
+      "end_line": 4020,
+      "evidence": [
+        "# 1、其他应收款 -续"
+      ]
+    },
+    {
+      "note_no": "1.2",
+      "chapter_title": "其他应收款-续",
+      "start_line": 4021,
+      "end_line": 4022,
+      "evidence": [
+        "# 1.2其他应收款-续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "按坏账计提方法分类披露",
+      "start_line": 4023,
+      "end_line": 4036,
+      "evidence": [
+        "# (2)按坏账计提方法分类披露"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "坏账准备情况",
+      "start_line": 4037,
+      "end_line": 4048,
+      "evidence": [
+        "# (3)坏账准备情况"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "其他应收款 -续",
+      "start_line": 4049,
+      "end_line": 4050,
+      "evidence": [
+        "# 1、其他应收款 -续"
+      ]
+    },
+    {
+      "note_no": "1.2",
+      "chapter_title": "其他应收款-续",
+      "start_line": 4051,
+      "end_line": 4058,
+      "evidence": [
+        "# 1.2其他应收款-续"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "长期股权投资",
+      "start_line": 4059,
+      "end_line": 4078,
+      "evidence": [
+        "# 2、长期股权投资"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "短期借款",
+      "start_line": 4079,
+      "end_line": 4080,
+      "evidence": [
+        "# 3、短期借款"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "短期借款分类",
+      "start_line": 4081,
+      "end_line": 4088,
+      "evidence": [
+        "# (1)短期借款分类"
+      ]
+    },
+    {
+      "note_no": "4",
+      "chapter_title": "其他应付款",
+      "start_line": 4089,
+      "end_line": 4090,
+      "evidence": [
+        "# 4、其他应付款"
+      ]
+    },
+    {
+      "note_no": "4.1",
+      "chapter_title": "项目列示",
+      "start_line": 4091,
+      "end_line": 4096,
+      "evidence": [
+        "# 4.1项目列示"
+      ]
+    },
+    {
+      "note_no": "4.2",
+      "chapter_title": "其他应付款",
+      "start_line": 4097,
+      "end_line": 4108,
+      "evidence": [
+        "# 4.2其他应付款"
+      ]
+    },
+    {
+      "note_no": "5",
+      "chapter_title": "长期借款",
+      "start_line": 4109,
+      "end_line": 4120,
+      "evidence": [
+        "# 5、长期借款"
+      ]
+    },
+    {
+      "note_no": "6",
+      "chapter_title": "应付债券",
+      "start_line": 4121,
+      "end_line": 4124,
+      "evidence": [
+        "# 6、应付债券"
+      ]
+    },
+    {
+      "note_no": "7",
+      "chapter_title": "投资收益",
+      "start_line": 4125,
+      "end_line": 4132,
+      "evidence": [
+        "# 7、投资收益"
+      ]
+    },
+    {
+      "note_no": "1",
+      "chapter_title": "当期非经常性损益明细表",
+      "start_line": 4133,
+      "end_line": 4138,
+      "evidence": [
+        "# 1、当期非经常性损益明细表"
+      ]
+    },
+    {
+      "note_no": "2",
+      "chapter_title": "净资产收益率及每股收益",
+      "start_line": 4139,
+      "end_line": 4146,
+      "evidence": [
+        "# 2、净资产收益率及每股收益"
+      ]
+    },
+    {
+      "note_no": "3",
+      "chapter_title": "境内外会计准则下会计数据差异",
+      "start_line": 4147,
+      "end_line": 4155,
+      "evidence": [
+        "# 3、境内外会计准则下会计数据差异"
+      ]
+    }
+  ]
+}

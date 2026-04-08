@@ -1,0 +1,2904 @@
+{
+  "contract_version": "soul_export_v1",
+  "template_version": "soul_v1_1_alpha",
+  "generated_at": "2026-04-06T09:55:20+08:00",
+  "entity_profile": {
+    "company_name": "万科企业股份有限公司",
+    "report_period": "2025",
+    "currency": "CNY",
+    "report_type": "a_share_full_report",
+    "audit_opinion": "未识别",
+    "industry_tag": "lgfv",
+    "input_file": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/tmp/vanke_2025_mineru/vanke_2025_full_report/vanke_2025_full_report.md"
+  },
+  "source_artifacts": {
+    "run_manifest": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/vanke_2025_semiannual_20260406/run_manifest.json",
+    "chapter_records": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/vanke_2025_semiannual_20260406/chapter_records.jsonl",
+    "focus_list_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/vanke_2025_semiannual_20260406/focus_list_scaffold.json",
+    "final_data_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/vanke_2025_semiannual_20260406/final_data_scaffold.json",
+    "analysis_report_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/vanke_2025_semiannual_20260406/analysis_report_scaffold.md",
+    "notes_workfile": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/test_runs/vanke_2025_semiannual_20260406/vanke_2025_notes_workfile.json"
+  },
+  "module_manifest": [
+    {
+      "sheet_name": "00_overview",
+      "module_key": "overview",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "概览",
+      "empty_state": "仅保留运行壳，不做脚本摘要"
+    },
+    {
+      "sheet_name": "01_kpi_dashboard",
+      "module_key": "kpi_dashboard",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "KPI 面板",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "02_financial_summary",
+      "module_key": "financial_summary",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "财务摘要",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "03_debt_profile",
+      "module_key": "debt_profile",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "债务画像",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "04_liquidity_and_covenants",
+      "module_key": "liquidity_and_covenants",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "流动性与契约",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "99_evidence_index",
+      "module_key": "evidence_index",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "证据索引",
+      "empty_state": "仅保留章节证据索引"
+    }
+  ],
+  "overview": {
+    "executive_summary": [],
+    "key_risks": [],
+    "rating_snapshot": [],
+    "report_highlights": []
+  },
+  "kpi_dashboard": {
+    "periods": [],
+    "sections": []
+  },
+  "financial_summary": {
+    "unit_label": "CNY_100m",
+    "statements": {
+      "balance_sheet": [],
+      "income_statement": [],
+      "cash_flow": []
+    },
+    "coverage_note": "脚本不再生成摘要式财务汇总，留待 skill 阅读阶段处理。"
+  },
+  "debt_profile": {
+    "totals": [],
+    "maturity_buckets": [],
+    "financing_mix": [],
+    "rate_profile": [],
+    "debt_comments": []
+  },
+  "liquidity_and_covenants": {
+    "cash_metrics": [],
+    "credit_lines": [],
+    "restricted_assets": [],
+    "covenants": [],
+    "liquidity_observations": []
+  },
+  "optional_modules": [],
+  "evidence_index": [
+    {
+      "evidence_id": "EVD-0001",
+      "field_path": "chapter_records.1.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、货币资金 人民币元 项目 2025年6月30日 2024年12月31日 原币 折算汇率 折合人民币 原币 折算汇率 折合人民币 库存现金： 人民币 6,445,748.27 1.0000 6,445,748.27 8,191,876.63 1.0000 8,191,876.63 银行存款： 人民币 69,24…",
+      "source_document": "chapter_records",
+      "chapter_no": 1,
+      "chapter_title": "1 货币资金",
+      "note_no": "1",
+      "line_span": {
+        "start": 2429,
+        "end": 2436
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0002",
+      "field_path": "chapter_records.1.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年6月30日 2024年12月31日 原币 折算汇率 折合人民币 原币 折算汇率 折合人民币 库存现金： 人民币 6,445,748.27 1.0000 6,445,748.27 8,191,876.63 1.0000 8,191,876.63 银行存款： 人民币 69,246,936,856.36 1…",
+      "source_document": "chapter_records",
+      "chapter_no": 1,
+      "chapter_title": "1 货币资金",
+      "note_no": "1",
+      "line_span": {
+        "start": 2429,
+        "end": 2436
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0003",
+      "field_path": "chapter_records.2.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、交易性金融资产 于 2025年 6月 30日，本集团的交易性金融资产主要为购买的银行理财产品，本集团将其计入以公允价值计量且其变动计入损益的金融资产",
+      "source_document": "chapter_records",
+      "chapter_no": 2,
+      "chapter_title": "2 交易性金融资产",
+      "note_no": "2",
+      "line_span": {
+        "start": 2437,
+        "end": 2440
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0004",
+      "field_path": "chapter_records.2.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于 2025年 6月 30日，本集团的交易性金融资产主要为购买的银行理财产品，本集团将其计入以公允价值计量且其变动计入损益的金融资产。",
+      "source_document": "chapter_records",
+      "chapter_no": 2,
+      "chapter_title": "2 交易性金融资产",
+      "note_no": "2",
+      "line_span": {
+        "start": 2437,
+        "end": 2440
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0005",
+      "field_path": "chapter_records.3.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、应收账款 (1)按账龄披露 人民币元 账龄 2025 年 6 月 30 日 2024 年 12 月 31 日 1 年以内 7,486,866,135.33 6,615,983,196.98 1 至 3 年 1,977,310,462.09 1,758,356,750.98 3 年以上 989,197,749.…",
+      "source_document": "chapter_records",
+      "chapter_no": 3,
+      "chapter_title": "3 应收账款",
+      "note_no": "3",
+      "line_span": {
+        "start": 2441,
+        "end": 2489
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0006",
+      "field_path": "chapter_records.3.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于 2025 年6 月30 日，应收账款坏账准备情况如下：",
+      "source_document": "chapter_records",
+      "chapter_no": 3,
+      "chapter_title": "3 应收账款",
+      "note_no": "3",
+      "line_span": {
+        "start": 2441,
+        "end": 2489
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0007",
+      "field_path": "chapter_records.4.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 4、预付款项 (1)预付款项主要包括预付地价款、土地保证金、预缴税费、工程款及设计费等；于 2025年6月30日，本集团账龄超过一年且金额重大的预付款项主要是预付旧改项目的前期项目款人民币 84.47亿元(2024年 12月 31日：人民币 83.20亿元)，本集团正在积极有序地推进相关工作，促进项目地块早日移交",
+      "source_document": "chapter_records",
+      "chapter_no": 4,
+      "chapter_title": "4 预付款项",
+      "note_no": "4",
+      "line_span": {
+        "start": 2490,
+        "end": 2496
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0008",
+      "field_path": "chapter_records.4.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本集团本期末预付款项前五名总额为人民币 10,956,408,268.53 元(2024 年 12 月 31 日：人民币 10,740,889,944.44 元)，占预付款项总额比例 20.65%(2024 年 12 月 31 日： $1 9 . 5 2 \\%$ )，相应计提 的坏账准备期 末余额为人民 币 352,…",
+      "source_document": "chapter_records",
+      "chapter_no": 4,
+      "chapter_title": "4 预付款项",
+      "note_no": "4",
+      "line_span": {
+        "start": 2490,
+        "end": 2496
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0009",
+      "field_path": "chapter_records.5.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 5、其他应收款 # 5.1项目列示 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 应收利息 - 523,370.83 应收股利 288,938,655.44 65,137,259.06 其他应收款 215,259,819,908.02 221,359,590,789.50 合计…",
+      "source_document": "chapter_records",
+      "chapter_no": 5,
+      "chapter_title": "5 其他应收款",
+      "note_no": "5",
+      "line_span": {
+        "start": 2497,
+        "end": 2559
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0010",
+      "field_path": "chapter_records.5.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于 2025 年 6 月 30 日，按欠款方归集的期末余额前五名的其他应收款合计人民币40,496,666,725.79 元(2024 年 12 月 31 日：人民币 40,173,733,678.21 元)，占其他应收款期末余额的比例为 16.63 %(2024 年 12 月 31 日： $1 6 . 1 1 \\%…",
+      "source_document": "chapter_records",
+      "chapter_no": 5,
+      "chapter_title": "5 其他应收款",
+      "note_no": "5",
+      "line_span": {
+        "start": 2497,
+        "end": 2559
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0011",
+      "field_path": "chapter_records.6.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 6、存货 # (1)存货分类 人民币元 项目 2025年6月30日 2024年12月31日 账面余额 存货跌价准备 账面价值 账面余额 存货跌价准备 账面价值 已完工开发产品 119,436,183,839.77 2,301,779,105.47 117,134,404,734.30 126,025,996,91…",
+      "source_document": "chapter_records",
+      "chapter_no": 6,
+      "chapter_title": "6 存货",
+      "note_no": "6",
+      "line_span": {
+        "start": 2560,
+        "end": 2757
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0012",
+      "field_path": "chapter_records.6.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于 2025 年 6 月 30 日，本集团存货余额中含有借款费用资本化的金额为人民币17,422,688,932.49 元(2024 年 12 月 31 日：人民币 17,127,031,307.98 元)。本集团本期用于确定借款利息费用的资本化率为3.51%(上期：3.81%)。",
+      "source_document": "chapter_records",
+      "chapter_no": 6,
+      "chapter_title": "6 存货",
+      "note_no": "6",
+      "line_span": {
+        "start": 2560,
+        "end": 2757
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0013",
+      "field_path": "chapter_records.7.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 7、合同资产 # (1)合同资产情况 人民币元 项目 2025年6月30日 2024年12月31日 账面余额 坏账准备 账面价值 账面余额 坏账准备 账面价值 建造合同 12,337,821,477.85 - 12,337,821,477.85 12,801,245,178.27 - 12,801,245,178…",
+      "source_document": "chapter_records",
+      "chapter_no": 7,
+      "chapter_title": "7 合同资产",
+      "note_no": "7",
+      "line_span": {
+        "start": 2758,
+        "end": 2777
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0014",
+      "field_path": "chapter_records.7.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本集团的合同资产涉及的建造合同对应的客户主要是政府及其相关方等信用良好的交易对手方，本集团持续评估各项合同资产的信用风险，管理层认为截止 2025年 6月 30日合同资产信用风险较小，因此未计提坏账准备。",
+      "source_document": "chapter_records",
+      "chapter_no": 7,
+      "chapter_title": "7 合同资产",
+      "note_no": "7",
+      "line_span": {
+        "start": 2758,
+        "end": 2777
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0015",
+      "field_path": "chapter_records.8.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 8、其他流动资产 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 合同取得成本 3,602,985,345.65 4,126,870,606.04 待抵扣增值税 9,098,771,840.65 9,221,472,069.36 合计 12,701,757,186.30 13,3…",
+      "source_document": "chapter_records",
+      "chapter_no": 8,
+      "chapter_title": "8 其他流动资产",
+      "note_no": "8",
+      "line_span": {
+        "start": 2778,
+        "end": 2793
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0016",
+      "field_path": "chapter_records.8.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 合同取得成本 3,602,985,345.65 4,126,870,606.04 待抵扣增值税 9,098,771,840.65 9,221,472,069.36 合计 12,701,757,186.30 13,348,342,675.40",
+      "source_document": "chapter_records",
+      "chapter_no": 8,
+      "chapter_title": "8 其他流动资产",
+      "note_no": "8",
+      "line_span": {
+        "start": 2778,
+        "end": 2793
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0017",
+      "field_path": "chapter_records.9.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 9、长期股权投资 (1)长期股权投资情况 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 对合营企业的投资 53,147,781,626.50 57,455,611,890.84 对联营企业的投资 56,913,796,068.97 58,605,360,994.04 小计 11…",
+      "source_document": "chapter_records",
+      "chapter_no": 9,
+      "chapter_title": "9 长期股权投资",
+      "note_no": "9",
+      "line_span": {
+        "start": 2794,
+        "end": 2811
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0018",
+      "field_path": "chapter_records.9.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 对合营企业的投资 53,147,781,626.50 57,455,611,890.84 对联营企业的投资 56,913,796,068.97 58,605,360,994.04 小计 110,061,577,695.47 116,060,972…",
+      "source_document": "chapter_records",
+      "chapter_no": 9,
+      "chapter_title": "9 长期股权投资",
+      "note_no": "9",
+      "line_span": {
+        "start": 2794,
+        "end": 2811
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0019",
+      "field_path": "chapter_records.10.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 10、其他权益工具投资 本集团出于战略目的而计划长期持有下述权益投资，本集团将其指定为以公允价值计量且其变动计入其他综合收益的金融资产；人民币元 被投资单位名称 2025年6月30日 2024年12月31日 绿景(中国)地产投资有限公司 59,912,694.07 118,588,611.46 Cushman&a…",
+      "source_document": "chapter_records",
+      "chapter_no": 10,
+      "chapter_title": "10 其他权益工具投资",
+      "note_no": "10",
+      "line_span": {
+        "start": 2812,
+        "end": 2823
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0020",
+      "field_path": "chapter_records.10.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "被投资单位名称 本期确认的股利收入 计入其他综合收益的累计损失 其他综合收益转入留存收益的金额 其他综合收益转入留存收益的原因 绿景(中国)地产投资有限公司 - (547,070,040.00) - - Cushman&amp;Wakefieldplc - (397,614,534.39) - - 合计 - (944…",
+      "source_document": "chapter_records",
+      "chapter_no": 10,
+      "chapter_title": "10 其他权益工具投资",
+      "note_no": "10",
+      "line_span": {
+        "start": 2812,
+        "end": 2823
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0021",
+      "field_path": "chapter_records.11.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 11、其他非流动金融资产 其他非流动金融资产为本集团计划长期持有的不具有重大影响的股权投资，本集团将其计入以公允价值计量且其变动计入损益的金融资产；# (五) 合并财务报表项目注释 -续",
+      "source_document": "chapter_records",
+      "chapter_no": 11,
+      "chapter_title": "11 其他非流动金融资产",
+      "note_no": "11",
+      "line_span": {
+        "start": 2824,
+        "end": 2829
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0022",
+      "field_path": "chapter_records.11.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 11、其他非流动金融资产",
+      "source_document": "chapter_records",
+      "chapter_no": 11,
+      "chapter_title": "11 其他非流动金融资产",
+      "note_no": "11",
+      "line_span": {
+        "start": 2824,
+        "end": 2829
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0023",
+      "field_path": "chapter_records.12.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 12、投资性房地产 # (1)采用成本计量模式的投资性房地产 人民币元 项目 已完工 在建 合计 一、账面原值 1.2025年1月1日 143,974,575,048.36 11,234,769,985.31 155,209,345,033.67 2.本期增加金额 (1)存货及其他转入 1,816,788,361…",
+      "source_document": "chapter_records",
+      "chapter_no": 12,
+      "chapter_title": "12 投资性房地产",
+      "note_no": "12",
+      "line_span": {
+        "start": 2830,
+        "end": 2842
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0024",
+      "field_path": "chapter_records.12.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 12、投资性房地产",
+      "source_document": "chapter_records",
+      "chapter_no": 12,
+      "chapter_title": "12 投资性房地产",
+      "note_no": "12",
+      "line_span": {
+        "start": 2830,
+        "end": 2842
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0025",
+      "field_path": "chapter_records.13.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 13、固定资产 # 13.1固定资产汇总 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 固定资产 20,406,555,178.77 20,610,539,756.61 # 13.2 固定资产 # (1)固定资产情况 人民币元 项目 酒店、房屋 及建筑物 装修费 机器设备 及运…",
+      "source_document": "chapter_records",
+      "chapter_no": 13,
+      "chapter_title": "13 固定资产",
+      "note_no": "13",
+      "line_span": {
+        "start": 2843,
+        "end": 2868
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0026",
+      "field_path": "chapter_records.13.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 固定资产 20,406,555,178.77 20,610,539,756.61",
+      "source_document": "chapter_records",
+      "chapter_no": 13,
+      "chapter_title": "13 固定资产",
+      "note_no": "13",
+      "line_span": {
+        "start": 2843,
+        "end": 2868
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0027",
+      "field_path": "chapter_records.14.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 14、在建工程 # (1)在建工程情况 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 账面余额 减值准备 账面价值 账面余额 减值准备 账面价值 物流冷库 749,989,500.83 - 749,989,500.83 1,218,510,345.64 - 1,218,510,…",
+      "source_document": "chapter_records",
+      "chapter_no": 14,
+      "chapter_title": "14 在建工程",
+      "note_no": "14",
+      "line_span": {
+        "start": 2869,
+        "end": 2879
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0028",
+      "field_path": "chapter_records.14.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 账面余额 减值准备 账面价值 账面余额 减值准备 账面价值 物流冷库 749,989,500.83 - 749,989,500.83 1,218,510,345.64 - 1,218,510,345.64 租入经营性物业 33,662,863.5…",
+      "source_document": "chapter_records",
+      "chapter_no": 14,
+      "chapter_title": "14 在建工程",
+      "note_no": "14",
+      "line_span": {
+        "start": 2869,
+        "end": 2879
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0029",
+      "field_path": "chapter_records.15.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 15、生产性生物资产 本集团生产性生物资产主要为种猪及蛋鸡",
+      "source_document": "chapter_records",
+      "chapter_no": 15,
+      "chapter_title": "15 生产性生物资产",
+      "note_no": "15",
+      "line_span": {
+        "start": 2880,
+        "end": 2883
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0030",
+      "field_path": "chapter_records.15.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 15、生产性生物资产",
+      "source_document": "chapter_records",
+      "chapter_no": 15,
+      "chapter_title": "15 生产性生物资产",
+      "note_no": "15",
+      "line_span": {
+        "start": 2880,
+        "end": 2883
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0031",
+      "field_path": "chapter_records.16.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 16、使用权资产 人民币元 项目 房屋建筑物及其他 一、账面原值 1.2025年1月1日 27,507,104,655.29 2.本期增加金额 467,175,666.40 3.本期减少金额 (1,213,084,099.37) 4.合并范围变化 (178,604,749.83) 5.2025年6月30日 26,…",
+      "source_document": "chapter_records",
+      "chapter_no": 16,
+      "chapter_title": "16 使用权资产",
+      "note_no": "16",
+      "line_span": {
+        "start": 2884,
+        "end": 2891
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0032",
+      "field_path": "chapter_records.16.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 16、使用权资产",
+      "source_document": "chapter_records",
+      "chapter_no": 16,
+      "chapter_title": "16 使用权资产",
+      "note_no": "16",
+      "line_span": {
+        "start": 2884,
+        "end": 2891
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0033",
+      "field_path": "chapter_records.17.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 17、无形资产 # (1)无形资产情况 人民币元 项目 土地使用权 待执行物业管理合同 其他 合计 一、账面原值 1.2025年1月1日 4,554,677,430.97 6,269,271,346.21 689,885,946.98 11,513,834,724.16 2.本期增加金额 18,194,965.5…",
+      "source_document": "chapter_records",
+      "chapter_no": 17,
+      "chapter_title": "17 无形资产",
+      "note_no": "17",
+      "line_span": {
+        "start": 2892,
+        "end": 2902
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0034",
+      "field_path": "chapter_records.17.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 17、无形资产",
+      "source_document": "chapter_records",
+      "chapter_no": 17,
+      "chapter_title": "17 无形资产",
+      "note_no": "17",
+      "line_span": {
+        "start": 2892,
+        "end": 2902
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0035",
+      "field_path": "chapter_records.18.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 18、商誉 # (1)商誉账面原值 人民币元 被投资单位名称或形成商誉的事项 2025年1月1日 本期增加 本期减少 汇率变动 2025年6月30日 万科海外投资控股有限公司 232,850,408.03 - - (5,247,054.26) 227,603,353.77 物业公司收购形成的商誉(注) 3,744…",
+      "source_document": "chapter_records",
+      "chapter_no": 18,
+      "chapter_title": "18 商誉",
+      "note_no": "18",
+      "line_span": {
+        "start": 2903,
+        "end": 2918
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0036",
+      "field_path": "chapter_records.18.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "被投资单位名称或形成商誉的事项 2025年1月1日 本期增加 本期减少 汇率变动 2025年6月30日 万科海外投资控股有限公司 232,850,408.03 - - (5,247,054.26) 227,603,353.77 物业公司收购形成的商誉(注) 3,744,953,283.06 174,727,804.5…",
+      "source_document": "chapter_records",
+      "chapter_no": 18,
+      "chapter_title": "18 商誉",
+      "note_no": "18",
+      "line_span": {
+        "start": 2903,
+        "end": 2918
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0037",
+      "field_path": "chapter_records.19.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 19、长期待摊费用 人民币元 项目 2025 年 1 月 1 日 本期增加金额 本期摊销金额 其他减少金额 2025 年 6 月 30 日 装修改造费等 7,964,030,248.24 375,704,102.06 764,273,605.34 24,249,196.04 7,551,211,548.92",
+      "source_document": "chapter_records",
+      "chapter_no": 19,
+      "chapter_title": "19 长期待摊费用",
+      "note_no": "19",
+      "line_span": {
+        "start": 2919,
+        "end": 2924
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0038",
+      "field_path": "chapter_records.19.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日 本期增加金额 本期摊销金额 其他减少金额 2025 年 6 月 30 日 装修改造费等 7,964,030,248.24 375,704,102.06 764,273,605.34 24,249,196.04 7,551,211,548.92",
+      "source_document": "chapter_records",
+      "chapter_no": 19,
+      "chapter_title": "19 长期待摊费用",
+      "note_no": "19",
+      "line_span": {
+        "start": 2919,
+        "end": 2924
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0039",
+      "field_path": "chapter_records.20.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 20、递延所得税资产/递延所得税负债 # (1)递延所得税资产 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 可抵扣暂时性差异 递延所得税资产 可抵扣暂时性差异 递延所得税资产 可弥补亏损 110,064,334,644.52 27,516,083,661.13 110,641…",
+      "source_document": "chapter_records",
+      "chapter_no": 20,
+      "chapter_title": "20 递延所得税资产/递延所得税负债",
+      "note_no": "20",
+      "line_span": {
+        "start": 2925,
+        "end": 2940
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0040",
+      "field_path": "chapter_records.20.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 可抵扣暂时性差异 递延所得税资产 可抵扣暂时性差异 递延所得税资产 可弥补亏损 110,064,334,644.52 27,516,083,661.13 110,641,529,160.08 27,660,382,290.02 减值准备 2,55…",
+      "source_document": "chapter_records",
+      "chapter_no": 20,
+      "chapter_title": "20 递延所得税资产/递延所得税负债",
+      "note_no": "20",
+      "line_span": {
+        "start": 2925,
+        "end": 2940
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0041",
+      "field_path": "chapter_records.21.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 20、递延所得税资产/递延所得税负债- 续 # (3)未确认递延所得税资产明细 人民币元 项目 2025年6月30日 2024年12月31日 可抵扣亏损 12,617,424,160.57 9,068,863,063.15 可抵扣暂时性差异 43,020,698,291.68 38,413,041,677.43…",
+      "source_document": "chapter_records",
+      "chapter_no": 21,
+      "chapter_title": "20 递延所得税资产/递延所得税负债- 续",
+      "note_no": "20",
+      "line_span": {
+        "start": 2941,
+        "end": 2956
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0042",
+      "field_path": "chapter_records.21.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "年份 2025 年 6 月 30 日 2024 年 12 月 31 日 2025 1,235,947,486.58 1,236,125,349.51 2026 1,074,385,491.90 1,083,248,554.93 2027 878,860,204.73 896,627,490.76 2028 1,601…",
+      "source_document": "chapter_records",
+      "chapter_no": 21,
+      "chapter_title": "20 递延所得税资产/递延所得税负债- 续",
+      "note_no": "20",
+      "line_span": {
+        "start": 2941,
+        "end": 2956
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0043",
+      "field_path": "chapter_records.22.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 21、其他非流动资产 于2025年6月30日，本集团的其他非流动资产主要是参加一级土地开发投资款；# (五) 合并财务报表项目注释 -续",
+      "source_document": "chapter_records",
+      "chapter_no": 22,
+      "chapter_title": "21 其他非流动资产",
+      "note_no": "21",
+      "line_span": {
+        "start": 2957,
+        "end": 2962
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0044",
+      "field_path": "chapter_records.22.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于2025年6月30日，本集团的其他非流动资产主要是参加一级土地开发投资款。",
+      "source_document": "chapter_records",
+      "chapter_no": 22,
+      "chapter_title": "21 其他非流动资产",
+      "note_no": "21",
+      "line_span": {
+        "start": 2957,
+        "end": 2962
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0045",
+      "field_path": "chapter_records.23.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 22、短期借款 # (1)短期借款分类 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 原币 折人民币 原币 折人民币 银行借款 信用借款 -人民币 4,500,350,645.16 4,500,350,645.16 4,804,800,687.61 4,804,800,687.…",
+      "source_document": "chapter_records",
+      "chapter_no": 23,
+      "chapter_title": "22 短期借款",
+      "note_no": "22",
+      "line_span": {
+        "start": 2963,
+        "end": 2976
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0046",
+      "field_path": "chapter_records.23.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 原币 折人民币 原币 折人民币 银行借款 信用借款 -人民币 4,500,350,645.16 4,500,350,645.16 4,804,800,687.61 4,804,800,687.61 抵押借款(注 1) -人民币 17,615,27…",
+      "source_document": "chapter_records",
+      "chapter_no": 23,
+      "chapter_title": "22 短期借款",
+      "note_no": "22",
+      "line_span": {
+        "start": 2963,
+        "end": 2976
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0047",
+      "field_path": "chapter_records.24.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 23、衍生金融负债 于2025年6月30日，本集团持有的衍生金融负债为货币掉期安排形成的负债",
+      "source_document": "chapter_records",
+      "chapter_no": 24,
+      "chapter_title": "23 衍生金融负债",
+      "note_no": "23",
+      "line_span": {
+        "start": 2977,
+        "end": 2980
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0048",
+      "field_path": "chapter_records.24.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于2025年6月30日，本集团持有的衍生金融负债为货币掉期安排形成的负债。",
+      "source_document": "chapter_records",
+      "chapter_no": 24,
+      "chapter_title": "23 衍生金融负债",
+      "note_no": "23",
+      "line_span": {
+        "start": 2977,
+        "end": 2980
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0049",
+      "field_path": "chapter_records.25.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 24、应付账款 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 应付地价 16,009,433,338.20 16,840,960,350.23 应付及预提工程款 106,600,741,232.58 128,469,530,356.95 质量保证金 7,296,788,676.…",
+      "source_document": "chapter_records",
+      "chapter_no": 25,
+      "chapter_title": "24 应付账款",
+      "note_no": "24",
+      "line_span": {
+        "start": 2981,
+        "end": 2988
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0050",
+      "field_path": "chapter_records.25.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 应付地价 16,009,433,338.20 16,840,960,350.23 应付及预提工程款 106,600,741,232.58 128,469,530,356.95 质量保证金 7,296,788,676.44 7,509,953,86…",
+      "source_document": "chapter_records",
+      "chapter_no": 25,
+      "chapter_title": "24 应付账款",
+      "note_no": "24",
+      "line_span": {
+        "start": 2981,
+        "end": 2988
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0051",
+      "field_path": "chapter_records.26.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 25、合同负债 # (1)合同负债情况 人民币元 项目 预计下批结算时间 项目预售比例 2025年6月30日 2024年12月31日 广州城市之光 2025年7月 24.64% 1,514,837,446.34 1,661,918,598.77 长沙森林公园 2025年7月 53.03% 1,522,075,59…",
+      "source_document": "chapter_records",
+      "chapter_no": 26,
+      "chapter_title": "25 合同负债",
+      "note_no": "25",
+      "line_span": {
+        "start": 2989,
+        "end": 3006
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0052",
+      "field_path": "chapter_records.26.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "期末本集团账龄超过一年的合同负债余额为人民币 70,441,987,190.62 元(2024 年 12 月 31日：人民币73,096,191,939.20元)，其中主要为尚未结算的预收房款。",
+      "source_document": "chapter_records",
+      "chapter_no": 26,
+      "chapter_title": "25 合同负债",
+      "note_no": "25",
+      "line_span": {
+        "start": 2989,
+        "end": 3006
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0053",
+      "field_path": "chapter_records.27.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 26、应付职工薪酬 # (1)应付职工薪酬列示 人民币元 项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 1、短期薪酬 3,555,882,853.69 8,167,291,268.33 8,612,193,140.15 3,110,980,981.87 2、离职后福利-设…",
+      "source_document": "chapter_records",
+      "chapter_no": 27,
+      "chapter_title": "26 应付职工薪酬",
+      "note_no": "26",
+      "line_span": {
+        "start": 3007,
+        "end": 3028
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0054",
+      "field_path": "chapter_records.27.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 1、短期薪酬 3,555,882,853.69 8,167,291,268.33 8,612,193,140.15 3,110,980,981.87 2、离职后福利-设定提存计划 107,691,816.03 875,855,27…",
+      "source_document": "chapter_records",
+      "chapter_no": 27,
+      "chapter_title": "26 应付职工薪酬",
+      "note_no": "26",
+      "line_span": {
+        "start": 3007,
+        "end": 3028
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0055",
+      "field_path": "chapter_records.28.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 27、应交税费 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 企业所得税 11,682,967,890.28 12,697,326,922.97 土地增值税 7,545,482,880.60 9,100,119,991.31 增值稅 4,663,426,858.75 4,656…",
+      "source_document": "chapter_records",
+      "chapter_no": 28,
+      "chapter_title": "27 应交税费",
+      "note_no": "27",
+      "line_span": {
+        "start": 3029,
+        "end": 3036
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0056",
+      "field_path": "chapter_records.28.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本期期末已预缴税费人民币 33,864,964,760.20 元(2024 年 12 月 31 日：人民币35,715,610,938.55 元)已计入预付款项。",
+      "source_document": "chapter_records",
+      "chapter_no": 28,
+      "chapter_title": "27 应交税费",
+      "note_no": "27",
+      "line_span": {
+        "start": 3029,
+        "end": 3036
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0057",
+      "field_path": "chapter_records.29.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 28、其他应付款 # 28.1 项目列示 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 应付利息 48,634,934.82 114,078,222.03 应付股利 267,927,565.70 274,312,637.46 其他应付款 142,640,585,246.18 1…",
+      "source_document": "chapter_records",
+      "chapter_no": 29,
+      "chapter_title": "28 其他应付款",
+      "note_no": "28",
+      "line_span": {
+        "start": 3037,
+        "end": 3068
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0058",
+      "field_path": "chapter_records.29.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 应付利息 48,634,934.82 114,078,222.03 应付股利 267,927,565.70 274,312,637.46 其他应付款 142,640,585,246.18 151,928,681,555.39 合计 142,957…",
+      "source_document": "chapter_records",
+      "chapter_no": 29,
+      "chapter_title": "28 其他应付款",
+      "note_no": "28",
+      "line_span": {
+        "start": 3037,
+        "end": 3068
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0059",
+      "field_path": "chapter_records.30.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 29、一年内到期的非流动负债 # (1)一年内到期的非流动负债分类 人民币元 项目 2025年6月30日 2024年12月31日 一年内到期的长期借款 103,953,699,289.47 106,182,101,369.60 一年内到期的应付债券 27,358,717,473.95 36,152,409,031…",
+      "source_document": "chapter_records",
+      "chapter_no": 30,
+      "chapter_title": "29 一年内到期的非流动负债",
+      "note_no": "29",
+      "line_span": {
+        "start": 3069,
+        "end": 3080
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0060",
+      "field_path": "chapter_records.30.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年6月30日 2024年12月31日 一年内到期的长期借款 103,953,699,289.47 106,182,101,369.60 一年内到期的应付债券 27,358,717,473.95 36,152,409,031.95 一年内到期的租赁负债 1,790,311,510.04 1,887,942…",
+      "source_document": "chapter_records",
+      "chapter_no": 30,
+      "chapter_title": "29 一年内到期的非流动负债",
+      "note_no": "29",
+      "line_span": {
+        "start": 3069,
+        "end": 3080
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0061",
+      "field_path": "chapter_records.31.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 30、其他流动负债 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 待转销项税(注) 14,641,509,761.17 17,750,017,552.59 合计 14,641,509,761.17 17,750,017,552.59 注：待转销项税主要为本集团房地产销售中随预收…",
+      "source_document": "chapter_records",
+      "chapter_no": 31,
+      "chapter_title": "30 其他流动负债",
+      "note_no": "30",
+      "line_span": {
+        "start": 3081,
+        "end": 3088
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0062",
+      "field_path": "chapter_records.31.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 待转销项税(注) 14,641,509,761.17 17,750,017,552.59 合计 14,641,509,761.17 17,750,017,552.59",
+      "source_document": "chapter_records",
+      "chapter_no": 31,
+      "chapter_title": "30 其他流动负债",
+      "note_no": "30",
+      "line_span": {
+        "start": 3081,
+        "end": 3088
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0063",
+      "field_path": "chapter_records.32.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 31、长期借款 # (1)长期借款分类 人民币元 项目 2025年6月30日 原币 汇率 折人民币 借款条件 银行借款 人民币 62,505,632,279.44 1.0000 62,505,632,279.44 信用(注1) 88,054,505,471.68 1.0000 88,054,505,471.68…",
+      "source_document": "chapter_records",
+      "chapter_no": 32,
+      "chapter_title": "31 长期借款",
+      "note_no": "31",
+      "line_span": {
+        "start": 3089,
+        "end": 3121
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0064",
+      "field_path": "chapter_records.32.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年6月30日 原币 汇率 折人民币 借款条件 银行借款 人民币 62,505,632,279.44 1.0000 62,505,632,279.44 信用(注1) 88,054,505,471.68 1.0000 88,054,505,471.68 抵押(注2) 48,192,715,588.68 1.…",
+      "source_document": "chapter_records",
+      "chapter_no": 32,
+      "chapter_title": "31 长期借款",
+      "note_no": "31",
+      "line_span": {
+        "start": 3089,
+        "end": 3121
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0065",
+      "field_path": "chapter_records.33.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 32、应付债券 (1)应付债券的具体情况(不包括划分为金融负债的优先股、永续债等其他金融工具) 人民币元 债券名称 币种 面值(亿元) 发行日期 债券期限 债券利率 发行金额 2025年1月1日 2025年1月1日 本期发行 按面值计提利息 溢折价摊销 本期偿还 2025年6月30日 2025年6月30日 其中:…",
+      "source_document": "chapter_records",
+      "chapter_no": 33,
+      "chapter_title": "32 应付债券",
+      "note_no": "32",
+      "line_span": {
+        "start": 3122,
+        "end": 3143
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0066",
+      "field_path": "chapter_records.33.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "债券名称 币种 面值(亿元) 发行日期 债券期限 债券利率 发行金额 2025年1月1日 2025年1月1日 本期发行 按面值计提利息 溢折价摊销 本期偿还 2025年6月30日 2025年6月30日 其中:一年内到期的部分 (原币) (原币) (折人民币) (原币) (原币) (原币) (原币) (原币) (折人民…",
+      "source_document": "chapter_records",
+      "chapter_no": 33,
+      "chapter_title": "32 应付债券",
+      "note_no": "32",
+      "line_span": {
+        "start": 3122,
+        "end": 3143
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0067",
+      "field_path": "chapter_records.34.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 33、租赁负债 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 长期租赁负债 17,544,166,692.70 18,780,928,349.82 减：一年内到期的租赁负债 1,790,311,510.04 1,887,942,595.92 净额 15,753,855,182.…",
+      "source_document": "chapter_records",
+      "chapter_no": 34,
+      "chapter_title": "33 租赁负债",
+      "note_no": "33",
+      "line_span": {
+        "start": 3144,
+        "end": 3149
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0068",
+      "field_path": "chapter_records.34.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 长期租赁负债 17,544,166,692.70 18,780,928,349.82 减：一年内到期的租赁负债 1,790,311,510.04 1,887,942,595.92 净额 15,753,855,182.66 16,892,985,7…",
+      "source_document": "chapter_records",
+      "chapter_no": 34,
+      "chapter_title": "33 租赁负债",
+      "note_no": "33",
+      "line_span": {
+        "start": 3144,
+        "end": 3149
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0069",
+      "field_path": "chapter_records.35.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 34、预计负债 人民币元 项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 其他(注) 1,327,118,006.21 26,400,604.44 932,970,329.22 420,548,281.43 注： 其他主要为物业管理公司实行酬金制管理所预提的亏损",
+      "source_document": "chapter_records",
+      "chapter_no": 35,
+      "chapter_title": "34 预计负债",
+      "note_no": "34",
+      "line_span": {
+        "start": 3150,
+        "end": 3157
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0070",
+      "field_path": "chapter_records.35.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 其他(注) 1,327,118,006.21 26,400,604.44 932,970,329.22 420,548,281.43",
+      "source_document": "chapter_records",
+      "chapter_no": 35,
+      "chapter_title": "34 预计负债",
+      "note_no": "34",
+      "line_span": {
+        "start": 3150,
+        "end": 3157
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0071",
+      "field_path": "chapter_records.36.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 35、其他非流动负债 人民币元 2025 年 6 月 30 日 2024 年 12 月 31 日 地铁集团借款(注 1) 14,595,860,000.00 - 维护基金(注 2) 1,194,342,640.86 1,156,384,922.96 长期应付款 614,664,582.29 615,278,225…",
+      "source_document": "chapter_records",
+      "chapter_no": 36,
+      "chapter_title": "35 其他非流动负债",
+      "note_no": "35",
+      "line_span": {
+        "start": 3158,
+        "end": 3166
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0072",
+      "field_path": "chapter_records.36.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "2025 年 6 月 30 日 2024 年 12 月 31 日 地铁集团借款(注 1) 14,595,860,000.00 - 维护基金(注 2) 1,194,342,640.86 1,156,384,922.96 长期应付款 614,664,582.29 615,278,225.42 其他 3,900,160.1…",
+      "source_document": "chapter_records",
+      "chapter_no": 36,
+      "chapter_title": "35 其他非流动负债",
+      "note_no": "35",
+      "line_span": {
+        "start": 3158,
+        "end": 3166
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0073",
+      "field_path": "chapter_records.37.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 36、股本 人民币元 项目 2025 年 1 月 1 日 本期变动 2025 年 6 月 30 日 发行新股 其他 有限售条件股份 1.国家及国有法人持股 - - - - 2.境内自然人持股 7,260,668.00 - 536,236.00 7,796,904.00 有限售条件股份合计 7,260,668.00…",
+      "source_document": "chapter_records",
+      "chapter_no": 37,
+      "chapter_title": "36 股本",
+      "note_no": "36",
+      "line_span": {
+        "start": 3167,
+        "end": 3174
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0074",
+      "field_path": "chapter_records.37.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日 本期变动 2025 年 6 月 30 日 发行新股 其他 有限售条件股份 1.国家及国有法人持股 - - - - 2.境内自然人持股 7,260,668.00 - 536,236.00 7,796,904.00 有限售条件股份合计 7,260,668.00 - 536,236.00…",
+      "source_document": "chapter_records",
+      "chapter_no": 37,
+      "chapter_title": "36 股本",
+      "note_no": "36",
+      "line_span": {
+        "start": 3167,
+        "end": 3174
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0075",
+      "field_path": "chapter_records.38.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 37、资本公积 人民币元 项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 股本溢价 25,796,765,062.25 - 812,793,130.79 24,983,971,931.46 其他资本公积 300,973,010.43 2,278,433,496.53 585…",
+      "source_document": "chapter_records",
+      "chapter_no": 38,
+      "chapter_title": "37 资本公积",
+      "note_no": "37",
+      "line_span": {
+        "start": 3175,
+        "end": 3180
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0076",
+      "field_path": "chapter_records.38.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 股本溢价 25,796,765,062.25 - 812,793,130.79 24,983,971,931.46 其他资本公积 300,973,010.43 2,278,433,496.53 585,301,271.74 1,9…",
+      "source_document": "chapter_records",
+      "chapter_no": 38,
+      "chapter_title": "37 资本公积",
+      "note_no": "37",
+      "line_span": {
+        "start": 3175,
+        "end": 3180
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0077",
+      "field_path": "chapter_records.39.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 38、库存股 2025年 4月29日，本公司董事会审议通过了《关于出售 A股库存股的议案》；于 2025年6 月，本公司累计出售 A 股 72,955,992 股，占本公司总股本(含库存股)的 $0 . 6 1 \\%$ ，出售所得资金总额为人民币479,342,723.96元(未扣除交易费用)",
+      "source_document": "chapter_records",
+      "chapter_no": 39,
+      "chapter_title": "38 库存股",
+      "note_no": "38",
+      "line_span": {
+        "start": 3181,
+        "end": 3184
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0078",
+      "field_path": "chapter_records.39.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "2025年 4月29日，本公司董事会审议通过了《关于出售 A股库存股的议案》。于 2025年6 月，本公司累计出售 A 股 72,955,992 股，占本公司总股本(含库存股)的 $0 . 6 1 \\%$ ，出售所得资金总额为人民币479,342,723.96元(未扣除交易费用)。",
+      "source_document": "chapter_records",
+      "chapter_no": 39,
+      "chapter_title": "38 库存股",
+      "note_no": "38",
+      "line_span": {
+        "start": 3181,
+        "end": 3184
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0079",
+      "field_path": "chapter_records.40.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 39、其他综合收益 人民币元 项目 归属于母公司股东的其他综合收益期初余额 2025年1月1日至6月30日止期间 归属于母公司股东的其他综合收益期末余额 本期所得税前发生额 税后归属于母公司 税后归属于少数股东 一、不能重分类进损益的其他综合收益 权益法下不能转损益的其他综合收益 (594,315,526.23)…",
+      "source_document": "chapter_records",
+      "chapter_no": 40,
+      "chapter_title": "39 其他综合收益",
+      "note_no": "39",
+      "line_span": {
+        "start": 3185,
+        "end": 3190
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0080",
+      "field_path": "chapter_records.40.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 归属于母公司股东的其他综合收益期初余额 2025年1月1日至6月30日止期间 归属于母公司股东的其他综合收益期末余额 本期所得税前发生额 税后归属于母公司 税后归属于少数股东 一、不能重分类进损益的其他综合收益 权益法下不能转损益的其他综合收益 (594,315,526.23) 50,379,812.64 50…",
+      "source_document": "chapter_records",
+      "chapter_no": 40,
+      "chapter_title": "39 其他综合收益",
+      "note_no": "39",
+      "line_span": {
+        "start": 3185,
+        "end": 3190
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0081",
+      "field_path": "chapter_records.41.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 40、盈余公积 人民币元 项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 法定盈余公积 7,442,410,873.72 - - 7,442,410,873.72 任意盈余公积 118,785,125,980.47 - - 118,785,125,980.47 合计 126…",
+      "source_document": "chapter_records",
+      "chapter_no": 41,
+      "chapter_title": "40 盈余公积",
+      "note_no": "40",
+      "line_span": {
+        "start": 3191,
+        "end": 3196
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0082",
+      "field_path": "chapter_records.41.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 法定盈余公积 7,442,410,873.72 - - 7,442,410,873.72 任意盈余公积 118,785,125,980.47 - - 118,785,125,980.47 合计 126,227,536,854.19…",
+      "source_document": "chapter_records",
+      "chapter_no": 41,
+      "chapter_title": "40 盈余公积",
+      "note_no": "40",
+      "line_span": {
+        "start": 3191,
+        "end": 3196
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0083",
+      "field_path": "chapter_records.42.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 41、未分配利润 人民币元 项目 2025年1月1日至6月30日止期间 期初未分配利润 44,137,872,679.12 加：本期归属于母公司股东的净亏损 (11,946,573,688.12) 减：应付普通股股利 - 期末未分配利润 32,191,298,991.00 经2025年6月27日股东大会的决议，本…",
+      "source_document": "chapter_records",
+      "chapter_no": 42,
+      "chapter_title": "41 未分配利润",
+      "note_no": "41",
+      "line_span": {
+        "start": 3197,
+        "end": 3206
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0084",
+      "field_path": "chapter_records.42.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "经2025年6月27日股东大会的决议，本公司不向普通股股东派发股利。",
+      "source_document": "chapter_records",
+      "chapter_no": 42,
+      "chapter_title": "41 未分配利润",
+      "note_no": "41",
+      "line_span": {
+        "start": 3197,
+        "end": 3206
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0085",
+      "field_path": "chapter_records.43.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 42、营业收入和营业成本 # (1)营业收入和营业成本情况 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 收入 成本 收入 成本 主营业务 101,526,223,282.32 91,795,853,106.27 139,398,1…",
+      "source_document": "chapter_records",
+      "chapter_no": 43,
+      "chapter_title": "42 营业收入和营业成本",
+      "note_no": "42",
+      "line_span": {
+        "start": 3207,
+        "end": 3244
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0086",
+      "field_path": "chapter_records.43.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本期其他业务收入包括养殖业务收入总额人民币 2,887,848,035.27 元(上年同期：人民币2,385,151,085.40 元)以及向联营及合营企业收取的合并抵销后运营管理费总额人民币114,439,897.04 元(上年同期：人民币 89,867,469.92 元)。",
+      "source_document": "chapter_records",
+      "chapter_no": 43,
+      "chapter_title": "42 营业收入和营业成本",
+      "note_no": "42",
+      "line_span": {
+        "start": 3207,
+        "end": 3244
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0087",
+      "field_path": "chapter_records.44.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 43、税金及附加 人民币元 项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 土地增值税 2,489,827,224.22 3,513,103,990.77 城市维护建设税 206,159,236.38 285,320,427.99 教育费附加 149,857,559.46 210…",
+      "source_document": "chapter_records",
+      "chapter_no": 44,
+      "chapter_title": "43 税金及附加",
+      "note_no": "43",
+      "line_span": {
+        "start": 3245,
+        "end": 3250
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0088",
+      "field_path": "chapter_records.44.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 土地增值税 2,489,827,224.22 3,513,103,990.77 城市维护建设税 206,159,236.38 285,320,427.99 教育费附加 149,857,559.46 210,818,645.21 房产税…",
+      "source_document": "chapter_records",
+      "chapter_no": 44,
+      "chapter_title": "43 税金及附加",
+      "note_no": "43",
+      "line_span": {
+        "start": 3245,
+        "end": 3250
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0089",
+      "field_path": "chapter_records.45.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 44、销售费用 人民币元 项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 品牌宣传推广费用(注) 285,752,563.37 488,023,581.35 销售代理费用及佣金 1,979,331,948.54 2,407,922,381.28 其他 899,020,151.01…",
+      "source_document": "chapter_records",
+      "chapter_no": 45,
+      "chapter_title": "44 销售费用",
+      "note_no": "44",
+      "line_span": {
+        "start": 3251,
+        "end": 3260
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0090",
+      "field_path": "chapter_records.45.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 品牌宣传推广费用(注) 285,752,563.37 488,023,581.35 销售代理费用及佣金 1,979,331,948.54 2,407,922,381.28 其他 899,020,151.01 1,209,775,467.…",
+      "source_document": "chapter_records",
+      "chapter_no": 45,
+      "chapter_title": "44 销售费用",
+      "note_no": "44",
+      "line_span": {
+        "start": 3251,
+        "end": 3260
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0091",
+      "field_path": "chapter_records.46.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 45、管理费用 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 人工与行政费用 2,458,061,222.85 2,590,182,141.07 财产费用 336,940,083.52 405,576,929.59 其他 75,70…",
+      "source_document": "chapter_records",
+      "chapter_no": 46,
+      "chapter_title": "45 管理费用",
+      "note_no": "45",
+      "line_span": {
+        "start": 3261,
+        "end": 3266
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0092",
+      "field_path": "chapter_records.46.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 人工与行政费用 2,458,061,222.85 2,590,182,141.07 财产费用 336,940,083.52 405,576,929.59 其他 75,705,271.44 92,453…",
+      "source_document": "chapter_records",
+      "chapter_no": 46,
+      "chapter_title": "45 管理费用",
+      "note_no": "45",
+      "line_span": {
+        "start": 3261,
+        "end": 3266
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0093",
+      "field_path": "chapter_records.47.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 46、财务费用 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 贷款、债券及应付款项的利息支出 6,911,400,250.02 6,796,789,963.62 租赁负债的利息支出 345,880,988.44 411,117,58…",
+      "source_document": "chapter_records",
+      "chapter_no": 47,
+      "chapter_title": "46 财务费用",
+      "note_no": "46",
+      "line_span": {
+        "start": 3267,
+        "end": 3272
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0094",
+      "field_path": "chapter_records.47.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 贷款、债券及应付款项的利息支出 6,911,400,250.02 6,796,789,963.62 租赁负债的利息支出 345,880,988.44 411,117,582.14 减:资本化利息 3,…",
+      "source_document": "chapter_records",
+      "chapter_no": 47,
+      "chapter_title": "46 财务费用",
+      "note_no": "46",
+      "line_span": {
+        "start": 3267,
+        "end": 3272
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0095",
+      "field_path": "chapter_records.48.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 47、投资收益(损失) 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 权益法核算的长期股权投资收益(损失) (804,830,022.91) 496,205,011.87 处置长期股权投资的净收益 191,253,130.64 1,…",
+      "source_document": "chapter_records",
+      "chapter_no": 48,
+      "chapter_title": "47 投资收益(损失)",
+      "note_no": "47",
+      "line_span": {
+        "start": 3273,
+        "end": 3278
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0096",
+      "field_path": "chapter_records.48.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 权益法核算的长期股权投资收益(损失) (804,830,022.91) 496,205,011.87 处置长期股权投资的净收益 191,253,130.64 1,065,513,113.57 处置交易…",
+      "source_document": "chapter_records",
+      "chapter_no": 48,
+      "chapter_title": "47 投资收益(损失)",
+      "note_no": "47",
+      "line_span": {
+        "start": 3273,
+        "end": 3278
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0097",
+      "field_path": "chapter_records.49.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 48、公允价值变动收益(损失) 人民币元 产生公允价值变动收益的来源 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 交易性金融资产 (190,383.54) 196,730.63 其他非流动金融资产 (11,170,829.95) (9,231,974.79) 衍生金融负债 (61,…",
+      "source_document": "chapter_records",
+      "chapter_no": 49,
+      "chapter_title": "48 公允价值变动收益(损失)",
+      "note_no": "48",
+      "line_span": {
+        "start": 3279,
+        "end": 3286
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0098",
+      "field_path": "chapter_records.49.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "产生公允价值变动收益的来源 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 交易性金融资产 (190,383.54) 196,730.63 其他非流动金融资产 (11,170,829.95) (9,231,974.79) 衍生金融负债 (61,674,297.65) - 合计 (73,03…",
+      "source_document": "chapter_records",
+      "chapter_no": 49,
+      "chapter_title": "48 公允价值变动收益(损失)",
+      "note_no": "48",
+      "line_span": {
+        "start": 3279,
+        "end": 3286
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0099",
+      "field_path": "chapter_records.50.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 49、信用减值损失 人民币元 项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 应收账款坏账损失 (164,477,733.55) (94,078,120.12) 其他应收款坏账损失 (137,291,886.12) (2,003,015,217.24) 合计 (301,769,6…",
+      "source_document": "chapter_records",
+      "chapter_no": 50,
+      "chapter_title": "49 信用减值损失",
+      "note_no": "49",
+      "line_span": {
+        "start": 3287,
+        "end": 3292
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0100",
+      "field_path": "chapter_records.50.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 应收账款坏账损失 (164,477,733.55) (94,078,120.12) 其他应收款坏账损失 (137,291,886.12) (2,003,015,217.24) 合计 (301,769,619.67) (2,097,093…",
+      "source_document": "chapter_records",
+      "chapter_no": 50,
+      "chapter_title": "49 信用减值损失",
+      "note_no": "49",
+      "line_span": {
+        "start": 3287,
+        "end": 3292
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0101",
+      "field_path": "chapter_records.51.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 50、资产减值损失 人民币元 项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 存货跌价损失 (5,113,846,874.89) (1,927,898,820.12) 长期股权投资减值损失 - (83,591,611.07) 投资性房地产减值损失 (31,337,853.89)…",
+      "source_document": "chapter_records",
+      "chapter_no": 51,
+      "chapter_title": "50 资产减值损失",
+      "note_no": "50",
+      "line_span": {
+        "start": 3293,
+        "end": 3298
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0102",
+      "field_path": "chapter_records.51.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 存货跌价损失 (5,113,846,874.89) (1,927,898,820.12) 长期股权投资减值损失 - (83,591,611.07) 投资性房地产减值损失 (31,337,853.89) - 合计 (5,145,184,7…",
+      "source_document": "chapter_records",
+      "chapter_no": 51,
+      "chapter_title": "50 资产减值损失",
+      "note_no": "50",
+      "line_span": {
+        "start": 3293,
+        "end": 3298
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0103",
+      "field_path": "chapter_records.52.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 51、营业外收入 人民币元 项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 计入当期非经常性损益的金额 罚款收入 117,124,854.14 126,574,874.52 117,124,854.14 没收订金及违约金收入 80,543,873.88 62,734,700.00…",
+      "source_document": "chapter_records",
+      "chapter_no": 52,
+      "chapter_title": "51 营业外收入",
+      "note_no": "51",
+      "line_span": {
+        "start": 3299,
+        "end": 3304
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0104",
+      "field_path": "chapter_records.52.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 计入当期非经常性损益的金额 罚款收入 117,124,854.14 126,574,874.52 117,124,854.14 没收订金及违约金收入 80,543,873.88 62,734,700.00 80,543,873.88 其…",
+      "source_document": "chapter_records",
+      "chapter_no": 52,
+      "chapter_title": "51 营业外收入",
+      "note_no": "51",
+      "line_span": {
+        "start": 3299,
+        "end": 3304
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0105",
+      "field_path": "chapter_records.53.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 52、营业外支出 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 计入当期非经常性损益的金额 对外捐赠 17,455,465.35 32,916,450.03 17,455,465.35 其他 672,519,684.73 737,2…",
+      "source_document": "chapter_records",
+      "chapter_no": 53,
+      "chapter_title": "52 营业外支出",
+      "note_no": "52",
+      "line_span": {
+        "start": 3305,
+        "end": 3310
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0106",
+      "field_path": "chapter_records.53.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 计入当期非经常性损益的金额 对外捐赠 17,455,465.35 32,916,450.03 17,455,465.35 其他 672,519,684.73 737,264,301.82 672,51…",
+      "source_document": "chapter_records",
+      "chapter_no": 53,
+      "chapter_title": "52 营业外支出",
+      "note_no": "52",
+      "line_span": {
+        "start": 3305,
+        "end": 3310
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0107",
+      "field_path": "chapter_records.54.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 53、所得税费用 # (1)所得税费用表 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 当期所得税费用 1,936,521,173.99 479,301,047.37 其中:当年产生的所得税费用 2,155,109,590.99 7…",
+      "source_document": "chapter_records",
+      "chapter_no": 54,
+      "chapter_title": "53 所得税费用",
+      "note_no": "53",
+      "line_span": {
+        "start": 3311,
+        "end": 3328
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0108",
+      "field_path": "chapter_records.54.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 当期所得税费用 1,936,521,173.99 479,301,047.37 其中:当年产生的所得税费用 2,155,109,590.99 729,062,490.51 汇算清缴差异调整 (218,…",
+      "source_document": "chapter_records",
+      "chapter_no": 54,
+      "chapter_title": "53 所得税费用",
+      "note_no": "53",
+      "line_span": {
+        "start": 3311,
+        "end": 3328
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0109",
+      "field_path": "chapter_records.55.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 54、基本每股收益和稀释每股收益的计算过程 人民币元 项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 归属于本公司普通股股东的合并净亏损 (11,946,573,688.12) (9,852,499,598.84) 本公司发行在外普通股的加权平均数 11,857,753,479.…",
+      "source_document": "chapter_records",
+      "chapter_no": 55,
+      "chapter_title": "54 基本每股收益和稀释每股收益的计算过程",
+      "note_no": "54",
+      "line_span": {
+        "start": 3329,
+        "end": 3344
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0110",
+      "field_path": "chapter_records.55.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 归属于本公司普通股股东的合并净亏损 (11,946,573,688.12) (9,852,499,598.84) 本公司发行在外普通股的加权平均数 11,857,753,479.00 11,857,753,479.00 基本每股收益(元…",
+      "source_document": "chapter_records",
+      "chapter_no": 55,
+      "chapter_title": "54 基本每股收益和稀释每股收益的计算过程",
+      "note_no": "54",
+      "line_span": {
+        "start": 3329,
+        "end": 3344
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0111",
+      "field_path": "chapter_records.56.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 55、利润表补充资料 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 营业收入 105,323,304,409.14 142,778,764,079.80 投资收益(损失) (567,980,097.53) 1,714,485,990…",
+      "source_document": "chapter_records",
+      "chapter_no": 56,
+      "chapter_title": "55 利润表补充资料",
+      "note_no": "55",
+      "line_span": {
+        "start": 3345,
+        "end": 3350
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0112",
+      "field_path": "chapter_records.56.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 营业收入 105,323,304,409.14 142,778,764,079.80 投资收益(损失) (567,980,097.53) 1,714,485,990.33 减: 存货变动 77,087…",
+      "source_document": "chapter_records",
+      "chapter_no": 56,
+      "chapter_title": "55 利润表补充资料",
+      "note_no": "55",
+      "line_span": {
+        "start": 3345,
+        "end": 3350
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0113",
+      "field_path": "chapter_records.57.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 56、现金流量表项目 # (1)与经营活动有关的现金 收到其他与经营活动有关的现金 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 按政策允许收取的购房诚意金 1,725,436,771.45 3,045,470,648.42 收到联…",
+      "source_document": "chapter_records",
+      "chapter_no": 57,
+      "chapter_title": "56 现金流量表项目",
+      "note_no": "56",
+      "line_span": {
+        "start": 3351,
+        "end": 3396
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0114",
+      "field_path": "chapter_records.57.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 按政策允许收取的购房诚意金 1,725,436,771.45 3,045,470,648.42 收到联营/合营企业及外部公司往来款项 11,227,753,423.93 6,185,784,152.8…",
+      "source_document": "chapter_records",
+      "chapter_no": 57,
+      "chapter_title": "56 现金流量表项目",
+      "note_no": "56",
+      "line_span": {
+        "start": 3351,
+        "end": 3396
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0115",
+      "field_path": "chapter_records.58.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 57、现金流量表补充资料 # (1)现金流量表补充资料 人民币元 补充资料 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 1．将净亏损调节为经营活动现金流量： 净亏损 (10,864,982,511.25) (8,520,745,012.81) 加：资产减值准备 5,145,184,…",
+      "source_document": "chapter_records",
+      "chapter_no": 58,
+      "chapter_title": "57 现金流量表补充资料",
+      "note_no": "57",
+      "line_span": {
+        "start": 3397,
+        "end": 3436
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0116",
+      "field_path": "chapter_records.58.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "补充资料 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 1．将净亏损调节为经营活动现金流量： 净亏损 (10,864,982,511.25) (8,520,745,012.81) 加：资产减值准备 5,145,184,728.78 2,011,490,431.19 信用损失准备 301,…",
+      "source_document": "chapter_records",
+      "chapter_no": 58,
+      "chapter_title": "57 现金流量表补充资料",
+      "note_no": "57",
+      "line_span": {
+        "start": 3397,
+        "end": 3436
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0117",
+      "field_path": "chapter_records.59.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 58、外币货币性项目 本集团无重要境外经营实体；# (五) 合并财务报表项目注释 -续",
+      "source_document": "chapter_records",
+      "chapter_no": 59,
+      "chapter_title": "58 外币货币性项目",
+      "note_no": "58",
+      "line_span": {
+        "start": 3437,
+        "end": 3442
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0118",
+      "field_path": "chapter_records.59.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 58、外币货币性项目",
+      "source_document": "chapter_records",
+      "chapter_no": 59,
+      "chapter_title": "58 外币货币性项目",
+      "note_no": "58",
+      "line_span": {
+        "start": 3437,
+        "end": 3442
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0119",
+      "field_path": "chapter_records.60.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 59、租赁 # (1)作为承租人 本集团租用房屋及建筑物作为自用办公场所，以及作为长租公寓、产业办公、商业进行转租；办公场所租赁通常为期 5年，用于转租的租赁期为 10至 20年不等",
+      "source_document": "chapter_records",
+      "chapter_no": 60,
+      "chapter_title": "59 租赁",
+      "note_no": "59",
+      "line_span": {
+        "start": 3443,
+        "end": 3468
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0120",
+      "field_path": "chapter_records.60.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 租赁收入 5,236,833,550.73 4,619,885,387.25 其中: 未计入租赁收款额的可变租赁付款额相关的收入 132,613,571.47 63,778,489.69",
+      "source_document": "chapter_records",
+      "chapter_no": 60,
+      "chapter_title": "59 租赁",
+      "note_no": "59",
+      "line_span": {
+        "start": 3443,
+        "end": 3468
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0121",
+      "field_path": "chapter_records.61.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、非同一控制下企业合并 本集团本期无重要非同一控制下企业合并的情况",
+      "source_document": "chapter_records",
+      "chapter_no": 61,
+      "chapter_title": "1 非同一控制下企业合并",
+      "note_no": "1",
+      "line_span": {
+        "start": 3469,
+        "end": 3472
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0122",
+      "field_path": "chapter_records.61.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、非同一控制下企业合并",
+      "source_document": "chapter_records",
+      "chapter_no": 61,
+      "chapter_title": "1 非同一控制下企业合并",
+      "note_no": "1",
+      "line_span": {
+        "start": 3469,
+        "end": 3472
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0123",
+      "field_path": "chapter_records.62.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、同一控制下企业合并 本集团本期无同一控制下企业合并的情况；# (六) 合并范围的变更 - 续",
+      "source_document": "chapter_records",
+      "chapter_no": 62,
+      "chapter_title": "2 同一控制下企业合并",
+      "note_no": "2",
+      "line_span": {
+        "start": 3473,
+        "end": 3478
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0124",
+      "field_path": "chapter_records.62.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、同一控制下企业合并",
+      "source_document": "chapter_records",
+      "chapter_no": 62,
+      "chapter_title": "2 同一控制下企业合并",
+      "note_no": "2",
+      "line_span": {
+        "start": 3473,
+        "end": 3478
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0125",
+      "field_path": "chapter_records.63.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、处置子公司 本集团本期没有发生重要单次处置对子公司的投资即丧失控制权的交易，也没有发生重要的通过多次交易分步处置对子公司的投资且在本期丧失控制权的交易",
+      "source_document": "chapter_records",
+      "chapter_no": 63,
+      "chapter_title": "3 处置子公司",
+      "note_no": "3",
+      "line_span": {
+        "start": 3479,
+        "end": 3482
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0126",
+      "field_path": "chapter_records.63.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、处置子公司",
+      "source_document": "chapter_records",
+      "chapter_no": 63,
+      "chapter_title": "3 处置子公司",
+      "note_no": "3",
+      "line_span": {
+        "start": 3479,
+        "end": 3482
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0127",
+      "field_path": "chapter_records.64.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 4、其他原因的合并范围变动 # (1)本期新纳入合并范围的子公司 本集团拥有对下述公司的权力，通过参与该公司的相关活动而享有可变回报，并且有能力运用对该公司的权力影响其回报金额从而合并该等公司；本期新设立的主要子公司： 公司名称 公司名称 郑州万海房地产开发有限公司 北京欣万商业运营管理有限公司 重庆万可唯房地产…",
+      "source_document": "chapter_records",
+      "chapter_no": 64,
+      "chapter_title": "4 其他原因的合并范围变动",
+      "note_no": "4",
+      "line_span": {
+        "start": 3483,
+        "end": 3514
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0128",
+      "field_path": "chapter_records.64.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "公司名称 公司名称 深圳市建万乐业住房服务有限公司 610 Lexington Venture GP LLC 湖南德奥物业管理有限公司 610 Lexington Venture LP 宁夏君翰置业有限公司 深圳市中洲物业管理有限公司",
+      "source_document": "chapter_records",
+      "chapter_no": 64,
+      "chapter_title": "4 其他原因的合并范围变动",
+      "note_no": "4",
+      "line_span": {
+        "start": 3483,
+        "end": 3514
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0129",
+      "field_path": "chapter_records.65.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、在子公司中的权益 # (1)企业集团的构成 A主要城市公司 子公司名称 主要经营地 注册地 币种 注册资本(千元) 持股比例(%) 表决权 取得方式 直接 间接 深圳市万科发展有限公司 深圳 深圳 人民币 600,000 95% 5% 100% 设立 广州万科企业有限公司 广州 广州 人民币 5,000,00…",
+      "source_document": "chapter_records",
+      "chapter_no": 65,
+      "chapter_title": "1 在子公司中的权益",
+      "note_no": "1",
+      "line_span": {
+        "start": 3515,
+        "end": 3550
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0130",
+      "field_path": "chapter_records.65.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "子公司名称 主要经营地 注册地 业务性质 币种 注册资本(千元) 持股比例(%) 表决权 取得方式 直接 间接 万科地产(香港)有限公司 香港 香港 投资 港币 6,309,217 80% 20% 100% 设立 万科置业(香港)有限公司 香港 香港 投资 美元 490,000 - 100% 100% 设立 万科置业…",
+      "source_document": "chapter_records",
+      "chapter_no": 65,
+      "chapter_title": "1 在子公司中的权益",
+      "note_no": "1",
+      "line_span": {
+        "start": 3515,
+        "end": 3550
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0131",
+      "field_path": "chapter_records.66.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、在子公司的所有者权益份额发生变化且仍控制子公司的交易 于 2025年 6月 30日，本集团合并范围内开放跟投项目累计 886个，跟投投资人成为项目公司的少数股东，通过转让股权形成少数股东权益合计人民币 149.46 亿元(2024 年 12 月31日：人民币153.97亿元)，交易后本集团仍控制各子公司；本集…",
+      "source_document": "chapter_records",
+      "chapter_no": 66,
+      "chapter_title": "2 在子公司的所有者权益份额发生变化且仍控制子公司的交易",
+      "note_no": "2",
+      "line_span": {
+        "start": 3551,
+        "end": 3558
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0132",
+      "field_path": "chapter_records.66.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于 2025年 6月 30日，本集团合并范围内开放跟投项目累计 886个，跟投投资人成为项目公司的少数股东，通过转让股权形成少数股东权益合计人民币 149.46 亿元(2024 年 12 月31日：人民币153.97亿元)，交易后本集团仍控制各子公司。",
+      "source_document": "chapter_records",
+      "chapter_no": 66,
+      "chapter_title": "2 在子公司的所有者权益份额发生变化且仍控制子公司的交易",
+      "note_no": "2",
+      "line_span": {
+        "start": 3551,
+        "end": 3558
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0133",
+      "field_path": "chapter_records.67.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、在合营企业或联营企业中的权益 人民币元 2025 年 6 月 30 日 2024 年 12 月 31 日 合营企业： -不重要的合营企业 53,147,781,626.50 57,455,611,890.84 联营企业 -不重要的联营企业 56,913,796,068.97 58,605,360,994.04…",
+      "source_document": "chapter_records",
+      "chapter_no": 67,
+      "chapter_title": "3 在合营企业或联营企业中的权益",
+      "note_no": "3",
+      "line_span": {
+        "start": 3559,
+        "end": 3590
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0134",
+      "field_path": "chapter_records.67.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "2025 年 6 月 30 日 2024 年 12 月 31 日 合营企业： -不重要的合营企业 53,147,781,626.50 57,455,611,890.84 联营企业 -不重要的联营企业 56,913,796,068.97 58,605,360,994.04 小计 110,061,577,695.47 1…",
+      "source_document": "chapter_records",
+      "chapter_no": 67,
+      "chapter_title": "3 在合营企业或联营企业中的权益",
+      "note_no": "3",
+      "line_span": {
+        "start": 3559,
+        "end": 3590
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0135",
+      "field_path": "chapter_records.68.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、风险管理目标、政策和程序，以及本期发生的变化 本集团从事风险管理的目标是在风险和收益之间取得适当的平衡，将风险对本集团经营业绩的负面影响降低到最低水平，使股东及其他权益投资者的利益最大化；基于该风险管理目标，本集团风险管理的基本策略是确定和分析本集团所面临的各种风险，建立适当的风险承受底线和进行风险管理，并及…",
+      "source_document": "chapter_records",
+      "chapter_no": 68,
+      "chapter_title": "1 风险管理目标、政策和程序，以及本期发生的变化",
+      "note_no": "1",
+      "line_span": {
+        "start": 3591,
+        "end": 3690
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0136",
+      "field_path": "chapter_records.68.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "2025年6月30日，可能引起本集团信用损失的最大信用风险敞口主要来自于合同另一方未能履行义务而导致本集团金融资产产生的损失以及本集团承担的财务担保(不考虑可利用的担保物或其他信用增级)，具体包括：货币资金、应收票据、应收账款、其他应收款、合同资产、其他流动资产等。于资产负债表日，本集团金融资产的账面价值已代表其最大…",
+      "source_document": "chapter_records",
+      "chapter_no": 68,
+      "chapter_title": "1 风险管理目标、政策和程序，以及本期发生的变化",
+      "note_no": "1",
+      "line_span": {
+        "start": 3591,
+        "end": 3690
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0137",
+      "field_path": "chapter_records.69.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、以公允价值计量的资产和负债的期末公允价值 下表列示了本集团在每个资产负债表日持续和非持续以公允价值计量的资产和负债于本报告期末的公允价值信息及其公允价值计量的层次；公允价值计量结果所属层次取决于对公允价值计量整体而言具有重要意义的最低层次的输入值",
+      "source_document": "chapter_records",
+      "chapter_no": 69,
+      "chapter_title": "1 以公允价值计量的资产和负债的期末公允价值",
+      "note_no": "1",
+      "line_span": {
+        "start": 3691,
+        "end": 3704
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0138",
+      "field_path": "chapter_records.69.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日公允价值 第一层次公允价值计量 第二层次公允价值计量 第三层次公允价值计量 合计 一、持续的公允价值计量 (一)交易性金融资产 587,871.76 - 13,276,787.40 13,864,659.16 (二)其他非流动金融资产 4,599,880.19 - 1,017,54…",
+      "source_document": "chapter_records",
+      "chapter_no": 69,
+      "chapter_title": "1 以公允价值计量的资产和负债的期末公允价值",
+      "note_no": "1",
+      "line_span": {
+        "start": 3691,
+        "end": 3704
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0139",
+      "field_path": "chapter_records.70.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、持续和非持续第一层次公允价值计量项目市价的确定依据： 本集团以活跃市场报价作为第一层次金融资产的公允价值",
+      "source_document": "chapter_records",
+      "chapter_no": 70,
+      "chapter_title": "2 持续和非持续第一层次公允价值计量项目市价的确定依据：",
+      "note_no": "2",
+      "line_span": {
+        "start": 3705,
+        "end": 3708
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0140",
+      "field_path": "chapter_records.70.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、持续和非持续第一层次公允价值计量项目市价的确定依据：",
+      "source_document": "chapter_records",
+      "chapter_no": 70,
+      "chapter_title": "2 持续和非持续第一层次公允价值计量项目市价的确定依据：",
+      "note_no": "2",
+      "line_span": {
+        "start": 3705,
+        "end": 3708
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0141",
+      "field_path": "chapter_records.71.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、持续和非持续第二层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息： 衍生金融负债为本集团与金融机构签订的 CCS和 SOR协议，本集团使用金融机构提供的报价作为估值依据",
+      "source_document": "chapter_records",
+      "chapter_no": 71,
+      "chapter_title": "3 持续和非持续第二层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息：",
+      "note_no": "3",
+      "line_span": {
+        "start": 3709,
+        "end": 3712
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0142",
+      "field_path": "chapter_records.71.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、持续和非持续第二层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息：",
+      "source_document": "chapter_records",
+      "chapter_no": 71,
+      "chapter_title": "3 持续和非持续第二层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息：",
+      "note_no": "3",
+      "line_span": {
+        "start": 3709,
+        "end": 3712
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0143",
+      "field_path": "chapter_records.72.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 4、持续和非持续第三层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息： 持续第三层次公允价值计量的其他非流动金融资产主要为本集团持有的未上市股权投资；本集团采用估值技术进行了公允价值计量，主要采用了上市公司比较法的估值技术，参考类似上市公司的股票价格并考虑流动性折扣",
+      "source_document": "chapter_records",
+      "chapter_no": 72,
+      "chapter_title": "4 持续和非持续第三层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息：",
+      "note_no": "4",
+      "line_span": {
+        "start": 3713,
+        "end": 3718
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0144",
+      "field_path": "chapter_records.72.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 4、持续和非持续第三层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息：",
+      "source_document": "chapter_records",
+      "chapter_no": 72,
+      "chapter_title": "4 持续和非持续第三层次公允价值计量项目，采用的估值技术和重要参数的定性及定量信息：",
+      "note_no": "4",
+      "line_span": {
+        "start": 3713,
+        "end": 3718
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0145",
+      "field_path": "chapter_records.73.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 5、未以公允价值计量的金融资产和金融负债的公允价值情况： 本集团管理层认为，除应付债券外，2025年 6月 30日不以公允价值计量的各项金融资产和金融负债的账面价值与公允价值之间无重大差异；# (十) 关联方及关联方交易",
+      "source_document": "chapter_records",
+      "chapter_no": 73,
+      "chapter_title": "5 未以公允价值计量的金融资产和金融负债的公允价值情况：",
+      "note_no": "5",
+      "line_span": {
+        "start": 3719,
+        "end": 3724
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0146",
+      "field_path": "chapter_records.73.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本集团管理层认为，除应付债券外，2025年 6月 30日不以公允价值计量的各项金融资产和金融负债的账面价值与公允价值之间无重大差异。",
+      "source_document": "chapter_records",
+      "chapter_no": 73,
+      "chapter_title": "5 未以公允价值计量的金融资产和金融负债的公允价值情况：",
+      "note_no": "5",
+      "line_span": {
+        "start": 3719,
+        "end": 3724
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0147",
+      "field_path": "chapter_records.74.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、本公司的母公司情况 本公司无直接控股母公司",
+      "source_document": "chapter_records",
+      "chapter_no": 74,
+      "chapter_title": "1 本公司的母公司情况",
+      "note_no": "1",
+      "line_span": {
+        "start": 3725,
+        "end": 3728
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0148",
+      "field_path": "chapter_records.74.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、本公司的母公司情况",
+      "source_document": "chapter_records",
+      "chapter_no": 74,
+      "chapter_title": "1 本公司的母公司情况",
+      "note_no": "1",
+      "line_span": {
+        "start": 3725,
+        "end": 3728
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0149",
+      "field_path": "chapter_records.75.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、本公司的子公司情况 本公司的子公司情况详见附注(七)",
+      "source_document": "chapter_records",
+      "chapter_no": 75,
+      "chapter_title": "2 本公司的子公司情况",
+      "note_no": "2",
+      "line_span": {
+        "start": 3729,
+        "end": 3732
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0150",
+      "field_path": "chapter_records.75.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、本公司的子公司情况",
+      "source_document": "chapter_records",
+      "chapter_no": 75,
+      "chapter_title": "2 本公司的子公司情况",
+      "note_no": "2",
+      "line_span": {
+        "start": 3729,
+        "end": 3732
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0151",
+      "field_path": "chapter_records.76.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、本公司的合营和联营企业情况 本期与本集团发生关联方交易，或前期与本集团发生关联方交易形成余额的合营或联营企业情况详见附注(十)、5和6披露的联营、合营企业",
+      "source_document": "chapter_records",
+      "chapter_no": 76,
+      "chapter_title": "3 本公司的合营和联营企业情况",
+      "note_no": "3",
+      "line_span": {
+        "start": 3733,
+        "end": 3736
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0152",
+      "field_path": "chapter_records.76.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本期与本集团发生关联方交易，或前期与本集团发生关联方交易形成余额的合营或联营企业情况详见附注(十)、5和6披露的联营、合营企业。",
+      "source_document": "chapter_records",
+      "chapter_no": 76,
+      "chapter_title": "3 本公司的合营和联营企业情况",
+      "note_no": "3",
+      "line_span": {
+        "start": 3733,
+        "end": 3736
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0153",
+      "field_path": "chapter_records.77.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 4、其他关联方情况 其他关联方名称 其他关联方与本公司关系 地铁集团 对本集团施加重大影响的投资方 深圳地铁置业集团有限公司 对本集团施加重大影响的投资方的子公司 徽商银行股份有限公司 本集团联营企业",
+      "source_document": "chapter_records",
+      "chapter_no": 77,
+      "chapter_title": "4 其他关联方情况",
+      "note_no": "4",
+      "line_span": {
+        "start": 3737,
+        "end": 3740
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0154",
+      "field_path": "chapter_records.77.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 4、其他关联方情况",
+      "source_document": "chapter_records",
+      "chapter_no": 77,
+      "chapter_title": "4 其他关联方情况",
+      "note_no": "4",
+      "line_span": {
+        "start": 3737,
+        "end": 3740
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0155",
+      "field_path": "chapter_records.78.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 5、关联方交易情况 # (1)关联担保情况 人民币万元 担保方 被担保方 与被担保方关系 担保金额 担保起始日 担保到期日 担保是否已经履行完毕 万科海外投资控股有限公司 ChampionEstate(HK)Limited 合营公司 10,923.12 2023/8/21 2028/8/21 尚未到期 万科企业股…",
+      "source_document": "chapter_records",
+      "chapter_no": 78,
+      "chapter_title": "5 关联方交易情况",
+      "note_no": "5",
+      "line_span": {
+        "start": 3741,
+        "end": 3776
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0156",
+      "field_path": "chapter_records.78.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本集团本期与联营公司深圳市万御安防服务科技有限公司、海南万净环卫科技服务有限公司的安防机电等外包费交易总额为人民币 343,786.75万元(上年同期：人民币 303,848.94万元)。",
+      "source_document": "chapter_records",
+      "chapter_no": 78,
+      "chapter_title": "5 关联方交易情况",
+      "note_no": "5",
+      "line_span": {
+        "start": 3741,
+        "end": 3776
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0157",
+      "field_path": "chapter_records.79.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 6、应收、应付关联方等未结算项目情况 # (1)应收项目 人民币元 单位名称 与本集团的关系 2025年6月30日 2024年12月31日 云南澄江老鹰地旅游度假村有限公司 联营企业 4,305,204,267.85 4,283,790,326.57 中山市深业万胜投资有限公司 联营企业 2,047,881,16…",
+      "source_document": "chapter_records",
+      "chapter_no": 79,
+      "chapter_title": "6 应收、应付关联方等未结算项目情况",
+      "note_no": "6",
+      "line_span": {
+        "start": 3777,
+        "end": 3930
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0158",
+      "field_path": "chapter_records.79.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本期对关联方的合并抵销后利息收入为人民币 348,133,435.87 元(上年同期：人民币459,415,597.38 元)。",
+      "source_document": "chapter_records",
+      "chapter_no": 79,
+      "chapter_title": "6 应收、应付关联方等未结算项目情况",
+      "note_no": "6",
+      "line_span": {
+        "start": 3777,
+        "end": 3930
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0159",
+      "field_path": "chapter_records.80.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、重要承诺事项 资本承诺 人民币亿元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 已签约但尚未于财务报表中确认的 -已签订的正在或准备履行的建安合同 616.39 629.23 -已签订的正在或准备履行的土地合同 6.83 15.05 合计 623.22 644.28 截至 2025…",
+      "source_document": "chapter_records",
+      "chapter_no": 80,
+      "chapter_title": "1 重要承诺事项",
+      "note_no": "1",
+      "line_span": {
+        "start": 3931,
+        "end": 3940
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0160",
+      "field_path": "chapter_records.80.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "截至 2025 年 6 月 30 日止，本集团的约定资本支出须在合同他方履行合同规定的责任与义务同时，若干年内支付。",
+      "source_document": "chapter_records",
+      "chapter_no": 80,
+      "chapter_title": "1 重要承诺事项",
+      "note_no": "1",
+      "line_span": {
+        "start": 3931,
+        "end": 3940
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0161",
+      "field_path": "chapter_records.81.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、或有事项 (1)未决诉讼仲裁形成的或有负债及其财务影响 截至 2025年 6月 30日止，本集团个别附属公司是某些法律诉讼中的被告，也是在日常业务中出现的其他诉讼中的原告；尽管现时无法确定这些或有事项、法律诉讼或其他诉讼的结果，管理层相信任何因此引致的负债不会对本集团的财务状况或经营业绩构成重大的负面影响",
+      "source_document": "chapter_records",
+      "chapter_no": 81,
+      "chapter_title": "2 或有事项",
+      "note_no": "2",
+      "line_span": {
+        "start": 3941,
+        "end": 3954
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0162",
+      "field_path": "chapter_records.81.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "截至 2025年 6月 30日止，本集团个别附属公司是某些法律诉讼中的被告，也是在日常业务中出现的其他诉讼中的原告。尽管现时无法确定这些或有事项、法律诉讼或其他诉讼的结果，管理层相信任何因此引致的负债不会对本集团的财务状况或经营业绩构成重大的负面影响。",
+      "source_document": "chapter_records",
+      "chapter_no": 81,
+      "chapter_title": "2 或有事项",
+      "note_no": "2",
+      "line_span": {
+        "start": 3941,
+        "end": 3954
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0163",
+      "field_path": "chapter_records.82.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、关联方交易 于2025年7月3日、7月17日及8月8日，深圳市地铁集团有限公司向本集团提供借款，借款金额合计为人民币83.07亿元；# (十四) 其他重要事项",
+      "source_document": "chapter_records",
+      "chapter_no": 82,
+      "chapter_title": "1 关联方交易",
+      "note_no": "1",
+      "line_span": {
+        "start": 3955,
+        "end": 3960
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0164",
+      "field_path": "chapter_records.82.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于2025年7月3日、7月17日及8月8日，深圳市地铁集团有限公司向本集团提供借款，借款金额合计为人民币83.07亿元。",
+      "source_document": "chapter_records",
+      "chapter_no": 82,
+      "chapter_title": "1 关联方交易",
+      "note_no": "1",
+      "line_span": {
+        "start": 3955,
+        "end": 3960
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0165",
+      "field_path": "chapter_records.83.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、分部信息 # (1) 报告分部的确定依据与会计政策 本集团根据内部组织结构、管理要求及内部报告制度确定了开发经营业务和物业管理业务两大报告分部，开发经营业务分部主要包括以住宅为主的可售型产品的开发与销售业务、代建以及商业等持有物业运营与资产管理业务；物业管理业务分部主营包括社区空间居住消费服务、商企和城市空间…",
+      "source_document": "chapter_records",
+      "chapter_no": 83,
+      "chapter_title": "1 分部信息",
+      "note_no": "1",
+      "line_span": {
+        "start": 3961,
+        "end": 4000
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0166",
+      "field_path": "chapter_records.83.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "2025 年 1 月 1 日至 6 月 30 日止期间 开发经营业务 物业管理业务 未分配利润 抵销 合计 分部收入 79,886,874,600.31 18,168,362,232.39 9,827,678,826.92 (2,559,611,250.48) 105,323,304,409.14 其中: 对外销售收…",
+      "source_document": "chapter_records",
+      "chapter_no": 83,
+      "chapter_title": "1 分部信息",
+      "note_no": "1",
+      "line_span": {
+        "start": 3961,
+        "end": 4000
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0167",
+      "field_path": "chapter_records.84.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、其他应收款 # 1.1项目列示 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 其他应收款 434,633,911,659.23 423,075,784,302.16 # 1.2其他应收款 # (1)按款项性质分类情况 人民币元 款项性质 2025 年 6 月 30 日 20…",
+      "source_document": "chapter_records",
+      "chapter_no": 84,
+      "chapter_title": "1 其他应收款",
+      "note_no": "1",
+      "line_span": {
+        "start": 4001,
+        "end": 4058
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0168",
+      "field_path": "chapter_records.84.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于 2025 年 6 月 30 日，按欠款方归集的期末余额前五名的其他应收款合计人民币196,201,476,648.51 元(2024 年 12 月 31 日：人民币 193,274,725,171.30 元)，占其他应收款期末余额的比例为 42.69%(2024 年 12 月 31 日： $4 3 . 1 3 \\…",
+      "source_document": "chapter_records",
+      "chapter_no": 84,
+      "chapter_title": "1 其他应收款",
+      "note_no": "1",
+      "line_span": {
+        "start": 4001,
+        "end": 4058
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0169",
+      "field_path": "chapter_records.85.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、长期股权投资 (1)长期股权投资分类如下 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 对子公司的投资 68,662,857,924.04 68,712,857,924.04 对联营/合营企业的投资 2,110,809,998.32 2,179,229,675.58 合计…",
+      "source_document": "chapter_records",
+      "chapter_no": 85,
+      "chapter_title": "2 长期股权投资",
+      "note_no": "2",
+      "line_span": {
+        "start": 4059,
+        "end": 4078
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0170",
+      "field_path": "chapter_records.85.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 6 月 30 日 2024 年 12 月 31 日 对子公司的投资 68,662,857,924.04 68,712,857,924.04 对联营/合营企业的投资 2,110,809,998.32 2,179,229,675.58 合计 70,773,667,922.36 70,892,087,5…",
+      "source_document": "chapter_records",
+      "chapter_no": 85,
+      "chapter_title": "2 长期股权投资",
+      "note_no": "2",
+      "line_span": {
+        "start": 4059,
+        "end": 4078
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0171",
+      "field_path": "chapter_records.86.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、短期借款 # (1)短期借款分类 人民币元 项目 2025年6月30日 2024年12月31日 原币 折人民币 原币 折人民币 银行借款 信用借款 -人民币 3,788,600,645.16 3,788,600,645.16 3,940,857,204.77 3,940,857,204.77 抵押借款 -人民…",
+      "source_document": "chapter_records",
+      "chapter_no": 86,
+      "chapter_title": "3 短期借款",
+      "note_no": "3",
+      "line_span": {
+        "start": 4079,
+        "end": 4088
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0172",
+      "field_path": "chapter_records.86.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年6月30日 2024年12月31日 原币 折人民币 原币 折人民币 银行借款 信用借款 -人民币 3,788,600,645.16 3,788,600,645.16 3,940,857,204.77 3,940,857,204.77 抵押借款 -人民币 16,616,273,109.25 16,616…",
+      "source_document": "chapter_records",
+      "chapter_no": 86,
+      "chapter_title": "3 短期借款",
+      "note_no": "3",
+      "line_span": {
+        "start": 4079,
+        "end": 4088
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0173",
+      "field_path": "chapter_records.87.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 4、其他应付款 # 4.1项目列示 人民币元 项目 2025年6月30日 2024年12月31日 其他应付款 103,641,482,389.09 114,087,307,993.87 # 4.2其他应付款 # 按款项性质列示其他应付款 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31…",
+      "source_document": "chapter_records",
+      "chapter_no": 87,
+      "chapter_title": "4 其他应付款",
+      "note_no": "4",
+      "line_span": {
+        "start": 4089,
+        "end": 4108
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0174",
+      "field_path": "chapter_records.87.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "于 2025 年 6 月 30 日，其他应付款中应付内部子公司款主要为本集团子公司归集至本公司账户的资金。",
+      "source_document": "chapter_records",
+      "chapter_no": 87,
+      "chapter_title": "4 其他应付款",
+      "note_no": "4",
+      "line_span": {
+        "start": 4089,
+        "end": 4108
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0175",
+      "field_path": "chapter_records.88.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 5、长期借款 人民币元 项目 2025年6月30日 原币 汇率 折人民币 借款条件 银行借款 人民币 55,368,411,012.84 1.0000 55,368,411,012.84 信用 45,537,791,155.49 1.0000 45,537,791,155.49 抵押 42,815,775,727…",
+      "source_document": "chapter_records",
+      "chapter_no": 88,
+      "chapter_title": "5 长期借款",
+      "note_no": "5",
+      "line_span": {
+        "start": 4109,
+        "end": 4120
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0176",
+      "field_path": "chapter_records.88.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025年6月30日 原币 汇率 折人民币 借款条件 银行借款 人民币 55,368,411,012.84 1.0000 55,368,411,012.84 信用 45,537,791,155.49 1.0000 45,537,791,155.49 抵押 42,815,775,727.93 1.0000 42,…",
+      "source_document": "chapter_records",
+      "chapter_no": 88,
+      "chapter_title": "5 长期借款",
+      "note_no": "5",
+      "line_span": {
+        "start": 4109,
+        "end": 4120
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0177",
+      "field_path": "chapter_records.89.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 6、应付债券 参见附注(五)32",
+      "source_document": "chapter_records",
+      "chapter_no": 89,
+      "chapter_title": "6 应付债券",
+      "note_no": "6",
+      "line_span": {
+        "start": 4121,
+        "end": 4124
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0178",
+      "field_path": "chapter_records.89.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "参见附注(五)32。",
+      "source_document": "chapter_records",
+      "chapter_no": 89,
+      "chapter_title": "6 应付债券",
+      "note_no": "6",
+      "line_span": {
+        "start": 4121,
+        "end": 4124
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0179",
+      "field_path": "chapter_records.90.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 7、投资收益 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 成本法核算的长期股权投资收益 12,476,532,710.35 8,234,007,040.11 权益法核算的长期股权投资收益(亏损) (74,246,862.48) 2…",
+      "source_document": "chapter_records",
+      "chapter_no": 90,
+      "chapter_title": "7 投资收益",
+      "note_no": "7",
+      "line_span": {
+        "start": 4125,
+        "end": 4132
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0180",
+      "field_path": "chapter_records.90.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 成本法核算的长期股权投资收益 12,476,532,710.35 8,234,007,040.11 权益法核算的长期股权投资收益(亏损) (74,246,862.48) 20,196,136.50 其…",
+      "source_document": "chapter_records",
+      "chapter_no": 90,
+      "chapter_title": "7 投资收益",
+      "note_no": "7",
+      "line_span": {
+        "start": 4125,
+        "end": 4132
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0181",
+      "field_path": "chapter_records.91.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 1、当期非经常性损益明细表 人民币元 项目 金额 资产处置损益 7,175,522.11 除同公司正常经营业务相关的有效套期保值业务外，非金融企业持有金融资产和金融负债产生的公允价值变动损益以及处置金融资产和金融负债产生的损益 (27,438,716.40) 出售、处理部门或投资单位收益 191,253,130.…",
+      "source_document": "chapter_records",
+      "chapter_no": 91,
+      "chapter_title": "1 当期非经常性损益明细表",
+      "note_no": "1",
+      "line_span": {
+        "start": 4133,
+        "end": 4138
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0182",
+      "field_path": "chapter_records.91.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "项目 金额 资产处置损益 7,175,522.11 除同公司正常经营业务相关的有效套期保值业务外，非金融企业持有金融资产和金融负债产生的公允价值变动损益以及处置金融资产和金融负债产生的损益 (27,438,716.40) 出售、处理部门或投资单位收益 191,253,130.64 除上述各项之外的其他营业外收入、支出…",
+      "source_document": "chapter_records",
+      "chapter_no": 91,
+      "chapter_title": "1 当期非经常性损益明细表",
+      "note_no": "1",
+      "line_span": {
+        "start": 4133,
+        "end": 4138
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0183",
+      "field_path": "chapter_records.92.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 2、净资产收益率及每股收益 本净资产收益率和每股收益计算表是万科企业股份有限公司按照中国证券监督管理委员会颁布的《公开发行证券的公司信息披露编报规则第 9号-净资产收益率和每股收益的计算及披露》(2010 年修订)的有关规定而编制的；报告期利润 加权平均净资产收益率(%) 每股收益 基本每股收益 稀释每股收益 归…",
+      "source_document": "chapter_records",
+      "chapter_no": 92,
+      "chapter_title": "2 净资产收益率及每股收益",
+      "note_no": "2",
+      "line_span": {
+        "start": 4139,
+        "end": 4146
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0184",
+      "field_path": "chapter_records.92.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "本净资产收益率和每股收益计算表是万科企业股份有限公司按照中国证券监督管理委员会颁布的《公开发行证券的公司信息披露编报规则第 9号-净资产收益率和每股收益的计算及披露》(2010 年修订)的有关规定而编制的。",
+      "source_document": "chapter_records",
+      "chapter_no": 92,
+      "chapter_title": "2 净资产收益率及每股收益",
+      "note_no": "2",
+      "line_span": {
+        "start": 4139,
+        "end": 4146
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0185",
+      "field_path": "chapter_records.93.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "# 3、境内外会计准则下会计数据差异 (1)同时按照国际会计准则与按照中国会计准则披露的财务报告中净亏损和净资产差异情况 人民币元 归属于母公司股东的净亏损 归属于母公司股东的净资产 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 2025年6月30日 2024年12月31日 按中国会计准…",
+      "source_document": "chapter_records",
+      "chapter_no": 93,
+      "chapter_title": "3 境内外会计准则下会计数据差异",
+      "note_no": "3",
+      "line_span": {
+        "start": 4147,
+        "end": 4155
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0186",
+      "field_path": "chapter_records.93.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "归属于母公司股东的净亏损 归属于母公司股东的净资产 2025年1月1日至6月30日止期间 2024年1月1日至6月30日止期间 2025年6月30日 2024年12月31日 按中国会计准则 (11,946,573,688.12) (9,852,499,598.84) 191,440,815,716.19 202,66…",
+      "source_document": "chapter_records",
+      "chapter_no": 93,
+      "chapter_title": "3 境内外会计准则下会计数据差异",
+      "note_no": "3",
+      "line_span": {
+        "start": 4147,
+        "end": 4155
+      },
+      "confidence": "medium"
+    }
+  ]
+}

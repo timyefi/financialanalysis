@@ -138,6 +138,7 @@ Current observed facts:
 - call `https://www.chinamoney.com.cn/chinese/zqcwbgcwgd/` first to establish session
 - then call `https://www.chinamoney.com.cn/ags/ms/cm-u-notice-issue/financeRepo`
 - direct attachment GET may still hit `421 Misdirected Request` or `There are too many connections from your internet address` in the current environment, so download code now uses retry/backoff on the official attachment and falls back to CNInfo mirror when available
+- if the ChinaMoney result is only a disclosure shell or brief and the parsed Markdown does not expose a real `财务报表附注` section, stop the automated notes extraction path and switch to the full financial report attachment from the exchange page or a manually downloaded local PDF in the current working directory
 
 ### Step 2: Open Financial Report Page
 

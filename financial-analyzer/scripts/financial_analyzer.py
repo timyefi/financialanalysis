@@ -463,6 +463,109 @@ def detect_unit(line):
     return ""
 
 
+NUMERIC_CONTEXT_HINTS = (
+    "现金",
+    "借款",
+    "债务",
+    "负债",
+    "资产",
+    "收入",
+    "利润",
+    "净亏损",
+    "净利润",
+    "成本",
+    "应收",
+    "应付",
+    "存货",
+    "利息",
+    "融资",
+    "余额",
+    "净额",
+    "合计",
+    "期末",
+    "期初",
+)
+
+NUMERIC_NOISE_LABELS = {
+    "#",
+    "注",
+    "项目",
+    "金额",
+    "单位",
+    "截至",
+}
+
+
+def score_numeric_candidate(line, raw_value, value, match_start, match_end, match_count):
+    score = 0
+    if any(marker in line for marker in ("亿元", "百万元", "万元", "元", "人民币", "港元", "美元")):
+        score += 20
+    if any(marker in line for marker in ("%", "倍", "x")):
+        score += 16
+    if any(marker in line for marker in NUMERIC_CONTEXT_HINTS):
+        score += 12
+    if any(marker in line for marker in ("本集团", "本公司", "公司", "期末", "期初")):
+        score += 4
+    if 1900 <= value <= 2100:
+        score -= 30
+        if match_count > 1:
+            score -= 18
+    if line.lstrip().startswith("#"):
+        score -= 12
+    if re.match(r"^\s*[#(（\d一二三四五六七八九十]+[、.．)）\-\s]*$", line[:match_end]):
+        score -= 8
+    if raw_value.endswith("%"):
+        score += 8
+    if match_start == 0 and match_count == 1:
+        score -= 4
+    return score
+
+
+def derive_numeric_label(line, match_start, match_end):
+    prefix = line[:match_start].strip(" ：:，,.-#")
+    prefix = re.sub(r"^[\s#(（)）\-]+", "", prefix).strip()
+    if prefix and prefix not in NUMERIC_NOISE_LABELS and not re.fullmatch(r"[\d.％%]+", prefix):
+        return shorten(prefix, limit=40)
+
+    suffix = line[match_end:].strip(" ：:，,.-#")
+    suffix = re.sub(r"^[、.．)）\-\s]+", "", suffix).strip()
+    if suffix and suffix not in NUMERIC_NOISE_LABELS and not re.fullmatch(r"[\d.％%]+", suffix):
+        return shorten(suffix, limit=40)
+
+    cleaned = clean_line(line)
+    return shorten(cleaned, limit=40)
+
+
+def select_best_numeric_match(line):
+    pattern = re.compile(r"(?<!\d)(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?%?")
+    matches = list(pattern.finditer(line))
+    if not matches:
+        return None
+
+    best = None
+    for match in matches:
+        raw_value = match.group(0)
+        value = numeric_value(raw_value)
+        if value is None:
+            continue
+        score = score_numeric_candidate(line, raw_value, value, match.start(), match.end(), len(matches))
+        candidate = {
+            "label": derive_numeric_label(line, match.start(), match.end()),
+            "value": value,
+            "raw_value": raw_value,
+            "unit": detect_unit(line),
+            "evidence": shorten(line, limit=160),
+            "score": score,
+        }
+        if best is None or candidate["score"] > best["score"]:
+            best = candidate
+
+    if best is None:
+        return None
+    best.pop("score", None)
+    return best
+
+
 def extract_numeric_data(text, limit=12):
     entries = []
     seen_lines = set()
@@ -472,21 +575,12 @@ def extract_numeric_data(text, limit=12):
             continue
         if not re.search(r"\d", line):
             continue
-        matches = re.findall(r"(?<!\d)(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?%?", line)
-        if not matches:
+        best = select_best_numeric_match(line)
+        if not best:
             continue
 
         seen_lines.add(line)
-        value = numeric_value(matches[0])
-        prefix = line.split(matches[0], 1)[0].strip(" ：:，,.-")
-        label = shorten(prefix or line, limit=40)
-        entries.append({
-            "label": label or "数值片段",
-            "value": value,
-            "raw_value": matches[0],
-            "unit": detect_unit(line),
-            "evidence": shorten(line, limit=160),
-        })
+        entries.append(best)
 
     entries.sort(
         key=lambda item: (
@@ -777,6 +871,171 @@ def build_final_data(report_context, chapter_records, focus_list):
     }
 
 
+def chapter_blob(record):
+    return "\n".join(
+        part for part in [
+            str(record.get("chapter_title", "")),
+            str(record.get("chapter_text_cleaned", "")),
+            str(record.get("summary", "")),
+        ]
+        if part
+    )
+
+
+def record_matches_terms(record, terms):
+    haystack = chapter_blob(record)
+    return any(term and term in haystack for term in terms or [])
+
+
+def score_record_numeric_item(item, terms=None):
+    score = 0
+    label = str(item.get("label", ""))
+    evidence = str(item.get("evidence", ""))
+    text = f"{label} {evidence}"
+    value = item.get("value")
+    unit = str(item.get("unit", ""))
+
+    if terms and any(term in text for term in terms):
+        score += 24
+    if unit in {"亿元", "百万元", "万元", "元", "%", "倍", "x"}:
+        score += 12
+    if any(marker in text for marker in NUMERIC_CONTEXT_HINTS):
+        score += 10
+    if label and label not in NUMERIC_NOISE_LABELS and not re.fullmatch(r"[\d.％%]+", label):
+        score += 2
+    if isinstance(value, (int, float)) and 1900 <= value <= 2100:
+        score -= 30
+    if label in NUMERIC_NOISE_LABELS:
+        score -= 14
+    if text.startswith("#"):
+        score -= 6
+    return score
+
+
+def pick_best_record_numeric(record, terms=None):
+    candidates = record.get("numeric_data", []) or []
+    best = None
+    best_score = None
+    for item in candidates:
+        score = score_record_numeric_item(item, terms=terms)
+        if best is None or score > best_score:
+            best = item
+            best_score = score
+    return best
+
+
+def build_metric_entry(chapter_records, chapter_evidence_refs, label, patterns, metric_code=None, unit="", commentary="", source_status="chapter_review", risk_level="medium", comparison="", benchmark=""):
+    for record in chapter_records:
+        if not record_matches_terms(record, patterns):
+            continue
+        numeric_item = pick_best_record_numeric(record, terms=patterns)
+        if not numeric_item:
+            continue
+        evidence_refs = chapter_evidence_refs.get(record.get("chapter_no"), [])[:2]
+        value = numeric_item.get("value")
+        return {
+            "metric_code": metric_code or label,
+            "label": label,
+            "value": value,
+            "unit": unit or numeric_item.get("unit", ""),
+            "risk_level": risk_level,
+            "source_status": source_status,
+            "comparison": comparison or record.get("chapter_title", ""),
+            "benchmark": benchmark,
+            "evidence_refs": evidence_refs,
+            "commentary": commentary or numeric_item.get("evidence", "") or record.get("summary", ""),
+        }
+    return None
+
+
+def build_metric_list(chapter_records, chapter_evidence_refs, specs):
+    items = []
+    for spec in specs:
+        entry = build_metric_entry(
+            chapter_records,
+            chapter_evidence_refs,
+            label=spec["label"],
+            patterns=spec.get("patterns", []),
+            metric_code=spec.get("metric_code"),
+            unit=spec.get("unit", ""),
+            commentary=spec.get("commentary", ""),
+            source_status=spec.get("source_status", "chapter_review"),
+            risk_level=spec.get("risk_level", "medium"),
+            comparison=spec.get("comparison", ""),
+            benchmark=spec.get("benchmark", ""),
+        )
+        if entry:
+            items.append(entry)
+    return items
+
+
+def collect_overview_payload(chapter_records, chapter_evidence_refs):
+    severity_rank = {"extreme": 3, "high": 2, "medium": 1, "low": 0}
+    ranked_records = []
+    for record in chapter_records:
+        anomaly_severity = 0
+        for anomaly in record.get("anomalies", []):
+            anomaly_severity = max(anomaly_severity, severity_rank.get(anomaly.get("severity", "low"), 0))
+        ranked_records.append((anomaly_severity, len(record.get("numeric_data", [])), len(record.get("findings", [])), -int(record.get("chapter_no", 0)), record))
+    ranked_records.sort(reverse=True)
+
+    executive_summary = []
+    for _, _, _, _, record in ranked_records[:3]:
+        summary = record.get("summary") or summarize_chapter(record.get("chapter_text_cleaned", ""))
+        if summary:
+            executive_summary.append(f"{record.get('chapter_title', '')}：{summary}")
+
+    key_risks = []
+    seen_signals = set()
+    for _, _, _, _, record in ranked_records:
+        for anomaly in record.get("anomalies", []):
+            signal_name = anomaly.get("signal_name", "")
+            if not signal_name or signal_name in seen_signals:
+                continue
+            seen_signals.add(signal_name)
+            key_risks.append({
+                "label": signal_name,
+                "risk_level": anomaly.get("severity", "medium"),
+                "description": anomaly.get("impact_hint", ""),
+                "evidence_refs": chapter_evidence_refs.get(record.get("chapter_no"), [])[:2],
+            })
+            if len(key_risks) >= 5:
+                break
+        if len(key_risks) >= 5:
+            break
+
+    report_highlights = []
+    for _, _, _, _, record in ranked_records[:5]:
+        findings = record.get("findings", []) or []
+        detail = findings[0].get("detail", "") if findings else ""
+        if not detail:
+            detail = record.get("summary", "")
+        report_highlights.append({
+            "title": record.get("chapter_title", ""),
+            "detail": detail,
+            "evidence_refs": chapter_evidence_refs.get(record.get("chapter_no"), [])[:2],
+        })
+
+    rating_snapshot = [
+        f"报告类型：{chapter_records[0].get('attributes', {}).get('report_type', '') if chapter_records else ''}",
+        f"附注章数：{len(chapter_records)}",
+    ]
+
+    return {
+        "executive_summary": executive_summary,
+        "key_risks": key_risks,
+        "rating_snapshot": rating_snapshot,
+        "report_highlights": report_highlights,
+    }
+
+
+def find_first_record(chapter_records, patterns):
+    for record in chapter_records:
+        if record_matches_terms(record, patterns):
+            return record
+    return None
+
+
 def make_manifest_item(sheet_name, module_key, module_type, required, enabled, title, empty_state):
     return {
         "sheet_name": sheet_name,
@@ -803,6 +1062,7 @@ def build_soul_export_payload(report_context, notes_work, run_dir, chapter_recor
         "notes_workfile": notes_work["path"],
     }
     evidence_index = []
+    chapter_evidence_refs = {}
     next_evidence_id = 1
 
     def add_evidence(field_path, sheet_name, excerpt, confidence="medium", record=None, source_document="annual_report_notes"):
@@ -836,15 +1096,195 @@ def build_soul_export_payload(report_context, notes_work, run_dir, chapter_recor
         return [evidence_id]
 
     for record in chapter_records:
+        record_refs = []
         for evidence_item in record.get("evidence", [])[:2]:
-            add_evidence(
+            record_refs.extend(add_evidence(
                 f"chapter_records.{record['chapter_no']}.evidence",
                 "00_overview",
                 evidence_item.get("content", ""),
                 confidence="medium",
                 record=record,
                 source_document="chapter_records",
-            )
+            ))
+        chapter_evidence_refs[record.get("chapter_no")] = record_refs
+
+    overview_payload = collect_overview_payload(chapter_records, chapter_evidence_refs)
+
+    kpi_dashboard_sections = [
+        {
+            "category": "leverage",
+            "metrics": build_metric_list(
+                chapter_records,
+                chapter_evidence_refs,
+                [
+                    {"label": "总资产", "metric_code": "total_assets", "patterns": ["资产总计", "总资产"], "unit": currency and "亿元" or ""},
+                    {"label": "总负债", "metric_code": "total_liabilities", "patterns": ["负债合计", "总负债"], "unit": currency and "亿元" or ""},
+                    {"label": "所有者权益", "metric_code": "equity", "patterns": ["所有者权益合计", "归属于母公司股东权益", "股东权益合计"], "unit": currency and "亿元" or ""},
+                    {"label": "权益率", "metric_code": "equity_ratio", "patterns": ["所有者权益合计", "归属于母公司股东权益", "股东权益合计"], "unit": "%", "risk_level": "medium", "source_status": "derived"},
+                    {"label": "流动比率", "metric_code": "current_ratio", "patterns": ["流动资产合计", "流动负债合计"], "unit": "倍", "risk_level": "medium", "source_status": "derived"},
+                ],
+            ),
+        },
+        {
+            "category": "debt_service",
+            "metrics": build_metric_list(
+                chapter_records,
+                chapter_evidence_refs,
+                [
+                    {"label": "短期借款", "metric_code": "short_term_borrowings", "patterns": ["短期借款"], "unit": currency and "亿元" or ""},
+                    {"label": "一年内到期有息负债", "metric_code": "one_year_due_debt", "patterns": ["一年内到期的有息负债", "一年内到期的非流动负债", "一年内到期"], "unit": currency and "亿元" or ""},
+                    {"label": "长期借款", "metric_code": "long_term_borrowings", "patterns": ["长期借款"], "unit": currency and "亿元" or ""},
+                    {"label": "现金短债比", "metric_code": "cash_to_short_term_debt", "patterns": ["现金及现金等价物", "货币资金", "短期借款"], "unit": "倍", "risk_level": "high", "source_status": "derived"},
+                ],
+            ),
+        },
+        {
+            "category": "profitability",
+            "metrics": build_metric_list(
+                chapter_records,
+                chapter_evidence_refs,
+                [
+                    {"label": "营业收入", "metric_code": "revenue", "patterns": ["营业收入"], "unit": currency and "亿元" or ""},
+                    {"label": "营业成本", "metric_code": "cost_of_revenue", "patterns": ["营业成本"], "unit": currency and "亿元" or ""},
+                    {"label": "毛利率", "metric_code": "gross_margin", "patterns": ["营业收入", "营业成本"], "unit": "%", "risk_level": "medium", "source_status": "derived"},
+                    {"label": "净利润", "metric_code": "net_profit", "patterns": ["净利润", "净亏损", "归属于母公司股东的净利润"], "unit": currency and "亿元" or ""},
+                ],
+            ),
+        },
+        {
+            "category": "cashflow",
+            "metrics": build_metric_list(
+                chapter_records,
+                chapter_evidence_refs,
+                [
+                    {"label": "经营活动现金流净额", "metric_code": "operating_cash_flow", "patterns": ["经营活动产生的现金流量净额"], "unit": currency and "亿元" or ""},
+                    {"label": "投资活动现金流净额", "metric_code": "investing_cash_flow", "patterns": ["投资活动产生的现金流量净额"], "unit": currency and "亿元" or ""},
+                    {"label": "筹资活动现金流净额", "metric_code": "financing_cash_flow", "patterns": ["筹资活动产生的现金流量净额"], "unit": currency and "亿元" or ""},
+                    {"label": "现金及现金等价物", "metric_code": "cash_and_cash_equiv", "patterns": ["现金及现金等价物", "货币资金"], "unit": currency and "亿元" or ""},
+                ],
+            ),
+        },
+    ]
+
+    financial_summary = {
+        "unit_label": f"{currency}_100m" if currency else "",
+        "statements": {
+            "balance_sheet": build_metric_list(
+                chapter_records,
+                chapter_evidence_refs,
+                [
+                    {"label": "货币资金", "metric_code": "cash_balance", "patterns": ["货币资金", "现金及现金等价物"], "unit": currency and "亿元" or ""},
+                    {"label": "流动资产合计", "metric_code": "current_assets", "patterns": ["流动资产合计"], "unit": currency and "亿元" or ""},
+                    {"label": "流动负债合计", "metric_code": "current_liabilities", "patterns": ["流动负债合计"], "unit": currency and "亿元" or ""},
+                    {"label": "资产总计", "metric_code": "total_assets", "patterns": ["资产总计", "总资产"], "unit": currency and "亿元" or ""},
+                    {"label": "负债合计", "metric_code": "total_liabilities", "patterns": ["负债合计", "总负债"], "unit": currency and "亿元" or ""},
+                    {"label": "所有者权益合计", "metric_code": "equity", "patterns": ["所有者权益合计", "归属于母公司股东权益", "股东权益合计"], "unit": currency and "亿元" or ""},
+                ],
+            ),
+            "income_statement": build_metric_list(
+                chapter_records,
+                chapter_evidence_refs,
+                [
+                    {"label": "营业收入", "metric_code": "revenue", "patterns": ["营业收入"], "unit": currency and "亿元" or ""},
+                    {"label": "营业成本", "metric_code": "cost_of_revenue", "patterns": ["营业成本"], "unit": currency and "亿元" or ""},
+                    {"label": "营业利润", "metric_code": "operating_profit", "patterns": ["营业利润"], "unit": currency and "亿元" or ""},
+                    {"label": "利润总额", "metric_code": "profit_before_tax", "patterns": ["利润总额"], "unit": currency and "亿元" or ""},
+                    {"label": "净利润", "metric_code": "net_profit", "patterns": ["净利润", "净亏损"], "unit": currency and "亿元" or ""},
+                    {"label": "归属于母公司股东的净利润", "metric_code": "net_profit_attrib", "patterns": ["归属于母公司股东的净利润", "归母净利润", "归属于母公司股东的净亏损"], "unit": currency and "亿元" or ""},
+                ],
+            ),
+            "cash_flow": build_metric_list(
+                chapter_records,
+                chapter_evidence_refs,
+                [
+                    {"label": "经营活动产生的现金流量净额", "metric_code": "operating_cash_flow", "patterns": ["经营活动产生的现金流量净额"], "unit": currency and "亿元" or ""},
+                    {"label": "投资活动产生的现金流量净额", "metric_code": "investing_cash_flow", "patterns": ["投资活动产生的现金流量净额"], "unit": currency and "亿元" or ""},
+                    {"label": "筹资活动产生的现金流量净额", "metric_code": "financing_cash_flow", "patterns": ["筹资活动产生的现金流量净额"], "unit": currency and "亿元" or ""},
+                    {"label": "期末现金及现金等价物", "metric_code": "cash_and_cash_equiv", "patterns": ["期末现金及现金等价物", "现金及现金等价物"], "unit": currency and "亿元" or ""},
+                ],
+            ),
+        },
+        "coverage_note": "脚本根据章节级证据自动聚合稳定指标；空位会保留为未识别。",
+    }
+
+    debt_profile = {
+        "totals": build_metric_list(
+            chapter_records,
+            chapter_evidence_refs,
+            [
+                {"label": "短期借款", "metric_code": "short_term_borrowings", "patterns": ["短期借款"], "unit": currency and "亿元" or ""},
+                {"label": "长期借款", "metric_code": "long_term_borrowings", "patterns": ["长期借款"], "unit": currency and "亿元" or ""},
+                {"label": "应付债券", "metric_code": "bonds_payable", "patterns": ["应付债券"], "unit": currency and "亿元" or ""},
+                {"label": "租赁负债", "metric_code": "lease_liabilities", "patterns": ["租赁负债"], "unit": currency and "亿元" or ""},
+                {"label": "一年内到期有息负债", "metric_code": "one_year_due_debt", "patterns": ["一年内到期的有息负债", "一年内到期的非流动负债", "一年内到期"], "unit": currency and "亿元" or ""},
+            ],
+        ),
+        "maturity_buckets": build_metric_list(
+            chapter_records,
+            chapter_evidence_refs,
+            [
+                {"label": "一年内到期", "metric_code": "due_within_one_year", "patterns": ["一年内到期"], "unit": currency and "亿元" or ""},
+                {"label": "1-2年到期", "metric_code": "due_in_one_to_two_years", "patterns": ["1-2年", "一年后两年内"], "unit": currency and "亿元" or ""},
+                {"label": "2年以上到期", "metric_code": "due_after_two_years", "patterns": ["2年以上", "两年以上"], "unit": currency and "亿元" or ""},
+            ],
+        ),
+        "financing_mix": build_metric_list(
+            chapter_records,
+            chapter_evidence_refs,
+            [
+                {"label": "银行借款", "metric_code": "bank_borrowings", "patterns": ["银行借款", "银行贷款"], "unit": currency and "亿元" or ""},
+                {"label": "债券融资", "metric_code": "bond_financing", "patterns": ["债券", "应付债券"], "unit": currency and "亿元" or ""},
+                {"label": "其他借款", "metric_code": "other_borrowings", "patterns": ["其他借款", "股东借款"], "unit": currency and "亿元" or ""},
+            ],
+        ),
+        "rate_profile": build_metric_list(
+            chapter_records,
+            chapter_evidence_refs,
+            [
+                {"label": "利息支出", "metric_code": "interest_expense", "patterns": ["利息支出"], "unit": currency and "亿元" or ""},
+                {"label": "利息收入", "metric_code": "interest_income", "patterns": ["利息收入"], "unit": currency and "亿元" or ""},
+                {"label": "资本化利息", "metric_code": "capitalized_interest", "patterns": ["资本化利息", "资本化之借贷支出", "利息资本化"], "unit": currency and "亿元" or ""},
+            ],
+        ),
+        "debt_comments": [],
+    }
+
+    liquidity_and_covenants = {
+        "cash_metrics": build_metric_list(
+            chapter_records,
+            chapter_evidence_refs,
+            [
+                {"label": "现金及现金等价物", "metric_code": "cash_and_cash_equiv", "patterns": ["现金及现金等价物", "货币资金"], "unit": currency and "亿元" or ""},
+                {"label": "短期借款", "metric_code": "short_term_borrowings", "patterns": ["短期借款"], "unit": currency and "亿元" or ""},
+                {"label": "现金短债比", "metric_code": "cash_to_short_term_debt", "patterns": ["现金及现金等价物", "短期借款"], "unit": "倍", "risk_level": "high", "source_status": "derived"},
+            ],
+        ),
+        "credit_lines": build_metric_list(
+            chapter_records,
+            chapter_evidence_refs,
+            [
+                {"label": "授信额度", "metric_code": "credit_lines_total", "patterns": ["授信", "授信额度"], "unit": currency and "亿元" or ""},
+                {"label": "已使用授信", "metric_code": "credit_lines_used", "patterns": ["已使用", "使用授信"], "unit": currency and "亿元" or ""},
+                {"label": "未使用授信", "metric_code": "credit_lines_unused", "patterns": ["未使用", "剩余授信"], "unit": currency and "亿元" or ""},
+            ],
+        ),
+        "restricted_assets": build_metric_list(
+            chapter_records,
+            chapter_evidence_refs,
+            [
+                {"label": "受限资金", "metric_code": "restricted_cash", "patterns": ["受限资金", "受限制资金", "受限制现金"], "unit": currency and "亿元" or ""},
+                {"label": "受限资产", "metric_code": "restricted_assets", "patterns": ["受限资产", "抵押", "质押"], "unit": currency and "亿元" or ""},
+            ],
+        ),
+        "covenants": [],
+        "liquidity_observations": [
+            {
+                "label": "持续经营提示",
+                "detail": next((item.get("impact_hint", "") for record in chapter_records for item in record.get("anomalies", []) if item.get("signal_name") in {"high_audit_issue", "liquidity_pressure"}), "持续经营或流动性相关风险已被章节级规则识别。"),
+                "evidence_refs": chapter_evidence_refs.get(next((record.get("chapter_no") for record in chapter_records if any(item.get("signal_name") in {"high_audit_issue", "liquidity_pressure"} for item in record.get("anomalies", []))), None), [])[:2],
+            }
+        ],
+    }
 
     module_manifest = [
         make_manifest_item("00_overview", "overview", "fixed", True, True, "概览", "仅保留运行壳，不做脚本摘要"),
@@ -870,39 +1310,14 @@ def build_soul_export_payload(report_context, notes_work, run_dir, chapter_recor
         },
         "source_artifacts": source_artifacts,
         "module_manifest": module_manifest,
-        "overview": {
-            "executive_summary": [],
-            "key_risks": [],
-            "rating_snapshot": [],
-            "report_highlights": [],
-        },
+        "overview": overview_payload,
         "kpi_dashboard": {
-            "periods": [],
-            "sections": [],
+            "periods": [period, period_end] if period_end else [period] if period else [],
+            "sections": kpi_dashboard_sections,
         },
-        "financial_summary": {
-            "unit_label": f"{currency}_100m" if currency else "",
-            "statements": {
-                "balance_sheet": [],
-                "income_statement": [],
-                "cash_flow": [],
-            },
-            "coverage_note": "脚本不再生成摘要式财务汇总，留待 skill 阅读阶段处理。",
-        },
-        "debt_profile": {
-            "totals": [],
-            "maturity_buckets": [],
-            "financing_mix": [],
-            "rate_profile": [],
-            "debt_comments": [],
-        },
-        "liquidity_and_covenants": {
-            "cash_metrics": [],
-            "credit_lines": [],
-            "restricted_assets": [],
-            "covenants": [],
-            "liquidity_observations": [],
-        },
+        "financial_summary": financial_summary,
+        "debt_profile": debt_profile,
+        "liquidity_and_covenants": liquidity_and_covenants,
         "optional_modules": [],
         "evidence_index": evidence_index,
     }

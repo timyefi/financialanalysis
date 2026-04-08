@@ -1,0 +1,1816 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "万科企业股份有限公司"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                314,
+                275,
+                685,
+                305
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2025年半年度报告"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                342,
+                312,
+                653,
+                342
+            ]
+        },
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/66955e5cb3d9bcada2578b0b6189463116c55dcd05d74e4b455f5d203a543f95.jpg"
+                },
+                "image_caption": [],
+                "image_footnote": []
+            },
+            "bbox": [
+                413,
+                631,
+                615,
+                772
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "万科 司"
+                    }
+                ]
+            },
+            "bbox": [
+                363,
+                705,
+                633,
+                726
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "20 "
+                    }
+                ]
+            },
+            "bbox": [
+                391,
+                741,
+                601,
+                762
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "重要提示"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                435,
+                90,
+                559,
+                115
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "公司承诺将及时、公平地履行信息披露义务，公司及其全体董事、监事、高级管理人员或履行同等职责的人员保证定期报告信息披露的真实、准确、完整，不存在虚假记载、误导性陈述或重大遗漏。"
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                166,
+                848,
+                300
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "全体董事、监事、高级管理人员已按照《公司信用类债券信息披露管理办法》及银行间市场相关自律管理要求履行了相关内部程序。"
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                313,
+                848,
+                411
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "目录"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                467,
+                90,
+                532,
+                115
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "释义 .. 4"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                147,
+                143,
+                850,
+                162
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第一章 企业基本情况 . 5"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                147,
+                172,
+                850,
+                191
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "一、企业基本情况 ..."
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "二、信息披露事务负责人联系方式 ..."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                184,
+                200,
+                848,
+                244
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第二章 债务融资工具存续情况 .."
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                147,
+                255,
+                850,
+                274
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "一、定期报告批准报出日存续债券基本情况 .."
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "二、报告期内信用评级结果调整情况 .. .8"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "三、债务融资工具募集资金使用情况 .."
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "四、报告期内特殊条款触发和执行情况 .."
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "五、报告期末存续债务融资工具增信机制、偿债计划及其他偿债保障措施等...8"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                184,
+                282,
+                848,
+                441
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第三章 报告期内重要事项 .. 10"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                147,
+                450,
+                850,
+                469
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "一、报告期内作出会计政策、会计估计变更或会计差错更正 .......... 10"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "二、财务报告被会计师事务所出具了非标准意见审计报告 ............ 10"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "三、报告期内发行人合并报表范围发生重大变化 .... 10"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "四、报告期内合并报表范围亏损超过上年末净资产 "
+                            },
+                            {
+                                "type": "equation_inline",
+                                "content": "10 \\%"
+                            },
+                            {
+                                "type": "text",
+                                "content": "............ .. 10"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "五、报告期末资产抵押、质押、被查封、扣押、冻结超过上年末经审计净资 产百分之五十 .... ..10 "
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "六、截至报告期末存在对外担保金额及重大未决诉讼情况 ............ 10"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "七、报告期内发行人变更信息披露事务管理制度 .... 11"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                184,
+                478,
+                848,
+                690
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第四章 财务信息 . 12"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                147,
+                700,
+                850,
+                718
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第五章 备查文件 .. 13"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                147,
+                728,
+                850,
+                746
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "一、备查文件 .... ..13"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "二、查询地址 ... .13"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "三、查询网站 ... .13"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                184,
+                756,
+                848,
+                829
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "释义"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                463,
+                90,
+                529,
+                115
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/788d9c0434e3b42ab7bed457139cd933a1f0878f0faa3726f3fc7b7f2def868d.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "在本报告中，除非文中另有所指，下列词语具有如下含义："
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td>序号</td><td>专业术语或缩写</td><td>释义</td></tr><tr><td>1</td><td>本公司、公司</td><td>万科企业股份有限公司</td></tr><tr><td>2</td><td>万科、集团、本集团</td><td>万科企业股份有限公司及其附属公司</td></tr><tr><td>3</td><td>《公司法》</td><td>《中华人民共和国公司法》</td></tr><tr><td>4</td><td>《公司章程》</td><td>《万科企业股份有限公司章程》</td></tr><tr><td>5</td><td>报告期</td><td>2025年1月1日至2025年6月30日</td></tr><tr><td>6</td><td>元</td><td>如无特殊说明，指人民币元</td></tr></table>",
+                "table_type": "simple_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                144,
+                193,
+                863,
+                539
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第一章 企业基本情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                342,
+                90,
+                653,
+                115
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "一、企业基本情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                196,
+                166,
+                403,
+                187
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "1、公司中文名称及简称：万科企业股份有限公司（缩写为“万科”）"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "2、公司外文名称及缩写：CHINA VANKE CO., LTD. (缩写为“VANKE”)"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "3、法定代表人：辛杰"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "4、注册资本（万元）：1,099,521.0218万元"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "5、实缴资本（万元）：1,193,070.9471万元"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "6、注册地址：中国深圳市盐田区大梅沙环梅路 33 号万科中心"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "7、办公地址：中国深圳市盐田区大梅沙环梅路 33 号万科中心"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "8、邮政编码：518083"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "9、企业网址：www.vanke.com "
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "10、电子信箱：IR@vanke.com"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                203,
+                845,
+                705
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "二、信息披露事务负责人联系方式"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                196,
+                722,
+                581,
+                743
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "1、姓名：田钧"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "2、职位：董事会秘书"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "3、联系地址：中国深圳市盐田区大梅沙环梅路 33 号万科中心"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                760,
+                845,
+                890
+            ]
+        }
+    ],
+    [
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "4、电话：0755-25606666"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "5、传真：0755-25531696"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "6、电子邮箱：IR@vanke.com "
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                196,
+                93,
+                519,
+                187
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第二章 债务融资工具存续情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                282,
+                90,
+                712,
+                115
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "一、定期报告批准报出日存续债券基本情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                198,
+                166,
+                682,
+                187
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/21eba503e0c4971cbae549ddebed8f50deba16bf85de68982d7f0f52db7d36fa.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "单位：亿元"
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td>债券名称</td><td>债券简称</td><td>债券代码</td><td>发行日</td><td>起息日</td><td>到期日</td><td>债券余额</td><td>利率</td><td>还本付息方式</td><td>交易场所</td></tr><tr><td>万科企业股份有限公司2022年度第三期绿色中期票据</td><td>22万科GN003</td><td>132280088</td><td>2022年9月19日-2022年9月20日</td><td>2022年9月21日</td><td>2025年9月21日</td><td>20</td><td>3.20%</td><td rowspan=\"7\">采用单利按年计息，不计复利，每年付息一次，到期一次还本，最后一期利息随本金的兑付一起支付。</td><td rowspan=\"7\">中国银行间市场交易商协会</td></tr><tr><td>万科企业股份有限公司2022年度第四期中期票据</td><td>22万科MTN004</td><td>102282715</td><td>2022年12月13日-2022年12月14日</td><td>2022年12月15日</td><td>2025年12月15日</td><td>20</td><td>3.00%</td></tr><tr><td>万科企业股份有限公司2022年度第五期中期票据</td><td>22万科MTN005</td><td>102282785</td><td>2022年12月26日-2022年12月27日</td><td>2022年12月28日</td><td>2025年12月28日</td><td>37</td><td>3.00%</td></tr><tr><td>万科企业股份有限公司2023年度第一期中期票据</td><td>23万科MTN001</td><td>102381014</td><td>2023年4月20日-2023年4月21日</td><td>2023年4月23日</td><td>2026年4月23日</td><td>20</td><td>3.11%</td></tr><tr><td>万科企业股份有限公司2023年度第二期中期票据</td><td>23万科MTN002</td><td>102381172</td><td>2023年5月10日-2023年5月11日</td><td>2023年5月12日</td><td>2026年5月12日</td><td>20</td><td>3.10%</td></tr><tr><td>万科企业股份有限公司2023年度第三期中期票据</td><td>23万科MTN003</td><td>102381399</td><td>2023年6月13日-2023年6月14日</td><td>2023年6月15日</td><td>2026年6月15日</td><td>20</td><td>3.07%</td></tr><tr><td>万科企业股份有限公司2023年度第四期中期票据</td><td>23万科MTN004</td><td>102381621</td><td>2023年7月5日-2023年7月6日</td><td>2023年7月7日</td><td>2026年7月7日</td><td>20</td><td>3.07%</td></tr></table>",
+                "table_type": "complex_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                73,
+                215,
+                902,
+                909
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "二、报告期内信用评级结果调整情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                196,
+                92,
+                608,
+                114
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "报告期内主体评级或评级展望发生调整 □是 否"
+                    }
+                ]
+            },
+            "bbox": [
+                193,
+                130,
+                724,
+                151
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "报告期内债项评级或评级展望发生调整 □是 否 "
+                    }
+                ]
+            },
+            "bbox": [
+                194,
+                167,
+                724,
+                187
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "三、债务融资工具募集资金使用情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                196,
+                240,
+                606,
+                263
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "募集资金用途用于特定用途 是 □否"
+                    }
+                ]
+            },
+            "bbox": [
+                194,
+                278,
+                606,
+                298
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/b23fd562554bb81527690080b173e7f7bae482a7aee581c94495f376fe3d6356.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "表 1 募集资金特定用途使用情况（截至 2025 年 6 月 30日） 单元：亿元"
+                    }
+                ],
+                "table_footnote": [
+                    {
+                        "type": "text",
+                        "content": "注：本表格应逐行列明每一类用途，以报告期末的资金实际用途为准。"
+                    }
+                ],
+                "html": "<table><tr><td>债务融资工具简称</td><td>募集总金额</td><td>特定用途类型</td><td>约定用于该特定用途的金额</td><td>实际用于该特定用途的金额</td><td>实际用于该特定用途的金额占总金额比例</td></tr><tr><td>22万科GN003</td><td>20</td><td>绿色建筑相关项目建设</td><td>20</td><td>20</td><td>100%</td></tr></table>",
+                "table_type": "simple_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                139,
+                324,
+                858,
+                420
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "四、报告期内特殊条款触发和执行情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                196,
+                483,
+                633,
+                505
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "报告期末存续债务融资工具附发行人或投资人选择权条款、投资人保护条款等特殊条款 □是 否"
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                521,
+                847,
+                579
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "五、报告期末存续债务融资工具增信机制、偿债计划及其他偿债保障措施等"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                144,
+                631,
+                848,
+                690
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "（一）报告期内增信机制及其他偿债保障措施变更"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                191,
+                706,
+                742,
+                728
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "□适用 不适用"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                743,
+                371,
+                763
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "（二）截至报告期末增信机制情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                191,
+                780,
+                566,
+                801
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1．保证担保 "
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                181,
+                816,
+                326,
+                838
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1）法人或其他组织保证担保"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                854,
+                500,
+                873
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "□适用 不适用"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                891,
+                371,
+                910
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2）自然人保证担保"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                179,
+                93,
+                401,
+                112
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "适用 不适用"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                129,
+                369,
+                149
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2．抵押或质押担保 "
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                179,
+                166,
+                403,
+                187
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "适用 不适用"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                204,
+                369,
+                224
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "3．其他方式增信"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                181,
+                241,
+                376,
+                262
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "适用 不适用"
+                    }
+                ]
+            },
+            "bbox": [
+                181,
+                278,
+                369,
+                298
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "（三）截至报告期末其他偿债保障措施情况"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                193,
+                313,
+                668,
+                336
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/2eb245e1423263ff82b522fd866cfaec5acaa497992e63464f6cc0ea3d3e3272.jpg"
+                },
+                "table_caption": [],
+                "table_footnote": [],
+                "html": "<table><tr><td>债券简称</td><td>22万科GN003、22万科MTN004、22万科MTN005、23万科MTN001、23万科MTN002、23万科MTN003、23万科MTN004</td></tr><tr><td>其他偿债保障措施概述</td><td>发行人为以上债券的按时、足额偿付制定了一系列工作计划，包括确定专门负责小组、设计工作流程、安排偿债资金、制定管理措施、做好组织协调等，以形成确保债券本息偿付安全的内部机制。</td></tr><tr><td>其他偿债保障措施的变化情况及对债券持有人利益的影响(如有)</td><td>未变化</td></tr><tr><td>报告期内其他偿债保障措施的执行情况</td><td>良好</td></tr><tr><td>报告期内是否按募集说明书的相关承诺执行</td><td>是</td></tr></table>",
+                "table_type": "simple_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                139,
+                341,
+                858,
+                627
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第三章 报告期内重要事项"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                312,
+                90,
+                685,
+                118
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "一、报告期内作出会计政策、会计估计变更或会计差错更正□是 否"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "二、财务报告被会计师事务所出具了非标准意见审计报告□是 否"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                196,
+                166,
+                850,
+                336
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "公司 2025 年半年度报告之财务报告执行了审阅程序。德勤华永会计师事务所（特殊普通合伙）根据《中国注册会计师审阅准则第2101号—财务报表审阅》出具了审阅报告。"
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                351,
+                852,
+                449
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "三、报告期内发行人合并报表范围发生重大变化"
+                    }
+                ]
+            },
+            "bbox": [
+                196,
+                500,
+                734,
+                521
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "□是 否 "
+                    }
+                ]
+            },
+            "bbox": [
+                196,
+                537,
+                312,
+                558
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "四、报告期内合并报表范围亏损超过上年末净资产 "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "1 0 \\%"
+                    }
+                ]
+            },
+            "bbox": [
+                196,
+                611,
+                806,
+                633
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "□是 否 "
+                    }
+                ]
+            },
+            "bbox": [
+                198,
+                648,
+                312,
+                668
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "五、报告期末资产抵押、质押、被查封、扣押、冻结超过上 年末经审计净资产百分之五十 "
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                722,
+                850,
+                781
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "□是 否 "
+                    }
+                ]
+            },
+            "bbox": [
+                196,
+                797,
+                312,
+                816
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "六、截至报告期末存在对外担保金额及重大未决诉讼情况"
+                    }
+                ]
+            },
+            "bbox": [
+                194,
+                870,
+                836,
+                892
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "截至2025年 6月 30日，公司及控股子公司担保余额人民币863.22亿元，占公司 2024年末经审计归属于上市公司股东净资产的比重为 "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "4 2 . 5 9 \\%"
+                    },
+                    {
+                        "type": "text",
+                        "content": "。其中，公司及控股子公司为公司及其他控股子公司提供担保余额人民币837.37 亿元，公司及控股子公司为联营公司及合营公司提供担保余额人民币17.35 亿元，公司及控股子公司对其他公司提供担保余额人民币8.51亿元。公司无逾期担保事项。"
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                93,
+                852,
+                338
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "七、报告期内发行人变更信息披露事务管理制度"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                196,
+                388,
+                736,
+                413
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "□是 否 "
+                    }
+                ]
+            },
+            "bbox": [
+                198,
+                426,
+                314,
+                447
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第四章 财务信息"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                403,
+                90,
+                653,
+                115
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "万科企业股份有限公司 2025 年半年度财务报表已经德勤华永会计师事务所（特殊普通合伙）审阅，审阅报告由会计师事务所和杨誉民、许湘照两名注册会计师签章。"
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                166,
+                847,
+                263
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "万科企业股份有限公司已在深圳证券交易所网站披露了《万科企业股份有限公司 2025 年半年度报告》和《万科企业股份有限公司2025年半年度财务报告》，具体链接地址如下:"
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                277,
+                847,
+                373
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "1、 万科企业股份有限公司2025年半年度报告"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "https://www.szse.cn/disclosure/listed/bulletinDetail/in dex.html?eb7e5669-1fff-456d-afa9-fc227d65250a "
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "2、 万科企业股份有限公司2025年半年度财务报告"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                388,
+                845,
+                521
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "https://www.szse.cn/disclosure/listed/bulletinDetail/in dex.html?f2b46c81-0893-4874-b2c9-eebdca671878 "
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                538,
+                845,
+                595
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "第五章 备查文件"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                405,
+                130,
+                653,
+                156
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "一、备查文件"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                200,
+                206,
+                354,
+                227
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "1、万科企业股份有限公司2025年半年度财务报告"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "2、本公司信息披露事务管理制度"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                198,
+                244,
+                752,
+                300
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "二、查询地址"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                200,
+                355,
+                354,
+                376
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "text_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "1、公司名称：万科企业股份有限公司"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "2、公司办公地址：深圳市盐田区大梅沙环梅路33号万科中"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "3、公司法定代表人：辛杰"
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "4、联系人：田钧 "
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "5、联系电话：0755-25606666 "
+                            }
+                        ]
+                    },
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "6、公司电子信箱：IR@vanke.com"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                147,
+                392,
+                845,
+                634
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "三、查询网站"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                200,
+                688,
+                352,
+                709
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "投资者可通过中国货币网（http:xwww.chinamony.com.cn）2025年半年度报告及信息披露事务管理制度。"
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                725,
+                857,
+                819
+            ]
+        }
+    ]
+]
