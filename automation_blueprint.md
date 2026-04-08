@@ -493,6 +493,7 @@ Subagents 协作约束：
 - `mineru/scripts/mineru_stable.py` 已补 `mineru/config.json` token fallback；即使调用方未显式注入 `MINERU_TOKEN`，脚本自身也会先尝试读取本地配置，避免再次出现“manifest 记录 token_present=true、实际子进程却报未设置 token”的割裂状态
 - 2026-03-17 新一轮 P5 已在 [runtime/state/tmp/p5_cold_start/20260317_171925](/Users/yetim/project/financialanalysis/runtime/state/tmp/p5_cold_start/20260317_171925) 完成 `10/10` 下载、`10/10` 准备和 `10/10` batch 成功；P5 主目录保留编排与中间产物，而正式 batch 产物已对齐写入 `runtime/state/batches/`
 - `financial_analyzer.py` 已切换为 scaffold-only 模式：脚本主线只生成 `chapter_records.jsonl`、`analysis_report_scaffold.md`、`focus_list_scaffold.json`、`final_data_scaffold.json`、`soul_export_payload_scaffold.json` 和标记 `codex_review_required=true` 的 `run_manifest.json`
+- `financial-analyzer/SKILL.md` 已进一步收口为知识库优先、章节全覆盖、逐章分析与动态 Excel 生成的 canonical 主线；固定脚本只提供抽取和 scaffold，不能决定最终 workbook 内容
 - 已新增 `write_knowledge_adoption.py`、`rollback_knowledge_adoption.py`、`show_knowledge_adoption.py`，用于支撑 Codex 逐章直写正式 `runtime/knowledge/knowledge_base.json` 并保留 adoption log / rollback 能力
 - 生产化 R1 第一版已落地：已明确章节复核状态机、adoption gate、finalization gate、rollback boundary 与 `chapter_review_ledger` 控制面口径
 - 生产化 R2 已完成文档收口：知识 adoption delta contract、审计外壳、rollback 约束与校验规则已统一到仓库文档

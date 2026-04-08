@@ -19,6 +19,8 @@
 7. 任何章节级知识写入都必须能回滚，并且能被摘要工具看见。
 8. `knowledge_adoption_delta_contract.md` 定义正式 delta payload、审计外壳和 rollback 规则，canonical 形状固定为 `identity / source / review / operations / evidence_refs / hashes / rollback / audit`，后续线程不得各自发明变体口径。
 9. 正式 Excel 工作底稿中的计算指标必须保留公式层；如使用隐藏原始输入表，必须确保派生值仍可回溯，不能把计算结果硬编码成静态值。
+10. 每次案例正式化之前，必须先回顾既有知识库，再拆解全部已抽取章节，再逐章完成阅读、计算和比对，最后才进入 workpaper、报告与知识采纳。
+11. 任何章节未达到逐章阅读与证据定位完成状态，都不能进入正式 Excel、正式报告或正式知识库采纳。
 
 ## 2.1 R1 控制面边界
 
@@ -49,7 +51,7 @@ R1、R2、R3 与 P6 都已收口到文档与结果，后续只需按运行反馈
 
 ### 目标
 
-- 把“模板脚本输出 scaffold -> Codex 先完整阅读中间产物 -> 逐章写入 review ledger -> 先写正式 financial_output（Excel workpaper）-> 再写正式 analysis_report / final_data / soul_export_payload -> 直写正式 knowledge_base”的控制面标准化，替代旧的 `pending_updates / review bundle` 主路径。
+- 把“先回顾知识库 -> 先拆解全部已抽取章节 -> Codex 逐章完整阅读中间产物 -> 逐章写入 review ledger -> 先写正式 financial_output（Excel workpaper）-> 再写正式 analysis_report / final_data / soul_export_payload -> 直写正式 knowledge_base”的控制面标准化，替代旧的 `pending_updates / review bundle` 主路径。
 - 明确章节状态机、adoption gate、finalization gate、rollback boundary 和 direct adopt 交接规则。
 
 ### 开始前阅读
