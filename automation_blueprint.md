@@ -16,7 +16,7 @@
 1. 自动采集完整财报与评级报告。
 2. 自动解析 PDF 并定位关键章节，尤其是附注。
 3. 在 Skill 驱动下先完成逐章阅读与判断，再生成研究分析结果。
-4. 由 Skill 在当前 run_dir 内编写一次性临时脚本，先生成带公式的 Excel 工作底稿，再由公式版固化出对外交付级最终版，并在底稿基础上形成正式报告。
+4. 分析维度与 Excel 正式化拆分成两个受约束环节：先按 `references/analysis_dimension_contract.md` 完成维度覆盖与发现池归类，再按 `references/excel_formalization_contract.md` 生成带公式的 Excel 工作底稿并固化最终版。
 5. 自动沉淀内部知识候选，但与对外交付严格解耦。
 
 最终目标不是做一个“能跑一次的脚本集合”，而是形成一个可持续迭代、可批量运维、可审计、可交接的研究自动化系统。
@@ -142,6 +142,7 @@
 
 - 基于附注优先原则提取财务与信用关键信息。
 - 先让 Codex 完整阅读最小中间产物，再完成逐章判断、公式版 Excel 工作底稿、最终版 Excel、正式报告和候选知识。
+- 分析维度必须先过 `references/analysis_dimension_contract.md`，Excel 正式化必须再过 `references/excel_formalization_contract.md`，两者不能合并成一个含糊的“做表”步骤。
 - 主线以 `chapter_review_ledger.jsonl` 为核心，而不是以 scaffold 文件数量为核心。
 
 输入：
@@ -167,6 +168,7 @@
 - 由 Skill 在当前 run_dir 内编写一次性临时脚本，把章节判断和知识库口径先落实为公式版工作簿，再从公式版派生对外交付级最终工作簿。
 - 负责版式、公式、批注、颜色系统和多 Sheet 收口，但这些都服务于本案证据闭环，而不是服务于固定导出器。
 - 严禁把内部知识进化信息混入对外交付。
+- 该层只做 workbook 正式化，不负责章节阅读、指标定义或风险判断。
 
 当前设计要点：
 
@@ -207,6 +209,7 @@
 2. Excel 生成过程是非标准化的，必须由 Skill 在单案 run_dir 内编写一次性临时脚本完成。
 3. Excel 主线顺序固定为“章节证据 -> chapter_review_ledger -> financial_output_formula.xlsx -> financial_output.xlsx -> report -> knowledge adoption”。
 4. 历史 sheet 骨架、案例结构和专题模块只作为参考，不再作为硬编码主链路。
+5. `analysis_dimension_contract.md` 与 `excel_formalization_contract.md` 已被拆分为独立约束，后续任何新案例都必须先执行分析维度覆盖，再执行 Excel 正式化。
 
 对应文档：
 

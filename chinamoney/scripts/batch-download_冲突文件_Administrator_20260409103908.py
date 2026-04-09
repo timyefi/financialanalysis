@@ -49,7 +49,24 @@ def download_file_from_config(task):
         )
         if result.get("download_status") == "success":
             print(f"[OK] {result.get('download_source')} -> {result.get('output_path')}")
+            if result.get("followup_required"):
+                hint = result.get("followup_hint") or {}
+                print("[NEXT] 继续沿交易所链接找完整版")
+                if hint.get("issuer_name") or hint.get("year") or hint.get("report_type"):
+                    print(
+                        f"[NEXT] issuer={hint.get('issuer_name', '')} year={hint.get('year', '')} report_type={hint.get('report_type', '')}"
+                    )
+                print(f"[NEXT] {result.get('followup_reason') or result.get('brief_pdf_message')}")
             return True
+        if result.get("download_status") == "needs_rediscovery":
+            hint = result.get("rediscovery_hint") or result.get("followup_hint") or {}
+            print("[RETRY] 检测到需要重新发现的结果，请回到 ChinaMoney 继续查找")
+            if hint.get("issuer_name") or hint.get("year") or hint.get("report_type"):
+                print(
+                    f"[RETRY] issuer={hint.get('issuer_name', '')} year={hint.get('year', '')} report_type={hint.get('report_type', '')}"
+                )
+            print(f"[RETRY] {result.get('failure_reason')}")
+            return False
         print(f"[FAIL] {result.get('http_status_or_error')}: {result.get('failure_reason')}")
         return False
     except Exception as e:

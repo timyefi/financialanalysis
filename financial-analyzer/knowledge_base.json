@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "财务分析知识库",
-    "version": "2.6.0",
+    "version": "2.6.1",
     "created": "2026-03-11",
     "last_updated": "2026-04-09",
     "source": "财务知识库.md",
@@ -77,6 +77,13 @@
       "date": "2026-04-09",
       "type": "case_study",
       "summary": "基于 target_case/vanke_2025_semiannual_20260406 的正式化对照训练。发现 workbook 常见退化点包括金额口径混写（元与亿元混用）、概要页丢失来源链路、evidence_index 直接堆叠章节原文。新增工作簿正式化通用规则：正式汇总区统一使用亿元口径，证据索引必须标签化，概览页需保留发现来源、回退下载、MinerU 解析和人工复核链路。"
+    },
+    {
+      "id": "source_011",
+      "name": "万科2025年半年度完整财务报告解析",
+      "date": "2026-04-09",
+      "type": "case_study",
+      "summary": "对万科A《2025年半年度财务报告》完整PDF进行解析后确认：真实输入是145页完整财务报表与附注，主附注从PDF第16页开始；交易商协会短版披露壳只能用于线索定位，不能直接构建主附注目录。新增完整PDF选源规则：若MinerU Markdown不含真实财务报表附注或仅有外部链接壳层，应切换到完整版原件后再生成notes_workfile。"
     }
   ],
   "knowledge": {
@@ -1017,6 +1024,16 @@
         "purpose": "让正式 workbook 保持可追溯、可复核、可复现实验链路"
       }
     },
+    "workflow_rules": {
+      "knowledge_writeback": {
+        "rule": "新发现的稳定口径、阈值、例外规则与流程经验，先写入 financial-analyzer/knowledge_base.json，再通过对应 adoption log 落地；skill 文本只保留流程，不保存案例经验。",
+        "source_of_truth": "financial-analyzer/knowledge_base.json"
+      },
+      "full_report_selection": {
+        "rule": "遇到简版披露壳或 MinerU 解析结果不含真实附注时，必须切换到完整版财报 PDF；只有确认 '# (五) 合并财务报表项目注释' 与真实科目附注后，才能构建 notes_workfile。",
+        "anti_pattern": "用短版报告直接构造主附注目录或把外链壳层当成完整财报正文"
+      }
+    },
     "data_quality_checklist": [
       "三大表勾稽关系平衡",
       "净利润与经营现金流匹配",
@@ -1449,6 +1466,28 @@
         "source_008",
         "source_009",
         "source_010"
+      ]
+    },
+    {
+      "version": "2.6.1",
+      "date": "2026-04-09",
+      "changes": [
+        "新增万科2025年半年度完整财务报告解析案例，明确完整PDF与短版披露壳的选源边界",
+        "新增完整PDF选源规则：当MinerU Markdown缺失真实附注时，必须切换到完整版原件再构建notes_workfile",
+        "新增知识写回流程规则：稳定口径先写入 knowledge_base.json，再通过 adoption log 落地"
+      ],
+      "knowledge_sources": [
+        "source_001",
+        "source_002",
+        "source_003",
+        "source_004",
+        "source_005",
+        "source_006",
+        "source_007",
+        "source_008",
+        "source_009",
+        "source_010",
+        "source_011"
       ]
     }
   ]

@@ -1,0 +1,17 @@
+{
+  "entity_profile": {
+    "company_name": "万科企业股份有限公司",
+    "report_period": "2025",
+    "currency": "CNY",
+    "report_type": "a_share_full_report",
+    "audit_opinion": "未识别",
+    "input_file": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_financial_report_20260409/vanke_2025_financial_report.md"
+  },
+  "chapter_count": 73,
+  "focus_count": 73,
+  "extensions": {
+    "classification_basis": [
+      "检测到A股/中国企业会计准则信号"
+    ]
+  }
+}

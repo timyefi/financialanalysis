@@ -185,10 +185,6 @@ canonical 审计键由以下字段共同构成：
 - `analysis_report_path`
 - `financial_output_path`
 
-说明：
-
-- `financial_output_path` 应指向最终正式工作簿；如果该工作簿采用隐藏原始输入层和公式派生指标，必须保留可审计的最终版本，不要把仅含静态结果的临时表当作正式产物。
-
 约束：
 
 - `run_dir`、`chapter_record_path`、`review_ledger_path` 必须指向当前案例运行目录内的真实路径。

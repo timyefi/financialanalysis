@@ -1,0 +1,58 @@
+{
+  "engine_version": "3.1.2",
+  "status": "success",
+  "failure_reason": "",
+  "generated_at": "2026-04-09T17:56:41",
+  "script_output_mode": "scaffold_only",
+  "codex_review_required": true,
+  "input": {
+    "md_path": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/mineru/万科A：2025年半年度财务报告/万科A：2025年半年度财务报告.md",
+    "md5": "f7cec366c75e72d9088dc2e8c6935398",
+    "file_size": 457878,
+    "notes_workfile": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/notes_workfile.json"
+  },
+  "entity": {
+    "company_name": "万科企业股份有限公司",
+    "report_period": "2025",
+    "report_type": "a_share_full_report",
+    "audit_opinion": "未识别"
+  },
+  "notes_locator": {
+    "status": "success",
+    "start_line": 1328,
+    "end_line": 3056,
+    "locator_evidence": [
+      {
+        "step": "keyword_search",
+        "keyword": "合并财务报表项目注释",
+        "excerpt": "# (五) 合并财务报表项目注释"
+      },
+      {
+        "step": "sample_read",
+        "keyword": "货币资金",
+        "excerpt": "# 1、货币资金"
+      }
+    ]
+  },
+  "notes_catalog_summary": {
+    "note_chapter_count": 59,
+    "first_note": "1",
+    "last_note": "59"
+  },
+  "artifacts": {
+    "run_manifest": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/run_manifest.json",
+    "chapter_records": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/chapter_records.jsonl",
+    "analysis_report_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/analysis_report_scaffold.md",
+    "focus_list_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/focus_list_scaffold.json",
+    "final_data_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/final_data_scaffold.json",
+    "soul_export_payload_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/soul_export_payload_scaffold.json",
+    "analysis_report": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/analysis_report.md",
+    "final_data": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/final_data.json",
+    "soul_export_payload": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/soul_export_payload.json",
+    "financial_output": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/financial_output.xlsx"
+  },
+  "counts": {
+    "chapter_records": 59,
+    "focus_items_scaffold": 59
+  }
+}

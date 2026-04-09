@@ -1,0 +1,3055 @@
+{
+  "contract_version": "soul_export_v1",
+  "template_version": "soul_v1_1_alpha",
+  "generated_at": "2026-04-09T16:29:13+08:00",
+  "entity_profile": {
+    "company_name": "万科企业股份有限公司",
+    "report_period": "2025",
+    "currency": "CNY",
+    "report_type": "a_share_full_report",
+    "audit_opinion": "未识别",
+    "industry_tag": "lgfv",
+    "input_file": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_financial_report_20260409/vanke_2025_financial_report.md"
+  },
+  "source_artifacts": {
+    "run_manifest": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_financial_report_20260409/run_manifest.json",
+    "chapter_records": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_financial_report_20260409/chapter_records.jsonl",
+    "focus_list_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_financial_report_20260409/focus_list_scaffold.json",
+    "final_data_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_financial_report_20260409/final_data_scaffold.json",
+    "analysis_report_scaffold": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_financial_report_20260409/analysis_report_scaffold.md",
+    "notes_workfile": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_financial_report_20260409/notes_workfile.json"
+  },
+  "module_manifest": [
+    {
+      "sheet_name": "00_overview",
+      "module_key": "overview",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "概览",
+      "empty_state": "仅保留运行壳，不做脚本摘要"
+    },
+    {
+      "sheet_name": "01_kpi_dashboard",
+      "module_key": "kpi_dashboard",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "KPI 面板",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "02_financial_summary",
+      "module_key": "financial_summary",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "财务摘要",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "03_debt_profile",
+      "module_key": "debt_profile",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "债务画像",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "04_liquidity_and_covenants",
+      "module_key": "liquidity_and_covenants",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "流动性与契约",
+      "empty_state": "由后续 skill 阅读生成"
+    },
+    {
+      "sheet_name": "99_evidence_index",
+      "module_key": "evidence_index",
+      "module_type": "fixed",
+      "required": true,
+      "enabled": true,
+      "title": "证据索引",
+      "empty_state": "仅保留章节证据索引"
+    }
+  ],
+  "overview": {
+    "executive_summary": [
+      "1 (一) 公司基本情况：万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 15 (一) 公司基本情况 1、公司概况 万科企业股份有限公司(以下简称“公司或本公司”)原系经深圳市人民政府深府办(1988)1509 号文批准，于 1988 年 11 月 1 日在深圳现代企业有限公司基础上改组设立的股份有限公司；1991 年 1 月 29 日，本公司发行之 A 股在深圳证券交易所上市",
+      "2 (二) 财务报表的编制基础：万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 16 (二) 财务报表的编制基础 - 续 2、持续经营 - 续 针对上述情况，本公司管理层编制了本集团涵盖期间自资产负债表日起不小于 12 个月的 现金流量预测；本公司在评估本集团的持续经营能力时，审慎考虑宏观形势、行业政策和 本集团的经营状况、未来的经营计划、可融资来源等因素编制了现金流量预测",
+      "7 10、金融工具：万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 23 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 实际利率法是指计算金融资产或金融负债的摊余成本以及将利息收入或利息费用分摊计入 各会计期间的方法；实际利率，是指将金融资产或金融负债在预计存续期的估计未来现金流量，折现为该金融 资产账面余额或该金融负债摊余成本所使用的利率"
+    ],
+    "key_risks": [
+      {
+        "label": "high_audit_issue",
+        "risk_level": "high",
+        "description": "检测到 保留意见, 持续经营 相关表述",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ]
+      },
+      {
+        "label": "liquidity_pressure",
+        "risk_level": "high",
+        "description": "检测到 一年内到期, 再融资 相关表述",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ]
+      },
+      {
+        "label": "asset_impairment",
+        "risk_level": "high",
+        "description": "检测到 减值, 减值准备 相关表述",
+        "evidence_refs": [
+          "EVD-0003",
+          "EVD-0004"
+        ]
+      },
+      {
+        "label": "guarantee_exposure",
+        "risk_level": "medium",
+        "description": "检测到 担保, 反担保 相关表述",
+        "evidence_refs": [
+          "EVD-0013",
+          "EVD-0014"
+        ]
+      },
+      {
+        "label": "litigation_or_default",
+        "risk_level": "high",
+        "description": "检测到 违约, 逾期 相关表述",
+        "evidence_refs": [
+          "EVD-0015",
+          "EVD-0016"
+        ]
+      }
+    ],
+    "rating_snapshot": [
+      "报告类型：a_share_full_report",
+      "附注章数：73"
+    ],
+    "report_highlights": [
+      {
+        "title": "1 (一) 公司基本情况",
+        "detail": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 15 (一) 公司基本情况 1、公司概况 万科企业股份有限公司(以下简称“公司或本公司”)原系经深圳市人民政府深府办(1988)1509 号文批准，于 1988 年 11 月 1 日在深圳现代企业有限公司基础上改组设立的股份有…",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ]
+      },
+      {
+        "title": "2 (二) 财务报表的编制基础",
+        "detail": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 16 (二) 财务报表的编制基础 - 续 2、持续经营 - 续 针对上述情况，本公司管理层编制了本集团涵盖期间自资产负债表日起不小于 12 个月的 现金流量预测",
+        "evidence_refs": [
+          "EVD-0003",
+          "EVD-0004"
+        ]
+      },
+      {
+        "title": "7 10、金融工具",
+        "detail": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 23 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 实际利率法是指计算金融资产或金融负债的摊余成本以及将利息收入或利息费用分摊计入 各会计期间的方法",
+        "evidence_refs": [
+          "EVD-0013",
+          "EVD-0014"
+        ]
+      },
+      {
+        "title": "8 10.2 金融工具减值",
+        "detail": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 26 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 10.2 金融工具减值 - 续 对于其他金融工具，除购买或源生的已发生信用减值的金融资产外，本集团在每个资产负 债表日评估相关金融工具的信用风险自初始确认后…",
+        "evidence_refs": [
+          "EVD-0015",
+          "EVD-0016"
+        ]
+      },
+      {
+        "title": "10 10.4 金融负债和权益工具的分类",
+        "detail": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 30 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 10.4 金融负债和权益工具的分类 - 续 10.4.1 金融负债的分类、确认与计量 金融负债在初始确认时划分为以公允价值计量且其变动计入当期损益的金融负债…",
+        "evidence_refs": [
+          "EVD-0019",
+          "EVD-0020"
+        ]
+      }
+    ]
+  },
+  "kpi_dashboard": {
+    "periods": [
+      "2025",
+      "2025-12-31"
+    ],
+    "sections": [
+      {
+        "category": "leverage",
+        "metrics": [
+          {
+            "metric_code": "total_liabilities",
+            "label": "总负债",
+            "value": 1553.67,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "1 (一) 公司基本情况",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0001",
+              "EVD-0002"
+            ],
+            "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+          },
+          {
+            "metric_code": "equity",
+            "label": "所有者权益",
+            "value": 109569173086.26,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "61 (七) 在其他主体中的权益",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0121",
+              "EVD-0122"
+            ],
+            "commentary": "合计 109,569,173,086.26 115,568,568,275.67"
+          },
+          {
+            "metric_code": "equity_ratio",
+            "label": "权益率",
+            "value": 109569173086.26,
+            "unit": "%",
+            "risk_level": "medium",
+            "source_status": "derived",
+            "comparison": "61 (七) 在其他主体中的权益",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0121",
+              "EVD-0122"
+            ],
+            "commentary": "合计 109,569,173,086.26 115,568,568,275.67"
+          }
+        ]
+      },
+      {
+        "category": "debt_service",
+        "metrics": [
+          {
+            "metric_code": "short_term_borrowings",
+            "label": "短期借款",
+            "value": 119.47,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "1 (一) 公司基本情况",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0001",
+              "EVD-0002"
+            ],
+            "commentary": "119.47 亿元。于 2025 年 6 月 30 日，本集团合并资产负债表中的短期借款、其他应付款中"
+          },
+          {
+            "metric_code": "one_year_due_debt",
+            "label": "一年内到期有息负债",
+            "value": 1553.67,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "1 (一) 公司基本情况",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0001",
+              "EVD-0002"
+            ],
+            "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+          },
+          {
+            "metric_code": "long_term_borrowings",
+            "label": "长期借款",
+            "value": 103953699289.47,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "46 28、其他应付款",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0091",
+              "EVD-0092"
+            ],
+            "commentary": "一年内到期的长期借款 103,953,699,289.47 106,182,101,369.60"
+          },
+          {
+            "metric_code": "cash_to_short_term_debt",
+            "label": "现金短债比",
+            "value": 1553.67,
+            "unit": "倍",
+            "risk_level": "high",
+            "source_status": "derived",
+            "comparison": "1 (一) 公司基本情况",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0001",
+              "EVD-0002"
+            ],
+            "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+          }
+        ]
+      },
+      {
+        "category": "profitability",
+        "metrics": [
+          {
+            "metric_code": "revenue",
+            "label": "营业收入",
+            "value": 105323304409.14,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "52 42、营业收入和营业成本",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0103",
+              "EVD-0104"
+            ],
+            "commentary": "合计 105,323,304,409.14 94,824,543,347.23 142,778,764,079.80 131,192,038,083.51"
+          },
+          {
+            "metric_code": "cost_of_revenue",
+            "label": "营业成本",
+            "value": 105323304409.14,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "52 42、营业收入和营业成本",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0103",
+              "EVD-0104"
+            ],
+            "commentary": "合计 105,323,304,409.14 94,824,543,347.23 142,778,764,079.80 131,192,038,083.51"
+          },
+          {
+            "metric_code": "gross_margin",
+            "label": "毛利率",
+            "value": 105323304409.14,
+            "unit": "%",
+            "risk_level": "medium",
+            "source_status": "derived",
+            "comparison": "52 42、营业收入和营业成本",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0103",
+              "EVD-0104"
+            ],
+            "commentary": "合计 105,323,304,409.14 94,824,543,347.23 142,778,764,079.80 131,192,038,083.51"
+          },
+          {
+            "metric_code": "net_profit",
+            "label": "净利润",
+            "value": 1553.67,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "1 (一) 公司基本情况",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0001",
+              "EVD-0002"
+            ],
+            "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+          }
+        ]
+      },
+      {
+        "category": "cashflow",
+        "metrics": [
+          {
+            "metric_code": "operating_cash_flow",
+            "label": "经营活动现金流净额",
+            "value": 84009391855.57,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "58 57、现金流量表补充资料",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0115",
+              "EVD-0116"
+            ],
+            "commentary": "减：现金及现金等价物期初余额 84,009,391,855.57 96,942,577,448.50"
+          },
+          {
+            "metric_code": "cash_and_cash_equiv",
+            "label": "现金及现金等价物",
+            "value": 1553.67,
+            "unit": "亿元",
+            "risk_level": "medium",
+            "source_status": "chapter_review",
+            "comparison": "1 (一) 公司基本情况",
+            "benchmark": "",
+            "evidence_refs": [
+              "EVD-0001",
+              "EVD-0002"
+            ],
+            "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+          }
+        ]
+      }
+    ]
+  },
+  "financial_summary": {
+    "unit_label": "CNY_100m",
+    "statements": {
+      "balance_sheet": [
+        {
+          "metric_code": "cash_balance",
+          "label": "货币资金",
+          "value": 1553.67,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "1 (一) 公司基本情况",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0001",
+            "EVD-0002"
+          ],
+          "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+        },
+        {
+          "metric_code": "total_liabilities",
+          "label": "负债合计",
+          "value": 1553.67,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "1 (一) 公司基本情况",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0001",
+            "EVD-0002"
+          ],
+          "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+        },
+        {
+          "metric_code": "equity",
+          "label": "所有者权益合计",
+          "value": 109569173086.26,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "61 (七) 在其他主体中的权益",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0121",
+            "EVD-0122"
+          ],
+          "commentary": "合计 109,569,173,086.26 115,568,568,275.67"
+        }
+      ],
+      "income_statement": [
+        {
+          "metric_code": "revenue",
+          "label": "营业收入",
+          "value": 105323304409.14,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "52 42、营业收入和营业成本",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0103",
+            "EVD-0104"
+          ],
+          "commentary": "合计 105,323,304,409.14 94,824,543,347.23 142,778,764,079.80 131,192,038,083.51"
+        },
+        {
+          "metric_code": "cost_of_revenue",
+          "label": "营业成本",
+          "value": 105323304409.14,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "52 42、营业收入和营业成本",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0103",
+            "EVD-0104"
+          ],
+          "commentary": "合计 105,323,304,409.14 94,824,543,347.23 142,778,764,079.80 131,192,038,083.51"
+        },
+        {
+          "metric_code": "operating_profit",
+          "label": "营业利润",
+          "value": 1241311524865.26,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "68 (十四) 其他重要事项",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0135",
+            "EVD-0136"
+          ],
+          "commentary": "分部资产 1,241,311,524,865.26 36,759,525,640.69 744,003,761,420.65 (599,255,790,947.75) 1,422,819,020,978.85"
+        },
+        {
+          "metric_code": "profit_before_tax",
+          "label": "利润总额",
+          "value": 1241311524865.26,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "68 (十四) 其他重要事项",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0135",
+            "EVD-0136"
+          ],
+          "commentary": "分部资产 1,241,311,524,865.26 36,759,525,640.69 744,003,761,420.65 (599,255,790,947.75) 1,422,819,020,978.85"
+        },
+        {
+          "metric_code": "net_profit",
+          "label": "净利润",
+          "value": 1553.67,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "1 (一) 公司基本情况",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0001",
+            "EVD-0002"
+          ],
+          "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+        },
+        {
+          "metric_code": "net_profit_attrib",
+          "label": "归属于母公司股东的净利润",
+          "value": 1553.67,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "1 (一) 公司基本情况",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0001",
+            "EVD-0002"
+          ],
+          "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+        }
+      ],
+      "cash_flow": [
+        {
+          "metric_code": "operating_cash_flow",
+          "label": "经营活动产生的现金流量净额",
+          "value": 84009391855.57,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "58 57、现金流量表补充资料",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0115",
+            "EVD-0116"
+          ],
+          "commentary": "减：现金及现金等价物期初余额 84,009,391,855.57 96,942,577,448.50"
+        },
+        {
+          "metric_code": "cash_and_cash_equiv",
+          "label": "期末现金及现金等价物",
+          "value": 1553.67,
+          "unit": "亿元",
+          "risk_level": "medium",
+          "source_status": "chapter_review",
+          "comparison": "1 (一) 公司基本情况",
+          "benchmark": "",
+          "evidence_refs": [
+            "EVD-0001",
+            "EVD-0002"
+          ],
+          "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+        }
+      ]
+    },
+    "coverage_note": "脚本根据章节级证据自动聚合稳定指标；空位会保留为未识别。"
+  },
+  "debt_profile": {
+    "totals": [
+      {
+        "metric_code": "short_term_borrowings",
+        "label": "短期借款",
+        "value": 119.47,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "1 (一) 公司基本情况",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ],
+        "commentary": "119.47 亿元。于 2025 年 6 月 30 日，本集团合并资产负债表中的短期借款、其他应付款中"
+      },
+      {
+        "metric_code": "long_term_borrowings",
+        "label": "长期借款",
+        "value": 103953699289.47,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "46 28、其他应付款",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0091",
+          "EVD-0092"
+        ],
+        "commentary": "一年内到期的长期借款 103,953,699,289.47 106,182,101,369.60"
+      },
+      {
+        "metric_code": "bonds_payable",
+        "label": "应付债券",
+        "value": 27358717473.95,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "46 28、其他应付款",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0091",
+          "EVD-0092"
+        ],
+        "commentary": "一年内到期的应付债券 27,358,717,473.95 36,152,409,031.95"
+      },
+      {
+        "metric_code": "lease_liabilities",
+        "label": "租赁负债",
+        "value": 33.1,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "26 32、递延所得税资产/递延所得税负债",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0051",
+          "EVD-0052"
+        ],
+        "commentary": "33.1.2 使用权资产"
+      },
+      {
+        "metric_code": "one_year_due_debt",
+        "label": "一年内到期有息负债",
+        "value": 1553.67,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "1 (一) 公司基本情况",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ],
+        "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+      }
+    ],
+    "maturity_buckets": [
+      {
+        "metric_code": "due_within_one_year",
+        "label": "一年内到期",
+        "value": 1553.67,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "1 (一) 公司基本情况",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ],
+        "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+      }
+    ],
+    "financing_mix": [
+      {
+        "metric_code": "bank_borrowings",
+        "label": "银行借款",
+        "value": 5.6,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "2 (二) 财务报表的编制基础",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0003",
+          "EVD-0004"
+        ],
+        "commentary": "月，本集团已新增银行借款人民币 5.60 亿元，并按时偿还到期债务人民币 74.44 亿元；"
+      },
+      {
+        "metric_code": "bond_financing",
+        "label": "债券融资",
+        "value": 15.0,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "14 15、持有待售非流动资产或处置组",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0027",
+          "EVD-0028"
+        ],
+        "commentary": "15、持有待售非流动资产或处置组 - 续"
+      },
+      {
+        "metric_code": "other_borrowings",
+        "label": "其他借款",
+        "value": 1553.67,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "1 (一) 公司基本情况",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ],
+        "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+      }
+    ],
+    "rate_profile": [
+      {
+        "metric_code": "interest_expense",
+        "label": "利息支出",
+        "value": 10.4,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "10 10.4 金融负债和权益工具的分类",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0019",
+          "EVD-0020"
+        ],
+        "commentary": "10.4.1 金融负债的分类、确认与计量"
+      },
+      {
+        "metric_code": "interest_income",
+        "label": "利息收入",
+        "value": 21.0,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "7 10、金融工具",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0013",
+          "EVD-0014"
+        ],
+        "commentary": "业会计准则第 21 号——租赁》规范的交易形成的租赁应收款按照相当于整个存续期内预"
+      },
+      {
+        "metric_code": "capitalized_interest",
+        "label": "资本化利息",
+        "value": 3214545326.7,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "53 45、管理费用",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0105",
+          "EVD-0106"
+        ],
+        "commentary": "减：资本化利息 3,214,545,326.70 4,068,567,631.14"
+      }
+    ],
+    "debt_comments": []
+  },
+  "liquidity_and_covenants": {
+    "cash_metrics": [
+      {
+        "metric_code": "cash_and_cash_equiv",
+        "label": "现金及现金等价物",
+        "value": 1553.67,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "1 (一) 公司基本情况",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ],
+        "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+      },
+      {
+        "metric_code": "short_term_borrowings",
+        "label": "短期借款",
+        "value": 119.47,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "1 (一) 公司基本情况",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ],
+        "commentary": "119.47 亿元。于 2025 年 6 月 30 日，本集团合并资产负债表中的短期借款、其他应付款中"
+      },
+      {
+        "metric_code": "cash_to_short_term_debt",
+        "label": "现金短债比",
+        "value": 1553.67,
+        "unit": "倍",
+        "risk_level": "high",
+        "source_status": "derived",
+        "comparison": "1 (一) 公司基本情况",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ],
+        "commentary": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物"
+      }
+    ],
+    "credit_lines": [],
+    "restricted_assets": [
+      {
+        "metric_code": "restricted_cash",
+        "label": "受限资金",
+        "value": 4654701002.07,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "30 1、货币资金",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0059",
+          "EVD-0060"
+        ],
+        "commentary": "存款中受限资金为人民币 4,654,701,002.07 元(2024 年 12 月 31 日：人民币 4,153,473,166.46"
+      },
+      {
+        "metric_code": "restricted_assets",
+        "label": "受限资产",
+        "value": 13.0,
+        "unit": "亿元",
+        "risk_level": "medium",
+        "source_status": "chapter_review",
+        "comparison": "8 10.2 金融工具减值",
+        "benchmark": "",
+        "evidence_refs": [
+          "EVD-0015",
+          "EVD-0016"
+        ],
+        "commentary": "(13) 债务人预期表现和还款行为是否发生显著变化；"
+      }
+    ],
+    "covenants": [],
+    "liquidity_observations": [
+      {
+        "label": "持续经营提示",
+        "detail": "检测到 保留意见, 持续经营 相关表述",
+        "evidence_refs": [
+          "EVD-0001",
+          "EVD-0002"
+        ]
+      }
+    ]
+  },
+  "optional_modules": [],
+  "evidence_index": [
+    {
+      "evidence_id": "EVD-0001",
+      "field_path": "chapter_records.1.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 15 (一) 公司基本情况 1、公司概况 万科企业股份有限公司(以下简称“公司或本公司”)原系经深圳市人民政府深府办(1988)1509 号文批准，于 1988 年 11 月 1 日在深圳现代企业有限公司基础上改组设立的股份有…",
+      "source_document": "chapter_records",
+      "chapter_no": 1,
+      "chapter_title": "1 (一) 公司基本情况",
+      "note_no": "1",
+      "line_span": {
+        "start": 494,
+        "end": 516
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0002",
+      "field_path": "chapter_records.1.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "的股东借款及一年内到期的有息负债合计金额为人民币 1,553.67 亿元，现金及现金等价物",
+      "source_document": "chapter_records",
+      "chapter_no": 1,
+      "chapter_title": "1 (一) 公司基本情况",
+      "note_no": "1",
+      "line_span": {
+        "start": 494,
+        "end": 516
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0003",
+      "field_path": "chapter_records.2.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 16 (二) 财务报表的编制基础 - 续 2、持续经营 - 续 针对上述情况，本公司管理层编制了本集团涵盖期间自资产负债表日起不小于 12 个月的 现金流量预测；本公司在评估本集团的持续经营能力时，审慎考虑宏观形势、行业政策和…",
+      "source_document": "chapter_records",
+      "chapter_no": 2,
+      "chapter_title": "2 (二) 财务报表的编制基础",
+      "note_no": "2",
+      "line_span": {
+        "start": 518,
+        "end": 584
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0004",
+      "field_path": "chapter_records.2.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "团”)的股东借款累计人民币 238.77 亿元；",
+      "source_document": "chapter_records",
+      "chapter_no": 2,
+      "chapter_title": "2 (二) 财务报表的编制基础",
+      "note_no": "2",
+      "line_span": {
+        "start": 518,
+        "end": 584
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0005",
+      "field_path": "chapter_records.3.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 18 (三) 重要会计政策和会计估计 - 续 5、同一控制下和非同一控制下企业合并的会计处理方法 企业合并分为同一控制下的企业合并和非同一控制下的企业合并；5.1 同一控制下的企业合并 参与合并的企业在合并前后均受同一方或相同…",
+      "source_document": "chapter_records",
+      "chapter_no": 3,
+      "chapter_title": "3 5、同一控制下和非同一控制下企业合并的会计处理方法",
+      "note_no": "3",
+      "line_span": {
+        "start": 586,
+        "end": 616
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0006",
+      "field_path": "chapter_records.3.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "18",
+      "source_document": "chapter_records",
+      "chapter_no": 3,
+      "chapter_title": "3 5、同一控制下和非同一控制下企业合并的会计处理方法",
+      "note_no": "3",
+      "line_span": {
+        "start": 586,
+        "end": 616
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0007",
+      "field_path": "chapter_records.4.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 19 (三) 重要会计政策和会计估计 - 续 6、控制的判断标准和合并财务报表的编制方法 6.1 控制的判断标准 控制是指投资方拥有对被投资方的权力，通过参与被投资方的相关活动而享有可变回报， 并且有能力运用对被投资方的权力影…",
+      "source_document": "chapter_records",
+      "chapter_no": 4,
+      "chapter_title": "4 6、控制的判断标准和合并财务报表的编制方法",
+      "note_no": "4",
+      "line_span": {
+        "start": 618,
+        "end": 686
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0008",
+      "field_path": "chapter_records.4.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "20",
+      "source_document": "chapter_records",
+      "chapter_no": 4,
+      "chapter_title": "4 6、控制的判断标准和合并财务报表的编制方法",
+      "note_no": "4",
+      "line_span": {
+        "start": 618,
+        "end": 686
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0009",
+      "field_path": "chapter_records.5.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 21 (三) 重要会计政策和会计估计 - 续 7、合营安排分类及共同经营会计处理方法 - 续 本集团根据共同经营的安排确认本集团单独所持有的资产以及按本集团份额确认共同持有 的资产；确认本集团单独所承担的负债以及按本集团份额确…",
+      "source_document": "chapter_records",
+      "chapter_no": 5,
+      "chapter_title": "5 7、合营安排分类及共同经营会计处理方法",
+      "note_no": "5",
+      "line_span": {
+        "start": 688,
+        "end": 719
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0010",
+      "field_path": "chapter_records.5.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "21",
+      "source_document": "chapter_records",
+      "chapter_no": 5,
+      "chapter_title": "5 7、合营安排分类及共同经营会计处理方法",
+      "note_no": "5",
+      "line_span": {
+        "start": 688,
+        "end": 719
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0011",
+      "field_path": "chapter_records.6.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 22 (三) 重要会计政策和会计估计 - 续 9、外币业务和外币财务报表折算 - 续 9.2 外币财务报表折算 为编制合并财务报表，境外经营的外币财务报表按以下方法折算为人民币报表：资产负债 表中的所有资产、负债类项目按资产负…",
+      "source_document": "chapter_records",
+      "chapter_no": 6,
+      "chapter_title": "6 9、外币业务和外币财务报表折算",
+      "note_no": "6",
+      "line_span": {
+        "start": 721,
+        "end": 753
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0012",
+      "field_path": "chapter_records.6.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "22",
+      "source_document": "chapter_records",
+      "chapter_no": 6,
+      "chapter_title": "6 9、外币业务和外币财务报表折算",
+      "note_no": "6",
+      "line_span": {
+        "start": 721,
+        "end": 753
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0013",
+      "field_path": "chapter_records.7.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 23 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 实际利率法是指计算金融资产或金融负债的摊余成本以及将利息收入或利息费用分摊计入 各会计期间的方法；实际利率，是指将金融资产或金融负债在预计存续期的估计未来现…",
+      "source_document": "chapter_records",
+      "chapter_no": 7,
+      "chapter_title": "7 10、金融工具",
+      "note_no": "7",
+      "line_span": {
+        "start": 755,
+        "end": 853
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0014",
+      "field_path": "chapter_records.7.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "25",
+      "source_document": "chapter_records",
+      "chapter_no": 7,
+      "chapter_title": "7 10、金融工具",
+      "note_no": "7",
+      "line_span": {
+        "start": 755,
+        "end": 853
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0015",
+      "field_path": "chapter_records.8.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 26 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 10.2 金融工具减值 - 续 对于其他金融工具，除购买或源生的已发生信用减值的金融资产外，本集团在每个资产负 债表日评估相关金融工具的信用风险自初始确认后…",
+      "source_document": "chapter_records",
+      "chapter_no": 8,
+      "chapter_title": "8 10.2 金融工具减值",
+      "note_no": "8",
+      "line_span": {
+        "start": 855,
+        "end": 959
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0016",
+      "field_path": "chapter_records.8.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "无论上述评估结果如何，若金融工具合同付款已发生逾期超过(含)90 日，则本集团推定该",
+      "source_document": "chapter_records",
+      "chapter_no": 8,
+      "chapter_title": "8 10.2 金融工具减值",
+      "note_no": "8",
+      "line_span": {
+        "start": 855,
+        "end": 959
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0017",
+      "field_path": "chapter_records.9.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 29 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 10.3 金融资产的转移 - 续 若本集团既没有转移也没有保留金融资产所有权上几乎所有风险和报酬，且保留了对该金 融资产控制的，则按照其继续涉入被转移金融资…",
+      "source_document": "chapter_records",
+      "chapter_no": 9,
+      "chapter_title": "9 10.3 金融资产的转移",
+      "note_no": "9",
+      "line_span": {
+        "start": 961,
+        "end": 995
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0018",
+      "field_path": "chapter_records.9.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "29",
+      "source_document": "chapter_records",
+      "chapter_no": 9,
+      "chapter_title": "9 10.3 金融资产的转移",
+      "note_no": "9",
+      "line_span": {
+        "start": 961,
+        "end": 995
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0019",
+      "field_path": "chapter_records.10.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 30 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 10.4 金融负债和权益工具的分类 - 续 10.4.1 金融负债的分类、确认与计量 金融负债在初始确认时划分为以公允价值计量且其变动计入当期损益的金融负债…",
+      "source_document": "chapter_records",
+      "chapter_no": 10,
+      "chapter_title": "10 10.4 金融负债和权益工具的分类",
+      "note_no": "10",
+      "line_span": {
+        "start": 997,
+        "end": 1065
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0020",
+      "field_path": "chapter_records.10.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "31",
+      "source_document": "chapter_records",
+      "chapter_no": 10,
+      "chapter_title": "10 10.4 金融负债和权益工具的分类",
+      "note_no": "10",
+      "line_span": {
+        "start": 997,
+        "end": 1065
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0021",
+      "field_path": "chapter_records.11.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 32 (三) 重要会计政策和会计估计 - 续 10、金融工具 - 续 10.4 金融负债和权益工具的分类 - 续 10.4.3 权益工具 - 续 本集团对权益工具持有方的分配作为利润分配处理，发放的股票股利不影响股东权益总 额…",
+      "source_document": "chapter_records",
+      "chapter_no": 11,
+      "chapter_title": "11 10.4.3 权益工具",
+      "note_no": "11",
+      "line_span": {
+        "start": 1067,
+        "end": 1098
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0022",
+      "field_path": "chapter_records.11.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "32",
+      "source_document": "chapter_records",
+      "chapter_no": 11,
+      "chapter_title": "11 10.4.3 权益工具",
+      "note_no": "11",
+      "line_span": {
+        "start": 1067,
+        "end": 1098
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0023",
+      "field_path": "chapter_records.12.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 33 (三) 重要会计政策和会计估计 - 续 11、应收账款 11.1 应收账款的预期信用损失的确定方法及会计处理方法 本集团对于应收账款始终按照整个存续期内的预期信用损失计量坏账准备；根据本集团的 历史经验，不同细分客户群体…",
+      "source_document": "chapter_records",
+      "chapter_no": 12,
+      "chapter_title": "12 11、应收账款",
+      "note_no": "12",
+      "line_span": {
+        "start": 1100,
+        "end": 1133
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0024",
+      "field_path": "chapter_records.12.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "33",
+      "source_document": "chapter_records",
+      "chapter_no": 12,
+      "chapter_title": "12 11、应收账款",
+      "note_no": "12",
+      "line_span": {
+        "start": 1100,
+        "end": 1133
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0025",
+      "field_path": "chapter_records.13.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 34 (三) 重要会计政策和会计估计 - 续 13、存货 - 续 13.1 存货类别、发出计价方法、盘存制度、低值易耗品和包装物的摊销方法 - 续 13.1.2 发出存货的计价方法 房地产开发产品发出时，采用个别计价法确定发出…",
+      "source_document": "chapter_records",
+      "chapter_no": 13,
+      "chapter_title": "13 13、存货",
+      "note_no": "13",
+      "line_span": {
+        "start": 1135,
+        "end": 1198
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0026",
+      "field_path": "chapter_records.13.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "35",
+      "source_document": "chapter_records",
+      "chapter_no": 13,
+      "chapter_title": "13 13、存货",
+      "note_no": "13",
+      "line_span": {
+        "start": 1135,
+        "end": 1198
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0027",
+      "field_path": "chapter_records.14.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 36 (三)重要会计政策和会计估计 - 续 15、持有待售非流动资产或处置组 - 续 15.2 终止经营的认定标准和列报方法 终止经营，是指满足下列条件之一的、能够单独区分的组成部分，且该组成部分已经处置 或划分为持有待售类别…",
+      "source_document": "chapter_records",
+      "chapter_no": 14,
+      "chapter_title": "14 15、持有待售非流动资产或处置组",
+      "note_no": "14",
+      "line_span": {
+        "start": 1200,
+        "end": 1224
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0028",
+      "field_path": "chapter_records.14.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "36",
+      "source_document": "chapter_records",
+      "chapter_no": 14,
+      "chapter_title": "14 15、持有待售非流动资产或处置组",
+      "note_no": "14",
+      "line_span": {
+        "start": 1200,
+        "end": 1224
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0029",
+      "field_path": "chapter_records.15.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 37 (三) 重要会计政策和会计估计 - 续 16、长期股权投资 - 续 16.2 初始投资成本的确定 对于同一控制下的企业合并取得的长期股权投资，在合并日按照被合并方所有者权益在最 终控制方合并财务报表中的账面价值的份额作为…",
+      "source_document": "chapter_records",
+      "chapter_no": 15,
+      "chapter_title": "15 16、长期股权投资",
+      "note_no": "15",
+      "line_span": {
+        "start": 1226,
+        "end": 1340
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0030",
+      "field_path": "chapter_records.15.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "39",
+      "source_document": "chapter_records",
+      "chapter_no": 15,
+      "chapter_title": "15 16、长期股权投资",
+      "note_no": "15",
+      "line_span": {
+        "start": 1226,
+        "end": 1340
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0031",
+      "field_path": "chapter_records.16.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 40 (三) 重要会计政策和会计估计 - 续 17、投资性房地产 投资性房地产是指为赚取租金或资本增值，或两者兼有而持有的房地产；包括正在建造或 开发过程中将来用于出租的建筑物等",
+      "source_document": "chapter_records",
+      "chapter_no": 16,
+      "chapter_title": "16 17、投资性房地产",
+      "note_no": "16",
+      "line_span": {
+        "start": 1342,
+        "end": 1368
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0032",
+      "field_path": "chapter_records.16.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "40",
+      "source_document": "chapter_records",
+      "chapter_no": 16,
+      "chapter_title": "16 17、投资性房地产",
+      "note_no": "16",
+      "line_span": {
+        "start": 1342,
+        "end": 1368
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0033",
+      "field_path": "chapter_records.17.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 41 (三) 重要会计政策和会计估计 - 续 18、固定资产 - 续 18.2 折旧方法 固定资产从达到预定可使用状态的次月起，采用年限平均法在使用寿命内计提折旧；各类 固定资产的折旧方法、折旧年限、估计残值率和年折旧率如下：…",
+      "source_document": "chapter_records",
+      "chapter_no": 17,
+      "chapter_title": "17 18、固定资产",
+      "note_no": "17",
+      "line_span": {
+        "start": 1370,
+        "end": 1406
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0034",
+      "field_path": "chapter_records.17.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "酒店、房屋及建筑物 年限平均法 可使用年限-70 0-5 1.36 以上",
+      "source_document": "chapter_records",
+      "chapter_no": 17,
+      "chapter_title": "17 18、固定资产",
+      "note_no": "17",
+      "line_span": {
+        "start": 1370,
+        "end": 1406
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0035",
+      "field_path": "chapter_records.18.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 42 (三) 重要会计政策和会计估计 - 续 20、借款费用 可直接归属于符合资本化条件的资产的购建或者生产的借款费用，在资产支出已经发生、 借款费用已经发生、为使资产达到预定可使用或可销售状态所必要的购建或生产活动已经 开始…",
+      "source_document": "chapter_records",
+      "chapter_no": 18,
+      "chapter_title": "18 20、借款费用",
+      "note_no": "18",
+      "line_span": {
+        "start": 1408,
+        "end": 1435
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0036",
+      "field_path": "chapter_records.18.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "42",
+      "source_document": "chapter_records",
+      "chapter_no": 18,
+      "chapter_title": "18 20、借款费用",
+      "note_no": "18",
+      "line_span": {
+        "start": 1408,
+        "end": 1435
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0037",
+      "field_path": "chapter_records.19.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 43 (三) 重要会计政策和会计估计 - 续 21、生物资产 - 续 21.2 生产性生物资产 生产性生物资产是指为产出农产品、提供劳务或出租等目的而持有的生物资产，包括种猪、 后备猪、父母代肉种鸡等；生产性生物资产按照成本进…",
+      "source_document": "chapter_records",
+      "chapter_no": 19,
+      "chapter_title": "19 21、生物资产",
+      "note_no": "19",
+      "line_span": {
+        "start": 1437,
+        "end": 1463
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0038",
+      "field_path": "chapter_records.19.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "43",
+      "source_document": "chapter_records",
+      "chapter_no": 19,
+      "chapter_title": "19 21、生物资产",
+      "note_no": "19",
+      "line_span": {
+        "start": 1437,
+        "end": 1463
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0039",
+      "field_path": "chapter_records.20.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 44 (三) 重要会计政策和会计估计 - 续 22、无形资产 22.1 使用寿命及其确定依据、估计情况、摊销方法或复核程序 无形资产包括土地使用权、待执行物业管理合同和其他等；无形资产按成本进行初始计量",
+      "source_document": "chapter_records",
+      "chapter_no": 20,
+      "chapter_title": "20 22、无形资产",
+      "note_no": "20",
+      "line_span": {
+        "start": 1465,
+        "end": 1495
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0040",
+      "field_path": "chapter_records.20.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "44",
+      "source_document": "chapter_records",
+      "chapter_no": 20,
+      "chapter_title": "20 22、无形资产",
+      "note_no": "20",
+      "line_span": {
+        "start": 1465,
+        "end": 1495
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0041",
+      "field_path": "chapter_records.21.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 45 (三) 重要会计政策和会计估计 - 续 23、长期资产减值 本集团在每一个资产负债表日检查长期股权投资、采用成本模式计量的投资性房地产、固 定资产、在建工程、使用权资产、采用成本模式计量的生产性生物资产、使用寿命确定的…",
+      "source_document": "chapter_records",
+      "chapter_no": 21,
+      "chapter_title": "21 23、长期资产减值",
+      "note_no": "21",
+      "line_span": {
+        "start": 1497,
+        "end": 1529
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0042",
+      "field_path": "chapter_records.21.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "45",
+      "source_document": "chapter_records",
+      "chapter_no": 21,
+      "chapter_title": "21 23、长期资产减值",
+      "note_no": "21",
+      "line_span": {
+        "start": 1497,
+        "end": 1529
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0043",
+      "field_path": "chapter_records.22.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 46 (三) 重要会计政策和会计估计 - 续 26、职工薪酬 - 续 26.1 短期薪酬的会计处理方法 - 续 本集团为职工缴纳的医疗保险费、工伤保险费、生育保险费等社会保险费和住房公积金， 以及本集团按规定提取的工会经费和职…",
+      "source_document": "chapter_records",
+      "chapter_no": 22,
+      "chapter_title": "22 26、职工薪酬",
+      "note_no": "22",
+      "line_span": {
+        "start": 1531,
+        "end": 1560
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0044",
+      "field_path": "chapter_records.22.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "46",
+      "source_document": "chapter_records",
+      "chapter_no": 22,
+      "chapter_title": "22 26、职工薪酬",
+      "note_no": "22",
+      "line_span": {
+        "start": 1531,
+        "end": 1560
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0045",
+      "field_path": "chapter_records.23.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 47 (三) 重要会计政策和会计估计 - 续 28、股份支付 - 续 28.1 以权益结算的股份支付 授予职工的以权益结算的股份支付 对于用以换取职工提供的服务的以权益结算的股份支付，本集团以授予职工权益工具在授 予日的公允价…",
+      "source_document": "chapter_records",
+      "chapter_no": 23,
+      "chapter_title": "23 28、股份支付",
+      "note_no": "23",
+      "line_span": {
+        "start": 1562,
+        "end": 1592
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0046",
+      "field_path": "chapter_records.23.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "47",
+      "source_document": "chapter_records",
+      "chapter_no": 23,
+      "chapter_title": "23 28、股份支付",
+      "note_no": "23",
+      "line_span": {
+        "start": 1562,
+        "end": 1592
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0047",
+      "field_path": "chapter_records.24.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 48 (三) 重要会计政策和会计估计 - 续 29、收入 - 续 29.1 按照业务类型披露收入确认和计量所采用的会计政策 - 续 本集团在合同开始日对合同进行评估，识别该合同所包含的各单项履约义务，并确定各单 项履约义务是在…",
+      "source_document": "chapter_records",
+      "chapter_no": 24,
+      "chapter_title": "24 29、收入",
+      "note_no": "24",
+      "line_span": {
+        "start": 1594,
+        "end": 1698
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0048",
+      "field_path": "chapter_records.24.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "50",
+      "source_document": "chapter_records",
+      "chapter_no": 24,
+      "chapter_title": "24 29、收入",
+      "note_no": "24",
+      "line_span": {
+        "start": 1594,
+        "end": 1698
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0049",
+      "field_path": "chapter_records.25.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 51 (三) 重要会计政策和会计估计 - 续 31、政府补助 - 续 政府补助为货币性资产的，按照收到或应收的金额计量；政府补助为非货币性资产的，按 照公允价值计量",
+      "source_document": "chapter_records",
+      "chapter_no": 25,
+      "chapter_title": "25 31、政府补助",
+      "note_no": "25",
+      "line_span": {
+        "start": 1700,
+        "end": 1728
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0050",
+      "field_path": "chapter_records.25.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "51",
+      "source_document": "chapter_records",
+      "chapter_no": 25,
+      "chapter_title": "25 31、政府补助",
+      "note_no": "25",
+      "line_span": {
+        "start": 1700,
+        "end": 1728
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0051",
+      "field_path": "chapter_records.26.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 52 (三) 重要会计政策和会计估计 - 续 32、递延所得税资产/递延所得税负债 - 续 32.2 递延所得税资产及递延所得税负债 对于某些资产、负债项目的账面价值与其计税基础之间的差额，以及未作为资产和负债确 认但按照税法…",
+      "source_document": "chapter_records",
+      "chapter_no": 26,
+      "chapter_title": "26 32、递延所得税资产/递延所得税负债",
+      "note_no": "26",
+      "line_span": {
+        "start": 1730,
+        "end": 1798
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0052",
+      "field_path": "chapter_records.26.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "53",
+      "source_document": "chapter_records",
+      "chapter_no": 26,
+      "chapter_title": "26 32、递延所得税资产/递延所得税负债",
+      "note_no": "26",
+      "line_span": {
+        "start": 1730,
+        "end": 1798
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0053",
+      "field_path": "chapter_records.27.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 54 (三) 重要会计政策和会计估计 - 续 33、租赁 - 续 33.1 本集团作为承租人 - 续 33.1.2 使用权资产 - 续 本集团按照《企业会计准则第 8 号——资产减值》的规定来确定使用权资产是否已发生减 值，并…",
+      "source_document": "chapter_records",
+      "chapter_no": 27,
+      "chapter_title": "27 33、租赁",
+      "note_no": "27",
+      "line_span": {
+        "start": 1800,
+        "end": 1926
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0054",
+      "field_path": "chapter_records.27.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "57",
+      "source_document": "chapter_records",
+      "chapter_no": 27,
+      "chapter_title": "27 33、租赁",
+      "note_no": "27",
+      "line_span": {
+        "start": 1800,
+        "end": 1926
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0055",
+      "field_path": "chapter_records.28.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 58 (三) 重要会计政策和会计估计 - 续 34、套期会计 - 续 34.1 采用套期会计的依据与会计处理方法 - 续 发生下列情形之一的，本集团将终止运用套期会计：  因风险管理目标发生变化，导致套期关系不再满足风险管理…",
+      "source_document": "chapter_records",
+      "chapter_no": 28,
+      "chapter_title": "28 34、套期会计",
+      "note_no": "28",
+      "line_span": {
+        "start": 1928,
+        "end": 1991
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0056",
+      "field_path": "chapter_records.28.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "59",
+      "source_document": "chapter_records",
+      "chapter_no": 28,
+      "chapter_title": "28 34、套期会计",
+      "note_no": "28",
+      "line_span": {
+        "start": 1928,
+        "end": 1991
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0057",
+      "field_path": "chapter_records.29.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 60 (四) 税项 1、主要税种及税率 税种 计税依据 税率 企业所得税 应纳税所得额 25% 增值税 销售额为纳税人发生应税行为取得的全部价款和价外 费用，财政部和国家税务总局另有规定的除外；一般计税：应纳税额为当期销项税额…",
+      "source_document": "chapter_records",
+      "chapter_no": 29,
+      "chapter_title": "29 (四) 税项",
+      "note_no": "29",
+      "line_span": {
+        "start": 1993,
+        "end": 2034
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0058",
+      "field_path": "chapter_records.29.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "《关于饲料产品免征增值税问题的通知》(财税[2001]121 号)的规定，申报免征增值税的饲",
+      "source_document": "chapter_records",
+      "chapter_no": 29,
+      "chapter_title": "29 (四) 税项",
+      "note_no": "29",
+      "line_span": {
+        "start": 1993,
+        "end": 2034
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0059",
+      "field_path": "chapter_records.30.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 61 (五) 合并财务报表项目注释 1、货币资金 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 原币 折算汇率 折合人民币 原币 折算汇率 折合人民币 库存现金： 人民币 6,445,748…",
+      "source_document": "chapter_records",
+      "chapter_no": 30,
+      "chapter_title": "30 1、货币资金",
+      "note_no": "30",
+      "line_span": {
+        "start": 2036,
+        "end": 2078
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0060",
+      "field_path": "chapter_records.30.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 74,002,263,778.73 88,162,865,022.03",
+      "source_document": "chapter_records",
+      "chapter_no": 30,
+      "chapter_title": "30 1、货币资金",
+      "note_no": "30",
+      "line_span": {
+        "start": 2036,
+        "end": 2078
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0061",
+      "field_path": "chapter_records.31.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 62 (五) 合并财务报表项目注释 - 续 3、应收账款 - 续 (2)按坏账计提方法分类披露 本集团对于应收账款始终按照整个存续期内的预期信用损失计量坏账准备；根据本集团的 历史经验，不同细分客户群体发生损失的情况没有显著差…",
+      "source_document": "chapter_records",
+      "chapter_no": 31,
+      "chapter_title": "31 3、应收账款",
+      "note_no": "31",
+      "line_span": {
+        "start": 2080,
+        "end": 2124
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0062",
+      "field_path": "chapter_records.31.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 10,453,374,346.84 1,141,215,447.29",
+      "source_document": "chapter_records",
+      "chapter_no": 31,
+      "chapter_title": "31 3、应收账款",
+      "note_no": "31",
+      "line_span": {
+        "start": 2080,
+        "end": 2124
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0063",
+      "field_path": "chapter_records.32.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 63 (五) 合并财务报表项目注释 - 续 3、应收账款 - 续 (6)按欠款方归集的期末余额前五名的应收账款和合同资产情况 于 2025 年 6 月 30 日，按欠款方归集的期末余额前五名的应收账款和合同资产合计人民币 5,…",
+      "source_document": "chapter_records",
+      "chapter_no": 32,
+      "chapter_title": "32 3、应收账款 - 前五名应收账款和合同资产",
+      "note_no": "32",
+      "line_span": {
+        "start": 2126,
+        "end": 2154
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0064",
+      "field_path": "chapter_records.32.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 215,548,758,563.46 221,425,251,419.39",
+      "source_document": "chapter_records",
+      "chapter_no": 32,
+      "chapter_title": "32 3、应收账款 - 前五名应收账款和合同资产",
+      "note_no": "32",
+      "line_span": {
+        "start": 2126,
+        "end": 2154
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0065",
+      "field_path": "chapter_records.33.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 64 (五) 合并财务报表项目注释 - 续 5、其他应收款 - 续 5.2 其他应收款 (1)按账龄披露 人民币元 账龄 2025 年 6 月 30 日 2024 年 12 月 31 日 1 年以内(含 1 年) 33,243…",
+      "source_document": "chapter_records",
+      "chapter_no": 33,
+      "chapter_title": "33 5、其他应收款",
+      "note_no": "33",
+      "line_span": {
+        "start": 2156,
+        "end": 2241
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0066",
+      "field_path": "chapter_records.33.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 249,445,044,420.09 28,085,453,630.59 221,359,590,789.50",
+      "source_document": "chapter_records",
+      "chapter_no": 33,
+      "chapter_title": "33 5、其他应收款",
+      "note_no": "33",
+      "line_span": {
+        "start": 2156,
+        "end": 2241
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0067",
+      "field_path": "chapter_records.34.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 66 (五) 合并财务报表项目注释 - 续 6、存货 (1)存货分类 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 账面余额 存货跌价准备 账面价值 账面余额 存货跌价准备 账面价值 已完工…",
+      "source_document": "chapter_records",
+      "chapter_no": 34,
+      "chapter_title": "34 6、存货",
+      "note_no": "34",
+      "line_span": {
+        "start": 2243,
+        "end": 2942
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0068",
+      "field_path": "chapter_records.34.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 477,759,366,697.48 15,240,826,104.80 462,518,540,592.68 530,577,150,533.18 11,567,710,686.40 519,009,439,846.78",
+      "source_document": "chapter_records",
+      "chapter_no": 34,
+      "chapter_title": "34 6、存货",
+      "note_no": "34",
+      "line_span": {
+        "start": 2243,
+        "end": 2942
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0069",
+      "field_path": "chapter_records.35.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 79 (五) 合并财务报表项目注释 - 续 8、其他流动资产 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 合同取得成本 3,602,985,345.65 4,126,870,606.04…",
+      "source_document": "chapter_records",
+      "chapter_no": 35,
+      "chapter_title": "35 8、其他流动资产",
+      "note_no": "35",
+      "line_span": {
+        "start": 2944,
+        "end": 2973
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0070",
+      "field_path": "chapter_records.35.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "小计 110,061,577,695.47 116,060,972,884.88",
+      "source_document": "chapter_records",
+      "chapter_no": 35,
+      "chapter_title": "35 8、其他流动资产",
+      "note_no": "35",
+      "line_span": {
+        "start": 2944,
+        "end": 2973
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0071",
+      "field_path": "chapter_records.36.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 80 (五) 合并财务报表项目注释 - 续 9、长期股权投资 - 续 (2)长期股权投资本期变动情况 人民币元 项目 联营企业 合营企业 合计 2025 年 1 月 1 日 58,112,956,384.83 57,455,6…",
+      "source_document": "chapter_records",
+      "chapter_no": 36,
+      "chapter_title": "36 9、长期股权投资",
+      "note_no": "36",
+      "line_span": {
+        "start": 2975,
+        "end": 3019
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0072",
+      "field_path": "chapter_records.36.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "及权益变动 (1,349,888,069.01) - (1,349,888,069.01)",
+      "source_document": "chapter_records",
+      "chapter_no": 36,
+      "chapter_title": "36 9、长期股权投资",
+      "note_no": "36",
+      "line_span": {
+        "start": 2975,
+        "end": 3019
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0073",
+      "field_path": "chapter_records.37.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 81 (五) 合并财务报表项目注释 - 续 12、投资性房地产 (1)采用成本计量模式的投资性房地产 人民币元 项目 已完工 在建 合计 一、账面原值 1.2025 年 1 月 1 日 143,974,575,048.36 1…",
+      "source_document": "chapter_records",
+      "chapter_no": 37,
+      "chapter_title": "37 12、投资性房地产",
+      "note_no": "37",
+      "line_span": {
+        "start": 3021,
+        "end": 3064
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0074",
+      "field_path": "chapter_records.37.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "80,046,010,927.60 元(2024 年 12 月 31 日：人民币 74,301,750,812.80 元)。",
+      "source_document": "chapter_records",
+      "chapter_no": 37,
+      "chapter_title": "37 12、投资性房地产",
+      "note_no": "37",
+      "line_span": {
+        "start": 3021,
+        "end": 3064
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0075",
+      "field_path": "chapter_records.38.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 82 (五) 合并财务报表项目注释 - 续 13、固定资产 13.1 固定资产汇总 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 固定资产 20,406,555,178.77 20,610,…",
+      "source_document": "chapter_records",
+      "chapter_no": 38,
+      "chapter_title": "38 13、固定资产",
+      "note_no": "38",
+      "line_span": {
+        "start": 3066,
+        "end": 3110
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0076",
+      "field_path": "chapter_records.38.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "固定资产 20,406,555,178.77 20,610,539,756.61",
+      "source_document": "chapter_records",
+      "chapter_no": 38,
+      "chapter_title": "38 13、固定资产",
+      "note_no": "38",
+      "line_span": {
+        "start": 3066,
+        "end": 3110
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0077",
+      "field_path": "chapter_records.39.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 83 (五) 合并财务报表项目注释 - 续 14、在建工程 (1)在建工程情况 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 账面余额 减值准备 账面价值 账面余额 减值准备 账面价值 物流…",
+      "source_document": "chapter_records",
+      "chapter_no": 39,
+      "chapter_title": "39 14、在建工程",
+      "note_no": "39",
+      "line_span": {
+        "start": 3112,
+        "end": 3149
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0078",
+      "field_path": "chapter_records.39.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "1,977,705,945.29 元)。",
+      "source_document": "chapter_records",
+      "chapter_no": 39,
+      "chapter_title": "39 14、在建工程",
+      "note_no": "39",
+      "line_span": {
+        "start": 3112,
+        "end": 3149
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0079",
+      "field_path": "chapter_records.40.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 84 (五) 合并财务报表项目注释 - 续 17、无形资产 (1)无形资产情况 人民币元 项目 土地使用权 待执行物业 管理合同 其他 合计 一、账面原值 1.2025 年 1 月 1 日 4,554,677,430.97 6…",
+      "source_document": "chapter_records",
+      "chapter_no": 40,
+      "chapter_title": "40 17、无形资产",
+      "note_no": "40",
+      "line_span": {
+        "start": 3151,
+        "end": 3191
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0080",
+      "field_path": "chapter_records.40.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 5,540,441,585.68 174,727,804.57 - (5,247,054.26) 5,709,922,335.99",
+      "source_document": "chapter_records",
+      "chapter_no": 40,
+      "chapter_title": "40 17、无形资产",
+      "note_no": "40",
+      "line_span": {
+        "start": 3151,
+        "end": 3191
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0081",
+      "field_path": "chapter_records.41.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 85 (五) 合并财务报表项目注释 - 续 18、商誉 - 续 (1)商誉账面原值 - 续 注： 本集团于本期取得深圳市中洲物业管理有限公司(以下简称“深圳中洲”)的控制权， 并将合并成本超过获得的可辨认净资产公允价值份额的差…",
+      "source_document": "chapter_records",
+      "chapter_no": 41,
+      "chapter_title": "41 18、商誉",
+      "note_no": "41",
+      "line_span": {
+        "start": 3193,
+        "end": 3232
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0082",
+      "field_path": "chapter_records.41.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "小计 188,954,612,098.11 47,238,653,024.53 190,633,324,180.35 47,658,331,045.09",
+      "source_document": "chapter_records",
+      "chapter_no": 41,
+      "chapter_title": "41 18、商誉",
+      "note_no": "41",
+      "line_span": {
+        "start": 3193,
+        "end": 3232
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0083",
+      "field_path": "chapter_records.42.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 86 (五) 合并财务报表项目注释 - 续 20、递延所得税资产/递延所得税负债 - 续 (3)未确认递延所得税资产明细 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 可抵扣亏损 12,61…",
+      "source_document": "chapter_records",
+      "chapter_no": 42,
+      "chapter_title": "42 20、递延所得税资产/递延所得税负债",
+      "note_no": "42",
+      "line_span": {
+        "start": 3234,
+        "end": 3262
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0084",
+      "field_path": "chapter_records.42.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 55,638,122,452.25 47,481,904,740.58",
+      "source_document": "chapter_records",
+      "chapter_no": 42,
+      "chapter_title": "42 20、递延所得税资产/递延所得税负债",
+      "note_no": "42",
+      "line_span": {
+        "start": 3234,
+        "end": 3262
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0085",
+      "field_path": "chapter_records.43.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 87 (五) 合并财务报表项目注释 - 续 22、短期借款 (1)短期借款分类 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 原币 折人民币 原币 折人民币 银行借款 信用借款 -人民币 4…",
+      "source_document": "chapter_records",
+      "chapter_no": 43,
+      "chapter_title": "43 22、短期借款",
+      "note_no": "43",
+      "line_span": {
+        "start": 3264,
+        "end": 3303
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0086",
+      "field_path": "chapter_records.43.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 136,231,609,050.92 160,033,042,049.19",
+      "source_document": "chapter_records",
+      "chapter_no": 43,
+      "chapter_title": "43 22、短期借款",
+      "note_no": "43",
+      "line_span": {
+        "start": 3264,
+        "end": 3303
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0087",
+      "field_path": "chapter_records.44.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 88 (五) 合并财务报表项目注释 - 续 25、合同负债 (1)合同负债情况 人民币元 项目 预计下批结算时间 项目预售比例 2025 年 6 月 30 日 2024 年 12 月 31 日 广州城市之光 2025 年 7…",
+      "source_document": "chapter_records",
+      "chapter_no": 44,
+      "chapter_title": "44 25、合同负债",
+      "note_no": "44",
+      "line_span": {
+        "start": 3305,
+        "end": 3389
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0088",
+      "field_path": "chapter_records.44.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 158,003,116,179.93 192,361,112,557.18",
+      "source_document": "chapter_records",
+      "chapter_no": 44,
+      "chapter_title": "44 25、合同负债",
+      "note_no": "44",
+      "line_span": {
+        "start": 3305,
+        "end": 3389
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0089",
+      "field_path": "chapter_records.45.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 90 (五) 合并财务报表项目注释 - 续 27、应交税费 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 企业所得税 11,682,967,890.28 12,697,326,922.97…",
+      "source_document": "chapter_records",
+      "chapter_no": 45,
+      "chapter_title": "45 27、应交税费",
+      "note_no": "45",
+      "line_span": {
+        "start": 3391,
+        "end": 3430
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0090",
+      "field_path": "chapter_records.45.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 142,957,147,746.70 152,317,072,414.88",
+      "source_document": "chapter_records",
+      "chapter_no": 45,
+      "chapter_title": "45 27、应交税费",
+      "note_no": "45",
+      "line_span": {
+        "start": 3391,
+        "end": 3430
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0091",
+      "field_path": "chapter_records.46.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 91 (五) 合并财务报表项目注释 - 续 28、其他应付款 - 续 28.2 其他应付款 - 续 (1)按款项性质列示其他应付款 - 续 注 2： 本集团部分项目仍未达至清算条件，但本集团根据企业会计准则的要求，按照国家 税…",
+      "source_document": "chapter_records",
+      "chapter_no": 46,
+      "chapter_title": "46 28、其他应付款",
+      "note_no": "46",
+      "line_span": {
+        "start": 3432,
+        "end": 3463
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0092",
+      "field_path": "chapter_records.46.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 134,713,087,429.51 146,045,568,389.92",
+      "source_document": "chapter_records",
+      "chapter_no": 46,
+      "chapter_title": "46 28、其他应付款",
+      "note_no": "46",
+      "line_span": {
+        "start": 3432,
+        "end": 3463
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0093",
+      "field_path": "chapter_records.47.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 92 (五) 合并财务报表项目注释 - 续 30、其他流动负债 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 待转销项税(注) 14,641,509,761.17 17,750,017,55…",
+      "source_document": "chapter_records",
+      "chapter_no": 47,
+      "chapter_title": "47 30、其他流动负债",
+      "note_no": "47",
+      "line_span": {
+        "start": 3465,
+        "end": 3516
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0094",
+      "field_path": "chapter_records.47.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "小计 241,070,055,260.67",
+      "source_document": "chapter_records",
+      "chapter_no": 47,
+      "chapter_title": "47 30、其他流动负债",
+      "note_no": "47",
+      "line_span": {
+        "start": 3465,
+        "end": 3516
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0095",
+      "field_path": "chapter_records.48.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 93 (五) 合并财务报表项目注释 - 续 31、长期借款 - 续 (1)长期借款分类 - 续 人民币元 项目 2024 年 12 月 31 日 原币 汇率 折人民币 借款条件 银行借款 人民币 75,681,993,929.…",
+      "source_document": "chapter_records",
+      "chapter_no": 48,
+      "chapter_title": "48 31、长期借款",
+      "note_no": "48",
+      "line_span": {
+        "start": 3518,
+        "end": 3584
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0096",
+      "field_path": "chapter_records.48.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "小计 241,998,555,101.29",
+      "source_document": "chapter_records",
+      "chapter_no": 48,
+      "chapter_title": "48 31、长期借款",
+      "note_no": "48",
+      "line_span": {
+        "start": 3518,
+        "end": 3584
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0097",
+      "field_path": "chapter_records.49.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 95 (五) 合并财务报表项目注释 - 续 32、应付债券 (1)应付债券的具体情况(不包括划分为金融负债的优先股、永续债等其他金融工具) 人民币元 债券名称 币种 面值 (亿元) 发行日期 债券 期限 债券 利率 发行金额…",
+      "source_document": "chapter_records",
+      "chapter_no": 49,
+      "chapter_title": "49 32、应付债券",
+      "note_no": "49",
+      "line_span": {
+        "start": 3586,
+        "end": 3696
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0098",
+      "field_path": "chapter_records.49.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 60,265,541,351.83 43,602,038,467.45 27,358,717,473.95",
+      "source_document": "chapter_records",
+      "chapter_no": 49,
+      "chapter_title": "49 32、应付债券",
+      "note_no": "49",
+      "line_span": {
+        "start": 3586,
+        "end": 3696
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0099",
+      "field_path": "chapter_records.50.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 97 (五) 合并财务报表项目注释 - 续 33、租赁负债 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 长期租赁负债 17,544,166,692.70 18,780,928,349.82…",
+      "source_document": "chapter_records",
+      "chapter_no": 50,
+      "chapter_title": "50 33、租赁负债",
+      "note_no": "50",
+      "line_span": {
+        "start": 3698,
+        "end": 3735
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0100",
+      "field_path": "chapter_records.50.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "长期租赁负债 17,544,166,692.70 18,780,928,349.82",
+      "source_document": "chapter_records",
+      "chapter_no": 50,
+      "chapter_title": "50 33、租赁负债",
+      "note_no": "50",
+      "line_span": {
+        "start": 3698,
+        "end": 3735
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0101",
+      "field_path": "chapter_records.51.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 98 (五) 合并财务报表项目注释 - 续 37、资本公积 人民币元 项目 2025 年 1 月 1 日 本期增加 本期减少 2025 年 6 月 30 日 股本溢价 25,796,765,062.25 - 812,793,1…",
+      "source_document": "chapter_records",
+      "chapter_no": 51,
+      "chapter_title": "51 37、资本公积",
+      "note_no": "51",
+      "line_span": {
+        "start": 3737,
+        "end": 3793
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0102",
+      "field_path": "chapter_records.51.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 126,227,536,854.19 - - 126,227,536,854.19",
+      "source_document": "chapter_records",
+      "chapter_no": 51,
+      "chapter_title": "51 37、资本公积",
+      "note_no": "51",
+      "line_span": {
+        "start": 3737,
+        "end": 3793
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0103",
+      "field_path": "chapter_records.52.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 99 (五) 合并财务报表项目注释 - 续 42、营业收入和营业成本 (1)营业收入和营业成本情况 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间…",
+      "source_document": "chapter_records",
+      "chapter_no": 52,
+      "chapter_title": "52 42、营业收入和营业成本",
+      "note_no": "52",
+      "line_span": {
+        "start": 3795,
+        "end": 3881
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0104",
+      "field_path": "chapter_records.52.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 105,323,304,409.14 94,824,543,347.23 142,778,764,079.80 131,192,038,083.51",
+      "source_document": "chapter_records",
+      "chapter_no": 52,
+      "chapter_title": "52 42、营业收入和营业成本",
+      "note_no": "52",
+      "line_span": {
+        "start": 3795,
+        "end": 3881
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0105",
+      "field_path": "chapter_records.53.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 101 (五) 合并财务报表项目注释 - 续 45、管理费用 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 人工与行政费用 2,458,061,…",
+      "source_document": "chapter_records",
+      "chapter_no": 53,
+      "chapter_title": "53 45、管理费用",
+      "note_no": "53",
+      "line_span": {
+        "start": 3883,
+        "end": 3936
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0106",
+      "field_path": "chapter_records.53.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "贷款、债券及应付款项的利息支出 6,911,400,250.02 6,796,789,963.62",
+      "source_document": "chapter_records",
+      "chapter_no": 53,
+      "chapter_title": "53 45、管理费用",
+      "note_no": "53",
+      "line_span": {
+        "start": 3883,
+        "end": 3936
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0107",
+      "field_path": "chapter_records.54.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 102 (五) 合并财务报表项目注释 - 续 49、信用减值损失 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 应收账款坏账损失 (164,47…",
+      "source_document": "chapter_records",
+      "chapter_no": 54,
+      "chapter_title": "54 49、信用减值损失",
+      "note_no": "54",
+      "line_span": {
+        "start": 3938,
+        "end": 3996
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0108",
+      "field_path": "chapter_records.54.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 (5,145,184,728.78) (2,011,490,431.19)",
+      "source_document": "chapter_records",
+      "chapter_no": 54,
+      "chapter_title": "54 49、信用减值损失",
+      "note_no": "54",
+      "line_span": {
+        "start": 3938,
+        "end": 3996
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0109",
+      "field_path": "chapter_records.55.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 103 (五) 合并财务报表项目注释 - 续 53、所得税费用 - 续 (2)会计亏损与所得税费用调整过程 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 亏损总额 (9,138,354,093.17)…",
+      "source_document": "chapter_records",
+      "chapter_no": 55,
+      "chapter_title": "55 53、所得税费用",
+      "note_no": "55",
+      "line_span": {
+        "start": 3998,
+        "end": 4036
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0110",
+      "field_path": "chapter_records.55.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "归属于本公司普通股股东的合并净亏损 (11,946,573,688.12) (9,852,499,598.84)",
+      "source_document": "chapter_records",
+      "chapter_no": 55,
+      "chapter_title": "55 53、所得税费用",
+      "note_no": "55",
+      "line_span": {
+        "start": 3998,
+        "end": 4036
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0111",
+      "field_path": "chapter_records.56.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 104 (五) 合并财务报表项目注释 - 续 55、利润表补充资料 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期间 营业收入 105,323,30…",
+      "source_document": "chapter_records",
+      "chapter_no": 56,
+      "chapter_title": "56 55、利润表补充资料",
+      "note_no": "56",
+      "line_span": {
+        "start": 4038,
+        "end": 4082
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0112",
+      "field_path": "chapter_records.56.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "营业收入 105,323,304,409.14 142,778,764,079.80",
+      "source_document": "chapter_records",
+      "chapter_no": 56,
+      "chapter_title": "56 55、利润表补充资料",
+      "note_no": "56",
+      "line_span": {
+        "start": 4038,
+        "end": 4082
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0113",
+      "field_path": "chapter_records.57.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 105 (五) 合并财务报表项目注释 - 续 56、现金流量表项目 - 续 (2)与投资活动有关的现金 收到其他与投资活动有关的现金 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月…",
+      "source_document": "chapter_records",
+      "chapter_no": 57,
+      "chapter_title": "57 56、现金流量表项目",
+      "note_no": "57",
+      "line_span": {
+        "start": 4084,
+        "end": 4126
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0114",
+      "field_path": "chapter_records.57.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 382,025,035,888.80 31,643,549,152.51 (44,243,411,595.54) 14,065,736,990.04 1,465,874,547.01 383,490,910,435.81",
+      "source_document": "chapter_records",
+      "chapter_no": 57,
+      "chapter_title": "57 56、现金流量表项目",
+      "note_no": "57",
+      "line_span": {
+        "start": 4084,
+        "end": 4126
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0115",
+      "field_path": "chapter_records.58.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 106 (五) 合并财务报表项目注释 - 续 57、现金流量表补充资料 (1)现金流量表补充资料 人民币元 补充资料 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期…",
+      "source_document": "chapter_records",
+      "chapter_no": 58,
+      "chapter_title": "58 57、现金流量表补充资料",
+      "note_no": "58",
+      "line_span": {
+        "start": 4128,
+        "end": 4216
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0116",
+      "field_path": "chapter_records.58.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "减：现金及现金等价物期初余额 84,009,391,855.57 96,942,577,448.50",
+      "source_document": "chapter_records",
+      "chapter_no": 58,
+      "chapter_title": "58 57、现金流量表补充资料",
+      "note_no": "58",
+      "line_span": {
+        "start": 4128,
+        "end": 4216
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0117",
+      "field_path": "chapter_records.59.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 108 (五) 合并财务报表项目注释 - 续 59、租赁 (1)作为承租人 本集团租用房屋及建筑物作为自用办公场所，以及作为长租公寓、产业办公、商业进行转 租；办公场所租赁通常为期 5 年，用于转租的租赁期为 10 至 20…",
+      "source_document": "chapter_records",
+      "chapter_no": 59,
+      "chapter_title": "59 59、租赁",
+      "note_no": "59",
+      "line_span": {
+        "start": 4218,
+        "end": 4249
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0118",
+      "field_path": "chapter_records.59.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "租赁收入 5,236,833,550.73 4,619,885,387.25",
+      "source_document": "chapter_records",
+      "chapter_no": 59,
+      "chapter_title": "59 59、租赁",
+      "note_no": "59",
+      "line_span": {
+        "start": 4218,
+        "end": 4249
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0119",
+      "field_path": "chapter_records.60.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 109 (六) 合并范围的变更 - 续 3、处置子公司 本集团本期没有发生重要单次处置对子公司的投资即丧失控制权的交易，也没有发生重要 的通过多次交易分步处置对子公司的投资且在本期丧失控制权的交易；4、其他原因的合并范围变动…",
+      "source_document": "chapter_records",
+      "chapter_no": 60,
+      "chapter_title": "60 (六) 合并范围的变更",
+      "note_no": "60",
+      "line_span": {
+        "start": 4251,
+        "end": 4319
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0120",
+      "field_path": "chapter_records.60.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "深圳市建万乐业住房服务有限公司 610 Lexington Venture GP LLC",
+      "source_document": "chapter_records",
+      "chapter_no": 60,
+      "chapter_title": "60 (六) 合并范围的变更",
+      "note_no": "60",
+      "line_span": {
+        "start": 4251,
+        "end": 4319
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0121",
+      "field_path": "chapter_records.61.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 111 (七) 在其他主体中的权益 1、在子公司中的权益 (1)企业集团的构成 A 主要城市公司 子公司名称 主要 经营地 注册地 币种 注册资本 (千元) 持股比例(%) 表决权 取得 方式直接 间接 深圳市万科发展有限公司…",
+      "source_document": "chapter_records",
+      "chapter_no": 61,
+      "chapter_title": "61 (七) 在其他主体中的权益",
+      "note_no": "61",
+      "line_span": {
+        "start": 4321,
+        "end": 4513
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0122",
+      "field_path": "chapter_records.61.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "小计 110,061,577,695.47 116,060,972,884.88",
+      "source_document": "chapter_records",
+      "chapter_no": 61,
+      "chapter_title": "61 (七) 在其他主体中的权益",
+      "note_no": "61",
+      "line_span": {
+        "start": 4321,
+        "end": 4513
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0123",
+      "field_path": "chapter_records.62.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 115 (八) 与金融工具相关的风险 本集团的主要金融工具包括货币资金、交易性金融资产、应收票据、应收账款、其他应收 款、其他权益工具投资、其他非流动金融资产、借款、衍生金融负债、应付账款、其他应 付款、应付债券和其他非流动负…",
+      "source_document": "chapter_records",
+      "chapter_no": 62,
+      "chapter_title": "62 (八) 与金融工具相关的风险",
+      "note_no": "62",
+      "line_span": {
+        "start": 4515,
+        "end": 4705
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0124",
+      "field_path": "chapter_records.62.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 618,876,375,329.63 659,312,910,392.17 395,467,707,580.15 85,511,999,596.26 116,983,597,109.79 61,349,606,105.97",
+      "source_document": "chapter_records",
+      "chapter_no": 62,
+      "chapter_title": "62 (八) 与金融工具相关的风险",
+      "note_no": "62",
+      "line_span": {
+        "start": 4515,
+        "end": 4705
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0125",
+      "field_path": "chapter_records.63.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 120 (九) 公允价值的披露 - 续 2、持续和非持续第一层次公允价值计量项目市价的确定依据： 本集团以活跃市场报价作为第一层次金融资产的公允价值；3、持续和非持续第二层次公允价值计量项目，采用的估值技术和重要参数的定性及定…",
+      "source_document": "chapter_records",
+      "chapter_no": 63,
+      "chapter_title": "63 (九) 公允价值的披露",
+      "note_no": "63",
+      "line_span": {
+        "start": 4707,
+        "end": 4727
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0126",
+      "field_path": "chapter_records.63.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "120",
+      "source_document": "chapter_records",
+      "chapter_no": 63,
+      "chapter_title": "63 (九) 公允价值的披露",
+      "note_no": "63",
+      "line_span": {
+        "start": 4707,
+        "end": 4727
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0127",
+      "field_path": "chapter_records.64.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 121 (十) 关联方及关联方交易 1、本公司的母公司情况 本公司无直接控股母公司；2、本公司的子公司情况 本公司的子公司情况详见附注(七)",
+      "source_document": "chapter_records",
+      "chapter_no": 64,
+      "chapter_title": "64 (十) 关联方及关联方交易",
+      "note_no": "64",
+      "line_span": {
+        "start": 4729,
+        "end": 4830
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0128",
+      "field_path": "chapter_records.64.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "关键管理人员报酬 3,204,292.18 4,869,769.71",
+      "source_document": "chapter_records",
+      "chapter_no": 64,
+      "chapter_title": "64 (十) 关联方及关联方交易",
+      "note_no": "64",
+      "line_span": {
+        "start": 4729,
+        "end": 4830
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0129",
+      "field_path": "chapter_records.65.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 123 (十) 关联方及关联方交易 - 续 6、应收、应付关联方等未结算项目情况 (1)应收项目 人民币元 单位名称 与本集团的关系 2025 年 6 月 30 日 2024 年 12 月 31 日 云南澄江老鹰地旅游度假村有…",
+      "source_document": "chapter_records",
+      "chapter_no": 65,
+      "chapter_title": "65 6、应收、应付关联方等未结算项目情况",
+      "note_no": "65",
+      "line_span": {
+        "start": 4832,
+        "end": 5394
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0130",
+      "field_path": "chapter_records.65.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "总计 66,305,610,301.78 68,024,709,946.82",
+      "source_document": "chapter_records",
+      "chapter_no": 65,
+      "chapter_title": "65 6、应收、应付关联方等未结算项目情况",
+      "note_no": "65",
+      "line_span": {
+        "start": 4832,
+        "end": 5394
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0131",
+      "field_path": "chapter_records.66.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 135 (十一) 资本管理 本集团资本管理的主要目标是保障本集团的持续经营，能够通过制定与风险水平相当的产 品和服务价格并确保以合理融资成本获得融资的方式，持续为股东提供回报；本集团定期复核和管理自身的资本结构，力求达到最理想…",
+      "source_document": "chapter_records",
+      "chapter_no": 66,
+      "chapter_title": "66 (十一) 资本管理",
+      "note_no": "66",
+      "line_span": {
+        "start": 5396,
+        "end": 5437
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0132",
+      "field_path": "chapter_records.66.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "总债务合计 364,257,680,065.61 361,277,310,886.71",
+      "source_document": "chapter_records",
+      "chapter_no": 66,
+      "chapter_title": "66 (十一) 资本管理",
+      "note_no": "66",
+      "line_span": {
+        "start": 5396,
+        "end": 5437
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0133",
+      "field_path": "chapter_records.67.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 136 (十二) 承诺及或有事项 1、重要承诺事项 资本承诺 人民币亿元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 已签约但尚未于财务报表中确认的 -已签订的正在或准备履行的建安合同 616.39…",
+      "source_document": "chapter_records",
+      "chapter_no": 67,
+      "chapter_title": "67 (十二) 承诺及或有事项",
+      "note_no": "67",
+      "line_span": {
+        "start": 5439,
+        "end": 5469
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0134",
+      "field_path": "chapter_records.67.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 623.22 644.28",
+      "source_document": "chapter_records",
+      "chapter_no": 67,
+      "chapter_title": "67 (十二) 承诺及或有事项",
+      "note_no": "67",
+      "line_span": {
+        "start": 5439,
+        "end": 5469
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0135",
+      "field_path": "chapter_records.68.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 137 (十四) 其他重要事项 1、分部信息 (1) 报告分部的确定依据与会计政策 本集团根据内部组织结构、管理要求及内部报告制度确定了开发经营业务和物业管理业务 两大报告分部，开发经营业务分部主要包括以住宅为主的可售型产品的…",
+      "source_document": "chapter_records",
+      "chapter_no": 68,
+      "chapter_title": "68 (十四) 其他重要事项",
+      "note_no": "68",
+      "line_span": {
+        "start": 5471,
+        "end": 5550
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0136",
+      "field_path": "chapter_records.68.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "分部资产 1,241,311,524,865.26 36,759,525,640.69 744,003,761,420.65 (599,255,790,947.75) 1,422,819,020,978.85",
+      "source_document": "chapter_records",
+      "chapter_no": 68,
+      "chapter_title": "68 (十四) 其他重要事项",
+      "note_no": "68",
+      "line_span": {
+        "start": 5471,
+        "end": 5550
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0137",
+      "field_path": "chapter_records.69.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 139 (十五) 母公司财务报表主要项目注释 - 续 1、其他应收款 - 续 1.2 其他应收款 - 续 (2)按坏账计提方法分类披露 人民币元 种类 2025 年 6 月 30 日 账面余额 坏账准备 账面价值金额 比例 (…",
+      "source_document": "chapter_records",
+      "chapter_no": 69,
+      "chapter_title": "69 (十五) 母公司财务报表主要项目注释",
+      "note_no": "69",
+      "line_span": {
+        "start": 5552,
+        "end": 5629
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0138",
+      "field_path": "chapter_records.69.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 459,641,038,393.02 25,007,126,733.79 434,633,911,659.23",
+      "source_document": "chapter_records",
+      "chapter_no": 69,
+      "chapter_title": "69 (十五) 母公司财务报表主要项目注释",
+      "note_no": "69",
+      "line_span": {
+        "start": 5552,
+        "end": 5629
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0139",
+      "field_path": "chapter_records.70.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 141 (十五) 母公司财务报表主要项目注释 - 续 3、短期借款 (1)短期借款分类 人民币元 项目 2025 年 6 月 30 日 2024 年 12 月 31 日 原币 折人民币 原币 折人民币 银行借款 信用借款 -人…",
+      "source_document": "chapter_records",
+      "chapter_no": 70,
+      "chapter_title": "70 3、短期借款",
+      "note_no": "70",
+      "line_span": {
+        "start": 5631,
+        "end": 5666
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0140",
+      "field_path": "chapter_records.70.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "其他应付款 103,641,482,389.09 114,087,307,993.87",
+      "source_document": "chapter_records",
+      "chapter_no": 70,
+      "chapter_title": "70 3、短期借款",
+      "note_no": "70",
+      "line_span": {
+        "start": 5631,
+        "end": 5666
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0141",
+      "field_path": "chapter_records.71.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 142 (十五) 母公司财务报表主要项目注释 - 续 5、长期借款 人民币元 项目 2025 年 6 月 30 日 原币 汇率 折人民币 借款条件 银行借款 人民币 55,368,411,012.84 1.0000 55,36…",
+      "source_document": "chapter_records",
+      "chapter_no": 71,
+      "chapter_title": "71 5、长期借款",
+      "note_no": "71",
+      "line_span": {
+        "start": 5668,
+        "end": 5724
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0142",
+      "field_path": "chapter_records.71.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "小计 144,255,910,448.28",
+      "source_document": "chapter_records",
+      "chapter_no": 71,
+      "chapter_title": "71 5、长期借款",
+      "note_no": "71",
+      "line_span": {
+        "start": 5668,
+        "end": 5724
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0143",
+      "field_path": "chapter_records.72.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 143 (十五) 母公司财务报表主要项目注释 - 续 6、应付债券 参见附注(五)32；7、投资收益 人民币元 项目 2025 年 1 月 1 日至 6 月 30 日止期间 2024 年 1 月 1 日至 6 月 30 日止期…",
+      "source_document": "chapter_records",
+      "chapter_no": 72,
+      "chapter_title": "72 6、应付债券",
+      "note_no": "72",
+      "line_span": {
+        "start": 5726,
+        "end": 5766
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0144",
+      "field_path": "chapter_records.72.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "合计 15,327,066,973.46 8,271,234,777.03",
+      "source_document": "chapter_records",
+      "chapter_no": 72,
+      "chapter_title": "72 6、应付债券",
+      "note_no": "72",
+      "line_span": {
+        "start": 5726,
+        "end": 5766
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0145",
+      "field_path": "chapter_records.73.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "万科企业股份有限公司 财务报表附注 2025 年 1 月 1 日至 6 月 30 日止期间 144 (十六) 补充资料 - 续 3、境内外会计准则下会计数据差异 (1)同时按照国际会计准则与按照中国会计准则披露的财务报告中净亏损和净资产差异情况 人民币元 归属于母公司股东的净亏损 归属于母公司股东的净资产 2025…",
+      "source_document": "chapter_records",
+      "chapter_no": 73,
+      "chapter_title": "73 (十六) 补充资料",
+      "note_no": "73",
+      "line_span": {
+        "start": 5768,
+        "end": 5784
+      },
+      "confidence": "medium"
+    },
+    {
+      "evidence_id": "EVD-0146",
+      "field_path": "chapter_records.73.evidence",
+      "sheet_name": "00_overview",
+      "excerpt": "按中国会计准则 (11,946,573,688.12) (9,852,499,598.84) 191,440,815,716.19 202,666,487,973.00",
+      "source_document": "chapter_records",
+      "chapter_no": 73,
+      "chapter_title": "73 (十六) 补充资料",
+      "note_no": "73",
+      "line_span": {
+        "start": 5768,
+        "end": 5784
+      },
+      "confidence": "medium"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "entity_profile": {
+    "company_name": "万科企业股份有限公司",
+    "report_period": "2025",
+    "currency": "CNY",
+    "report_type": "a_share_full_report",
+    "audit_opinion": "未识别",
+    "input_file": "/Volumes/P5S/工作/同步空间/BaiduSyncdisk/bondclaw/financialanalysis/tmp/vanke_2025_semiannual_20260409_full/mineru/万科A：2025年半年度财务报告/万科A：2025年半年度财务报告.md"
+  },
+  "chapter_count": 59,
+  "focus_count": 59,
+  "extensions": {
+    "classification_basis": [
+      "检测到A股/中国企业会计准则信号"
+    ]
+  }
+}

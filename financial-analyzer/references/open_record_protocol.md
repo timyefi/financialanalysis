@@ -38,13 +38,6 @@
 
 读取旧记录时，只依赖固定核心字段；扩展字段缺失不能导致失败。
 
-## 章节覆盖门禁
-
-- `chapter_records.jsonl` 只应包含已确认的附注主章节，不得混入正文或未确认章节。
-- 章节拆解完成后，所有已抽取主章节都必须在 `chapter_records.jsonl` 中出现，不能只保留一部分章节作为正式分析入口。
-- `status=completed` 只表示模板抽取完成，不表示该章节已经完成阅读、分析、计算或采纳。
-- 任何章节在进入正式 workpaper 之前，都必须先完成原文阅读、证据定位、知识库比对和本章分析。
-
 ## 章节复核 ledger
 
 `chapter_review_ledger.jsonl` 是复核与直写控制面的主记录，建议落在 `runtime/state/governance_review/<case_name>/<run_id>/chapter_review_ledger.jsonl`。
@@ -95,14 +88,6 @@
   - 正式 `knowledge_base.json` 处于稳定可读状态
   - 运行目录中不存在未结案的 review ledger 项
   - 正式输出已基于采纳后的知识重新生成
-
-### 章节完成口径
-
-- `scaffold_ready`：仅代表模板脚本已产出章节初稿，不代表已经开始正式分析。
-- `reviewing`：该章正在回看原文、定位证据并对照知识库。
-- `reviewed`：该章原文、证据和关键口径已完成核对，可以进入本章结论整理。
-- `adopt_ready`：该章可以正式写入知识库，或已明确不写入但可作为正式冻结结果。
-- 如果某章尚未到 `reviewed`，不得把该章当成可复用知识，也不得把该章视为已完成。
 
 ### 交接边界
 

@@ -4,6 +4,11 @@
 
 将公司年报/半年报/评级报告PDF转换为投行标准Excel财务分析工作底稿，并在底稿基础上产出正式研报。
 
+分析维度与 Excel 正式化已拆成独立约束文件：
+
+- `references/analysis_dimension_contract.md`
+- `references/excel_formalization_contract.md`
+
 ## 报告写作标准
 
 最终输出不要写成摘要型说明，而要写成资深固收/信用分析师的研究稿。建议先完成标准化 Excel 工作底稿，再基于底稿写报告。建议结构：
@@ -36,6 +41,12 @@
 - `chapter_records.jsonl` 和逐章阅读 ledger 是主写作底座；`final_data.json` / `soul_export_payload.json` 只能做索引与交叉校验
 - 如果证据索引太稀疏，先回到章节级抽取，不要直接写报告
 - 风格可参考 `cases/碧桂园2024年年报分析.md` 与 `cases/中海地产2024年年报分析.md`
+
+## 知识库动态刷新
+
+- 在计算任何指标、阈值或派生比率前，先查 `financial-analyzer/knowledge_base.json` 和最近的 adoption logs，优先使用知识库中的公式口径。
+- 如果知识库暂时没有覆盖到某个稳定口径，先用章节证据和显式公式完成可验证计算，不要把新经验写死在 skill 文本里。
+- 在章节复核结束后，把新发现的公式、例外规则、阈值和表述方式先写入 `financial-analyzer/knowledge_base.json`，再通过 adoption log 让后续案例复用。
 
 ## 使用流程
 
@@ -238,6 +249,70 @@
 - 自由现金流(FCF) = 经营现金流 - 资本支出
 - 净现比 = 经营现金流 / 净利润
 - 收现比 = 销售收现 / 营业收入
+
+### 步骤3.5：生成 Excel 工作底稿
+
+在开始写 Excel 之前，先把逐章阅读得到的内容整理成“发现池”，再按主题归类，最后才写临时脚本。不要把模板脚本产物直接当成正式 Excel。
+
+#### 3.5.0 先读两个约束文件
+
+- 先按 `analysis_dimension_contract.md` 检查本案必须覆盖的维度。
+- 再按 `excel_formalization_contract.md` 检查 workbook 的结构、顺序和展示要求。
+- 如果维度覆盖不完整，禁止进入落表阶段。
+
+#### 3.5.1 整理发现池
+
+发现池至少应包含：
+- 章节原文证据
+- 附注抽取数据
+- 需要调用的知识库公式口径
+- 需要计算的派生指标
+- 风险信号与管理层支持信号
+- 待归类事项和待确认口径
+
+#### 3.5.2 归类发现
+
+把发现按以下维度整理后再决定 workbook 结构：
+- 总览
+- 关键指标
+- 债务结构
+- 流动性与契约
+- 资产质量
+- 现金流桥梁
+- 附注映射
+- 管理层支持
+- 资本结构
+- 证据索引
+
+#### 3.5.3 编写一次性临时脚本
+
+临时脚本必须使用刚才抽取和加工过的数据以及公式，生成保留公式关系的 `financial_output_formula.xlsx`。公式版应体现完整 workpaper 逻辑，不能只填静态数值。
+
+#### 3.5.4 先公式版，再最终版
+
+在核对公式版的口径、公式关系和 sheet 组织后，再由公式版派生最终 `financial_output.xlsx`。正式版生成后要复核是否存在空值、错位、单位混写、来源链路丢失或公式被硬编码替代。
+
+#### 3.5.5 推荐的 workbook 结构
+
+正式 Excel 的 sheet 组合可以参考以下结构，具体可随案例调整，但功能面不能缺：
+- `00_overview`
+- `01_kpi_dashboard`
+- `02_financial_summary`
+- `03_debt_profile`
+- `04_liquidity_and_covenants`
+- `05_asset_quality`
+- `06_cash_flow_bridge`
+- `07_notes_map`
+- `08_management_support`
+- `09_capital_structure`
+- `99_evidence_index`
+
+#### 3.5.6 结构设计原则
+
+- `00_overview` 必须保留发现来源、回退下载、MinerU 解析、formalization 路径和人工复核链路。
+- `07_notes_map` 负责把附注章节、行范围、主题标签和摘要对上，作为正式底稿与报告的桥梁。
+- `99_evidence_index` 必须标签化，不能直接堆整段章节原文。
+- 公式版 workbook 要保留派生过程，最终版 workbook 再固化展示结果。
 
 ### 步骤4：生成统一产物
 

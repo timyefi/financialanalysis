@@ -115,7 +115,7 @@ npm install -g @playwright/cli@latest
 npx playwright install firefox
 
 # Install Python dependencies
-pip install requests
+pip install requests beautifulsoup4
 ```
 
 ## Workflow
@@ -138,6 +138,7 @@ Current observed facts:
 - call `https://www.chinamoney.com.cn/chinese/zqcwbgcwgd/` first to establish session
 - then call `https://www.chinamoney.com.cn/ags/ms/cm-u-notice-issue/financeRepo`
 - direct attachment GET may still hit `421 Misdirected Request` or `There are too many connections from your internet address` in the current environment, so download code now uses retry/backoff on the official attachment and falls back to CNInfo mirror when available
+- if the ChinaMoney result is only a disclosure shell or brief and the parsed Markdown does not expose a real `财务报表附注` section, stop the automated notes extraction path and switch to the full financial report attachment from the exchange page or a manually downloaded local PDF in the current working directory
 
 ### Step 2: Open Financial Report Page
 
@@ -146,6 +147,17 @@ Use Firefox browser (headless mode works):
 ```bash
 playwright-cli open https://www.chinamoney.com.cn/chinese/cqcwbglm/ --browser=firefox
 ```
+
+For advanced pages, keep the browser open and inspect the live DOM instead of trying to infer everything from a raw request.
+
+Recommended browser-first flow:
+- open the page in Playwright
+- take a snapshot
+- inspect the rendered anchors / hidden sections
+- use BeautifulSoup only to parse the captured HTML when the DOM is already available
+- follow the official exchange links surfaced inside the brief
+- if the page exposes a clickable download or disclosure link, click it in the browser first and let the browser navigate
+- prefer browser events and page navigation over script-only extraction whenever the page is interactive or heavily scripted
 
 ### Step 3: Get Page Snapshot
 
@@ -207,10 +219,16 @@ In the snapshot file, find download links:
 - /url: /dqs/cm-s-notice-query/fileDownLoad.do?contentId=3109042&priority=0&mode=save
 ```
 
+If the result is a brief or index-style PDF, download it first and treat it as the starting point.
+
 Extract the `contentId=XXXXXX` and construct full URL:
 ```
 https://www.chinamoney.com.cn/dqs/cm-s-notice-query/fileDownLoad.do?contentId=3109042&priority=0&mode=save
 ```
+
+After downloading the brief, inspect the later pages or the financial information section for links to the full report. Those links usually jump to 深交所 or 上交所.
+
+If the page is complex or lazy-loaded, prefer browser snapshot plus HTML parsing over direct script scraping. BeautifulSoup is the supported parser for extracted HTML, not a replacement for browser inspection.
 
 ### Step 6: Configure Batch Download
 
@@ -241,6 +259,17 @@ The download tool will:
 - Automatically retry on failure (default 3 times)
 - Validate file integrity
 - Report success/failure statistics
+
+### 简报优先规则
+
+- ChinaMoney 上经常只给出简报、摘要版或索引版 PDF，这类文件不是终点，而是进入完整版的入口。
+- 先把简报下载下来，再沿着简报后半段的链接继续找完整版；这些链接通常会跳到深交所或上交所的网站。
+- 是否继续找完整版，不通过脚本下结论，而是由 Skill 层结合浏览器页面、PDF 结构和交易所跳转链路来判断。
+- 若简报里已经给出交易所的完整年报/财务报告链接，优先跟进这些链接，不要再把同一页当成最终结果。
+- 只有在简报里没有可用的交易所链接，或者链接失效时，才回到 ChinaMoney 的同主题其他搜索结果继续找。
+- 批量下载工具会把这类简报标记为 `followup_required`，表示“下载成功，但还要继续沿官方交易所链路找完整版”。
+- 发现页面若只给出简报附件，也要先下载简报，再用 MinerU 或页面内链接定位正式报告，不要依赖 PDF 反向抽取下载地址作为主路径。
+- 如果当前结果页确实没有任何可用后续链接，再切换到同一搜索词的其他 ChinaMoney 结果继续查找。
 
 ### Step 8: Close Browser
 
@@ -472,6 +501,7 @@ print(result.stderr)
    - Check file sizes
    - Check file counts
    - Confirm no duplicates
+  - If a PDF is obviously a short bulletin/summary, treat it as incomplete and re-query ChinaMoney instead of mining PDF links.
 
 ## Download Link Extraction
 
