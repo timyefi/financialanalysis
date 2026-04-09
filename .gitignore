@@ -4,3 +4,7 @@ financial-analyzer/scripts/__pycache__/
 .DS_Store
 cases/
 mineru/config.json
+*.pdf
+*.PDF
+*.pdf.tmp
+*.PDF.tmp
