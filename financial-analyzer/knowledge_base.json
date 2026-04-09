@@ -1,9 +1,9 @@
 {
   "metadata": {
     "name": "财务分析知识库",
-    "version": "2.4.0",
+    "version": "2.6.0",
     "created": "2026-03-11",
-    "last_updated": "2026-03-14",
+    "last_updated": "2026-04-09",
     "source": "财务知识库.md",
     "description": "债券发行人有息债务识别与财务分析核心知识库 - 基于多源网络研究"
   },
@@ -70,6 +70,13 @@
       "date": "2026-03-14",
       "type": "case_study",
       "summary": "首个港股房企年报逐章分析。采用HKFRS准则，投资物业按公允价值计量（1665亿港元，下降1.49%）。借贷成本100%资本化（11.83亿港元，利率4.2%）。标准无保留审计意见。收入112.42亿港元（+9%），股东应占溢利22.2亿港元。有息债务575.74亿港元（银行贷款426.54亿+债券149.20亿），现金103.03亿港元，现金短债比1.09x，净负债率21.2%。定息债务237.25亿（41%），浮息336.51亿（59%），使用利率掉期对冲。新增港股分析框架、投资物业公允价值变动分析、多币种报表汇兑差异分析、境外债券（MTN计划40亿美元）分析等知识。"
+    },
+    {
+      "id": "source_010",
+      "name": "万科2025年半年度正式化对照训练",
+      "date": "2026-04-09",
+      "type": "case_study",
+      "summary": "基于 target_case/vanke_2025_semiannual_20260406 的正式化对照训练。发现 workbook 常见退化点包括金额口径混写（元与亿元混用）、概要页丢失来源链路、evidence_index 直接堆叠章节原文。新增工作簿正式化通用规则：正式汇总区统一使用亿元口径，证据索引必须标签化，概览页需保留发现来源、回退下载、MinerU 解析和人工复核链路。"
     }
   ],
   "knowledge": {
@@ -436,39 +443,105 @@
         "更接近现金流：比净利润更接近企业实际偿债能力"
       ],
       "adjustments": [
-        {"item": "非经常性损益", "method": "剔除一次性投资收益、政府补助等"},
-        {"item": "股份支付", "method": "加回计入费用的股份支付"},
-        {"item": "商誉减值", "method": "关注是否经常发生，加回非现金减值"},
-        {"item": "资产处置收益", "method": "剔除"},
-        {"item": "汇率损益", "method": "剔除"},
-        {"item": "重组费用", "method": "加回"}
+        {
+          "item": "非经常性损益",
+          "method": "剔除一次性投资收益、政府补助等"
+        },
+        {
+          "item": "股份支付",
+          "method": "加回计入费用的股份支付"
+        },
+        {
+          "item": "商誉减值",
+          "method": "关注是否经常发生，加回非现金减值"
+        },
+        {
+          "item": "资产处置收益",
+          "method": "剔除"
+        },
+        {
+          "item": "汇率损益",
+          "method": "剔除"
+        },
+        {
+          "item": "重组费用",
+          "method": "加回"
+        }
       ],
       "icr_standards": {
         "moody": [
-          {"range": "> 8.0", "rating": "Aaa-A"},
-          {"range": "4.0 - 8.0", "rating": "Baa"},
-          {"range": "2.0 - 4.0", "rating": "Ba"},
-          {"range": "< 2.0", "rating": "Caa-C"}
+          {
+            "range": "> 8.0",
+            "rating": "Aaa-A"
+          },
+          {
+            "range": "4.0 - 8.0",
+            "rating": "Baa"
+          },
+          {
+            "range": "2.0 - 4.0",
+            "rating": "Ba"
+          },
+          {
+            "range": "< 2.0",
+            "rating": "Caa-C"
+          }
         ],
         "china": [
-          {"range": "> 4.0", "meaning": "偿债能力强"},
-          {"range": "3.0 - 4.0", "meaning": "偿债能力较强"},
-          {"range": "2.0 - 3.0", "meaning": "偿债能力一般"},
-          {"range": "1.0 - 2.0", "meaning": "偿债能力较弱"},
-          {"range": "< 1.0", "meaning": "偿债能力很弱"}
+          {
+            "range": "> 4.0",
+            "meaning": "偿债能力强"
+          },
+          {
+            "range": "3.0 - 4.0",
+            "meaning": "偿债能力较强"
+          },
+          {
+            "range": "2.0 - 3.0",
+            "meaning": "偿债能力一般"
+          },
+          {
+            "range": "1.0 - 2.0",
+            "meaning": "偿债能力较弱"
+          },
+          {
+            "range": "< 1.0",
+            "meaning": "偿债能力很弱"
+          }
         ]
       },
       "estimation_when_not_disclosed": [
-        {"method": "从净利润反推", "formula": "EBITDA ≈ 净利润 + 所得税 + 利息支出 + 折旧 + 摊销"},
-        {"method": "从经营现金流反推", "formula": "EBITDA ≈ 经营现金流 + 利息支出 + 所得税 + 折旧摊销"},
-        {"method": "使用行业利润率估算", "formula": "EBITDA = 营业收入 × EBITDA利润率(行业参考值)"}
+        {
+          "method": "从净利润反推",
+          "formula": "EBITDA ≈ 净利润 + 所得税 + 利息支出 + 折旧 + 摊销"
+        },
+        {
+          "method": "从经营现金流反推",
+          "formula": "EBITDA ≈ 经营现金流 + 利息支出 + 所得税 + 折旧摊销"
+        },
+        {
+          "method": "使用行业利润率估算",
+          "formula": "EBITDA = 营业收入 × EBITDA利润率(行业参考值)"
+        }
       ]
     },
     "cash_flow_analysis": {
       "three_types": [
-        {"type": "经营现金流", "content": "销售商品、提供劳务收到的现金", "focus": "核心偿债来源"},
-        {"type": "投资现金流", "content": "购建固定资产、对外投资", "focus": "判断扩张模式"},
-        {"type": "筹资现金流", "content": "借款、发行债券、分红", "focus": "融资依赖度"}
+        {
+          "type": "经营现金流",
+          "content": "销售商品、提供劳务收到的现金",
+          "focus": "核心偿债来源"
+        },
+        {
+          "type": "投资现金流",
+          "content": "购建固定资产、对外投资",
+          "focus": "判断扩张模式"
+        },
+        {
+          "type": "筹资现金流",
+          "content": "借款、发行债券、分红",
+          "focus": "融资依赖度"
+        }
       ],
       "warning_signals": [
         "经营现金流持续为负：经营无法产生正向现金流入",
@@ -498,18 +571,48 @@
     },
     "data_estimation": {
       "when_not_disclosed": [
-        {"item": "收入估算", "method": "销量 × 单价推算，或参考行业可比公司结构"},
-        {"item": "成本估算", "method": "使用毛利率倒算，或参考存货周转率推算"},
-        {"item": "费用估算", "method": "通过费用率（费用/收入）估算，需结合行业特征"},
-        {"item": "折旧估算", "method": "固定资产原值 × 折旧率，需要了解公司折旧政策"},
-        {"item": "EBITDA", "method": "净利润 + 利息 + 所得税 + 折旧 + 摊销"}
+        {
+          "item": "收入估算",
+          "method": "销量 × 单价推算，或参考行业可比公司结构"
+        },
+        {
+          "item": "成本估算",
+          "method": "使用毛利率倒算，或参考存货周转率推算"
+        },
+        {
+          "item": "费用估算",
+          "method": "通过费用率（费用/收入）估算，需结合行业特征"
+        },
+        {
+          "item": "折旧估算",
+          "method": "固定资产原值 × 折旧率，需要了解公司折旧政策"
+        },
+        {
+          "item": "EBITDA",
+          "method": "净利润 + 利息 + 所得税 + 折旧 + 摊销"
+        }
       ],
       "from_notes": [
-        {"type": "资产减值准备明细", "value": "反映资产质量问题和历史损失"},
-        {"type": "关联方交易披露", "value": "识别定价是否公允、依赖程度"},
-        {"type": "会计政策变更", "value": "了解对利润的影响方向和幅度"},
-        {"type": "或有事项", "value": "识别表外负债和潜在风险"},
-        {"type": "资本化判断", "value": "判断利润质量"}
+        {
+          "type": "资产减值准备明细",
+          "value": "反映资产质量问题和历史损失"
+        },
+        {
+          "type": "关联方交易披露",
+          "value": "识别定价是否公允、依赖程度"
+        },
+        {
+          "type": "会计政策变更",
+          "value": "了解对利润的影响方向和幅度"
+        },
+        {
+          "type": "或有事项",
+          "value": "识别表外负债和潜在风险"
+        },
+        {
+          "type": "资本化判断",
+          "value": "判断利润质量"
+        }
       ]
     },
     "fraud_detection": {
@@ -524,11 +627,26 @@
         }
       ],
       "signals": [
-        {"signal": "收入增长但应收账款增幅更大", "problem": "虚增收入"},
-        {"signal": "毛利率异常高于行业水平", "problem": "财务造假或虚构毛利"},
-        {"signal": "经营现金流持续为负但净利润为正", "problem": "盈利质量差"},
-        {"signal": "固定资产大幅增加但产能利用率下降", "problem": "虚增资产"},
-        {"signal": "存货周转天数异常增长", "problem": "积压或虚构存货"}
+        {
+          "signal": "收入增长但应收账款增幅更大",
+          "problem": "虚增收入"
+        },
+        {
+          "signal": "毛利率异常高于行业水平",
+          "problem": "财务造假或虚构毛利"
+        },
+        {
+          "signal": "经营现金流持续为负但净利润为正",
+          "problem": "盈利质量差"
+        },
+        {
+          "signal": "固定资产大幅增加但产能利用率下降",
+          "problem": "虚增资产"
+        },
+        {
+          "signal": "存货周转天数异常增长",
+          "problem": "积压或虚构存货"
+        }
       ]
     },
     "hong_kong_stock": {
@@ -585,24 +703,56 @@
         "interest_rate_risk": {
           "description": "浮息债务面临的利率波动风险",
           "hedging_instruments": "利率掉期合约（IRS），将浮息换定息",
-          "key_metrics": ["定息债务占比", "浮息债务占比", "利率敏感度分析"],
+          "key_metrics": [
+            "定息债务占比",
+            "浮息债务占比",
+            "利率敏感度分析"
+          ],
           "case_data": "恒隆地产定息41%/浮息59%，使用利率掉期对冲"
         },
         "currency_risk": {
           "description": "多币种经营产生的汇兑风险",
-          "hedging_instruments": ["货币掉期合约", "净投资对冲（人民币贷款）"],
-          "key_metrics": ["汇兑储备变动", "对冲储备变动", "功能货币分布"],
+          "hedging_instruments": [
+            "货币掉期合约",
+            "净投资对冲（人民币贷款）"
+          ],
+          "key_metrics": [
+            "汇兑储备变动",
+            "对冲储备变动",
+            "功能货币分布"
+          ],
           "case_data": "恒隆地产使用人民币贷款57.11亿港元对冲内地净投资"
         },
         "liquidity_risk": {
           "description": "短期债务偿还能力",
-          "mitigation": ["维持充裕现金", "未动用银行信贷额度", "中期票据计划"],
-          "key_metrics": ["现金短债比", "未动用信贷额度", "债务期限结构"]
+          "mitigation": [
+            "维持充裕现金",
+            "未动用银行信贷额度",
+            "中期票据计划"
+          ],
+          "key_metrics": [
+            "现金短债比",
+            "未动用信贷额度",
+            "债务期限结构"
+          ]
         }
       },
       "notes_structure": {
         "total_chapters": 31,
-        "critical_chapters": [1, 2, 4, 10, 12, 14, 17, 18, 22, 23, 27, 28],
+        "critical_chapters": [
+          1,
+          2,
+          4,
+          10,
+          12,
+          14,
+          17,
+          18,
+          22,
+          23,
+          27,
+          28
+        ],
         "key_debt_note": "第17项：银行贷款及其他借贷",
         "key_cash_note": "第14项：现金及银行存款",
         "key_risk_note": "第27项：财务风险管理目标及政策"
@@ -610,11 +760,19 @@
       "debt_analysis": {
         "bank_loans": {
           "interest_rate_range": "3.4%-7.0%",
-          "maturity_structure": ["一年内", "一至二年", "二至五年", "五年以上"],
+          "maturity_structure": [
+            "一年内",
+            "一至二年",
+            "二至五年",
+            "五年以上"
+          ],
           "covenants": "财务契约限制（有形资产净值、借贷比率）"
         },
         "bonds": {
-          "types": ["中期票据（MTN）", "美元票据"],
+          "types": [
+            "中期票据（MTN）",
+            "美元票据"
+          ],
           "interest_rate_range": "2.0%-5.0%",
           "currency_hedging": "货币掉期对冲外汇风险"
         }
@@ -629,8 +787,14 @@
           "2023年以来'一揽子化债'政策推进"
         ],
         "debt_ratio": [
-          {"name": "有息债务率(以总资产为基础)", "formula": "有息债务 / 总资产"},
-          {"name": "有息债务率(以净资产为基础)", "formula": "有息债务 / 净资产"}
+          {
+            "name": "有息债务率(以总资产为基础)",
+            "formula": "有息债务 / 总资产"
+          },
+          {
+            "name": "有息债务率(以净资产为基础)",
+            "formula": "有息债务 / 净资产"
+          }
         ],
         "identification": [
           "股权结构：地方政府直接或间接持股",
@@ -641,33 +805,87 @@
     },
     "notes_extraction": {
       "key_sections": {
-        "#18": {"name": "其他应付款", "focus": "款项的性质，识别政府借款vs保证金", "importance": "高"},
-        "#19": {"name": "一年内到期的非流动负债", "focus": "全部为有息债务", "importance": "极高"},
-        "#20": {"name": "其他流动负债", "focus": "短期融资券识别", "importance": "中"},
-        "#21": {"name": "长期借款", "focus": "保证/抵押/质押明细", "importance": "极高"},
-        "#22": {"name": "应付债券", "focus": "债券名称、发行规模、利率", "importance": "极高"},
-        "#23": {"name": "长期应付款", "focus": "融资租赁/保理/信托=有息，往来款=无息", "importance": "极高"}
+        "#18": {
+          "name": "其他应付款",
+          "focus": "款项的性质，识别政府借款vs保证金",
+          "importance": "高"
+        },
+        "#19": {
+          "name": "一年内到期的非流动负债",
+          "focus": "全部为有息债务",
+          "importance": "极高"
+        },
+        "#20": {
+          "name": "其他流动负债",
+          "focus": "短期融资券识别",
+          "importance": "中"
+        },
+        "#21": {
+          "name": "长期借款",
+          "focus": "保证/抵押/质押明细",
+          "importance": "极高"
+        },
+        "#22": {
+          "name": "应付债券",
+          "focus": "债券名称、发行规模、利率",
+          "importance": "极高"
+        },
+        "#23": {
+          "name": "长期应付款",
+          "focus": "融资租赁/保理/信托=有息，往来款=无息",
+          "importance": "极高"
+        }
       },
       "reading_method": [
-        {"step": 1, "action": "搜索定位", "method": "search_content 搜索'合并财务报表项目注释'"},
-        {"step": 2, "action": "逐页阅读", "method": "read_file 每次60-80行"},
-        {"step": 3, "action": "识别债务性质", "method": "先定性（有息/无息），再定量"},
-        {"step": 4, "action": "边界识别", "method": "看到'第七章'或'备查文件'时停止"}
+        {
+          "step": 1,
+          "action": "搜索定位",
+          "method": "search_content 搜索'合并财务报表项目注释'"
+        },
+        {
+          "step": 2,
+          "action": "逐页阅读",
+          "method": "read_file 每次60-80行"
+        },
+        {
+          "step": 3,
+          "action": "识别债务性质",
+          "method": "先定性（有息/无息），再定量"
+        },
+        {
+          "step": 4,
+          "action": "边界识别",
+          "method": "看到'第七章'或'备查文件'时停止"
+        }
       ],
       "extraction_details": {
         "#18_其他应付款": {
           "table": "主要明细",
           "key_column": "款项的性质",
-          "interest_bearing": ["关联方借款", "政府借款", "财政借款"],
-          "non_interest_bearing": ["押金", "保证金", "往来款", "预收款"]
+          "interest_bearing": [
+            "关联方借款",
+            "政府借款",
+            "财政借款"
+          ],
+          "non_interest_bearing": [
+            "押金",
+            "保证金",
+            "往来款",
+            "预收款"
+          ]
         },
         "#19_一年内到期非流动负债": {
           "composition": "包含一年内到期长期借款、一年内到期应付债券、一年内到期长期应付款",
           "rule": "全部为有息债务，直接使用合计数"
         },
         "#20_其他流动负债": {
-          "interest_bearing": ["短期融资券", "超短期融资券"],
-          "non_interest_bearing": ["待转销项税"]
+          "interest_bearing": [
+            "短期融资券",
+            "超短期融资券"
+          ],
+          "non_interest_bearing": [
+            "待转销项税"
+          ]
         },
         "#21_长期借款": {
           "details": "保证借款、抵押借款、质押借款明细",
@@ -679,8 +897,17 @@
         },
         "#23_长期应付款": {
           "details": "必须逐笔识别每笔明细的性质",
-          "interest_bearing": ["融资租赁", "保理", "信托", "金融租赁"],
-          "non_interest_bearing": ["往来款", "保证金", "押金"]
+          "interest_bearing": [
+            "融资租赁",
+            "保理",
+            "信托",
+            "金融租赁"
+          ],
+          "non_interest_bearing": [
+            "往来款",
+            "保证金",
+            "押金"
+          ]
         }
       }
     },
@@ -688,26 +915,106 @@
       "local_government_financing_vehicle": {
         "description": "城投公司（地方政府融资平台）",
         "typical_debts": [
-          {"type": "银行借款", "interest": true, "note": "长期借款、短期借款"},
-          {"type": "企业债券", "interest": true, "note": "MTN、PPN、公司债"},
-          {"type": "短期融资券", "interest": true, "note": "SCP"},
-          {"type": "融资租赁", "interest": true, "note": "通过金融租赁公司融资"},
-          {"type": "信托融资", "interest": true, "note": "通过信托计划融资"},
-          {"type": "政府借款", "interest": true, "note": "从地方政府或财政局借入"},
-          {"type": "上下游往来款", "interest": false, "note": "工程款、应付账款"},
-          {"type": "保证金", "interest": false, "note": "投标保证金等"}
+          {
+            "type": "银行借款",
+            "interest": true,
+            "note": "长期借款、短期借款"
+          },
+          {
+            "type": "企业债券",
+            "interest": true,
+            "note": "MTN、PPN、公司债"
+          },
+          {
+            "type": "短期融资券",
+            "interest": true,
+            "note": "SCP"
+          },
+          {
+            "type": "融资租赁",
+            "interest": true,
+            "note": "通过金融租赁公司融资"
+          },
+          {
+            "type": "信托融资",
+            "interest": true,
+            "note": "通过信托计划融资"
+          },
+          {
+            "type": "政府借款",
+            "interest": true,
+            "note": "从地方政府或财政局借入"
+          },
+          {
+            "type": "上下游往来款",
+            "interest": false,
+            "note": "工程款、应付账款"
+          },
+          {
+            "type": "保证金",
+            "interest": false,
+            "note": "投标保证金等"
+          }
         ]
       },
       "listed_company": {
         "description": "上市公司",
         "typical_debts": [
-          {"type": "银行借款", "interest": true},
-          {"type": "应付债券", "interest": true, "note": "公司债、可转债"},
-          {"type": "商业票据", "interest": true, "note": "部分有息"},
-          {"type": "应收账款融资", "interest": true, "note": "常见于供应链金融"},
-          {"type": "应付账款", "interest": false, "note": "经营性质"},
-          {"type": "预收款项", "interest": false, "note": "合同负债"}
+          {
+            "type": "银行借款",
+            "interest": true
+          },
+          {
+            "type": "应付债券",
+            "interest": true,
+            "note": "公司债、可转债"
+          },
+          {
+            "type": "商业票据",
+            "interest": true,
+            "note": "部分有息"
+          },
+          {
+            "type": "应收账款融资",
+            "interest": true,
+            "note": "常见于供应链金融"
+          },
+          {
+            "type": "应付账款",
+            "interest": false,
+            "note": "经营性质"
+          },
+          {
+            "type": "预收款项",
+            "interest": false,
+            "note": "合同负债"
+          }
         ]
+      }
+    },
+    "workbook_formalization": {
+      "unit_normalization": {
+        "rule": "正式 financial_output.xlsx 的金额型汇总值必须统一为一致口径后再落表，默认对外分析口径为亿元。原始元值只能保留在证据层或中间数据层，不得直接写入正式汇总区。",
+        "failure_mode": "元/亿元混写会直接造成数量级错误，尤其容易在 overview、dashboard 和 summary sheet 中放大。",
+        "validation": [
+          "检查所有正式汇总 sheet 的数值单位是否一致",
+          "检查金额字段是否保留必要的小数位而不是原始整数元",
+          "检查关键比例是否使用同一单位下的分子分母"
+        ]
+      },
+      "evidence_index": {
+        "rule": "证据索引必须标签化，输出科目名、风险点、最短证据片段和可回溯线索，不得直接用整段章节原文充当摘要。",
+        "desired_shape": [
+          "科目标签",
+          "风险标签",
+          "最短证据片段",
+          "章节定位"
+        ],
+        "anti_pattern": "长段原文直出、重复堆叠同一章节内容、无法快速回跳到 chapter_records 或 chapter_review_ledger"
+      },
+      "overview_provenance": {
+        "rule": "00_overview 的来源说明必须保留发现来源、回退下载、MinerU 解析、formalization 路径和人工复核，不得压缩成笼统的‘已生成’或‘已整理’。",
+        "purpose": "让正式 workbook 保持可追溯、可复核、可复现实验链路"
       }
     },
     "data_quality_checklist": [
@@ -743,7 +1050,11 @@
             "会计师事务所变更信息"
           ],
           "analysis_strategy": "提取可用数据后需下载完整版年报进行全面分析",
-          "examples": ["保利发展2024年年度报告（510KB）", "招商蛇口2024年年度报告（3.5MB）", "万科2024年年度报告（5.5MB）"]
+          "examples": [
+            "保利发展2024年年度报告（510KB）",
+            "招商蛇口2024年年度报告（3.5MB）",
+            "万科2024年年度报告（5.5MB）"
+          ]
         },
         {
           "name": "A股上市公司完整年报",
@@ -829,8 +1140,14 @@
       "investment_property_analysis": {
         "description": "投资性房地产分析要点（中海地产案例）",
         "measurement_models": [
-          {"model": "公允价值模型", "impact": "公允价值变动直接影响利润，不计提折旧。中海地产1135亿投资性房地产采用此模型，2023年增值34.3亿，2024年减值0.58亿"},
-          {"model": "成本模型", "impact": "按成本入账，计提折旧，需定期减值测试"}
+          {
+            "model": "公允价值模型",
+            "impact": "公允价值变动直接影响利润，不计提折旧。中海地产1135亿投资性房地产采用此模型，2023年增值34.3亿，2024年减值0.58亿"
+          },
+          {
+            "model": "成本模型",
+            "impact": "按成本入账，计提折旧，需定期减值测试"
+          }
         ],
         "key_risk": "公允价值模型下利润波动大，需关注评估机构资质和评估方法一致性",
         "proportion_threshold": "投资性房地产占总资产>15%时需重点关注公允价值变动对利润的影响"
@@ -838,8 +1155,18 @@
       "interest_capitalization_spectrum": {
         "description": "房企利息资本化率分布",
         "cases": [
-          {"company": "碧桂园", "year": 2024, "rate": "100%", "note": "全部利息资本化到存货，利润表不体现利息费用"},
-          {"company": "中海地产", "year": 2024, "rate": "~68%", "note": "约32%利息费用化（10.24亿），68%资本化（约21.5亿），因有大量商业物业"}
+          {
+            "company": "碧桂园",
+            "year": 2024,
+            "rate": "100%",
+            "note": "全部利息资本化到存货，利润表不体现利息费用"
+          },
+          {
+            "company": "中海地产",
+            "year": 2024,
+            "rate": "~68%",
+            "note": "约32%利息费用化（10.24亿），68%资本化（约21.5亿），因有大量商业物业"
+          }
         ],
         "analysis_rule": "利息资本化率越高→利润表美化程度越大→ICR计算偏差越大。必须使用附注中利息支出总额（含资本化）计算真实ICR"
       },
@@ -852,26 +1179,62 @@
       "soe_vs_private_comparison": {
         "description": "央企房企vs民营房企在行业下行期的核心差异",
         "dimensions": [
-          {"dimension": "融资成本", "soe": "2.25%~3.6%（中海）", "private": "5%~9%+（碧桂园）"},
-          {"dimension": "受限资金比例", "soe": "0.16%（中海）", "private": "92.8%（碧桂园）"},
-          {"dimension": "现金短债比", "soe": "3.79x（中海）", "private": "<0.1x（碧桂园）"},
-          {"dimension": "存货跌价率", "soe": "0.33%（中海）", "private": "26%（碧桂园）"},
-          {"dimension": "审计意见", "soe": "标准无保留（中海）", "private": "无法表示意见（碧桂园）"},
-          {"dimension": "日后事项", "soe": "继续拿地扩张（中海）", "private": "债务重组（碧桂园）"}
+          {
+            "dimension": "融资成本",
+            "soe": "2.25%~3.6%（中海）",
+            "private": "5%~9%+（碧桂园）"
+          },
+          {
+            "dimension": "受限资金比例",
+            "soe": "0.16%（中海）",
+            "private": "92.8%（碧桂园）"
+          },
+          {
+            "dimension": "现金短债比",
+            "soe": "3.79x（中海）",
+            "private": "<0.1x（碧桂园）"
+          },
+          {
+            "dimension": "存货跌价率",
+            "soe": "0.33%（中海）",
+            "private": "26%（碧桂园）"
+          },
+          {
+            "dimension": "审计意见",
+            "soe": "标准无保留（中海）",
+            "private": "无法表示意见（碧桂园）"
+          },
+          {
+            "dimension": "日后事项",
+            "soe": "继续拿地扩张（中海）",
+            "private": "债务重组（碧桂园）"
+          }
         ]
       },
       "guarantee_analysis": {
         "description": "房企担保结构分为三层",
         "layers": [
-          {"type": "对外担保（不含子公司）", "risk_level": "高", "说明": "对合联营企业或第三方的担保，存在真实代偿风险"},
-          {"type": "对子公司担保", "risk_level": "中", "说明": "母公司对控股子公司的担保，合并层面可抵消"},
-          {"type": "子公司间互保", "risk_level": "中低", "说明": "项目公司间互保，合并层面可抵消"}
+          {
+            "type": "对外担保（不含子公司）",
+            "risk_level": "高",
+            "说明": "对合联营企业或第三方的担保，存在真实代偿风险"
+          },
+          {
+            "type": "对子公司担保",
+            "risk_level": "中",
+            "说明": "母公司对控股子公司的担保，合并层面可抵消"
+          },
+          {
+            "type": "子公司间互保",
+            "risk_level": "中低",
+            "说明": "项目公司间互保，合并层面可抵消"
+          }
         ],
         "vanke_2024_example": {
           "对外担保": 18.43,
           "对子公司担保": 237.42,
           "子公司间互保": 486.65,
-          "合计": 742.50,
+          "合计": 742.5,
           "占归母净资产比重": "36.62%",
           "unit": "亿元"
         }
@@ -895,14 +1258,43 @@
         "credit_rating": "中诚信国际",
         "key_observation": "受限资产约1188亿元，对外担保约1114亿元，规模均较大，反映房地产行业高杠杆融资特征"
       }
+    },
+    "workbook_formalization": {
+      "unit_normalization": {
+        "rule": "正式 financial_output.xlsx 的金额型汇总值必须统一为一致口径后再落表，默认对外分析口径为亿元。原始元值只能保留在证据层或中间数据层，不得直接写入正式汇总区。",
+        "failure_mode": "元/亿元混写会直接造成数量级错误，尤其容易在 overview、dashboard 和 summary sheet 中放大。",
+        "validation": [
+          "检查所有正式汇总 sheet 的数值单位是否一致",
+          "检查金额字段是否保留必要的小数位而不是原始整数元",
+          "检查关键比例是否使用同一单位下的分子分母"
+        ]
+      },
+      "evidence_index": {
+        "rule": "证据索引必须标签化，输出科目名、风险点、最短证据片段和可回溯线索，不得直接用整段章节原文充当摘要。",
+        "desired_shape": [
+          "科目标签",
+          "风险标签",
+          "最短证据片段",
+          "章节定位"
+        ],
+        "anti_pattern": "长段原文直出、重复堆叠同一章节内容、无法快速回跳到 chapter_records 或 chapter_review_ledger"
+      },
+      "overview_provenance": {
+        "rule": "00_overview 的来源说明必须保留发现来源、回退下载、MinerU 解析、formalization 路径和人工复核，不得压缩成笼统的“已生成”或“已整理”。",
+        "purpose": "让正式 workbook 保持可追溯、可复核、可复现实验链路"
+      }
     }
   },
   "version_history": [
     {
       "version": "1.0.0",
       "date": "2025-03-12",
-      "changes": ["初始版本：基于余姚工业园区案例创建"],
-      "knowledge_sources": ["source_002"]
+      "changes": [
+        "初始版本：基于余姚工业园区案例创建"
+      ],
+      "knowledge_sources": [
+        "source_002"
+      ]
     },
     {
       "version": "2.0.0",
@@ -916,7 +1308,10 @@
         "新增中国企业特色分析（城投债）",
         "新增报表粉饰识别方法"
       ],
-      "knowledge_sources": ["source_001", "source_002"]
+      "knowledge_sources": [
+        "source_001",
+        "source_002"
+      ]
     },
     {
       "version": "2.1.0",
@@ -927,7 +1322,11 @@
         "新增房地产行业特有分析知识",
         "新增保利发展2024年简版年报案例数据（受限资产、对外担保）"
       ],
-      "knowledge_sources": ["source_001", "source_002", "source_003"]
+      "knowledge_sources": [
+        "source_001",
+        "source_002",
+        "source_003"
+      ]
     },
     {
       "version": "2.2.0",
@@ -949,7 +1348,14 @@
         "新增SCP和GN有息债务品种",
         "简版年报文件大小阈值从2MB修正到10MB"
       ],
-      "knowledge_sources": ["source_001", "source_002", "source_003", "source_004", "source_005", "source_006"]
+      "knowledge_sources": [
+        "source_001",
+        "source_002",
+        "source_003",
+        "source_004",
+        "source_005",
+        "source_006"
+      ]
     },
     {
       "version": "2.3.0",
@@ -965,7 +1371,15 @@
         "新增保理融资在其他流动负债中的识别",
         "丰富房地产行业特征知识从16条增至19条"
       ],
-      "knowledge_sources": ["source_001", "source_002", "source_003", "source_004", "source_005", "source_006", "source_007"]
+      "knowledge_sources": [
+        "source_001",
+        "source_002",
+        "source_003",
+        "source_004",
+        "source_005",
+        "source_006",
+        "source_007"
+      ]
     },
     {
       "version": "2.4.0",
@@ -980,7 +1394,16 @@
         "新增LGFV资本公积注入模式（政府无偿划入资产/资金）",
         "发现文件夹中非典型房企样本（LGFV），扩展分析能力边界"
       ],
-      "knowledge_sources": ["source_001", "source_002", "source_003", "source_004", "source_005", "source_006", "source_007", "source_008"]
+      "knowledge_sources": [
+        "source_001",
+        "source_002",
+        "source_003",
+        "source_004",
+        "source_005",
+        "source_006",
+        "source_007",
+        "source_008"
+      ]
     },
     {
       "version": "2.5.0",
@@ -995,7 +1418,38 @@
         "新增纯商业地产运营商收入结构分析（租金收入占比92%）",
         "完善流动性风险分析框架（现金短债比、未动用信贷额度）"
       ],
-      "knowledge_sources": ["source_001", "source_002", "source_003", "source_004", "source_005", "source_006", "source_007", "source_008", "source_009"]
+      "knowledge_sources": [
+        "source_001",
+        "source_002",
+        "source_003",
+        "source_004",
+        "source_005",
+        "source_006",
+        "source_007",
+        "source_008",
+        "source_009"
+      ]
+    },
+    {
+      "version": "2.6.0",
+      "date": "2026-04-09",
+      "changes": [
+        "新增工作簿正式化通用规则（亿元口径统一、证据索引标签化、概览来源链路保全）",
+        "将万科2025年半年度正式化对照训练沉淀为新的 case source",
+        "强化正式 financial_output.xlsx 与知识库之间的双向校验要求"
+      ],
+      "knowledge_sources": [
+        "source_001",
+        "source_002",
+        "source_003",
+        "source_004",
+        "source_005",
+        "source_006",
+        "source_007",
+        "source_008",
+        "source_009",
+        "source_010"
+      ]
     }
   ]
 }

@@ -15,8 +15,8 @@
 
 1. 自动采集完整财报与评级报告。
 2. 自动解析 PDF 并定位关键章节，尤其是附注。
-3. 在 Skill 驱动下生成研究分析结果。
-4. 自动生成对外交付级 Excel 工作底稿 `Soul`，并在底稿基础上形成正式报告。
+3. 在 Skill 驱动下先完成逐章阅读与判断，再生成研究分析结果。
+4. 由 Skill 在当前 run_dir 内编写一次性临时脚本，先生成带公式的 Excel 工作底稿，再由公式版固化出对外交付级最终版，并在底稿基础上形成正式报告。
 5. 自动沉淀内部知识候选，但与对外交付严格解耦。
 
 最终目标不是做一个“能跑一次的脚本集合”，而是形成一个可持续迭代、可批量运维、可审计、可交接的研究自动化系统。
@@ -38,32 +38,41 @@
   -> 文档理解层（MinerU）
   -> 文档标准化层（Normalizer / Locator）
   -> 分析引擎层（Skill 驱动的 Financial Analysis）
-  -> 成品导出层（Soul Excel）
+   -> 工作簿正式化层（Skill 临时脚本）
   -> 运行治理层（Manifest / QA / Retry）
   -> 知识进化层（Scaffold -> Codex Review -> Direct Adopt）
 ```
 
 ## 5. 目标产物
 
-### 5.1 对外交付产物
+### 5.1 主线关键输出
 
 - `financial_output.xlsx`
 - `analysis_report.md`
+- 对 `knowledge_base.json` 的优化（通过 adoption log 落地）
 
-### 5.2 内部运行产物
+### 5.2 主线必需支撑产物
 
 - `run_manifest.json`
+- `notes_workfile.json`
 - `chapter_records.jsonl`
-- `focus_list.json`
+- `chapter_review_ledger.jsonl`
+- `financial_output_formula.xlsx`
+- `runtime/knowledge/adoption_logs/`
+
+### 5.3 可选兼容与调试产物
+
 - `final_data.json`
 - `soul_export_payload.json`
+- `financial_output_formula_view.xlsx`
+- `financial_output_formula_fit.xlsx`
+- `financial_output_fit.xlsx`
 - `analysis_report_scaffold.md`
 - `focus_list_scaffold.json`
 - `final_data_scaffold.json`
 - `soul_export_payload_scaffold.json`
-- `runtime/knowledge/adoption_logs/`
 
-### 5.3 原始与中间数据
+### 5.4 原始与中间数据
 
 - 原始 PDF
 - `doc_profile.json`
@@ -132,8 +141,8 @@
 职责：
 
 - 基于附注优先原则提取财务与信用关键信息。
-- 先让 Codex 完整阅读中间产物，再生成分析报告、焦点主题、章节记录和候选知识。
-- 输出 Soul 所需的稳定数据契约。
+- 先让 Codex 完整阅读最小中间产物，再完成逐章判断、公式版 Excel 工作底稿、最终版 Excel、正式报告和候选知识。
+- 主线以 `chapter_review_ledger.jsonl` 为核心，而不是以 scaffold 文件数量为核心。
 
 输入：
 
@@ -144,33 +153,27 @@
 输出：
 
 - `financial_output.xlsx`
+- `financial_output_formula.xlsx`
 - `analysis_report.md`
-- `final_data.json`
-- `focus_list.json`
 - `chapter_records.jsonl`
-- Soul 导出数据契约
+- `chapter_review_ledger.jsonl`
+- 知识采纳 delta / adoption log
+- `final_data.json`、`soul_export_payload.json` 仅在下游显式需要时生成
 
-补充约束：
-
-- 附注表格处理必须按“单表、单 SQL、单次核对”的方式推进。
-- 不允许以脚本批量构建整章或全书所有表格后再统一写入 Excel。
-- 章节级表格复现只能作为逐表分析的结果汇总，不能替代人工/SQL 驱动的逐表审阅。
-- 如果一个章节存在多个原始表格，必须明确表序、SQL 结果和证据对应关系后再进入导出层。
-
-### 6.5 Soul Excel 导出层
+### 6.5 工作簿正式化层
 
 职责：
 
-- 将稳定数据契约转换为对外交付级工作簿。
-- 负责版式、公式、批注、颜色系统和多 Sheet 模板。
+- 由 Skill 在当前 run_dir 内编写一次性临时脚本，把章节判断和知识库口径先落实为公式版工作簿，再从公式版派生对外交付级最终工作簿。
+- 负责版式、公式、批注、颜色系统和多 Sheet 收口，但这些都服务于本案证据闭环，而不是服务于固定导出器。
 - 严禁把内部知识进化信息混入对外交付。
-- 计算型指标应保持公式链路，原始输入与派生结果要分层管理；如需隐藏原始输入层，应保证最终工作簿中的公式仍可回溯到原始输入单元格。
 
 当前设计要点：
 
-- Soul 采用“固定骨架 + 可选模块 + 行业专题模块”。
-- 当前固定骨架参考 `soul_excel_spec_v1.md`。
-- 生成层建议使用已安装的 `spreadsheet` skill 思路推进。
+- 不再保留仓库级固定 Excel 导出器来直接生成正式 `financial_output.xlsx`。
+- Excel 正式化必须遵循“公式版优先”：先生成 `financial_output_formula.xlsx`，再固化 `financial_output.xlsx`。
+- 可复用的 sheet 骨架、格式规范和案例结构只作为参考，不作为标准化生成器。
+- 生成层可以借鉴 `soul_excel_spec_v1.md` 与已安装的 `spreadsheet` skill，但正式落表必须由单案临时脚本完成。
 
 ### 6.6 运行治理层
 
@@ -198,20 +201,12 @@
 
 ## 7. Soul 当前设计结论
 
-截至 2026-03-16，Soul 的当前结论是：
+截至 2026-04-09，工作簿正式化的当前结论是：
 
-1. 不再继续坚持“固定 8 张表”的硬编码思路。
-2. 应采用“固定骨架 + 标准可选模块 + 行业专题模块”。
-3. 当前最稳定的骨架是：
-   - `00_overview`
-   - `01_input_ledger`
-   - `02_calculations`
-   - `03_debt_profile`
-   - `04_liquidity_and_covenants`
-   - `05_operating_profile`
-   - `06_risk_matrix`
-   - `99_evidence_index`
-4. 专题模块是后续演进重点，而不是继续膨胀主表。
+1. 不再使用仓库级固定脚本直接生成正式 `financial_output.xlsx`。
+2. Excel 生成过程是非标准化的，必须由 Skill 在单案 run_dir 内编写一次性临时脚本完成。
+3. Excel 主线顺序固定为“章节证据 -> chapter_review_ledger -> financial_output_formula.xlsx -> financial_output.xlsx -> report -> knowledge adoption”。
+4. 历史 sheet 骨架、案例结构和专题模块只作为参考，不再作为硬编码主链路。
 
 对应文档：
 
@@ -231,7 +226,7 @@
 
 ### 8.2 已确认事实
 
-1. `financial_analyzer.py` 当前仍以 scaffold-only 为默认输出，正式 Excel 工作底稿和正式报告需要在 Codex 完整阅读中间产物后显式收口。
+1. `financial_analyzer.py` 当前仍以 scaffold-only 为默认输出；正式 Excel 工作底稿必须由 Skill 在当前 run_dir 内编写临时脚本生成，正式报告建立在该 workpaper 之上。
 2. 历史 `test_runs` 目录仍混有旧内部分析 workbook、旧路径口径和分层改造前样本，不能直接等同于当前 W6 回归基线。
 3. 现有历史 Excel 与 3 个固定案例可继续作为结构归纳和回归样本，但需要区分“历史样本”和“当前主线重跑产物”。
 4. curated `spreadsheet` skill 已安装，可作为 Excel 生成层参考。
@@ -493,7 +488,6 @@ Subagents 协作约束：
 - `mineru/scripts/mineru_stable.py` 已补 `mineru/config.json` token fallback；即使调用方未显式注入 `MINERU_TOKEN`，脚本自身也会先尝试读取本地配置，避免再次出现“manifest 记录 token_present=true、实际子进程却报未设置 token”的割裂状态
 - 2026-03-17 新一轮 P5 已在 [runtime/state/tmp/p5_cold_start/20260317_171925](/Users/yetim/project/financialanalysis/runtime/state/tmp/p5_cold_start/20260317_171925) 完成 `10/10` 下载、`10/10` 准备和 `10/10` batch 成功；P5 主目录保留编排与中间产物，而正式 batch 产物已对齐写入 `runtime/state/batches/`
 - `financial_analyzer.py` 已切换为 scaffold-only 模式：脚本主线只生成 `chapter_records.jsonl`、`analysis_report_scaffold.md`、`focus_list_scaffold.json`、`final_data_scaffold.json`、`soul_export_payload_scaffold.json` 和标记 `codex_review_required=true` 的 `run_manifest.json`
-- `financial-analyzer/SKILL.md` 已进一步收口为知识库优先、章节全覆盖、逐章分析与动态 Excel 生成的 canonical 主线；固定脚本只提供抽取和 scaffold，不能决定最终 workbook 内容
 - 已新增 `write_knowledge_adoption.py`、`rollback_knowledge_adoption.py`、`show_knowledge_adoption.py`，用于支撑 Codex 逐章直写正式 `runtime/knowledge/knowledge_base.json` 并保留 adoption log / rollback 能力
 - 生产化 R1 第一版已落地：已明确章节复核状态机、adoption gate、finalization gate、rollback boundary 与 `chapter_review_ledger` 控制面口径
 - 生产化 R2 已完成文档收口：知识 adoption delta contract、审计外壳、rollback 约束与校验规则已统一到仓库文档
