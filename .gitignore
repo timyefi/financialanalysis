@@ -12,5 +12,5 @@ chinamoney/scripts/.playwright-cli/
 chinamoney/scripts/__pycache__/
 chinamoney/scripts/.playwright-cli/*
 tmp/
-financialanalysis/runtime/
 src/
+runtime/
