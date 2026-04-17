@@ -6,36 +6,36 @@ license: MIT. LICENSE.txt has complete terms
 
 # China Money Network Data Download Skill
 
-## ⚠️ CRITICAL: Windows Environment Interaction Rules
+## ⚠️ CRITICAL: Windows Native Execution Rules
 
 **Before executing any commands, you MUST read and follow these rules:**
 
 ### 1. Process Call & Syntax Rules
 
-- **DO NOT use `cmd.exe /c`** for complex commands - it has issues with special characters
-- **Use PowerShell directly** with `-NoProfile -Command`
-- **Wrap paths with single quotes** `' '`, NEVER double quotes
-- **Use absolute paths** - NEVER relative paths like `.\` or `..\`
+- **Prefer direct Python or native executable calls** for repeatable automation.
+- **In Windows environments, use the native Windows execution path.**
+- **Use quoted absolute paths** and avoid shell-escaping patterns that differ between terminals.
+- **Do not rely on any extra terminal environment as a customer requirement.**
 
 ### 2. Correct Command Execution
 
 ```bash
-# ✅ CORRECT - Use PowerShell directly
-powershell.exe -NoProfile -Command python C:/path/to/script.py
+# ✅ CORRECT - Native Python execution
+python /path/to/script.py
 
 # ✅ CORRECT - Python subprocess approach (recommended for complex URLs)
 python -c "import subprocess; subprocess.run(['python', 'script.py', 'url', 'output'])"
 
-# ❌ WRONG - cmd.exe has issues with & in URLs
-cmd.exe /c python script.py https://example.com?a=1&b=2
+# ❌ WRONG - Routing simple tasks through a shell wrapper in the default workflow
+python.exe -c "import os; os.system('python C:/path/to/script.py')"
 
-# ❌ WRONG - Double quotes in paths
-powershell.exe -NoProfile -Command "python \"C:\path\to\script.py\""
+# ❌ WRONG - cmd.exe command chaining in the default workflow
+cmd.exe /c python script.py https://example.com?a=1&b=2
 ```
 
 ### 3. Python Encoding Setup
 
-When running Python scripts in Windows:
+When running Python scripts:
 - Set encoding in main() only, NOT at module level
 - This prevents "I/O operation on closed file" errors when imported
 
@@ -336,9 +336,9 @@ Example config for 3-year annual and semi-annual reports:
 - Correct: `playwright-cli fill e109 万科`
 - Note: Do not add quotes around keywords
 
-**Issue 4: PowerShell Chinese path issues**
-- Avoid: PowerShell scripts with parameters
-- Solution: Use Python scripts with direct import
+**Issue 4: Shell path issues on Windows**
+- Avoid: shell snippets that assume a specific terminal wrapper
+- Solution: Run the task through the native Windows execution path, or fall back to Python scripts with direct import
 
 **Issue 5: No download progress visibility**
 - Solution: Python download tool displays real-time:
@@ -458,7 +458,7 @@ print(result.stderr)
    - Add all to config at once
    - Execute single download command
 
-4. **Use Python instead of PowerShell**
+4. **Use Python or the native Windows execution path**
    - Better Chinese support
    - Cross-platform compatibility
    - Powerful download capabilities

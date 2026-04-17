@@ -1,6 +1,0 @@
-[INFO] 输入文件: /Users/yetim/project/financialanalysis/cases/碧桂园2024年年报分析.md
-[INFO] 运行目录: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke/tasks/country_garden_2024
-[OK] 章节记录: 31
-[OK] scaffold 初步重点: 6
-[OK] script_output_mode: scaffold_only
-✅ 成功: 抽取与 scaffold 已生成 -> /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_success_smoke/tasks/country_garden_2024

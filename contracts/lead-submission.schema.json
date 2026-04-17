@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LeadSubmission",
+  "type": "object",
+  "required": [
+    "name",
+    "institution",
+    "role",
+    "email",
+    "phone",
+    "card_image",
+    "consent_version",
+    "device_id",
+    "client_version",
+    "submitted_at",
+    "delivery_status",
+    "sink_receipts"
+  ],
+  "properties": {
+    "name": { "type": "string" },
+    "institution": { "type": "string" },
+    "role": { "type": "string" },
+    "email": { "type": "string" },
+    "phone": { "type": "string" },
+    "card_image": { "type": "string" },
+    "consent_version": { "type": "string" },
+    "device_id": { "type": "string" },
+    "client_version": { "type": "string" },
+    "submitted_at": { "type": "string" },
+    "delivery_status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "partial",
+        "delivered",
+        "failed"
+      ]
+    },
+    "sink_receipts": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

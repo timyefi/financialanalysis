@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "capture_name": "BondClaw 联系方式",
+  "required_fields": [
+    "name",
+    "institution",
+    "role",
+    "email",
+    "phone",
+    "card_image",
+    "consent_version",
+    "device_id",
+    "client_version",
+    "submitted_at",
+    "delivery_status",
+    "sink_receipts"
+  ],
+  "default_delivery_order": [
+    "email",
+    "persistent_store",
+    "archive_link"
+  ],
+  "retry_policy": {
+    "mode": "local-first",
+    "max_attempts": 5,
+    "backoff": "exponential",
+    "fallback": "retry-until-confirmed"
+  },
+  "sink_types": [
+    "email",
+    "persistent_store",
+    "archive_link"
+  ],
+  "form_behavior": {
+    "collect_at": "first_core_action",
+    "cache_before_send": true,
+    "parallel_delivery": true,
+    "lightweight_backend": true
+  }
+}

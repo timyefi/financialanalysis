@@ -1,6 +1,0 @@
-[INFO] 输入文件: /Users/yetim/project/financialanalysis/output/恒隆地产/恒隆地产2024年報/恒隆地产2024年報.md
-[INFO] 运行目录: /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke/tasks/henglong_2024
-[OK] 章节记录: 4
-[OK] scaffold 初步重点: 6
-[OK] script_output_mode: scaffold_only
-✅ 成功: 抽取与 scaffold 已生成 -> /Users/yetim/project/financialanalysis/financial-analyzer/test_runs/batches/w7_mixed_smoke/tasks/henglong_2024

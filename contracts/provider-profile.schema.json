@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProviderProfile",
+  "type": "object",
+  "required": [
+    "vendor",
+    "plan_kind",
+    "protocol",
+    "default_base_url",
+    "default_model",
+    "key_only_wizard",
+    "advanced_override"
+  ],
+  "properties": {
+    "vendor": {
+      "type": "string"
+    },
+    "plan_kind": {
+      "type": "string",
+      "enum": [
+        "coding",
+        "general"
+      ]
+    },
+    "protocol": {
+      "type": "string",
+      "enum": [
+        "openai-compatible",
+        "anthropic-compatible"
+      ]
+    },
+    "default_base_url": {
+      "type": "string"
+    },
+    "default_model": {
+      "type": "string"
+    },
+    "key_only_wizard": {
+      "type": "boolean"
+    },
+    "advanced_override": {
+      "type": "object",
+      "required": [
+        "allow_base_url_edit",
+        "allow_model_edit"
+      ],
+      "properties": {
+        "allow_base_url_edit": {
+          "type": "boolean"
+        },
+        "allow_model_edit": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

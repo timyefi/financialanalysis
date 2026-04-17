@@ -1,0 +1,10 @@
+{
+  "mode": "native",
+  "shell_family": "windows",
+  "command_prefix": "",
+  "path_policy": "windows-native",
+  "windows_runtime_note": "Windows 原生执行",
+  "forbidden_defaults": [
+    "non-native-execution"
+  ]
+}

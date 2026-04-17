@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkillPackManifest",
+  "type": "object",
+  "required": [
+    "id",
+    "role_tags",
+    "input_schema",
+    "artifact_types",
+    "risk_level",
+    "execution_prerequisites"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "role_tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "input_schema": { "type": "object" },
+    "artifact_types": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "execution_prerequisites": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

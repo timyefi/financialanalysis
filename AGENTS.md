@@ -33,12 +33,12 @@
 ## Build, Test, and Development Commands
 本仓库没有统一构建系统，日常开发直接运行 Python 脚本。
 
-```powershell
-py ".\run_mineru.py"
-py ".\financial-analyzer\scripts\financial_analyzer.py" --md "C:\path\report.md" --notes-workfile "C:\path\notes_workfile.json" --run-dir "C:\path\run_dir"
+```bash
+python3 ./run_mineru.py
+python3 ./financial-analyzer/scripts/financial_analyzer.py --md "/path/report.md" --notes-workfile "/path/notes_workfile.json" --run-dir "/path/run_dir"
 ```
 
-前两个命令分别生成 Markdown 解析结果和示例财务分析 Excel；第三个命令是附注优先分析的正式入口。运行命令时统一使用 PowerShell，并确保文件读写为 UTF-8。
+前两个命令分别生成 Markdown 解析结果和示例财务分析 Excel；第三个命令是附注优先分析的正式入口。运行命令时统一使用 Windows 原生执行口径。
 
 ## Coding Style & Naming Conventions
 Python 采用 4 空格缩进，保持小函数、直接逻辑、少做跨文件改动。模块与脚本名使用 `snake_case`，JSON 字段名保持小写下划线风格，如 `notes_start_line`。时间处理统一 `import datetime`，禁止 `from datetime import ...`。涉及中文路径、日志或 Markdown/JSON 读写时，必须显式指定 `encoding="utf-8"`。

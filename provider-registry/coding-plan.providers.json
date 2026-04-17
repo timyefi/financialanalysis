@@ -1,0 +1,107 @@
+{
+  "default_flow": {
+    "key_only": true,
+    "advanced_override": false
+  },
+  "providers": [
+    {
+      "id": "zai",
+      "display_name": "Z.AI",
+      "plan_kind": "coding",
+      "protocol": "openai-compatible",
+      "api_key_format": "Bearer",
+      "base_urls": {
+        "coding": "https://api.z.ai/api/coding/paas/v4",
+        "general": "https://api.z.ai/api/paas/v4"
+      },
+      "models": [
+        "glm-5",
+        "glm-4.7",
+        "glm-4.5-air"
+      ],
+      "source": "https://docs.z.ai/"
+    },
+    {
+      "id": "minimax",
+      "display_name": "MiniMax",
+      "plan_kind": "coding",
+      "protocol": "anthropic-compatible",
+      "api_key_format": "API Key",
+      "base_urls": {
+        "coding": "https://api.minimaxi.com/anthropic"
+      },
+      "models": [
+        "MiniMax-M2.5",
+        "MiniMax-M2.5-highspeed"
+      ],
+      "source": "https://platform.minimaxi.com/docs/coding-plan/quickstart"
+    },
+    {
+      "id": "volcengine",
+      "display_name": "ByteDance / Volcano Ark",
+      "plan_kind": "coding",
+      "protocol": "openai-compatible",
+      "api_key_format": "API Key",
+      "base_urls": {
+        "coding": "https://ark.cn-beijing.volces.com/api/coding/v3",
+        "coding_anthropic": "https://ark.cn-beijing.volces.com/api/coding"
+      },
+      "models": [
+        "ark-code-latest",
+        "doubao-seed-2.0-code",
+        "doubao-seed-code",
+        "doubao-seed-2.0-pro",
+        "doubao-seed-2.0-lite",
+        "minimax-m2.5",
+        "glm-4.7",
+        "deepseek-v3.2",
+        "kimi-k2.5"
+      ],
+      "source": "https://developer.volcengine.com/articles/7616633140483719219"
+    },
+    {
+      "id": "bailian",
+      "display_name": "Alibaba Cloud Bailian",
+      "plan_kind": "coding",
+      "protocol": "openai-compatible",
+      "api_key_format": "sk-sp-",
+      "base_urls": {
+        "coding": "https://coding.dashscope.aliyuncs.com/v1",
+        "coding_anthropic": "https://coding.dashscope.aliyuncs.com/apps/anthropic"
+      },
+      "models": [
+        "qwen3.5-plus",
+        "qwen3-max-2026-01-23",
+        "qwen3-coder-next",
+        "qwen3-coder-plus",
+        "glm-5",
+        "glm-4.7",
+        "kimi-k2.5",
+        "MiniMax-M2.5"
+      ],
+      "source": "https://help.aliyun.com/zh/model-studio/coding-plan"
+    },
+    {
+      "id": "tencent-lkeap",
+      "display_name": "Tencent LKEAP",
+      "plan_kind": "coding",
+      "protocol": "openai-compatible",
+      "api_key_format": "sk-sp-",
+      "base_urls": {
+        "coding": "https://api.lkeap.cloud.tencent.com/coding/v3",
+        "coding_anthropic": "https://api.lkeap.cloud.tencent.com/coding/anthropic"
+      },
+      "models": [
+        "tc-code-latest",
+        "hunyuan-2.0-instruct",
+        "hunyuan-2.0-thinking",
+        "hunyuan-t1",
+        "hunyuan-turbos",
+        "minimax-m2.5",
+        "kimi-k2.5",
+        "glm-5"
+      ],
+      "source": "https://cloud.tencent.com/document/product/1772/128947"
+    }
+  ]
+}

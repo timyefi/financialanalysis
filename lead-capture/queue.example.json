@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "queue_count": 2,
+  "submissions": [
+    {
+      "name": "示例用户 A",
+      "institution": "示例机构",
+      "role": "宏观研究员",
+      "email": "usera@example.com",
+      "phone": "13800000000",
+      "card_image": "cards/user-a.png",
+      "consent_version": "2026-04",
+      "device_id": "desktop-001",
+      "client_version": "1.0.0",
+      "submitted_at": "2026-04-10T09:00:00+08:00",
+      "delivery_status": "partial",
+      "sink_receipts": {
+        "email": {
+          "status": "delivered",
+          "timestamp": "2026-04-10T09:00:03+08:00"
+        },
+        "persistent_store": {
+          "status": "pending"
+        },
+        "archive_link": {
+          "status": "delivered",
+          "url": "https://example.com/archive/user-a"
+        }
+      }
+    },
+    {
+      "name": "示例用户 B",
+      "institution": "示例机构",
+      "role": "利率研究员",
+      "email": "userb@example.com",
+      "phone": "13900000000",
+      "card_image": "cards/user-b.png",
+      "consent_version": "2026-04",
+      "device_id": "desktop-001",
+      "client_version": "1.0.0",
+      "submitted_at": "2026-04-10T09:15:00+08:00",
+      "delivery_status": "delivered",
+      "sink_receipts": {
+        "email": {
+          "status": "delivered",
+          "timestamp": "2026-04-10T09:15:02+08:00"
+        },
+        "persistent_store": {
+          "status": "delivered",
+          "record_id": "store-20260410-001"
+        },
+        "archive_link": {
+          "status": "delivered",
+          "url": "https://example.com/archive/user-b"
+        }
+      }
+    }
+  ]
+}

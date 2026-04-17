@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FeedSource",
+  "type": "object",
+  "required": [
+    "source_url",
+    "topic_tags",
+    "role_tags",
+    "polling_interval",
+    "dedupe_key",
+    "notification_policy"
+  ],
+  "properties": {
+    "source_url": { "type": "string" },
+    "topic_tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "role_tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "polling_interval": {
+      "type": "string"
+    },
+    "dedupe_key": {
+      "type": "string"
+    },
+    "notification_policy": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

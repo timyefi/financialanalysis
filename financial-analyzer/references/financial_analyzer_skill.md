@@ -243,10 +243,10 @@
 
 当附注定位、抽样确认和主附注目录已整理为 `notes_workfile` 后，统一调用主脚本：
 
-```powershell
-python "C:\Users\Administrator\Desktop\项目\信用工作流\年报训练\financial-analyzer\scripts\financial_analyzer.py" `
-  --md "C:\path\report.md" `
-  --notes-workfile "C:\path\notes_workfile.json" `
+```text
+python "C:\Users\Administrator\Desktop\项目\信用工作流\年报训练\financial-analyzer\scripts\financial_analyzer.py" \
+  --md "C:\path\report.md" \
+  --notes-workfile "C:\path\notes_workfile.json" \
   --run-dir "C:\path\run_dir"
 ```
 

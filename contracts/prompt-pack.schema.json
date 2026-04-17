@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PromptPack",
+  "type": "object",
+  "required": [
+    "id",
+    "role",
+    "workflow",
+    "variant",
+    "required_skills",
+    "input_schema",
+    "prompt_template",
+    "output_format",
+    "sample_case",
+    "qa_checklist"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "role": { "type": "string" },
+    "workflow": { "type": "string" },
+    "variant": { "type": "string" },
+    "required_skills": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "input_schema": { "type": "object" },
+    "prompt_template": { "type": "string" },
+    "output_format": { "type": "string" },
+    "sample_case": { "type": "object" },
+    "qa_checklist": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

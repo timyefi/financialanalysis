@@ -8,6 +8,23 @@
 
 仓库按常见开源项目方式组织：根目录放项目首页、贡献说明和关键入口，`docs/` 放技术文档索引与主题文档，`financial-analyzer/`、`chinamoney/`、`mineru/` 放三个核心能力模块。
 
+V1 之后，`financialanalysis` 继续作为 BondClaw 的分析核心，而桌面壳、provider 注册表、Prompt 中心、研究订阅和联系方式契约都在更高一层的 BondClaw 文档里统一管理。
+
+新增的 BondClaw 骨架目录如下：
+
+- `contracts/`：产品契约与 JSON schema
+- `prompt-library/`：角色模板卡骨架
+- `provider-registry/`：coding plan 供应商预置
+- `research-brain/`：订阅源、轮询和去重模板
+- `research-brain/case-library/`：把订阅主题连接到角色模板的案例卡
+- `desktop-shell/research_brain/`：订阅与案例面板模型
+- `desktop-shell/prompt_center/`：模板中心面板模型
+- `desktop-shell/lead_capture/`：联系方式面板模型
+- `lead-capture/`：联系方式流程与回执模板
+- `lead-capture/manifest.json`：联系方式并行投递与重试策略
+- `lead-capture/queue.example.json`：本地队列示例
+- `research-writing/`：统一的研报写作技能
+
 ## 这个项目解决什么问题
 
 债券研究通常需要同时处理三类材料：
@@ -104,6 +121,14 @@
 - 适用场景：年报解析、附注定位、图片或扫描件 OCR。
 - 配置模板：先复制 `mineru/config.example.json` 为 `mineru/config.json`，再填写自己的 `MINERU_TOKEN`。
 
+### `research-writing`
+
+统一的研报写作技能，承接固收研究场景里的写作风格、结构化表达、结论先行和证据闭环。
+
+- 入口：`research-writing/`
+- 目标：替代分散的个人风格写作技能，作为 BondClaw 的唯一写作风格技能
+- 约束：不出现个人姓名，不混入业务归属信息
+
 ## 主要产物
 
 ### 草稿产物
@@ -152,7 +177,7 @@
 
 ## 许可
 
-Author and rights holder: 叶青 YEQING.
+Author and rights holder: financialanalysis.
 
 This repository is for non-commercial use only. Commercial use, resale,
 sublicensing, paid hosting, and commercial integration are prohibited. See
